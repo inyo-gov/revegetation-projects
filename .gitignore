@@ -1,0 +1,9 @@
+# Ignore R history and session data
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Ignore Quarto configuration and build artifacts
+/.quarto/
+

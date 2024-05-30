@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Revegetation Projects"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Reveg Data
+      - href: about.qmd
+        text: About
+      - icon: github
+        href: https://github.com/inyo-gov/revegetation-projects
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true
+
+editor: visual

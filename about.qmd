@@ -1,0 +1,21 @@
+---
+title: "About"
+---
+
+# About
+
+Welcome to our project documentation created using Quarto. This project evaluates the Los Angeles Department of Water and Power’s (LADWP) "Revegetation Monitoring Report for Land Removed from Irrigation" for Laws Parcels 090, 095, 129, and Abandoned Land Parcel 094.
+
+## Project Overview
+
+This project aims to determine if the revegetation efforts meet the specified goals outlined in the 2003 plan. Our analysis evaluates the data collected in July 2022 against these goals and visualizes the findings through interactive plots.
+
+## Quarto Documentation
+
+Our documentation, built with Quarto, provides a comprehensive overview of the project, including the background, tasks, data analysis, and recommendations. Quarto allows us to create detailed and interactive content, making it easier for users to understand and reproduce our analysis.
+
+## ReadMe Content
+
+For those interested in reproducing our analysis or contributing to the project, our [GitHub README](https://github.com/inyo-gov/revegetation-projects) provides detailed instructions. It includes steps to set up the environment, run the analysis, and guidelines for contributing and reporting issues.
+
+Thank you for your interest in our project! For more detailed information, please refer to our GitHub repository.
