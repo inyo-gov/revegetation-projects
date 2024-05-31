@@ -8,14 +8,13 @@ website:
     left:
       - href: index.qmd
         text: Reveg Data
-      - href: about.qmd
-        text: About
       - icon: github
         href: https://github.com/inyo-gov/revegetation-projects
 
 format:
   html:
     theme: sandstone
+    linkcolor: blue
     css: styles.css
     toc: true
 

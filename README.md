@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project involves the evaluation of the Los Angeles Department of Water and Power's (LADWP) "Revegetation Monitoring Report for Land Removed from Irrigation" for Laws Parcels 090, 095, 129, and Abandoned Land Parcel 094. The goal is to determine if the revegetation efforts meet the specified goals outlined in the 2003 plan.
+This project involves the evaluation of the Los Angeles Department of Water and Power's (LADWP) "Revegetation Monitoring Report for Land Removed from Irrigation" for Laws Parcels 090, 095, 129, and Abandoned Land Parcel 094. The goal is to determine if the revegetation efforts meet the specified quantitative cover and composition goals outlined in the 2003 plan.
 
 ## Background
 
@@ -22,6 +22,8 @@ The analysis website is deployed at <https://inyo-gov.github.io/revegetation-pro
 3)  Should the parcel fall below the cover goal during subsequent monitoring, more appropriate species should be planted.
 4)  Revegetate the remaining bare areas of the parcels such as service roads.
 5)  Work on a jointly developed monitoring plan to assess goal attainment.
+
+-   Update: *LADWP (with ICWD field staff) will resurvey parcels in summer 2024*
 
 ## Reproducing the .Rproj Environment
 

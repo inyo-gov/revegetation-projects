@@ -13,9 +13,9 @@ format:
     code-link: true
     html-math-method: katex
 tbl-cap-location: top   
-# number-sections: true    
 affiliation: "Inyo County Water Department"
-date-modified: "2023-02-16"
+date: "2023-02-16"
+date-modified: "2024-05-31"
 citation:
   type: report
   container-title: "Revegetation Projects"
@@ -28,9 +28,7 @@ google-scholar: true
 ```{r setup, message = FALSE, warning = FALSE, echo=FALSE}
 
 library(tidyverse)
-# library(rmarkdown)
 library(sf)
-# library(knitr)
 library(ggdist)
 library(gt)
 library(gtExtras)
@@ -72,7 +70,7 @@ gba_controls = c("LAW012",
 
 # Background
 
-In November 2022, Inyo County Water Department (ICWD) received Los Angeles Department of Water and Power's (LADWP) report entitled ["Revegetation Monitoring Report for Land Removed from Irrigation: Laws Parcels 090, 095,129, and Abandoned Land Parcel 094" (hereafter 2022 report)]().
+In November 2022, Inyo County Water Department (ICWD) received Los Angeles Department of Water and Power's (LADWP) report entitled "*Revegetation Monitoring Report for Land Removed from Irrigation: Laws Parcels 090, 095,129, and Abandoned Land Parcel 094*" (hereafter 2022 report).
 
 As part of the ["Irrigation Project in the Laws Area" negative declaration of environmental impact (hereafter Laws MND)](https://www.inyowater.org/wp-content/uploads/2021/06/Laws_Neg_Dec_3-17-03.pdf), a plan to revegetate lands removed from irrigation was outlined in attachment 4 of the Laws MND titled. ["Revegetation Plans for Lands Removed from Irrigation Laws Parcels 90, 95, and 129 And Abandoned Agricultural Land Parcel 94" (hereafter 2003 Plan)](https://www.inyowater.org/wp-content/uploads/2021/10/Laws-Neg-Dec-Reveg-plan-FINAL-3-17-03-copy.pdf). This 2003 plan explains:
 
@@ -374,9 +372,6 @@ bubble_maps_species(rlaw118_129)
 
 ```
 
-# Recommendations
-
-ICWD can acquire annual UAV-aerial imagery in house to document vegetation changes in 2023, 2024, and 2025. Field sampling in 2025 would provide a full two growing seasons without irrigation (2023, 2024) - before assessing the whether cover goals can be maintained without irrigation.
 
 # Appendix
 
