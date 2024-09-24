@@ -1,7 +1,10 @@
 ---
-title: "Evaluation of LADWP's Revegetation Monitoring Report for Land Removed from Irrigation: Laws Parcels 090, 095,129, and Abandoned Land Parcel 094"
+title: "2024 Data: Laws Parcels 90, 94 & 95 "
 format: 
   html: 
+    grid:
+      sidebar-width: 20px
+      body-width: 1200px
     toc: true
     toc-depth: 3
     anchor-sections: true
@@ -14,16 +17,39 @@ format:
     html-math-method: katex
 tbl-cap-location: top   
 affiliation: "Inyo County Water Department"
-date: "2023-02-16"
-date-modified: "2024-05-31"
+date: "2024-09-20"
+date-modified: "2024-09-20"
 citation:
   type: report
   container-title: "Revegetation Projects"
   publisher: "Inyo County Water Department"
-  issued: "2023-02-16"
+  issued: "2024-09-20"
   url: https://github.com/inyo-gov/revegetation-projects
 google-scholar: true
 ---
+
+# summary
+
+1.  Parcel-average native perennial cover 10% or greater?
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ❌ - 9.7%
+2.  At least six species have at least 3 hits across all transects? ✔️
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ✔️
+3.  Species richness for each parcel \>= 10 species? ✔️
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ✔️
+4.  Each transect has 2% cover?
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ❌-transect 35 at 1%.
+5.  A grass species is present on each parcel? ✔️
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ✔️
 
 ```{r setup, message = FALSE, warning = FALSE, echo=FALSE}
 
@@ -33,9 +59,12 @@ library(ggdist)
 library(gt)
 library(gtExtras)
 library(here)
+library(patchwork)
+library(ggrepel)
+library(DT)
 
 # source functions----
-source(here('code','reveg.R'))
+source(here('code','reveg24.R'))
 
 knitr::opts_chunk$set(echo = FALSE, 
                       fig.show = "hold", 
@@ -44,365 +73,516 @@ knitr::opts_chunk$set(echo = FALSE,
 options(tidyverse.quiet = TRUE)
 ```
 
-```{r}
-gba_controls = c("LAW012",
-"LAW024",
-"LAW028",
-"LAW048",
-"LAW049",
-"LAW091",
-"LAW093",
-"LAW117",
-"LAW130",
-"LAW134",
-"PLC211",
-"LAW029",
-"LAW039",
-"LAW069",
-"LAW104",
-"LAW119",
-"PLC202",
-"PLC219",
-"PLC227",
-"PLC230"
-)
-```
-
-# Background
-
-In November 2022, Inyo County Water Department (ICWD) received Los Angeles Department of Water and Power's (LADWP) report entitled "*Revegetation Monitoring Report for Land Removed from Irrigation: Laws Parcels 090, 095,129, and Abandoned Land Parcel 094*" (hereafter 2022 report).
-
-As part of the ["Irrigation Project in the Laws Area" negative declaration of environmental impact (hereafter Laws MND)](https://www.inyowater.org/wp-content/uploads/2021/06/Laws_Neg_Dec_3-17-03.pdf), a plan to revegetate lands removed from irrigation was outlined in attachment 4 of the Laws MND titled. ["Revegetation Plans for Lands Removed from Irrigation Laws Parcels 90, 95, and 129 And Abandoned Agricultural Land Parcel 94" (hereafter 2003 Plan)](https://www.inyowater.org/wp-content/uploads/2021/10/Laws-Neg-Dec-Reveg-plan-FINAL-3-17-03-copy.pdf). This 2003 plan explains:
-
-> There are three parcels in the Laws Ranch lease that were previously irrigated and will not be irrigated in the future under the plan for re-irrigation of the ranch.
-
-> These parcels are Laws 90, 95 and 129. A portion of Laws 118 surrounds parcel 129. This area will be fenced and revegetation will be augmented, as needed, in conjunction with parcel 129. Laws parcel 94, which was mapped as abandoned agricultural land, will also be revegetated.
-
-> Under these plans, the parcels will be revegetated with the goal of restoring native vegetation that is similar in cover, and species composition to nearby sites. The prescribed conditions are to be established on each parcel by 2013, and must be present two years after established with no on-site revegetation activities.--2003 Plan
-
-The 2022 report explains that LADWP and consultants measured transects in Laws 90, 94, 95, and 129 in July of 2022; and analysis of those data allowed determining the 2003 revegetation goals have been met as of the last half of July 2022[^1]. Irrigation was not supplied after June 2022; and because vegetation goals were met in July, the two-year period to test whether the established shrubs can persist without summer drip irrigation official began July 2022 - triggering re-measurement in July 2024 - at which point the 2024 data will determine whether goals have been sustained for two years or `r 365*2` days since first measurements[^2]. At this point, LADWP will consider the project complete:
-
-[^1]: LADWP indicated that no irrigation occurred after approximately June 2022 owing to the summer rains in 2022 augmenting soil moisture
-
-[^2]: The timing of this materializes as a test of the full 2023 growing season without irrigation and most of 2024 through July, but not August 2024 - which would be the second full complete growing season.
-
-> "If a parcel meets the goals after the two year rest, no further revegetation activities will be necessary and the parcel will be considered complete". -- LADWP 2022
-
-Data supporting the report collected by LADWP in summer 2022 was received by ICWD staff in a digital excel file January 27th 2023.
-
-# Tasks
-
-The purpose of this report (hereafter 2023 data summary) is to:
-
-1.  Evaluate the data provided to ICWD (collected in July 2022 by LADWP staff and consultants) against the various cover and composition goals of the 2003 plan[^3]. Specifically, compute average perennial cover at the transect and parcel scale, enumerate the number of species detected on the transects and parcel in total, determine whether or not 5-6 of those species were detected at the 0.05-0.075% cover level for the parcel (2-3 out of 4,000 possible hits), and whether or not each transect minimally had 2% cover (1 hit out of 200 possible).
-
-[^3]: This report is intended to provide technical analysis within the narrow scope of the 2022 data and the specific 2003 plan success metrics.
-
-<!-- -->
-
-2.  Plot transect-level composition and species spatial distribution. Specifically, for each parcel, with discrete transect identity on the x-axis, stack perennial species cover in bar plots for all transects on the y-axis. Color the stacked species blocks by species code. Second, for each parcel, facet by species so each species has it's own plot and map the transect locations and size the points proportional to the species-level transect % cover.
-
-```{r}
+```{r data}
 # The xy coordinates of the transects provided were joined to the field data consisting of parcel-transect-species-count row combinations allowing the spatial distribution of the plant species across the transect network to be plotted.
 # Transects were 50 m long and sampled every 25 cm yielding 200 possible hits in the denominator where fractional cover is hits/200 from 0-1 and multiplying by 100 yields cover values on the 0-100 scale.
 # Cover for each species on the 0-100 scale is computed for each transect. These values are averaged over all 20 transects to yield the parcel average which is the key performance indicator in that it is the hardest to meet. the composition goal doesn't make specific composition targets but rather is written to make sure at least .5% cover of six species occurs on xx transects
 
-
-
-# grab the crs from another shapefile in NAD83 z11 to apply to the xy coordinates.
+# parcel shapefile
 parcels_shp <- st_read(here('data','LA_parcels_rasterizedd.shp'), quiet = TRUE)
+# grab the crs from another shapefile in NAD83 z11 to apply to the xy coordinates.
+# Step 1: Ensure matching CRS for the parcel shapefile
+
 reveg_crs <- st_crs(parcels_shp)
+# species codes to attributes lookup table
 species <- read.csv(here("data","species.csv"))
-```
 
-```{r}
-reveg_data <- read_csv(here('data','laws_reveg_data_2022.csv'))
+# 2022 data
+reveg_data22 <- read_csv(here('data','laws_reveg_data_2022.csv')) %>% mutate(year = 2022) 
+# transect xy coordinates
 reveg_xy <- read_csv(here('data','laws_reveg_transects.csv'))
+xy <- st_as_sf(reveg_xy, coords = c("x", "y"), crs =reveg_crs)
 
-```
-
-```{r}
+# 2024 data
+reveg_data24 <- read_csv(here('data','laws_reveg_data_2024.csv') )%>% mutate(year = 2024) 
+# merge 2022 and 2024
+reveg_data <- bind_rows(reveg_data22,reveg_data24) %>% rename(hits = cover)
 
 # join xy location to all the data (transect totals by species)
 reveg_sp_count_xy <- reveg_data %>% left_join(reveg_xy, by = c("parcel","transect"))
 
-# reveg_sp_count_xy
-```
 
-```{r}
-# sf object from data xy species
 # create a simple features layer from the xy points and the crs 
 rscxy <- st_as_sf(reveg_sp_count_xy, coords = c("x", "y"), crs =reveg_crs)
+
 # join species attributes such as common name to the xy plotted species codes.
-```
+r1 <- rscxy %>% left_join(species, by = c("species" = "Code")) %>% mutate(percent_cover = hits*.5)
 
-```{r}
-# spatial
-# join species
-r1 <- rscxy %>% left_join(species, by = c("species" = "Code")) %>% mutate(percent_cover = cover*.5)
-```
-
-```{r}
 # non-spatial
 # join species attribute data - links code to functional type
 r2 <- reveg_sp_count_xy %>% left_join(species, by = c("species" = "Code"))
-# r2
-```
 
-```{r}
 # non-spatial
-r3 <- r2 %>% mutate(tcov = cover*1/200*100)# 200 possible hits on a 50 m transect every 25 cm.
-# multiply by 100 to scale the decimal fraction to 0-100.
+r3 <- r2 %>% mutate(tcov = hits*1/200*100)# (other locations simplified to * .5) 200 possible hits on a 50 m transect every 25 cm. hits/possible for fractional cover and * 100 to convert to percentage 0-100..
+
+
+parcels_shp <- st_transform(parcels_shp, crs = st_crs(r1))  
 
 
 ```
 
 ```{r}
+# r2 %>% datatable
+```
+
+```{r no-erna}
 #| include: false
  # filter ERNA
 no_erna <- r3 %>% filter(species != "ERNA10")# subset by excluding ERNA10
 ```
 
-```{r}
-# creat xy only
-xy <- st_as_sf(reveg_xy, coords = c("x", "y"), crs =reveg_crs)
-```
-
-```{r}
+```{r map-subsets}
 # subset parcel sf points
 # create subset into four simple feature sf dataframes
 rlaw90<- r1 %>% filter(parcel %in% c("LAW090"))
 rlaw95<- r1 %>% filter(parcel %in% c("LAW095"))
 rlaw94<- r1 %>% filter(parcel %in% c("LAW094"))
-rlaw118_129<- r1 %>% filter(parcel %in% c("LAW118","LAW129"))
+# rlaw118_129<- r1 %>% filter(parcel %in% c("LAW118","LAW129"))
+```
+
+# parcel-year-species-cover
+```{r}
+r1 %>%
+  select(year, parcel, transect, species, CommonName, percent_cover, -geometry) %>%
+  group_by(parcel, year, species, CommonName) %>%
+  summarise(mean_cover = sum(percent_cover) / 20,
+            transects_hit = n(),
+            .groups = 'drop') %>%
+  arrange(parcel, species, year) %>%
+  datatable(
+    options = list(
+      autoWidth = TRUE,    # Ensure the table takes full width
+      scrollX = TRUE,      # Enable horizontal scrolling if needed
+      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+      dom = 'lBfrtip',     # Change 'Bfrtip' to 'lBfrtip' to put length menu before the buttons
+      buttons = c('csv'),  # Specify 'csv' as the button type
+      lengthMenu = list(c(10, 25, 50, -1), c('10', '25', '50', 'All')),  # Allow row selection
+      pageLength = 10,     # Default number of rows per page
+      searching = TRUE     # Enable column search
+    ),
+    extensions = 'Buttons', # Enable Buttons extension
+    filter = 'top'          # Enable filtering options for each column
+  )
 
 ```
 
-```{r}
 
-# just a wide view but not really necessary
-full <- summarise_reveg_to_transect(r2)
+# parcel-year-transect-functional type-cover
+
+```{r full}
+
+# wide view, spreading functional types into columns
+full_noERNAATTO <- r2 %>% filter(!species %in% c("ERNA10","ATTO")) %>%
+summarise_reveg_to_transect()
+
+full <- r2 %>%
+summarise_reveg_to_transect()
+
+
+full%>% 
+  datatable(
+    options = list(
+      autoWidth = TRUE,    # Ensure the table takes full width
+      scrollX = TRUE,      # Enable horizontal scrolling if needed
+      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+      dom = 'Bfrtip',   # Add buttons to the table (B)
+      buttons = c('csv')  # Specify 'csv' as the button type
+    ),
+    extensions = 'Buttons'  # Enable Buttons extension
+  )
 ```
-
-```{r}
-
+# parcel-year-functional type cover
+```{r parcel-sum}
+# 
+parcel_sum_f <- summarise_to_parcel(full_noERNAATTO)
 parcel_sum <- summarise_to_parcel(full)
+
+parcel_sum %>% filter(year == 2024)%>% 
+  datatable(
+    options = list(
+      autoWidth = TRUE,    # Ensure the table takes full width
+      scrollX = TRUE,      # Enable horizontal scrolling if needed
+      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+      dom = 'Bfrtip',   # Add buttons to the table (B)
+      buttons = c('csv')  # Specify 'csv' as the button type
+    ),
+    extensions = 'Buttons'  # Enable Buttons extension
+  )
 ```
 
-# 2022 Data and 2003 revegetation goals
-
-After examining the data provided to ICWD against the 2003 MND Revegetation Plan revegetation goals, LADWP's reporting comports with ICWD's independent data summaries in that cover goals and species richness was satisfied based on LADWP's 2022 data collection. See @tbl-summary for an overview of cover values for all parcels. Species level tables for each parcel, species composition charts for each transect and spatial maps of species transect cover are located in the following sections: Laws 90 (@tbl-law090-transect-species, @fig-stacked-composition-law090, @fig-law090-transect-species-map), Laws 95 (@tbl-law095-transect-species, @fig-stacked-composition-law095, @fig-law095-transect-species-map), Laws 94 (@tbl-law094-transect-species, @fig-stacked-composition-law094, @fig-law094-transect-species-map), and Laws 129 (@tbl-law129-transect-species, @fig-stacked-composition-law129, @fig-law118_129-transect-species-map ).
+# parcel-year-functional type cover - without ATTO and ERNA10
 
 ```{r}
-#| label: tbl-summary
-#| tbl-cap: "Summary of cover from 2022 data. TLC is total live cover including annual weed cover. Cover is total perennial cover with a revegetation goal of 10% cover. Shrub, Herb, and Grass are the functional type components of Cover. goal_above_below indicates the current cover difference from the goal (positive above goal and negative below goal.)"
+parcel_sum_f %>% filter(year == 2024)%>% 
+  datatable(
+    options = list(
+      autoWidth = TRUE,    # Ensure the table takes full width
+      scrollX = TRUE,      # Enable horizontal scrolling if needed
+      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+      dom = 'Bfrtip',   # Add buttons to the table (B)
+      buttons = c('csv')  # Specify 'csv' as the button type
+    ),
+    extensions = 'Buttons'  # Enable Buttons extension
+  )
+```
 
-parcel_sum %>% select(parcel,TLC,Cover,Shrub,Herb,Grass,n.transects)%>% 
-  mutate(goal_above_below = round(Cover - 10,2)) %>% 
-  gt()
+
+
+```{r count-grass-species}
+count_grass_species <- r3 %>% filter(year == 2024, Lifeform == 'Grass') %>% select(parcel,transect,species,Genus, Species,Lifecycle,CommonName) %>% arrange(parcel,transect,Genus) %>% group_by(parcel) %>% summarise(grass_species = n())
+
+# count_grass_species%>% 
+#   datatable(
+#     options = list(
+#       autoWidth = TRUE,    # Ensure the table takes full width
+#       scrollX = TRUE,      # Enable horizontal scrolling if needed
+#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+#       dom = 'Bfrtip',   # Add buttons to the table (B)
+#       buttons = c('csv')  # Specify 'csv' as the button type
+#     ),
+#     extensions = 'Buttons'  # Enable Buttons extension
+#   )
+```
+
+```{r species-hit}
+species_hit <- r2 %>% 
+  filter(Lifecycle == 'Perennial') %>% 
+  group_by(parcel,species) %>% 
+  summarise(species_hits = sum(hits)) %>% 
+  filter(species_hits >= 3) %>% ungroup()
+```
+
+
+```{r species-rich}
+
+species_rich <- r2 %>% 
+  filter(Lifecycle == 'Perennial') %>% 
+  group_by(parcel,species) %>% 
+  summarise(species_hits = sum(hits)) %>% 
+  ungroup()
+
+# species_rich%>% 
+#   datatable(
+#     options = list(
+#       autoWidth = TRUE,    # Ensure the table takes full width
+#       scrollX = TRUE,      # Enable horizontal scrolling if needed
+#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+#       dom = 'Bfrtip',   # Add buttons to the table (B)
+#       buttons = c('csv')  # Specify 'csv' as the button type
+#     ),
+#     extensions = 'Buttons'  # Enable Buttons extension
+#   )
+```
+
+
+```{r species-hit-per-parcel}
+
+count_hit_species_per_parcel <- species_hit %>% filter(parcel != 'LAW129') %>% group_by(parcel) %>% summarise(count_3hit_species = n())
+
+# count_hit_species_per_parcel%>% 
+#   datatable(
+#     options = list(
+#       autoWidth = TRUE,    # Ensure the table takes full width
+#       scrollX = TRUE,      # Enable horizontal scrolling if needed
+#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+#       dom = 'Bfrtip',   # Add buttons to the table (B)
+#       buttons = c('csv')  # Specify 'csv' as the button type
+#     ),
+#     extensions = 'Buttons'  # Enable Buttons extension
+#   )
+```
+
+
+```{r species-rich-per-parcel}
+species_richness_parcel <- species_rich %>%
+  filter(parcel != 'LAW129') %>%
+  group_by(parcel) %>%
+  summarise(sp_richness = n_distinct(species))
+
+# species_richness_parcel%>% 
+#   datatable(
+#     options = list(
+#       autoWidth = TRUE,    # Ensure the table takes full width
+#       scrollX = TRUE,      # Enable horizontal scrolling if needed
+#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+#       dom = 'Bfrtip',   # Add buttons to the table (B)
+#       buttons = c('csv')  # Specify 'csv' as the button type
+#     ),
+#     extensions = 'Buttons'  # Enable Buttons extension
+#   )
+```
+
+# parcel-year-transect-totalhits
+perennial, non-weeds
+
+```{r transect-cover-2perc}
+
+# Function to summarize tcov and check if transect meets the 2% cover threshold
+summarize_transect_cover_filtered <- function(data) {
+  data %>%
+    # Pre-filter out the "weed" category in Veg_Type
+    filter(Veg_Type != "weed", Lifecycle == 'Perennial') %>%
+    group_by(parcel, year,transect) %>%
+    summarise(
+      total_hits = sum(hits, na.rm = TRUE),  # Calculate total cover per transect
+      total_tcov = sum(tcov, na.rm = TRUE),  # Calculate total cover per transect
+      meets_2_percent = ifelse(total_tcov >= 2, "Yes", "No")  # Check if cover >= 2%
+    ) %>%
+    ungroup()
+}
+
+# Applying the function to your data
+transect_cover_summary <- summarize_transect_cover_filtered(r3)
+
+# View the summarized data
+transect_cover_summary %>% filter(year == 2024) %>%
+  datatable(
+    options = list(
+      autoWidth = TRUE,    # Ensure the table takes full width
+      scrollX = TRUE,      # Enable horizontal scrolling if needed
+      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+      dom = 'Bfrtip',   # Add buttons to the table (B)
+      buttons = c('csv')  # Specify 'csv' as the button type
+    ),
+    extensions = 'Buttons'  # Enable Buttons extension
+  )
 
 ```
 
-## LAW090
+```{r transect-summary}
+# Group by parcel and summarize the transects meeting the 2% threshold
+transect_summary <- transect_cover_summary %>% filter(year == 2024) %>%
+  group_by(parcel) %>%
+  summarise(
+    transects_at_2_percent = paste0(sum(meets_2_percent == "Yes"), "/", n())  # Count Yes and total
+  )
 
-![Transect photo taken July 25 2022.](images/LAW090_61.jpg)
+# # View the summary
+# transect_summary%>% 
+#   datatable(
+#     options = list(
+#       autoWidth = TRUE,    # Ensure the table takes full width
+#       scrollX = TRUE,      # Enable horizontal scrolling if needed
+#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+#       dom = 'Bfrtip',   # Add buttons to the table (B)
+#       buttons = c('csv')  # Specify 'csv' as the button type
+#     ),
+#     extensions = 'Buttons'  # Enable Buttons extension
+#   )
 
-> The goal is a native perennial vegetation cover of at least 10% by the year 2013 composed of at least ten different native species (including a native grass). For parcel 90, there should be at least three "hits" for at least six different native perennial species out of the total of all the readings of all the permanent transects in the parcel. The other four native perennial species should be observed as present on the parcel, but do not have to be "hit" on any transect.-2003 Plan
+```
 
--   *2003 Cover Goal:* `10`% cover -- Actual in 2022: - `r mean_cover_value(r2,"LAW090")`% cover
--   *2003 Species Goal:* `10` species -- Actual on transect 2022: `13`[^4]
--   *2003 Composition Goal:* `6` species with three hits -- Actual in 2022: `10` species with three hits (0.075% cover each)
+# parcel summary table
+```{r}
+#| layout-ncol: 1
+#| layout-span: full  # Extend the table across the full width
+#| tbl-cap: "Whether perennial cover is above 10%, species with 3 hits, species richness at least 10, all transects at 2% cover, and grass species on parcel."
+summary_table <- parcel_sum %>% 
+  filter(year == 2024) %>% 
+  left_join(count_hit_species_per_parcel, by = 'parcel') %>% 
+  left_join(count_grass_species, by = 'parcel') %>% 
+  left_join(transect_summary, by = 'parcel') %>% 
+  left_join(species_richness_parcel, by = 'parcel')
+# 
+# summary_table %>% select(parcel, Cover, Shrub, Herb, Grass, count_3hit_species,sp_richness,transects_at_2_percent,grass_species) 
 
-[^4]: Additional trace species may be recorded on paper datasheets that have been scanned but those species are not included here.
+# %>% datatable()
+
+# Create your summary table with CSV export option
+summary_table %>% 
+  select(parcel, Cover, Shrub, Herb, Grass, count_3hit_species, sp_richness, transects_at_2_percent, grass_species) %>% 
+  datatable(
+    options = list(
+      autoWidth = TRUE,    # Ensure the table takes full width
+      scrollX = TRUE,      # Enable horizontal scrolling if needed
+      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
+      colnames = c('3hit_species' = 'count_3hit_species'),
+      dom = 'Bfrtip',   # Add buttons to the table (B)
+      buttons = c('csv')  # Specify 'csv' as the button type
+    ),
+    extensions = 'Buttons'  # Enable Buttons extension
+  )
+```
+
+# cover histogram across transects 2022 vs 2024
+
+```{r histogram-compare}
+#| layout-ncol: 1
+#| layout-span: full  # Extend the table across the full width
+#| fig-width: 15
+#| fig-align: center
+
+# Faceted histogram by year and color-coded based on meets_2_percent
+transect_cover_summary %>% filter(parcel != 'LAW129') %>% ggplot( aes(x = total_tcov, fill = meets_2_percent)) +
+  geom_histogram(binwidth = 1, color = "black") + 
+  geom_vline(xintercept = 2, color = "red", linetype = "dashed", size = 1) +  # Vertical line at 2% threshold
+  # annotate("text", x = 2.5, y = Inf, label = "2%", color = "red", vjust = 1.5, angle = 90) +  # Label the threshold
+  # Vertical line at 2% threshold
+  scale_x_continuous(breaks = c(seq(0, 30, by = 5), 2),  # Add a custom break at 2%
+                     labels = c(seq(0, 30, by = 5), "2%")) +  # Label the 2% tick
+  scale_fill_manual(values = c("red", "darkgreen")) +  # Color code based on meets_2_percent
+  labs(title = "Transect Perennial Cover distribution in 2022 and 2024 across Laws 90, 94 and 95.",
+       x = "Total Perennial Cover",
+       y = "Number of Transects") +
+  facet_wrap(~year,ncol = 1) +  # Facet by year
+  theme_minimal() +
+  theme(legend.position = "none")  # Remove the legend
+
+```
+
+# maps
+
+species change by transect
 
 ```{r}
-#| label: tbl-law090-transect-species
-#| tbl-cap: "Species detected on transects in Laws 90 -(common name and taxonomic name). The parcel average for each species (Percent_Cover) is summed to annual and perennial groups(total) and the number of species (n) in each group is computed. Percent cover values are color-coded if they are above the parcel goal of 0.075% cover^[3 hits out of 4,000] - Ranges from Orange >= 0.075% to Green at 10% cover. Values are rounded for brevity to focus on the dominant cover of the parcel.Gray indicates below the 3 hit threshold and these species are not counted toward the '6 species with three hits criteria' but are counted toward the '10 species goal'."
 
-parcel_species_tbl_create_gt(r2,"LAW090", 0.075)
+parcelset <- parcels_shp %>% filter(PCL %in% c("LAW090", "LAW094", "LAW095"))
+
+calculate_cover_difference <- function(data) {
+  # Remove geometry temporarily to handle pivoting
+  data_no_geometry <- st_drop_geometry(data)
+
+  # Group by necessary columns and calculate the mean percent_cover
+  cover_diff_data <- data_no_geometry %>%
+    group_by(parcel, transect, species, year) %>%
+    summarise(percent_cover = mean(percent_cover, na.rm = TRUE), .groups = 'drop') %>%
+
+    # Pivot wider to compare 2022 and 2024 data
+    pivot_wider(
+      names_from = year,
+      values_from = percent_cover,
+      names_prefix = "cover_"
+    ) %>%
+
+    # Replace NAs with 0 in both cover_2022 and cover_2024
+    mutate(cover_2022 = replace_na(cover_2022, 0),
+           cover_2024 = replace_na(cover_2024, 0)) %>%
+
+    # Calculate the difference between 2024 and 2022
+    mutate(cover_diff = cover_2024 - cover_2022) %>%
+
+    # Ensure unique records
+    distinct(parcel, transect, species, cover_2022, cover_2024, cover_diff)
+
+  # Join geometry back into the dataset, ensuring no duplicates are created
+  result_with_geometry <- left_join(cover_diff_data,
+                                    distinct(select(data, parcel, transect, geometry)),
+                                    by = c("parcel", "transect"))
+
+  return(result_with_geometry)
+}
+
+# Step 3: Apply the functions to your data
+# cover_diff_data <- calculate_cover_difference(r1)
+# Apply the function to r1
+cover_diff_data <- calculate_cover_difference(r1)
+
+# Pivoting the data longer to create the 'year_compare' column and ensure no duplicates
+cover_diff_data_long <- cover_diff_data %>%
+  pivot_longer(
+    cols = starts_with("cover_"),
+    names_to = "year_compare",
+    values_to = "percent_cover"
+  ) %>%
+  mutate(year_compare = recode(year_compare, 
+                               "cover_2022" = "2022", 
+                               "cover_2024" = "2024", 
+                               "cover_diff" = "Difference")) %>%
+  # Remove any duplicates (if they exist)
+  distinct(parcel, transect, species, year_compare, percent_cover, geometry) %>%
+  # Reattach the geometry and ensure the dataset is still an sf object
+  st_as_sf()
+
+
 ```
 
 ```{r}
-#| label: fig-stacked-composition-law090
-#| fig-cap: "LAW090 species composition by transect"
+bubble_maps_with_parcels <- function(data, parcels) {
+  ggplot(data) +
+    # Adding parcel boundaries with no fill and a black outline
+    geom_sf(data = parcels, fill = NA, color = "black", size = 0.5) +
+    
+    # Add text labels for parcels using the PCL field
+    geom_sf_text(data = parcels, aes(label = PCL), size = 3, color = "black", fontface = "bold") +
+    
+    # Mapping the size of the points to the absolute percent cover and coloring based on the percent change
+    geom_sf(aes(size = abs(percent_cover), 
+                color = case_when(
+                  percent_cover > 0 ~ "positive",
+                  percent_cover < 0 ~ "negative",
+                  percent_cover == 0 ~ "zero"
+                ), geometry = geometry)) +  
+    coord_sf() +
+    
+    # Adjust the size breaks to have more granular control over point sizes
+    scale_size_binned(breaks = c(0, 2, 4, 6, 8, 10), range = c(0.1, 6)) +
+    
+    # Apply color scale for three categories: red for negative, white for zero, green for positive
+    scale_color_manual(
+      values = c("negative" = "red", "zero" = "white", "positive" = "green"),
+      guide = guide_legend(override.aes = list(size = 5))  # Adjust the size of the legend points
+    ) +
+    
+    # Facet by species and year_compare to see changes per species over years
+    facet_grid(species ~ year_compare) +
+    
+    # Move legend to the bottom and adjust its layout
+    theme(
+      axis.text.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.title.y = element_blank(),
+      plot.title = element_blank(),
+      legend.position = "bottom",
+      legend.box = "vertical",  # Stacks the legends vertically
+      strip.text.y = element_text(angle = 0, hjust = 0.5)
+    )
+}
+```
 
-stacked_species_composition_transect(r3,"LAW090")
+ATTO/ERNA
+```{r}
+# Apply the function with the updated long dataset and the parcel shapefile
+long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("ATTO", "ERNA10"))
+all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
+
+# Print the resulting plot
+print(all_plot_with_parcels)
+
+
+```
+
+ATPO/ATCA2
+```{r}
+# Apply the function with the updated long dataset and the parcel shapefile
+long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("ATPO", "ATCA2"))
+all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
+
+# Print the resulting plot
+print(all_plot_with_parcels)
+
+```
+
+DISP/SPAI
+```{r}
+# Apply the function with the updated long dataset and the parcel shapefile
+long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("DISP", "SPAI"))
+all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
+
+# Print the resulting plot
+print(all_plot_with_parcels)
 ```
 
 ```{r}
-#| label: fig-law090-transect-species-map
-#| fig-cap: "Laws 90 transect locations, symbol size is scaled to species % cover and the overall map is faceted by species to view the spatial distribution of each species detected in the revegetation project. "
-#| fig-column: body
-#| fig-height: 12
-#| fig-width: 12
-#| fig-show: asis
 
-bubble_maps_species(rlaw90)
+
+# Apply the function with the updated long dataset and the parcel shapefile
+long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("LETR5","LECI4","ACHY"))
+all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
+
+# Print the resulting plot
+print(all_plot_with_parcels)
 ```
 
-## LAW095
-
-![Transect photo taken July 20 2022.](images/LAW095_21.JPG)
-
-> The goal is a native perennial vegetation cover of at least 10% by the year 2013 composed of at least ten different native species (including a native grass). For parcels 94 and 95, there should be at least two "hits" for at least six different native perennial species out of the total of all the readings of all the permanent transects in the parcel. The other four native perennial species should be present on the parcel, but do not have to be "hit" on any transect.-2003 Plan
-
--   *2003 Cover Goal:* `10`% cover -- Actual in 2022: - `r mean_cover_value(r2,"LAW095")`% cover
--   *2003 Species Goal:* `10` species -- Actual on transect 2022: `10`[^5]
--   *2003 Composition Goal:* `6` species with two hits -- Actual in 2022: `8` species \> two hits (0.05% cover each)
-
-[^5]: Additional trace species may be recorded on paper datasheets that have been scanned but those species are not included here.
-
-```{r}
-#| label: tbl-law095-transect-species
-#| tbl-cap: "Laws 95 species cover average totaled by lifeform (annual, perennial) and color coded from orange <1% cover but above 0.05% cover to green above 10%. Gray indicates below the 2 hit threshold."
-
-#| label: tbl-law050-transect-species
-#| tbl-cap: "Species detected on transects in Laws 95 -(common name and taxonomic name). The parcel average for each species (Percent_Cover) is summed to annual and perennial groups(total) and the number of species (n) in each group is computed. Percent cover values are color-coded if they are above the parcel goal of 0.075% cover^[3 hits out of 4,000] - Ranges from Orange >= 0.075% to Green at 10% cover. Values are rounded for brevity to focus on the dominant cover of the parcel.Gray indicates below the two-hit threshold and these species are not counted toward the '6 species with two hits criteria' but are counted toward the '10 species goal'."
-
-
-parcel_species_tbl_create_gt(r2,"LAW095", 0.05)
-```
-
-```{r}
-#| label: fig-stacked-composition-law095
-#| fig-cap: "LAW095 species composition by transect"
-
-stacked_species_composition_transect(r3,"LAW095")
-```
-
-```{r}
-#| label: fig-law095-transect-species-map
-#| fig-cap: "Laws 95 transect locations, symbol size is scaled to species % cover and the overall map is faceted by species to view the spatial distribution of each species detected in the revegetation project. "
-#| fig-column: body
-#| fig-height: 12
-#| fig-width: 12
-#| fig-show: asis
-
-bubble_maps_species(rlaw95)
-
-```
-
-## LAW094
-
-![Transect photo taken July 26 2022.](images/LAW094_41.jpg)
-
-> The goal is a native perennial vegetation cover of at least 10% by the year 2013 composed of at least ten different native species (including a native grass). For parcels 94 and 95, there should be at least two "hits" for at least six different native perennial species out of the total of all the readings of all the permanent transects in the parcel. The other four native perennial species should be present on the parcel, but do not have to be "hit" on any transect.-2003 Plan
-
--   *2003 Cover Goal:* `10`% cover -- Actual in 2022: - `r mean_cover_value(r2,"LAW094")`% cover
--   *2003 Species Goal:* `10` species -- Actual on transect 2022: `9`[^6]
--   *2003 Composition Goal:* `6` species with two hits -- Actual in 2022: `9` species \> two hits (0.05% cover each)
-
-[^6]: additional LYCO or ENFA not matched to species list adds another species to the list detected on transects. add this to todo update species list. Additional trace species may be recorded on paper datasheets that have been scanned but those species are not included here.
-
-```{r}
-#| label: tbl-law094-transect-species
-#| tbl-cap: "Laws 94 species cover average totaled by lifeform (annual, perennial) and color coded from orange <1% cover but above 0.05% cover to green above 10%. Gray indicates below the 2 hit threshold."
-
-parcel_species_tbl_create_gt(r2,"LAW094", 0.05)
-```
-
-```{r}
-#| label: fig-stacked-composition-law094
-#| fig-cap: "LAW094 species composition by transect"
-
-stacked_species_composition_transect(r3,"LAW094")
-```
-
-```{r}
-#| label: fig-law094-transect-species-map
-#| fig-cap: "Laws 94 transect locations, symbol size is scaled to species % cover and the overall map is faceted by species to view the spatial distribution of each species detected in the revegetation project. "
-#| fig-column: body
-#| fig-height: 12
-#| fig-width: 12
-#| fig-show: asis
-
-bubble_maps_species(rlaw94)
-
-```
-
-## LAW118 and LAW129
-
-![Transect Photo taken July 20th 2022](images/LAW129_01.jpg)
-
-> For parcel 129/118, there should be at least two "hits" for at least five different native perennial species out of the total of all the readings of all the permanent transects in the parcels. The other three native perennial species should be present on the parcel, but do not have to be "hit" on any transect. -- 2003 Plan
-
--   *2003 Cover Goal:* `10`% cover -- Actual in 2022: - `r mean_cover_value(r2,"LAW129")`% cover
--   *2003 Species Goal:* `8` species -- Actual on transect 2022: `9`[^7]
--   *2003 Composition Goal:* `5` species with two hits -- Actual in 2022: `8` species \> two hits (0.05% cover each)
-
-[^7]: additional LYCO or ENFA not matched to species list adds another species to the list detected on transects. add this to todo update species list. Additional trace species may be recorded on paper datasheets that have been scanned but those species are not included here.
-
-```{r}
-#| include: false
-full%>%  ggplot(aes(x = parcel, y = Shrub))+stat_slab()
-full%>%  ggplot(aes(x = parcel, y = Grass))+stat_slab()
-
-```
-
-{{< pagebreak >}}
-
-```{r}
-#| label: tbl-law129-transect-species
-#| tbl-cap: "Laws 129 species species cover average totaled by lifeform (annual, perennial) and color coded from orange <1% cover but above 0.05% cover to green above 10%. Gray indicates below the 2 hit threshold."
-#| 
-
-parcel_species_tbl_create_gt(r2,"LAW129", 0.05)
-```
-
-{{< pagebreak >}}
-
-```{r}
-#| label: fig-stacked-composition-law129
-#| fig-cap: "LAW129 species composition by transect"
-
-stacked_species_composition_transect(r3,"LAW129")
-```
-
-{{< pagebreak >}}
-
-```{r}
-#| label: fig-law118_129-transect-species-map
-#| fig-cap: "Laws 129 and one transect from 118, symbol size is scaled to species % cover and the overall map is faceted by species to view the spatial distribution of each species detected in the revegetation project."
-#| fig-column: body
-#| fig-height: 12
-#| fig-width: 12
-
-bubble_maps_species(rlaw118_129)
-
-
-```
-
-
-# Appendix
-
-In reference to the 2003 plan:
-
-> In preparing this plan, vegetation cover, composition, and species lists were determined by reviewing the LADWP 1984-87 vegetation inventory data for parcels in the vicinity (Appendix II) and located in the same ecological (range) site class in the Draft Benton-Owens Valley Soil Survey, hereafter referred to as the NRCS (Natural Resources Conservation Service 1994). -- 2003 Plan
-
-> In addition, species lists and other information from the NRCS descriptions were incorporated (Appendix I). --2003 Plan
-
-## Reference Parcel Cover Composition
-
-Live cover, number of species hit and detected (trace), number of species in parcel, plant community classification and distance from revegetation site.
-
-### Laws 90, 94, 95
-
-![](images/lw90splist.png)
-
-### Laws 129
-
-![](images/lw129splist.png)
-
-## Reference Species
-
-Taxonomic, common name, life form, vegetation parcel containing species, soil compatibility.
-
-### Laws 90, 94, 95
-
-![](images/lw90_species.png)
-
-![](images/lw90_species_end.png)
-
-### Laws 129
-
-![](images/lw129_species.png)

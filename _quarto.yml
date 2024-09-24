@@ -7,7 +7,9 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Reveg Data
+        text: 2024 data
+     # - href: data2024.qmd
+      #  text: 2024 data
       - icon: github
         href: https://github.com/inyo-gov/revegetation-projects
 
