@@ -1,29 +1,39 @@
-# Evaluation of LADWP's Revegetation Monitoring Report for Land Removed from Irrigation: Laws Parcels 090, 095,129, and Abandoned Land Parcel 094
+# Revegetation Monitoring Report
 
-## Overview
+# Land Removed from Irrigation: Laws Parcels 090, 095,129, and Abandoned Land Parcel 094
 
-This project involves the evaluation of the Los Angeles Department of Water and Power's (LADWP) "Revegetation Monitoring Report for Land Removed from Irrigation" for Laws Parcels 090, 095, 129, and Abandoned Land Parcel 094. The goal is to determine if the revegetation efforts meet the specified quantitative cover and composition goals outlined in the 2003 plan.
+## Objective
+
+Determine if monitoring data meet specified quantitative cover and composition goals outlined in the 2003 plan.
 
 ## Background
 
-In November 2022, the Inyo County Water Department (ICWD) received LADWP's 2022 report, which measured transects in the specified parcels in July 2022. The report claims that the revegetation goals have been met, starting a two-year period to test the persistence of vegetation without irrigation. This project aims to independently evaluate the data against the 2003 plan goals.
+In November 2022, the Inyo County Water Department (ICWD) received LADWP's 2022 report on respective parcels in July 2022. The report claimed that the revegetation goals had been met. The transects in Laws 90, 94, and 95 were measured again in 2024.
 
-## Tasks
+The static website with 2024 data summaries can be found at <https://inyo-gov.github.io/revegetation-projects/>
 
-1.  **Evaluate Data**: Analyze the data collected in July 2022 against the 2003 plan's cover and composition goals.
-2.  **Visualize Data**: Create plots of transect-level composition and species spatial distribution.
+# 2024 Summary
 
-The analysis website is deployed at <https://inyo-gov.github.io/revegetation-projects/>
-
-## Initial Recommendations
-
-1)  Resurvey in 2025 with a jointly developed survey methodology, following two full growing seasons (2023, 2024) without irrigation.
-2)  Then resurvey in 2028 again for concern of rabbitbrush persistence.
-3)  Should the parcel fall below the cover goal during subsequent monitoring, more appropriate species should be planted.
-4)  Revegetate the remaining bare areas of the parcels such as service roads.
-5)  Work on a jointly developed monitoring plan to assess goal attainment.
-
--   Update: *LADWP (with ICWD field staff) will resurvey parcels in summer 2024*
+1.  Parcel-average native perennial cover 10% or greater?
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ❌ - 9.7%
+2.  At least six species have at least 3 hits across all transects? ✔️
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ✔️
+3.  Species richness for each parcel \>= 10 species? ✔️
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ✔️
+4.  Each transect has 2% cover?
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ❌-transect 35 at 1%.
+5.  A grass species is present on each parcel? ✔️
+    -   Laws 90: ✔️
+    -   Laws 94: ✔️
+    -   Laws 95: ✔️
 
 ## Reproducing the .Rproj Environment
 
