@@ -21,7 +21,7 @@ date: "2024-09-20"
 date-modified: "2024-09-20"
 citation:
   type: report
-  container-title: "Revegetation Projects"
+  container-title: "Data Report"
   publisher: "Inyo County Water Department"
   issued: "2024-09-20"
   url: https://github.com/inyo-gov/revegetation-projects
@@ -32,8 +32,8 @@ google-scholar: true
 
 1.  Parcel-average native perennial cover 10% or greater?
     -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ❌ - 9.7%
+    -   Laws 94: ❌ - 9.7%
+    -   Laws 95: ✔️
 2.  At least six species have at least 3 hits across all transects? ✔️
     -   Laws 90: ✔️
     -   Laws 94: ✔️
@@ -74,14 +74,10 @@ options(tidyverse.quiet = TRUE)
 ```
 
 ```{r data}
-# The xy coordinates of the transects provided were joined to the field data consisting of parcel-transect-species-count row combinations allowing the spatial distribution of the plant species across the transect network to be plotted.
-# Transects were 50 m long and sampled every 25 cm yielding 200 possible hits in the denominator where fractional cover is hits/200 from 0-1 and multiplying by 100 yields cover values on the 0-100 scale.
-# Cover for each species on the 0-100 scale is computed for each transect. These values are averaged over all 20 transects to yield the parcel average which is the key performance indicator in that it is the hardest to meet. the composition goal doesn't make specific composition targets but rather is written to make sure at least .5% cover of six species occurs on xx transects
 
 # parcel shapefile
 parcels_shp <- st_read(here('data','LA_parcels_rasterizedd.shp'), quiet = TRUE)
 # grab the crs from another shapefile in NAD83 z11 to apply to the xy coordinates.
-# Step 1: Ensure matching CRS for the parcel shapefile
 
 reveg_crs <- st_crs(parcels_shp)
 # species codes to attributes lookup table
@@ -115,21 +111,10 @@ r2 <- reveg_sp_count_xy %>% left_join(species, by = c("species" = "Code"))
 # non-spatial
 r3 <- r2 %>% mutate(tcov = hits*1/200*100)# (other locations simplified to * .5) 200 possible hits on a 50 m transect every 25 cm. hits/possible for fractional cover and * 100 to convert to percentage 0-100..
 
-
 parcels_shp <- st_transform(parcels_shp, crs = st_crs(r1))  
 
-
 ```
 
-```{r}
-# r2 %>% datatable
-```
-
-```{r no-erna}
-#| include: false
- # filter ERNA
-no_erna <- r3 %>% filter(species != "ERNA10")# subset by excluding ERNA10
-```
 
 ```{r map-subsets}
 # subset parcel sf points
@@ -141,6 +126,9 @@ rlaw94<- r1 %>% filter(parcel %in% c("LAW094"))
 ```
 
 # parcel-year-species-cover
+
+species cover averaged across all 20 transects within the parcel
+
 ```{r}
 r1 %>%
   select(year, parcel, transect, species, CommonName, percent_cover, -geometry) %>%
@@ -169,6 +157,7 @@ r1 %>%
 
 # parcel-year-transect-functional type-cover
 
+functional type cover aggregated at transect and averaged to parcel
 ```{r full}
 
 # wide view, spreading functional types into columns
@@ -188,10 +177,13 @@ full%>%
       dom = 'Bfrtip',   # Add buttons to the table (B)
       buttons = c('csv')  # Specify 'csv' as the button type
     ),
-    extensions = 'Buttons'  # Enable Buttons extension
+    extensions = 'Buttons', # Enable Buttons extension
+    filter = 'top'          # Enable filtering options for each column  # Enable Buttons extension
   )
 ```
 # parcel-year-functional type cover
+
+functional type cover and total perennial cover aggregated at parcel
 ```{r parcel-sum}
 # 
 parcel_sum_f <- summarise_to_parcel(full_noERNAATTO)
@@ -206,12 +198,14 @@ parcel_sum %>% filter(year == 2024)%>%
       dom = 'Bfrtip',   # Add buttons to the table (B)
       buttons = c('csv')  # Specify 'csv' as the button type
     ),
-    extensions = 'Buttons'  # Enable Buttons extension
+    extensions = 'Buttons', # Enable Buttons extension
+    filter = 'top'          # Enable filtering options for each column  
   )
 ```
 
 # parcel-year-functional type cover - without ATTO and ERNA10
 
+functional type cover and total perennial cover subtracting out ATTO/ERNA. 
 ```{r}
 parcel_sum_f %>% filter(year == 2024)%>% 
   datatable(
@@ -222,7 +216,8 @@ parcel_sum_f %>% filter(year == 2024)%>%
       dom = 'Bfrtip',   # Add buttons to the table (B)
       buttons = c('csv')  # Specify 'csv' as the button type
     ),
-    extensions = 'Buttons'  # Enable Buttons extension
+    extensions = 'Buttons', # Enable Buttons extension
+    filter = 'top'          # Enable filtering options for each column
   )
 ```
 
@@ -344,7 +339,8 @@ transect_cover_summary %>% filter(year == 2024) %>%
       dom = 'Bfrtip',   # Add buttons to the table (B)
       buttons = c('csv')  # Specify 'csv' as the button type
     ),
-    extensions = 'Buttons'  # Enable Buttons extension
+    extensions = 'Buttons', # Enable Buttons extension
+    filter = 'top'          # Enable filtering options for each column
   )
 
 ```
@@ -400,7 +396,8 @@ summary_table %>%
       dom = 'Bfrtip',   # Add buttons to the table (B)
       buttons = c('csv')  # Specify 'csv' as the button type
     ),
-    extensions = 'Buttons'  # Enable Buttons extension
+    extensions = 'Buttons', # Enable Buttons extension
+    filter = 'top'          # Enable filtering options for each column
   )
 ```
 

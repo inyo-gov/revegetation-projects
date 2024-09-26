@@ -16,8 +16,8 @@ The static website with 2024 data summaries can be found at <https://inyo-gov.gi
 
 1.  Parcel-average native perennial cover 10% or greater?
     -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ❌ - 9.7%
+    -   Laws 94: ❌ - 9.7%
+    -   Laws 95: ✔️
 2.  At least six species have at least 3 hits across all transects? ✔️
     -   Laws 90: ✔️
     -   Laws 94: ✔️
