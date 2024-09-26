@@ -326,6 +326,7 @@ summarise_to_parcel <- function(x){
     Shrub=mean(Shrub),
     Herb=mean(Herb),
     Grass=mean(Grass),
+    Tree=mean(Tree),
     TLC=mean(tot.live.cover),
     n.transects = n())
 
