@@ -1,36 +1,47 @@
-# Revegetation Monitoring Report
-
-# Land Removed from Irrigation: Laws Parcels 090, 095,129, and Abandoned Land Parcel 094
+# Land Removed from Irrigation: Laws Parcels 090, 095, 129, and Abandoned Land Parcel 094
 
 ## Objective
 
-Determine if monitoring data meet specified quantitative cover and composition goals outlined in the 2003 plan.
+Summarize monitoring data and verify when cover and composition goals are obtained 
 
-## Background
+Goals are outlined in the 2003 plan.
 
-In November 2022, the Inyo County Water Department (ICWD) received LADWP's 2022 report on respective parcels in July 2022. The report claimed that the revegetation goals had been met. The transects in Laws 90, 94, and 95 were measured again in 2024.
-
-The static website with 2024 data summaries can be found at <https://inyo-gov.github.io/revegetation-projects/>
+Current data tables and summaries can be found at <https://inyo-gov.github.io/revegetation-projects/>
 
 # 2024 Summary
 
 1.  Parcel-average native perennial cover 10% or greater?
+    -   2023
+    -   Laws 118: ✔️
+    -   2024
     -   Laws 90: ✔️
     -   Laws 94: ❌ - 9.7%
     -   Laws 95: ✔️
 2.  At least six species have at least 3 hits across all transects? ✔️
+    -   2023
+    -   Laws 118: ❌  -  just 4 species have 3 hits across all transects
+    -   2024
     -   Laws 90: ✔️
     -   Laws 94: ✔️
     -   Laws 95: ✔️
 3.  Species richness for each parcel \>= 10 species? ✔️
+    -   2023
+    -   Laws 118: ✔️
+    -   2024
     -   Laws 90: ✔️
     -   Laws 94: ✔️
     -   Laws 95: ✔️
 4.  Each transect has 2% cover?
+    -   2023
+    -   Laws 118: ✔️
+    -   2024
     -   Laws 90: ✔️
     -   Laws 94: ✔️
     -   Laws 95: ❌-transect 35 at 1%.
 5.  A grass species is present on each parcel? ✔️
+    -   2023
+    -   Laws 118: ✔️
+    -   2024
     -   Laws 90: ✔️
     -   Laws 94: ✔️
     -   Laws 95: ✔️
