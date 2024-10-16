@@ -111,7 +111,7 @@ parcel_species_tbl_create_gt <- function(data, p, min_cov) {
     )
 }
 
-
+# only valid for 20 transect parcels
 # get the mean cover values for a parcel
 mean_cover_value <- function(data,p){
   data %>% filter(parcel == p) %>%
@@ -336,11 +336,14 @@ summarise_to_parcel <- function(x){
 
 # function to summarise totals of functional type cover at the transect level
 # added group by year
-summarise_reveg_to_transect <- function(x){
+# assumes possible hits = 200
+# makes this a parameter
+# possible_hits = 200
+summarise_reveg_to_transect <- function(x, possible_hits){
   # at the transect level sum cover at the lifecycle, lifeform level
   tran.sums <- x %>%
     group_by(parcel,year,transect,Lifecycle,Lifeform)%>%
-    summarise(Cover=sum(hits)/200 *100)# sum cover (total number of hits) and divide by 200 possible hits - multiply it by 100 to scale from 0-100.
+    summarise(Cover=(sum(hits)/possible_hits) * 100)# sum cover (total number of hits) and divide by 200 possible hits - multiply it by 100 to scale from 0-100.
 
   # summarise for each e.g. lifecycle/lifeform annual/perennial grass
 
@@ -357,7 +360,7 @@ summarise_reveg_to_transect <- function(x){
 
   # create total cover variable
   pft.wide <- pft.wide %>%
-    mutate(Cover= Grass + Herb + Shrub  + Tree)
+    mutate(Cover= Grass + Herb + Herb_Shrub + Shrub  + Tree)
 
   # now join the tlc from above
   pft.wide.wtot.cov <- pft.wide %>%

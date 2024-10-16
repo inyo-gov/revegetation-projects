@@ -1,0 +1,17 @@
+parcel,year,species,CommonName,Lifecycle,Lifeform,mean_cover,n,transects_hit,rel_cov,perennial_cover
+LAW118,2023,ACHY,"ricegrass, Indian",Perennial,Grass,0,15,1,0.1,23.2
+LAW118,2023,ARTR2,"sagebrush, Big",Perennial,Shrub,0.1,15,1,0.3,23.2
+LAW118,2023,ATCA2,"saltbush, Fourwing",Perennial,Shrub,5.2,15,8,22.2,23.2
+LAW118,2023,ATPO,"saltbush, Allscale",Perennial,Shrub,9.4,15,11,40.5,23.2
+LAW118,2023,COAR4,"bindweed, Field",Perennial,Herb,0,15,1,0.1,23.2
+LAW118,2023,DISP,Saltgrass,Perennial,Grass,0.1,15,1,0.3,23.2
+LAW118,2023,ERCI6,"filaree, Redstem",Annual,Herb,0,15,1,NA,NA
+LAW118,2023,ERDE6,"buckwheat, Skeleton",Annual,Herb,1.3,15,4,NA,NA
+LAW118,2023,ERNA10,"rabbitbrush, Common",Perennial,Shrub,7.9,15,10,34,23.2
+LAW118,2023,IVAX,"weed, Poverty",Perennial,Herb,0.4,15,4,1.7,23.2
+LAW118,2023,KRLA2,Winterfat,Perennial,Shrub,0,15,1,0.1,23.2
+LAW118,2023,LACO13,"horseweed, Coulter's",Annual,Herb,0.2,15,1,NA,NA
+LAW118,2023,SATR12,"Tumbleweed /thistle, Russian",Annual,Herb,18.5,15,15,NA,NA
+LAW118,2023,SPAI,"sacaton, Alkali",Perennial,Grass,0.1,15,1,0.3,23.2
+LAW118,2023,STPA4,"wire-lettuce, Common",Perennial,Herb_Shrub,0,15,1,0.1,23.2
+LAW118,2023,SYAS3,"aster, Long-leaved",Perennial,Herb,0,15,1,0.1,23.2
