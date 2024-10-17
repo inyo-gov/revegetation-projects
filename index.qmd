@@ -33,7 +33,7 @@ execute:
     echo: true
 ---
 
-# summary
+# Summary
 
 1.  Parcel-average native perennial cover 10% or greater?
     -   2023
@@ -96,8 +96,6 @@ knitr::opts_chunk$set(echo = FALSE,
 options(tidyverse.quiet = TRUE)
 ```
 
-
-
 ```{r}
 #SELECT extension_name, installed, description
 #FROM duckdb_extensions();
@@ -152,6 +150,7 @@ options(tidyverse.quiet = TRUE)
 # dbListTables(con)
 # Get the first few rows of a specific table (replace 'your_table_name' with an actual table name)
 ```
+
 ```{r}
 # Create a simple table to test write permissions (if allowed)
 # dbExecute(con, "CREATE TABLE test_table (id INT, name STRING)")
@@ -166,13 +165,15 @@ options(tidyverse.quiet = TRUE)
 # result <- dbGetQuery(con, "SELECT * FROM lpt_master LIMIT 10")
 ```
 
-```{r data}
+```{r}
 # # Connect to MotherDuck (replace the credentials with your actual ones)
 # con <- dbConnect(duckdb::duckdb(), "motherduck://username:password@hostname/db_name")
 # 
 # 
 
+```
 
+```{r data}
 # parcel shapefile
 parcels_shp <- st_read(here('data','LA_parcels_rasterizedd.shp'), quiet = TRUE)
 # grab the crs from another shapefile in NAD83 z11 to apply to the xy coordinates.
@@ -241,9 +242,8 @@ rlaw94<- r1 %>% filter(parcel %in% c("LAW094"))
 # rlaw118_129<- r1 %>% filter(parcel %in% c("LAW118","LAW129"))
 ```
 
-# parcel-year-species-cover
 
-10/16/24 added LAW118 data 
+
 
 ```{r}
 # r1 %>%
@@ -267,6 +267,7 @@ parcel_cover_lw118 <- r2 %>% filter(parcel == "LAW118") %>% compute_parcel_cover
 # parcel_cover_lw118 %>% arrange(mean_cover)
 
 ```
+
 ```{r}
 perennial_coverlw118 <- parcel_cover_lw118 %>% filter(Lifecycle == "Perennial") %>% summarise(pcov = sum(mean_cover))
 
@@ -282,10 +283,9 @@ pc <- parcel_cover_lw118 %>% mutate(rel_cov = case_when(Lifecycle == 'Perennial'
 # pc %>% write_csv("output/LAW118_sp_rel_cover.csv")
 ```
 
-## relative cover
-
-relative to total perennial cover 
-species comprises xx proportion of total perennial cover
+## 10/16/24 added LAW118 data 
+    - add relative cover column: relative to total perennial cover 
+    - e.g. species comprises (relative cover) proportion of total perennial cover
 ```{r}
 
 pc %>%
@@ -307,9 +307,9 @@ pc %>%
 ```
 
 
-# parcel-year-transect-functional type-cover
+# parcel-year-transect-functional type
 
-functional type cover aggregated at transect and averaged to parcel
+functional type cover aggregated at transect
 ```{r full}
 
 # wide view, spreading functional types into columns
@@ -318,11 +318,6 @@ summarise_reveg_to_transect(200)
 
 full <- r2 %>%
 summarise_reveg_to_transect(200)
-```
-
-functional type cover LAW118
-```{r}
-# full %>% filter(parcel == "LAW118")
 ```
 
 ```{R}
@@ -339,9 +334,10 @@ full%>%
     filter = 'top'          # Enable filtering options for each column  # Enable Buttons extension
   )
 ```
-# parcel-year-functional type cover
 
-functional type cover and total perennial cover aggregated at parcel
+# parcel-year
+
+total perennial cover aggregated at parcel
 ```{r parcel-sum}
 # 
 parcel_sum_f <- summarise_to_parcel(full_noERNAATTO)
@@ -406,9 +402,9 @@ rpf <- rp %>% anti_join(dupes)
 ```
 
 
-# parcel-year-functional type cover - without ATTO and ERNA10
+# parcel-year- without ATTO and ERNA10
 
-functional type cover and total perennial cover subtracting out ATTO/ERNA. 
+total perennial cover subtracting out ATTO/ERNA. 
 ```{r}
 parcel_sum_f %>%  mutate(Cover = round(Cover,1)) %>% select(parcel,year,Cover,n.transects) %>% filter(year == 2024 | year == 2023)%>% 
   datatable(
@@ -510,8 +506,6 @@ species_richness_parcel <- species_rich %>%
 #   )
 ```
 
-# parcel-year-transect-totalhits
-perennial, non-weeds
 
 ```{r transect-cover-2perc}
 
@@ -575,7 +569,7 @@ transect_summary <- transect_cover_summary %>% filter(year != 2022) %>%
 
 ```
 
-# parcel summary table
+# Summary table
 ```{r}
 #| layout-ncol: 1
 #| layout-span: full  # Extend the table across the full width
@@ -612,7 +606,7 @@ summary_table %>% mutate(Cover = round(Cover,1)) %>%
   # select(parcel, Cover, count_3hit_species, sp_richness, transects_at_2_percent, grass_species) %>% write_csv("output/parcel_summary.csv")
 ```
 
-# cover histogram across transects 2022 vs 2024
+# Perennial cover histograms across transects 2022 vs 2024
 Laws 90/94/95 combined
 ```{r histogram-compare}
 #| layout-ncol: 1
@@ -638,10 +632,11 @@ transect_cover_summary %>% filter(parcel != 'LAW129', parcel != 'LAW118') %>% gg
 
 ```
 
-# maps
+# Maps
 
-species change by transect
+species change by transect location
  *request xy coords for laws 118 transects
+ 
 ```{r}
 
 parcelset <- parcels_shp %>% filter(PCL %in% c("LAW090", "LAW094", "LAW095"))

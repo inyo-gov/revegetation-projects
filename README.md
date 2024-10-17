@@ -2,7 +2,7 @@
 
 ## Objective
 
-Summarize monitoring data and verify when cover and composition goals are obtained 
+Summarize monitoring data and verify when cover and composition goals are obtained
 
 Goals are outlined in the 2003 plan.
 
@@ -19,7 +19,7 @@ Current data tables and summaries can be found at <https://inyo-gov.github.io/re
     -   Laws 95: ✔️
 2.  At least six species have at least 3 hits across all transects? ✔️
     -   2023
-    -   Laws 118: ❌  -  just 4 species have 3 hits across all transects
+    -   Laws 118: ❌ - just 4 species have 3 hits across all transects
     -   2024
     -   Laws 90: ✔️
     -   Laws 94: ✔️
@@ -45,6 +45,8 @@ Current data tables and summaries can be found at <https://inyo-gov.github.io/re
     -   Laws 90: ✔️
     -   Laws 94: ✔️
     -   Laws 95: ✔️
+
+![](images/map.png)
 
 ## Reproducing the .Rproj Environment
 
