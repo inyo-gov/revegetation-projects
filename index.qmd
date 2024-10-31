@@ -606,6 +606,10 @@ summary_table %>% mutate(Cover = round(Cover,1)) %>%
   # select(parcel, Cover, count_3hit_species, sp_richness, transects_at_2_percent, grass_species) %>% write_csv("output/parcel_summary.csv")
 ```
 
+
+
+
+
 # Perennial cover histograms across transects 2022 vs 2024
 Laws 90/94/95 combined
 ```{r histogram-compare}
@@ -632,6 +636,52 @@ transect_cover_summary %>% filter(parcel != 'LAW129', parcel != 'LAW118') %>% gg
 
 ```
 
+
+# Reference parcel histograms
+```{r}
+ref <- read_csv("data/LAW118_129_Reference_Parcels_Monitoring_Data/law118_129_reference_parcel_long_format.csv")
+```
+
+
+```{r}
+
+# Step 1: Calculate the total cover for each transect
+transect_summary <- ref %>%
+  group_by(Parcel, Tran_Name) %>%
+  summarise(Total_Cover = sum(Hit, na.rm = TRUE)) %>%
+  ungroup()
+
+# Step 2: Aggregate at the parcel level to calculate the mean, SD, and SE
+parcel_summary <- transect_summary %>%
+  group_by(Parcel) %>%
+  summarise(
+    Mean_Cover = mean(Total_Cover, na.rm = TRUE),
+    SD_Cover = sd(Total_Cover, na.rm = TRUE),
+    SE_Cover = SD_Cover / sqrt(n()),
+    Total_Cover = sum(Total_Cover, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+# Step 3: Plot histogram of Total_Cover for each parcel, with faceting and vertical lines for Mean_Cover, SD_Cover, and SE_Cover
+ggplot(transect_summary, aes(x = Total_Cover, fill = Parcel)) +
+  geom_histogram(bins = 30, alpha = 0.6, position = "identity") +
+  labs(
+    title = "Histogram of Total Transect Cover by Parcel",
+    x = "Total Transect Cover per Transect",
+    y = "Frequency"
+  ) +
+  facet_wrap(~ Parcel, scales = "free") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  geom_text(
+    data = parcel_summary,
+    aes(
+      x = Inf, y = Inf,
+      label = paste("Mean:", round(Mean_Cover, 1), "\nSD:", round(SD_Cover, 1))
+    ),
+    hjust = 1.1, vjust = 1.5, size = 3, color = "black"
+  )
+```
 # Maps
 
 species change by transect location
