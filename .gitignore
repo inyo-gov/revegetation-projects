@@ -8,3 +8,4 @@ mduck
 # Ignore Quarto configuration and build artifacts
 /.quarto/
 
+/archive/

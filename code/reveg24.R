@@ -320,19 +320,39 @@ stacked_species_composition_transect <- function(data,p){
 
 # added group by year
 # function to summarise transects to parcel
-summarise_to_parcel <- function(x){
-  p <- x %>% group_by(parcel,year)%>% summarise(
-    Cover=mean(Cover),
-    Shrub=mean(Shrub),
-    Herb=mean(Herb),
-    Grass=mean(Grass),
-    Tree=mean(Tree),
-    TLC=mean(tot.live.cover),
-    n.transects = n())
+# summarise_to_parcel <- function(x){
+#   p <- x %>% group_by(parcel,year)%>% summarise(
+#     Cover=mean(Cover),
+#     Shrub=mean(Shrub),
+#     Herb=mean(Herb),
+#     Grass=mean(Grass),
+#     Tree=mean(Tree),
+#     TLC=mean(tot.live.cover),
+#     n.transects = n())
+#
+#   return(p)
+# }
+# Function to summarize transects to parcel level with SD, SE, and 95% CI calculated on transect-level Cover values
+summarise_to_parcel <- function(x) {
+  p <- x %>%
+    group_by(parcel, year) %>%
+    summarise(
+      SD_Cover = sd(Cover, na.rm = TRUE),
+      n.transects = n(),
+      SE_Cover = SD_Cover / sqrt(n.transects),
+      CI_95_Cover_Lower = mean(Cover, na.rm = TRUE) - qt(0.975, df = n.transects - 1) * SE_Cover,
+      CI_95_Cover_Upper = mean(Cover, na.rm = TRUE) + qt(0.975, df = n.transects - 1) * SE_Cover,
+      Cover = mean(Cover, na.rm = TRUE),
+      Shrub = mean(Shrub, na.rm = TRUE),
+      Herb = mean(Herb, na.rm = TRUE),
+      Grass = mean(Grass, na.rm = TRUE),
+      Tree = mean(Tree, na.rm = TRUE),
+      TLC = mean(tot.live.cover, na.rm = TRUE)
+    ) %>%
+    ungroup()
 
   return(p)
 }
-
 
 # function to summarise totals of functional type cover at the transect level
 # added group by year
