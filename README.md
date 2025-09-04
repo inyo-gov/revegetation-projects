@@ -28,11 +28,7 @@ This repository contains comprehensive monitoring data analysis for revegetation
 **Legend**: ✅ Goal attained | ❌ Goal not attained
 
 ### Key Findings
-- **1 of 4 parcels** (25%) achieved full compliance in 2025
-- **LAW090** is the only parcel meeting all revegetation goals
-- **Cover goals** remain the primary challenge, with 3 of 4 parcels below the 10% threshold
-- **Species diversity** is generally strong, with most parcels meeting richness requirements
-- **Transect coverage** is excellent, with LAW129_118 being the only parcel with coverage issues
+- **LAW090** is the only parcel meeting all revegetation goals in 2025
 
 ## Interactive Data Portal
 
@@ -64,10 +60,10 @@ The website provides:
 ## Data Downloads
 
 ### Primary Datasets
-- **[Compliance Summary](https://inyo-gov.github.io/revegetation-projects/data/processed/compliance_summary.csv)** - Complete goal attainment analysis
-- **[Reference Parcel Data](https://inyo-gov.github.io/revegetation-projects/data/processed/reference_parcel_summary.csv)** - ATTO/ERNA threshold analysis
-- **[Transect-Species Data](https://inyo-gov.github.io/revegetation-projects/data/processed/transect_species_data.csv)** - Detailed species cover by transect
-- **[Spatial Data](https://inyo-gov.github.io/revegetation-projects/data/gis/)** - Parcel boundaries and transect locations
+- **[Compliance Summary](https://github.com/inyo-gov/revegetation-projects/blob/main/data/processed/full_summary.csv)** - Complete goal attainment analysis
+- **[Reference Parcel Data](https://github.com/inyo-gov/revegetation-projects/blob/main/data/processed/reference_parcel_summary.csv)** - ATTO/ERNA threshold analysis
+- **[Transect-Species Data](https://github.com/inyo-gov/revegetation-projects/blob/main/data/processed/transect_species_data.csv)** - Detailed species cover by transect
+- **[Spatial Data](https://github.com/inyo-gov/revegetation-projects/tree/main/data/gis)** - Parcel boundaries and transect locations
 
 ### Additional Resources
 - **[Data Processing Pipeline](https://inyo-gov.github.io/revegetation-projects/data_process.html)** - Technical documentation
