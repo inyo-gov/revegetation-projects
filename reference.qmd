@@ -1,0 +1,443 @@
+---
+title: "Reference Parcels"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+Reference parcel data and analysis for comparison with revegetation project areas.
+
+```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
+library(sf)
+library(here)
+library(dplyr)
+library(readr)
+library(stringr)
+library(tidyr)
+library(DT)
+library(janitor)
+library(ggplot2)
+library(targets)
+source(here('code','functions.R'))
+```
+
+## 
+
+**Methodology**: Cover is calculated per transect first, then averaged across transects for each parcel-year-species combination.
+
+```{r species-analysis, warning=FALSE}
+#| tbl-cap: "Species contribution to perennial cover in reference parcels by year. Shows average cover per transect, average perennial cover per transect, relative contribution percentage, and total transects per parcel-year. Default view filtered to show ATTO and ERNA10 species."
+
+# Load comprehensive reference data
+tar_load(ref_data_combined)
+
+# Create comprehensive species analysis with proper zero-inflation handling
+# For each parcel-year, calculate average cover for each species across ALL transects
+species_analysis <- ref_data_combined %>%
+  filter(Lifecycle == 'Perennial') %>%
+  # Get all unique combinations of parcel, year, transect, species
+  # But only complete within existing parcel-year combinations
+  group_by(parcel, year) %>%
+  complete(transect, species, fill = list(hits = 0)) %>%
+  ungroup() %>%
+  # Filter to only include perennial species (since complete() adds all species)
+  filter(species %in% (ref_data_combined %>% filter(Lifecycle == 'Perennial') %>% pull(species) %>% unique())) %>%
+  group_by(parcel, year, species) %>%
+  summarise(
+    avg_cover = mean(hits, na.rm = TRUE),  # Average across all transects (including zeros)
+    n_transects = n_distinct(transect),
+    .groups = 'drop'
+  ) %>%
+  # Calculate average perennial cover per parcel-year
+  left_join(
+    ref_data_combined %>%
+      filter(Lifecycle == 'Perennial') %>%
+      group_by(parcel, year, transect) %>%
+      summarise(transect_perennial_cover = sum(hits, na.rm = TRUE), .groups = 'drop') %>%
+      group_by(parcel, year) %>%
+      summarise(avg_perennial_cover = mean(transect_perennial_cover, na.rm = TRUE), .groups = 'drop'),
+    by = c('parcel', 'year')
+  ) %>%
+  # Calculate relative contribution
+  mutate(avg_relative_cover = (avg_cover / avg_perennial_cover) * 100) %>%
+  # Get true total transect counts per parcel-year
+  left_join(
+    ref_data_combined %>%
+      filter(Lifecycle == 'Perennial') %>%
+      group_by(parcel, year) %>%
+      summarise(total_transects = n_distinct(transect), .groups = 'drop'),
+    by = c('parcel', 'year')
+  ) %>%
+  # Add reference group column
+  mutate(
+    reference_group = case_when(
+      parcel %in% c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134") ~ "LAW90/94/95",
+      parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230") ~ "LW118/129",
+      TRUE ~ "Other"
+    )
+  ) %>%
+  # Round numeric columns to 1 decimal place
+  mutate(
+    avg_cover = round(avg_cover, 1),
+    avg_perennial_cover = round(avg_perennial_cover, 1),
+    avg_relative_cover = round(avg_relative_cover, 1)
+  ) %>%
+  # Reorder columns with group first
+  select(reference_group, parcel, year, species, avg_cover, avg_perennial_cover, avg_relative_cover, total_transects) %>%
+  arrange(reference_group, parcel, year, species)
+
+# Display the comprehensive species analysis
+species_analysis %>%
+  datatable(
+    options = list(
+      autoWidth = FALSE,
+      scrollX = TRUE,
+      columnDefs = list(
+        list(width = '12%', targets = 0),    # reference_group
+        list(width = '10%', targets = 1),    # parcel
+        list(width = '8%', targets = 2),     # year
+        list(width = '15%', targets = 3),    # species
+        list(width = '12%', targets = 4),    # avg_cover
+        list(width = '15%', targets = 5),    # avg_perennial_cover
+        list(width = '15%', targets = 6),    # avg_relative_cover
+        list(width = '13%', targets = 7)     # total_transects
+      ),
+      dom = 'Bfrtip',
+      buttons = c('csv'),
+      pageLength = 25
+    ),
+    extensions = 'Buttons',
+    filter = 'top',
+    caption = "All species data available. Use filters to view specific species (e.g., ATTO, ERNA10) and years (e.g., 2025)."
+  )
+```
+
+### ATTO/ERNA10 Summary Statistics
+
+```{r atto-erna-summary, warning=FALSE}
+#| tbl-cap: "Summary statistics for ATTO and ERNA contribution to reference parcel perennial cover, grouped by species, reference parcel group, and year. Shows mean average cover, standard deviation of average cover, mean relative contribution, and number of parcels per group-year combination."
+
+# Create reference parcel group identifier for ATTO/ERNA species only
+# But include ALL parcels for each reference group-year combination
+atto_erna_with_groups <- species_analysis %>%
+  filter(species %in% c("ATTO", "ERNA10")) %>%
+  # Ensure we have all parcels for each reference group-year combination
+  # by creating a complete grid of reference group × year × species
+  group_by(reference_group, year, species) %>%
+  complete(parcel = c(
+    # LAW90/94/95 parcels
+    "LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134",
+    # LAW118/129 parcels  
+    "LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230"
+  ), fill = list(avg_cover = 0, avg_perennial_cover = 0, avg_relative_cover = 0, total_transects = 0)) %>%
+  ungroup() %>%
+  # Filter to only include parcels that belong to the current reference group
+  filter(
+    (reference_group == "LAW90/94/95" & parcel %in% c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")) |
+    (reference_group == "LW118/129" & parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230"))
+  )
+
+# Calculate summary statistics grouped by species, reference group, AND year
+atto_erna_summary <- atto_erna_with_groups %>%
+  group_by(species, reference_group, year) %>%
+  summarise(
+    # Average cover statistics (keep only mean and SD)
+    mean_avg_cover = mean(avg_cover, na.rm = TRUE),
+    sd_avg_cover = sd(avg_cover, na.rm = TRUE),
+    # Relative cover statistics (keep only mean)
+    mean_relative_cover = mean(avg_relative_cover, na.rm = TRUE),
+    # Sample size
+    n_parcels = n(),
+    .groups = 'drop'
+  ) %>%
+  filter(reference_group != "Other") %>%  # Remove any "Other" groups
+  mutate(across(where(is.numeric), round, 2)) %>%
+  # Reorder columns for better display
+  select(species, reference_group, year, mean_avg_cover, sd_avg_cover, mean_relative_cover, n_parcels)
+
+# Display summary table
+atto_erna_summary %>%
+  datatable(
+    options = list(
+      autoWidth = FALSE,
+      scrollX = TRUE,
+      columnDefs = list(
+        list(width = '15%', targets = 0),    # species
+        list(width = '15%', targets = 1),    # reference_group
+        list(width = '10%', targets = 2),    # year
+        list(width = '15%', targets = 3),    # mean_avg_cover
+        list(width = '15%', targets = 4),    # sd_avg_cover
+        list(width = '15%', targets = 5),    # mean_relative_cover
+        list(width = '15%', targets = 6)     # n_parcels
+      ),
+      dom = 'Bfrtip',
+      buttons = c('csv'),
+      pageLength = 10
+    ),
+    extensions = 'Buttons',
+    filter = 'top'
+  )
+```
+
+The histograms below show cover distributions for parcels split by reference group. Each plot shows all years with 2025 shown in red.
+
+```{r reference-parcels-histogram, warning=FALSE}
+#| fig-cap: "Distribution of total transect cover by reference parcel and year, sorted by mean cover (lowest to highest). Two separate plots: one for LAW90/94/95 group and one for LAW118/129 group. Each panel shows one parcel with all years overlaid. 2025 data highlighted in red with red mean line; other years in grey with grey mean lines; blue and green thick lines show ATTO and ERNA10 average cover."
+#| fig-width: 20
+#| fig-height: 32
+
+# Load reference data from targets
+tar_load(ref_data_combined)
+
+# Create transect summary for histogram (grouped by parcel, year, and transect)
+transect_summary <- ref_data_combined %>%
+  group_by(parcel, year, transect) %>%
+  summarise(Total_Cover = sum(hits, na.rm = TRUE), .groups = 'drop') %>%
+  # Add reference group identifier
+  mutate(
+    reference_group = case_when(
+      parcel %in% c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134") ~ "LAW90/94/95",
+      parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230") ~ "LW118/129",
+      TRUE ~ "Other"
+    ),
+    # Ensure year is a factor with all levels
+    year = factor(year, levels = c(2022, 2023, 2024, 2025))
+  ) %>%
+  filter(reference_group != "Other")
+
+# Calculate summary statistics by parcel and year for reference lines
+parcel_year_summary <- transect_summary %>%
+  group_by(parcel, year, reference_group) %>%
+  summarise(
+    Mean_Cover = mean(Total_Cover, na.rm = TRUE),
+    SD_Cover = sd(Total_Cover, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+# Calculate overall mean cover per parcel for sorting
+parcel_means <- transect_summary %>%
+  group_by(parcel, reference_group) %>%
+  summarise(Overall_Mean_Cover = mean(Total_Cover, na.rm = TRUE), .groups = 'drop') %>%
+  arrange(Overall_Mean_Cover)
+
+# Create ordered parcel factor for both groups
+law909495_order <- parcel_means %>% 
+  filter(reference_group == "LAW90/94/95") %>% 
+  pull(parcel)
+law118129_order <- parcel_means %>% 
+  filter(reference_group == "LW118/129") %>% 
+  pull(parcel)
+
+# Apply ordering to transect_summary
+transect_summary <- transect_summary %>%
+  mutate(
+    parcel = case_when(
+      reference_group == "LAW90/94/95" ~ factor(parcel, levels = law909495_order),
+      reference_group == "LW118/129" ~ factor(parcel, levels = law118129_order),
+      TRUE ~ factor(parcel)
+    )
+  )
+
+# Get ATTO and ERNA10 average cover for 2025 only (from species analysis)
+atto_erna_cover <- species_analysis %>%
+  filter(species %in% c("ATTO", "ERNA10"), year == 2025) %>%
+  select(parcel, year, species, avg_cover) %>%
+  pivot_wider(names_from = species, values_from = avg_cover, names_prefix = "avg_")
+
+# Create two separate plots with ATTO/ERNA10 reference lines
+library(gridExtra)
+
+# Plot 1: LAW90/94/95 group
+plot1 <- ggplot(transect_summary %>% filter(reference_group == "LAW90/94/95"), 
+                aes(x = Total_Cover, fill = year)) +
+  geom_histogram(bins = 20, alpha = 0.7, color = "black") +
+  # Add mean line for 2025 only (in red)
+  geom_vline(data = parcel_year_summary %>% filter(year == 2025, reference_group == "LAW90/94/95"), 
+             aes(xintercept = Mean_Cover), 
+             color = "red", linetype = "solid", size = 1) +
+  # Add mean line for other years (in grey)
+  geom_vline(data = parcel_year_summary %>% filter(year != 2025, reference_group == "LAW90/94/95"), 
+             aes(xintercept = Mean_Cover), 
+             color = "grey50", linetype = "dashed", size = 0.5) +
+  # Add ATTO average cover line (in blue)
+  geom_vline(data = atto_erna_cover %>% 
+               filter(parcel %in% c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")) %>%
+               filter(!is.na(avg_ATTO)),
+             aes(xintercept = avg_ATTO), 
+             color = "blue", linetype = "dotted", size = 2) +
+  # Add ERNA10 average cover line (in green)
+  geom_vline(data = atto_erna_cover %>% 
+               filter(parcel %in% c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")) %>%
+               filter(!is.na(avg_ERNA10)),
+             aes(xintercept = avg_ERNA10), 
+             color = "green", linetype = "dotted", size = 2) +
+  labs(
+    title = "LAW90/94/95 Reference Parcels",
+    subtitle = "Red solid = 2025 mean, Grey dashed = other years mean, Blue dotted = ATTO 2025 avg, Green dotted = ERNA10 2025 avg",
+    x = "Total Transect Cover per Transect",
+    y = "Frequency"
+  ) +
+  facet_grid(parcel ~ ., scales = "free_x") +
+  scale_fill_manual(
+    name = "Year",
+    values = c("2022" = "#34495E", "2023" = "#7F8C8D", "2024" = "#95A5A6", "2025" = "#E74C3C"),
+    labels = c("2022", "2023", "2024", "2025 (Highlighted)"),
+    drop = FALSE
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text = element_text(size = 18, face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 16),
+    axis.text.y = element_text(size = 16),
+    axis.title = element_text(size = 18, face = "bold"),
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 16),
+    legend.text = element_text(size = 16),
+    legend.title = element_text(size = 18, face = "bold"),
+    legend.position = "top"
+  )
+
+# Plot 2: LAW118/129 group
+plot2 <- ggplot(transect_summary %>% filter(reference_group == "LW118/129"), 
+                aes(x = Total_Cover, fill = year)) +
+  geom_histogram(bins = 20, alpha = 0.7, color = "black") +
+  # Add mean line for 2025 only (in red)
+  geom_vline(data = parcel_year_summary %>% filter(year == 2025, reference_group == "LW118/129"), 
+             aes(xintercept = Mean_Cover), 
+             color = "red", linetype = "solid", size = 1) +
+  # Add mean line for other years (in grey)
+  geom_vline(data = parcel_year_summary %>% filter(year != 2025, reference_group == "LW118/129"), 
+             aes(xintercept = Mean_Cover), 
+             color = "grey50", linetype = "dashed", size = 0.5) +
+  # Add ATTO average cover line (in blue)
+  geom_vline(data = atto_erna_cover %>% 
+               filter(parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230")) %>%
+               filter(!is.na(avg_ATTO)),
+             aes(xintercept = avg_ATTO), 
+             color = "blue", linetype = "dotted", size = 2) +
+  # Add ERNA10 average cover line (in green)
+  geom_vline(data = atto_erna_cover %>% 
+               filter(parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230")) %>%
+               filter(!is.na(avg_ERNA10)),
+             aes(xintercept = avg_ERNA10), 
+             color = "green", linetype = "dotted", size = 2) +
+  labs(
+    title = "LAW118/129 Reference Parcels",
+    subtitle = "Red solid = 2025 mean, Grey dashed = other years mean, Blue dotted = ATTO 2025 avg, Green dotted = ERNA10 2025 avg",
+    x = "Total Transect Cover per Transect",
+    y = "Frequency"
+  ) +
+  facet_grid(parcel ~ ., scales = "free_x") +
+  scale_fill_manual(
+    name = "Year",
+    values = c("2022" = "#34495E", "2023" = "#7F8C8D", "2024" = "#95A5A6", "2025" = "#E74C3C"),
+    labels = c("2022", "2023", "2024", "2025 (Highlighted)"),
+    drop = FALSE
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text = element_text(size = 18, face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 16),
+    axis.text.y = element_text(size = 16),
+    axis.title = element_text(size = 18, face = "bold"),
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 16),
+    legend.text = element_text(size = 16),
+    legend.title = element_text(size = 18, face = "bold"),
+    legend.position = "top"
+  )
+
+# Combine the two plots
+grid.arrange(plot1, plot2, ncol = 1)
+```
+
+## Reference Data Downloads
+
+The following datasets are available for download:
+
+```{r reference-data-downloads, warning=FALSE}
+# Load comprehensive reference data
+tar_load(ref_data_combined)
+tar_load(reference_parcel_summary)
+tar_load(reference_atto_erna_analysis)
+
+# Create comprehensive transect x species dataset
+transect_species_data <- ref_data_combined %>%
+  select(parcel, year, transect, species, hits, Lifeform, Lifecycle) %>%
+  arrange(parcel, year, transect, species)
+
+# Save datasets for download
+write_csv(reference_parcel_summary, "data/processed/reference_parcel_summary.csv")
+write_csv(transect_species_data, "data/processed/transect_species_data.csv")
+write_csv(reference_atto_erna_analysis, "data/processed/reference_atto_erna_analysis.csv")
+write_csv(ref_data_combined, "data/processed/ref_data_combined.csv")
+
+# Create summary table of available datasets with download links
+download_info <- data.frame(
+  Dataset = c(
+    "Reference Parcel Summary",
+    "Transect x Species Cover Data", 
+    "ATTO/ERNA Analysis",
+    "Combined Reference Data"
+  ),
+  Description = c(
+    "Summary statistics by parcel and year",
+    "Detailed transect-level species cover data",
+    "ATTO and ERNA species analysis by parcel-year",
+    "Complete reference dataset with all variables"
+  ),
+  Rows = c(
+    nrow(reference_parcel_summary),
+    nrow(transect_species_data),
+    nrow(reference_atto_erna_analysis),
+    nrow(ref_data_combined)
+  ),
+  Columns = c(
+    ncol(reference_parcel_summary),
+    ncol(transect_species_data),
+    ncol(reference_atto_erna_analysis),
+    ncol(ref_data_combined)
+  ),
+  Download = c(
+    '<a href="../data/processed/reference_parcel_summary.csv" download>⬇ CSV</a>',
+    '<a href="../data/processed/transect_species_data.csv" download>⬇ CSV</a>',
+    '<a href="../data/processed/reference_atto_erna_analysis.csv" download>⬇ CSV</a>',
+    '<a href="../data/processed/ref_data_combined.csv" download>⬇ CSV</a>'
+  )
+)
+
+# Display download information
+datatable(
+  download_info,
+  options = list(
+    autoWidth = FALSE,
+    scrollX = TRUE,
+    columnDefs = list(
+      list(width = '20%', targets = 0),    # Dataset Name
+      list(width = '35%', targets = 1),    # Description
+      list(width = '12%', targets = 2),    # Number of Rows
+      list(width = '13%', targets = 3),    # Number of Columns
+      list(width = '20%', targets = 4)     # Download
+    ),
+    dom = 'Bfrtip',
+    buttons = c('csv'),
+    pageLength = 10
+  ),
+  extensions = 'Buttons',
+  filter = 'top',
+  escape = FALSE,  # Allow HTML in the Download column
+  colnames = c(
+    "Dataset Name",
+    "Description", 
+    "Number of Rows",
+    "Number of Columns",
+    "Download"
+  )
+)
+```

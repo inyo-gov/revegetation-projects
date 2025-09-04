@@ -1,7 +1,7 @@
 ---
-title: "Laws 90, 94, 95, 118, 129"
-format: 
-  html: 
+title: "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis"
+format:
+  html:
     grid:
       sidebar-width: 20px
       body-width: 1200px
@@ -17,13 +17,13 @@ format:
     html-math-method: katex
 tbl-cap-location: top   
 affiliation: "Inyo County Water Department"
-date: "2024-09-20"
-date-modified: "2024-10-16"
+date: "2025-09-03"
+date-modified: "2025-09-03"
 citation:
   type: report
   container-title: "Data Report"
   publisher: "Inyo County Water Department"
-  issued: "2024-09-20"
+  issued: "2025-09-03"
   url: https://github.com/inyo-gov/revegetation-projects
 google-scholar: true
 execute:
@@ -33,792 +33,146 @@ execute:
     echo: true
 ---
 
-# Summary
+# 
 
-1.  Parcel-average native perennial cover 10% or greater?
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ❌ - 9.7%
-    -   Laws 95: ✔️
-    -   2025
-2.  At least six species have at least 3 hits across all transects? ✔️
-    -   2023
-    -   Laws 118: ❌ - just 4 species have 3 hits across all transects
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ✔️
-    -   2025
-3.  Species richness for each parcel \>= 10 species? ✔️
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ✔️
-    -   2025
-4.  Each transect has 2% cover?
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ❌-transect 35 at 1%.
-    -   2025
-5.  A grass species is present on each parcel? ✔️
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ✔️
-    -   2025
-
-# Libraries
-```{r setup, message = FALSE, warning = FALSE, echo=FALSE}
-
-library(tidyverse)
+```{r setup, message=FALSE, warning=FALSE}
 library(sf)
-library(ggdist)
-library(gt)
-library(gtExtras)
 library(here)
-library(patchwork)
-library(ggrepel)
+library(dplyr)
+library(readr)
+library(stringr)
+library(tidyr)
 library(DT)
 library(janitor)
-# library(duckdb)
-# library(DBI)
-
-
-# source functions----
-source(here('code','reveg24.R'))
-
-knitr::opts_chunk$set(echo = FALSE, 
-                      fig.show = "hold", 
-                      message = FALSE, 
-                      warning = FALSE)
-options(tidyverse.quiet = TRUE)
+library(ggplot2)  # For histograms and maps
+library(targets)  # For loading pipeline data
+source(here('code','functions.R'))
 ```
 
-# Data
-## GIS data
-```{r gis-data}
-# parcel shapefile
-parcels_shp <- st_read(here('data','LA_parcels_rasterizedd.shp'), quiet = TRUE)
-# grab the crs from another shapefile in NAD83 z11 to apply to the xy coordinates.
+```{r controls, echo=FALSE}
+# Flags to selectively run legacy or heavy-map sections
+run_legacy <- FALSE
+run_maps <- TRUE  # Enable histograms and maps
+```
 
-reveg_crs <- st_crs(parcels_shp)
-# species codes to attributes lookup table
+# 
 
-# transect xy coordinates
-reveg_xy <- read_csv(here('data','laws_reveg_transects.csv'))
-xy <- st_as_sf(reveg_xy, coords = c("x", "y"), crs =reveg_crs)
-st_crs(xy)
+## Revegetation Goals
 
-# 4. write to disk as an ESRI Shapefile
-#    This will create .shp, .dbf, .shx, etc., in the “shapefile” directory.
-# dir.create("shapefile", showWarnings = FALSE)
-st_write(
-  obj       = xy, 
-  dsn       = "output/laws_reveg_xy.shp", 
-  driver    = "ESRI Shapefile",
-  delete_dsn = TRUE        # overwrite if it already exists
+1.  **Perennial Cover ≥ 10%**: Parcel-average native perennial cover must be 10% or greater
+2.  **Species with ≥3 Hits ≥ 6**: At least six perennial species must have at least 3 hits within each parcel
+3.  **Species Richness ≥ 10**: Each parcel must have at least 10 distinct perennial species
+4.  **Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover
+5.  **Grass Species Present**: At least one grass species must be present on each parcel
+
+-   **✓**: Goal attained
+
+-   **✗**: Goal not attained
+
+-   **—**: No data available
+
+```{r compliance-table-comprehensive, warning=FALSE, echo=FALSE}
+#| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."
+
+# Load comprehensive compliance data from targets pipeline
+library(DT)
+library(targets)
+library(dplyr)
+
+# Load the comprehensive compliance target
+tar_load(compliance_comprehensive_all)
+
+# Create the comprehensive compliance table
+comprehensive_table <- compliance_comprehensive_all %>%
+  arrange(parcel, year) %>%
+  select(
+    parcel, year,
+    cover_full = cover_status_full,
+    cover_capped = cover_status_capped, 
+    cover_original = cover_status_original,
+    species_3hit_status,
+    richness_status,
+    transect_status,
+    grass_status,
+    compliance_summary
+  )
+
+# Create the datatable with optimized column widths and default 2025 filter
+datatable(
+  comprehensive_table,
+  options = list(
+    autoWidth = FALSE,
+    scrollX = TRUE,
+    columnDefs = list(
+      list(width = '10%', targets = 0),    # parcel
+      list(width = '6%', targets = 1),     # year
+      list(width = '12%', targets = 2),    # full cover
+      list(width = '12%', targets = 3),    # capped cover
+      list(width = '12%', targets = 4),    # original cover
+      list(width = '10%', targets = 5),    # species ≥3 hits
+      list(width = '10%', targets = 6),    # species richness
+      list(width = '10%', targets = 7),    # transect cover
+      list(width = '10%', targets = 8),    # grass species
+      list(width = '8%', targets = 9)      # compliance summary
+    ),
+    dom = 'Bfrtip',
+    buttons = c('csv'),
+    pageLength = 20,
+    searchCols = list(
+      list(search = "2025"),  # Default filter for year column (index 1)
+      rep(list(search = ""), 9)  # Empty search for other columns
+    )
+  ),
+  extensions = 'Buttons',
+  filter = 'top',
+  colnames = c(
+    "Parcel", "Year", 
+    "Cover ≥10% (Full)", "Cover ≥10% (Capped)", "Cover ≥10% (Original)",
+    "Species ≥3 Hits ≥6", "Species Richness ≥10", "All Transects ≥2%", "Grass Species ≥1",
+    "Compliance"
+  )
+)
+```
+
+1.  **Full**: All perennial species including unlimited ATTO/ERNA (maximum potential)
+2.  **Capped**: ATTO/ERNA cover is limited/capped to/at reference parcel averages (policy-based compliance). **LAW90/94/95**: Up to **0.176%**. **LAW118/129**: Up to **2.885%**
+3.  **Original**: Perennial cover calculations exclude ERNA10 and ATTO species
+
+```{r reference-parcel-summary, warning=FALSE}
+#| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"
+
+# Create reference parcel summary table
+reference_summary <- data.frame(
+  Reference_Group = c("LAW90/94/95", "LAW118/129"),
+  ATTO_Average = c("0.029%", "1.34%"),
+  ERNA10_Average = c("0.165%", "1.54%"),
+  Combined_Average = c("0.176%", "2.885%"),
+  Transects = c("170", "87"),
+  Policy_Cap = c("0.176%", "2.885%")
 )
 
-
-```
-
-## Species Attributes
-```{r species-codes}
-species <- read.csv(here("data","species.csv"))
-# species codes to attributes lookup table
-```
-
-## Field Data
-```{r reveg-data}
-# 2022 data
-reveg_data22 <- read_csv(here('data','laws_reveg_data_2022.csv')) %>% mutate(year = 2022) 
-
-# 2023 data
-reveg_lw118_2023 <- read_csv(here('data','laws118_reveg_data_2023.csv') )%>% mutate(year = 2023) 
-
-# 2024 data
-reveg_data24 <- read_csv(here('data','laws_reveg_data_2024.csv') )%>% mutate(year = 2024) 
-
-
-# 2025 data
-#
-# add 118/129 transects
-# add reference parcel transects
-
-```
-
-# Reference parcel
-## LAW118/119 reference parcels
-
-```{r}
-ref_og <- read_csv("data/law090_094_095_reference_parcel_long_format.csv")
-```
-
-```{r}
-ref <- read_csv("data/LAW118_129_Reference_Parcels_Monitoring_Data/law118_129_reference_parcel_long_format.csv")
-```
-
-```{r}
-ref1 <- ref_og %>%
-# ref1 <- ref %>% 
-  left_join(species, by = c("Species" = "Code"))
-
-
-
-# Step 1: Calculate the total cover for each transect
-transect_summary <- ref %>%
-  group_by(Parcel, Tran_Name) %>%
-  summarise(Total_Cover = sum(Hit, na.rm = TRUE)) %>%
-  ungroup()
-
-# Step 2: Aggregate at the parcel level to calculate the mean, SD, and SE
-parcel_summary <- transect_summary %>%
-  group_by(Parcel) %>%
-  summarise(
-    Mean_Cover = mean(Total_Cover, na.rm = TRUE),
-    SD_Cover = sd(Total_Cover, na.rm = TRUE),
-    SE_Cover = SD_Cover / sqrt(n()),
-    Total_Cover = sum(Total_Cover, na.rm = TRUE)
-  ) %>%
-  ungroup()
-
-# Step 3: Plot histogram of Total_Cover for each parcel, with faceting and vertical lines for Mean_Cover, SD_Cover, and SE_Cover
-ggplot(transect_summary, aes(x = Total_Cover, fill = Parcel)) +
-  geom_histogram(bins = 30, alpha = 0.6, position = "identity") +
-  labs(
-    title = "Histogram of Total Transect Cover by Parcel",
-    x = "Total Transect Cover per Transect",
-    y = "Frequency"
-  ) +
-  facet_wrap(~ Parcel, scales = "free") +
-  theme_minimal() +
-  theme(legend.position = "none") +
-  geom_text(
-    data = parcel_summary,
-    aes(
-      x = Inf, y = Inf,
-      label = paste("Mean:", round(Mean_Cover, 1), "\nSD:", round(SD_Cover, 1))
+datatable(
+  reference_summary,
+  options = list(
+    autoWidth = FALSE,
+    scrollX = TRUE,
+    columnDefs = list(
+      list(width = '20%', targets = 0),    # reference group
+      list(width = '15%', targets = 1:5)   # other columns
     ),
-    hjust = 1.1, vjust = 1.5, size = 3, color = "black"
+    dom = 'Bfrtip',
+    buttons = c('csv'),
+    pageLength = 10
+  ),
+  extensions = 'Buttons',
+  filter = 'top',
+  colnames = c(
+    "Reference Parcel Group", 
+    "ATTO Average Cover", 
+    "ERNA10 Average Cover", 
+    "Combined ATTO+ERNA10", 
+    "Total Transects",
+    "Policy Implementation Cap"
   )
-```
-
-
-# Data Processing
-```{r reveg-data-merge}
-
-# merge 2022 and 2024
-reveg_data2 <- bind_rows(reveg_data22,reveg_data24, reveg_lw118_2023) 
-# %>% rename(hits = cover)
-reveg_data <- bind_rows(reveg_data22,reveg_data24) 
-# %>% rename(hits = cover)
-
-
-r0 <- reveg_data2 %>% 
-  left_join(species, by = c("species" = "Code")) %>% 
-  mutate(percent_cover = hits*.5)
-
-# join xy location to all the data (transect totals by species)
-reveg_sp_count_xy <- reveg_data %>% 
-  left_join(reveg_xy, by = c("parcel","transect"))
-
-
-# create a simple features layer from the xy points and the crs 
-rscxy <- st_as_sf(reveg_sp_count_xy, coords = c("x", "y"), crs =reveg_crs)
-
-# join species attributes such as common name to the xy plotted species codes.
-r1 <- rscxy %>% left_join(species, by = c("species" = "Code")) %>% mutate(percent_cover = hits*.5)
-
-# non-spatial
-# join species attribute data - links code to functional type
-
-r2 <- r0 
-
-# r2 <- reveg_sp_count_xy %>% left_join(species, by = c("species" = "Code"))%>% mutate(percent_cover = hits*.5)
-
-# non-spatial
-r3 <- r2 %>% mutate(tcov = hits*1/200*100)# (other locations simplified to * .5) 200 possible hits on a 50 m transect every 25 cm. hits/possible for fractional cover and * 100 to convert to percentage 0-100..
-
-parcels_shp <- st_transform(parcels_shp, crs = st_crs(r1))  
-
-```
-
-```{r map-subsets}
-# subset parcel sf points
-# create subset into four simple feature sf dataframes
-rlaw90<- r1 %>% filter(parcel %in% c("LAW090"))
-rlaw95<- r1 %>% filter(parcel %in% c("LAW095"))
-rlaw94<- r1 %>% filter(parcel %in% c("LAW094"))
-
-# rlaw118_129<- r1 %>% filter(parcel %in% c("LAW118","LAW129"))
-```
-
-```{r}
-# r1 %>%
-  # select(year, parcel, transect, species, CommonName, percent_cover, -geometry) %>%
-# input the number of transects. doing this precludes needing to impute zeroes so each species is represented in each transect. here percent cover at the transect has already been calculated from #hits/200 possible *100. percent cover summed across all transects, divided by the number of transects, including those without that species, give parcel average species cover.
-
-compute_parcel_cover<- function(data, tran_num){ 
-  data %>%
-  select(year, parcel, transect,species, CommonName,Lifecycle, Lifeform, percent_cover) %>%
-  # total species percent cover across all transects. divide by the number of transects
-  # for parcel average
-  group_by(parcel, year, species, CommonName, Lifecycle, Lifeform) %>%
-  summarise(mean_cover = sum(percent_cover) / tran_num ,
-            n = tran_num,
-            transects_hit = n(),
-            .groups = 'drop') %>%
-  arrange(parcel, species, year) 
-}
-
-parcel_cover_lw118 <- r2 %>% filter(parcel == "LAW118") %>% compute_parcel_cover( 15)
-# parcel_cover_lw118 %>% arrange(mean_cover)
-
-parcel_cover_lw029 <- ref1 %>% filter(Parcel == "LAW029") %>% compute_parcel_cover( 15)
-
-
-# summarise ref1 data for each parcel calculate the total perennial cover sample mean across transects, calculate the sample standard error and 95% confidence interval.
-
-# function to calculate the standard error of the mean
-sem <- function(x) {
-  sd(x) / sqrt(length(x))
-}
-
-# function to summarise parcels sample mean and standard error
-summarise_parcel <- function(data){
-  data %>%
-    summarise(mean_cover = mean(Hit),
-              sem = sem(mean_cover),
-              ci = qt(0.975, n() - 1) * sem,
-              .groups = 'drop')
-}
-
-summary_ref_parcels <- summarise_parcel(ref1)
-
-
-lookref <- ref1 %>% select(Parcel, Tran_Name, Lifecycle, Species, Hit, CommonName, Lifecycle, Lifeform) %>% arrange(Parcel, desc(Lifecycle), Species) 
-# %>% write_csv("output/lookref.csv")
-lookref$Parcel %>% unique() 
-lookref
-
-
-```
-
-
-## 10/16/24 added LAW118 data
-
-```         
-- add relative cover column: relative to total perennial cover 
-- e.g. species comprises (relative cover) proportion of total perennial cover
-```
-
-```{r}
-
-pc %>%
-  datatable(
-    options = list(
-      autoWidth = TRUE,    # Ensure the table takes full width
-      scrollX = TRUE,      # Enable horizontal scrolling if needed
-      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-      dom = 'lBfrtip',     # Change 'Bfrtip' to 'lBfrtip' to put length menu before the buttons
-      buttons = c('csv'),  # Specify 'csv' as the button type
-      lengthMenu = list(c(5, 10, 15, 25, 50, -1), c('5','10','15', '25', '50', 'All')),  # Allow row selection
-      pageLength = 10,     # Default number of rows per page
-      searching = TRUE     # Enable column search
-    ),
-    extensions = 'Buttons', # Enable Buttons extension
-    filter = 'top'          # Enable filtering options for each column
-  )
-
-```
-
-# parcel-year-transect-functional type
-
-functional type cover aggregated at transect
-
-```{r full}
-
-# wide view, spreading functional types into columns
-full_noERNAATTO <- r2 %>% filter(!species %in% c("ERNA10","ATTO")) %>%
-summarise_reveg_to_transect(200)
-
-full <- r2 %>%
-summarise_reveg_to_transect(200)
-```
-
-```{R}
-full%>% 
-  datatable(
-    options = list(
-      autoWidth = TRUE,    # Ensure the table takes full width
-      scrollX = TRUE,      # Enable horizontal scrolling if needed
-      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% widthsadds
-      dom = 'Bfrtip',   # Add buttons to the table (B)
-      buttons = c('csv')  # Specify 'csv' as the button type
-    ),
-    extensions = 'Buttons', # Enable Buttons extension
-    filter = 'top'          # Enable filtering options for each column  # Enable Buttons extension
-  )
-```
-
-# parcel-year
-
-total perennial cover aggregated at parcel
-
-```{r parcel-sum}
-# 
-parcel_sum_f <- summarise_to_parcel(full_noERNAATTO)
-parcel_sum <- summarise_to_parcel(full)
-```
-
-```{R}
-parcel_sum %>% mutate(Cover = round(Cover,1)) %>% select(parcel,year,Cover,n.transects) %>% 
-  filter(year == 2024 | year == 2023)%>% 
-  # filter(year == 2024)%>% 
-  datatable(
-    options = list(
-      autoWidth = TRUE,    # Ensure the table takes full width
-      scrollX = TRUE,      # Enable horizontal scrolling if needed
-      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-      dom = 'Bfrtip',   # Add buttons to the table (B)
-      buttons = c('csv')  # Specify 'csv' as the button type
-    ),
-    extensions = 'Buttons', # Enable Buttons extension
-    filter = 'top'          # Enable filtering options for each column  
-  )
-```
-
-```{r, eval=FALSE}
-
-# library(janitor)
-
-
-relative_percent <- function(tran_n, data){
-  d <-  data %>%
-  select(year, parcel, transect, species, CommonName, percent_cover) %>% 
-  mutate(transect = as.character(transect)) %>%
-  left_join(parcel_sum, by = c("parcel","year")) %>% 
-  group_by(parcel, year, species, CommonName) %>%
-  summarise(mean_cover = sum(percent_cover) / tran_n,
-            n=n(),
-            rel_cov = 100*(mean_cover / Cover),
-            transects_hit = n())
-  
-  dupes <-  d %>% janitor::get_dupes()
-  
-  
-
-
-nodupes <- d %>% anti_join(dupes)
-
-return(nodupes)
-
-}
-
-data = r2 %>% filter(parcel == "LAW118") 
-
-relative_percent(tran_n = 15, data = data)
-
-
-dupes <- rp %>% janitor::get_dupes()
-
-rpf <- rp %>% anti_join(dupes)
-
-```
-
-# parcel-year- without ATTO and ERNA10
-
-total perennial cover subtracting out ATTO/ERNA.
-
-```{r}
-parcel_sum_f %>%  mutate(Cover = round(Cover,1)) %>% select(parcel,year,Cover,n.transects) %>% filter(year == 2024 | year == 2023)%>% 
-  datatable(
-    options = list(
-      autoWidth = TRUE,    # Ensure the table takes full width
-      scrollX = TRUE,      # Enable horizontal scrolling if needed
-      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-      dom = 'Bfrtip',   # Add buttons to the table (B)
-      buttons = c('csv')  # Specify 'csv' as the button type
-    ),
-    extensions = 'Buttons', # Enable Buttons extension
-    filter = 'top'          # Enable filtering options for each column
-  )
-```
-
-```{r count-grass-species}
-count_grass_species <- r3 %>% filter(year != 2022, Lifeform == 'Grass') %>% select(parcel,transect,species,Genus, Species,Lifecycle,CommonName) %>% arrange(parcel,transect,Genus) %>% group_by(parcel) %>% summarise(grass_species = n())
-
-# count_grass_species%>%
-#   datatable(
-#     options = list(
-#       autoWidth = TRUE,    # Ensure the table takes full width
-#       scrollX = TRUE,      # Enable horizontal scrolling if needed
-#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-#       dom = 'Bfrtip',   # Add buttons to the table (B)
-#       buttons = c('csv')  # Specify 'csv' as the button type
-#     ),
-#     extensions = 'Buttons'  # Enable Buttons extension
-#   )
-```
-
-```{r species-hit}
-species_hit <- r2 %>% 
-  filter(Lifecycle == 'Perennial') %>% 
-  group_by(parcel,species) %>% 
-  summarise(species_hits = sum(hits)) %>% 
-  filter(species_hits >= 3) %>% ungroup()
-```
-
-```{r species-rich}
-
-species_rich <- r2 %>% 
-  filter(Lifecycle == 'Perennial') %>% 
-  group_by(parcel,species) %>% 
-  summarise(species_hits = sum(hits)) %>% 
-  ungroup()
-
-# species_rich%>% 
-#   datatable(
-#     options = list(
-#       autoWidth = TRUE,    # Ensure the table takes full width
-#       scrollX = TRUE,      # Enable horizontal scrolling if needed
-#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-#       dom = 'Bfrtip',   # Add buttons to the table (B)
-#       buttons = c('csv')  # Specify 'csv' as the button type
-#     ),
-#     extensions = 'Buttons'  # Enable Buttons extension
-#   )
-```
-
-```{r species-hit-per-parcel}
-
-count_hit_species_per_parcel <- species_hit %>% filter(parcel != 'LAW129') %>% group_by(parcel) %>% summarise(count_3hit_species = n())
-
-# count_hit_species_per_parcel%>% 
-#   datatable(
-#     options = list(
-#       autoWidth = TRUE,    # Ensure the table takes full width
-#       scrollX = TRUE,      # Enable horizontal scrolling if needed
-#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-#       dom = 'Bfrtip',   # Add buttons to the table (B)
-#       buttons = c('csv')  # Specify 'csv' as the button type
-#     ),
-#     extensions = 'Buttons'  # Enable Buttons extension
-#   )
-```
-
-```{r species-rich-per-parcel}
-species_richness_parcel <- species_rich %>%
-  filter(parcel != 'LAW129') %>%
-  group_by(parcel) %>%
-  summarise(sp_richness = n_distinct(species))
-
-# species_richness_parcel%>% 
-#   datatable(
-#     options = list(
-#       autoWidth = TRUE,    # Ensure the table takes full width
-#       scrollX = TRUE,      # Enable horizontal scrolling if needed
-#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-#       dom = 'Bfrtip',   # Add buttons to the table (B)
-#       buttons = c('csv')  # Specify 'csv' as the button type
-#     ),
-#     extensions = 'Buttons'  # Enable Buttons extension
-#   )
-```
-
-```{r transect-cover-2perc}
-
-# Function to summarize tcov and check if transect meets the 2% cover threshold
-summarize_transect_cover_filtered <- function(data) {
-  data %>%
-    # Pre-filter out the "weed" category in Veg_Type
-    filter(Veg_Type != "weed", Lifecycle == 'Perennial') %>%
-    group_by(parcel, year,transect) %>%
-    summarise(
-      total_hits = sum(hits, na.rm = TRUE),  # Calculate total cover per transect
-      total_tcov = sum(tcov, na.rm = TRUE),  # Calculate total cover per transect
-      meets_2_percent = ifelse(total_tcov >= 2, "Yes", "No")  # Check if cover >= 2%
-    ) %>%
-    ungroup()
-}
-
-# Applying the function 
-transect_cover_summary <- summarize_transect_cover_filtered(r3)
-
-# View the summarized data
-# transect_cover_summary %>% filter(year != 2022) %>%
-#   datatable(
-#     options = list(
-#       autoWidth = TRUE,    # Ensure the table takes full width
-#       scrollX = TRUE,      # Enable horizontal scrolling if needed
-#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-#       dom = 'Bfrtip',   # Add buttons to the table (B)
-#       buttons = c('csv')  # Specify 'csv' as the button type
-#     ),
-#     extensions = 'Buttons', # Enable Buttons extension
-#     filter = 'top'          # Enable filtering options for each column
-#   )
-
-```
-
-```{r}
-# transect_cover_summary %>% filter(year != 2022) %>% write_csv("output/transect_summary.csv")
-```
-
-```{r transect-summary}
-# Group by parcel and summarize the transects meeting the 2% threshold
-transect_summary <- transect_cover_summary %>% filter(year != 2022) %>%
-  group_by(parcel) %>%
-  summarise(
-    transects_at_2_percent = paste0(sum(meets_2_percent == "Yes"), "/", n())  # Count Yes and total
-  )
-
-# # View the summary
-# transect_summary%>%
-#   datatable(
-#     options = list(
-#       autoWidth = TRUE,    # Ensure the table takes full width
-#       scrollX = TRUE,      # Enable horizontal scrolling if needed
-#       columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-#       dom = 'Bfrtip',   # Add buttons to the table (B)
-#       buttons = c('csv')  # Specify 'csv' as the button type
-#     ),
-#     extensions = 'Buttons'  # Enable Buttons extension
-#   )
-
-```
-
-# Summary table
-
-```{r}
-#| layout-ncol: 1
-#| layout-span: full  # Extend the table across the full width
-#| tbl-cap: "Whether perennial cover is above 10%, species with 3 hits, species richness at least 10, all transects at 2% cover, and grass species on parcel."
-summary_table <- parcel_sum %>% 
-  filter(year != 2022) %>% 
-  left_join(count_hit_species_per_parcel, by = 'parcel') %>% 
-  left_join(count_grass_species, by = 'parcel') %>% 
-  left_join(transect_summary, by = 'parcel') %>% 
-  left_join(species_richness_parcel, by = 'parcel')
-# 
-# summary_table %>% select(parcel, Cover, Shrub, Herb, Grass, count_3hit_species,sp_richness,transects_at_2_percent,grass_species) 
-
-# %>% datatable()
-
-# Create your summary table with CSV export option
-summary_table %>% mutate(Cover = round(Cover,1)) %>% 
-  select(parcel, Cover, CI_95_Cover_Lower, CI_95_Cover_Upper, count_3hit_species, sp_richness, transects_at_2_percent, grass_species) %>% 
-  datatable(
-    options = list(
-      autoWidth = TRUE,    # Ensure the table takes full width
-      scrollX = TRUE,      # Enable horizontal scrolling if needed
-      columnDefs = list(list(width = '100%', targets = "_all")),  # Set all columns to 100% width
-      colnames = c('3hit_species' = 'count_3hit_species'),
-      dom = 'Bfrtip',   # Add buttons to the table (B)
-      buttons = c('csv')  # Specify 'csv' as the button type
-    ),
-    extensions = 'Buttons', # Enable Buttons extension
-    filter = 'top'          # Enable filtering options for each column
-  )
-
-
-# summary_table %>% mutate(Cover = round(Cover,1)) %>% 
-  # select(parcel, Cover, count_3hit_species, sp_richness, transects_at_2_percent, grass_species) %>% write_csv("output/parcel_summary.csv")
-```
-
-# Perennial cover histograms across transects 2022 vs 2024
-
-Laws 90/94/95 combined
-
-```{r histogram-compare}
-#| layout-ncol: 1
-#| layout-span: full  # Extend the table across the full width
-#| fig-width: 15
-#| fig-align: center
-
-# Faceted histogram by year and color-coded based on meets_2_percent
-transect_cover_summary %>% filter(parcel != 'LAW129', parcel != 'LAW118') %>% ggplot( aes(x = total_tcov, fill = meets_2_percent)) +
-  geom_histogram(binwidth = 1, color = "black") + 
-  geom_vline(xintercept = 2, color = "red", linetype = "dashed", size = 1) +  # Vertical line at 2% threshold
-  # annotate("text", x = 2.5, y = Inf, label = "2%", color = "red", vjust = 1.5, angle = 90) +  # Label the threshold
-  # Vertical line at 2% threshold
-  scale_x_continuous(breaks = c(seq(0, 30, by = 5), 2),  # Add a custom break at 2%
-                     labels = c(seq(0, 30, by = 5), "2%")) +  # Label the 2% tick
-  scale_fill_manual(values = c("red", "darkgreen")) +  # Color code based on meets_2_percent
-  labs(title = "Transect Perennial Cover distribution in 2022 and 2024 across Laws 90, 94 and 95.",
-       x = "Total Perennial Cover",
-       y = "Number of Transects") +
-  facet_wrap(~year,ncol = 1) +  # Facet by year
-  theme_minimal() +
-  theme(legend.position = "none")  # Remove the legend
-
-```
-
-
-# Maps
-
-species change by transect location \*request xy coords for laws 118 transects
-
-```{r}
-
-parcelset <- parcels_shp %>% filter(PCL %in% c("LAW090", "LAW094", "LAW095"))
-
-calculate_cover_difference <- function(data) {
-  # Remove geometry temporarily to handle pivoting
-  data_no_geometry <- st_drop_geometry(data)
-
-  # Group by necessary columns and calculate the mean percent_cover
-  cover_diff_data <- data_no_geometry %>%
-    group_by(parcel, transect, species, year) %>%
-    summarise(percent_cover = mean(percent_cover, na.rm = TRUE), .groups = 'drop') %>%
-
-    # Pivot wider to compare 2022 and 2024 data
-    pivot_wider(
-      names_from = year,
-      values_from = percent_cover,
-      names_prefix = "cover_"
-    ) %>%
-
-    # Replace NAs with 0 in both cover_2022 and cover_2024
-    mutate(cover_2022 = replace_na(cover_2022, 0),
-           cover_2024 = replace_na(cover_2024, 0)) %>%
-
-    # Calculate the difference between 2024 and 2022
-    mutate(cover_diff = cover_2024 - cover_2022) %>%
-
-    # Ensure unique records
-    distinct(parcel, transect, species, cover_2022, cover_2024, cover_diff)
-
-  # Join geometry back into the dataset, ensuring no duplicates are created
-  result_with_geometry <- left_join(cover_diff_data,
-                                    distinct(select(data, parcel, transect, geometry)),
-                                    by = c("parcel", "transect"))
-
-  return(result_with_geometry)
-}
-
-# Step 3: Apply the functions to your data
-# cover_diff_data <- calculate_cover_difference(r1)
-# Apply the function to r1
-cover_diff_data <- calculate_cover_difference(r1)
-
-# Pivoting the data longer to create the 'year_compare' column and ensure no duplicates
-cover_diff_data_long <- cover_diff_data %>%
-  pivot_longer(
-    cols = starts_with("cover_"),
-    names_to = "year_compare",
-    values_to = "percent_cover"
-  ) %>%
-  mutate(year_compare = recode(year_compare, 
-                               "cover_2022" = "2022", 
-                               "cover_2024" = "2024", 
-                               "cover_diff" = "Difference")) %>%
-  # Remove any duplicates (if they exist)
-  distinct(parcel, transect, species, year_compare, percent_cover, geometry) %>%
-  # Reattach the geometry and ensure the dataset is still an sf object
-  st_as_sf()
-
-
-```
-
-```{r}
-bubble_maps_with_parcels <- function(data, parcels) {
-  ggplot(data) +
-    # Adding parcel boundaries with no fill and a black outline
-    geom_sf(data = parcels, fill = NA, color = "black", size = 0.5) +
-    
-    # Add text labels for parcels using the PCL field
-    geom_sf_text(data = parcels, aes(label = PCL), size = 3, color = "black", fontface = "bold") +
-    
-    # Mapping the size of the points to the absolute percent cover and coloring based on the percent change
-    geom_sf(aes(size = abs(percent_cover), 
-                color = case_when(
-                  percent_cover > 0 ~ "positive",
-                  percent_cover < 0 ~ "negative",
-                  percent_cover == 0 ~ "zero"
-                ), geometry = geometry)) +  
-    coord_sf() +
-    
-    # Adjust the size breaks to have more granular control over point sizes
-    scale_size_binned(breaks = c(0, 2, 4, 6, 8, 10), range = c(0.1, 6)) +
-    
-    # Apply color scale for three categories: red for negative, white for zero, green for positive
-    scale_color_manual(
-      values = c("negative" = "red", "zero" = "white", "positive" = "green"),
-      guide = guide_legend(override.aes = list(size = 5))  # Adjust the size of the legend points
-    ) +
-    
-    # Facet by species and year_compare to see changes per species over years
-    facet_grid(species ~ year_compare) +
-    
-    # Move legend to the bottom and adjust its layout
-    theme(
-      axis.text.x = element_blank(),
-      axis.text.y = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      plot.title = element_blank(),
-      legend.position = "bottom",
-      legend.box = "vertical",  # Stacks the legends vertically
-      strip.text.y = element_text(angle = 0, hjust = 0.5)
-    )
-}
-```
-
-ATTO/ERNA
-
-```{r}
-# Apply the function with the updated long dataset and the parcel shapefile
-long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("ATTO", "ERNA10"))
-all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
-
-# Print the resulting plot
-print(all_plot_with_parcels)
-
-
-```
-
-ATPO/ATCA2
-
-```{r}
-# Apply the function with the updated long dataset and the parcel shapefile
-long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("ATPO", "ATCA2"))
-all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
-
-# Print the resulting plot
-print(all_plot_with_parcels)
-
-```
-
-DISP/SPAI
-
-```{r}
-# Apply the function with the updated long dataset and the parcel shapefile
-long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("DISP", "SPAI"))
-all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
-
-# Print the resulting plot
-print(all_plot_with_parcels)
-```
-
-```{r}
-
-
-# Apply the function with the updated long dataset and the parcel shapefile
-long <- cover_diff_data_long %>% filter(parcel != "LAW129", species %in% c("LETR5","LECI4","ACHY"))
-all_plot_with_parcels <- bubble_maps_with_parcels(long, parcelset)
-
-# Print the resulting plot
-print(all_plot_with_parcels)
+)
 ```

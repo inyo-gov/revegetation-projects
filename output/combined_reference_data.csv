@@ -1,0 +1,2268 @@
+parcel,transect,species,hits,year,CommonName,Lifecycle,Lifeform,percent_cover
+LAW117,9,PSARM,7,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW117,9,TEGL,3,2022,"horsebrush, Little",Perennial,Shrub,1.5
+LAW117,9,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW117,40,PSARM,1,2022,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW117,40,TEGL,1,2022,"horsebrush, Little",Perennial,Shrub,0.5
+LAW117,40,KRLA2,3,2022,Winterfat,Perennial,Shrub,1.5
+LAW117,40,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,40,TEAX,1,2022,"cotton-thorn, straight-spined",Perennial,Shrub,0.5
+LAW117,34,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW117,34,TEGL,2,2022,"horsebrush, Little",Perennial,Shrub,1
+LAW117,34,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,1,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW117,1,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW117,17,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,17,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW117,15,PSARM,7,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW117,15,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW117,45,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW117,12,PSARM,7,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW117,12,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW117,12,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW117,25,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW117,25,KRLA2,5,2022,Winterfat,Perennial,Shrub,2.5
+LAW117,25,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,25,TEGL,1,2022,"horsebrush, Little",Perennial,Shrub,0.5
+LAW117,43,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW117,47,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,47,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,18,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,18,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,18,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW117,16,PSARM,8,2022,"indigo bush, Northern Mojave",Perennial,Shrub,4
+LAW117,16,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW117,16,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW117,42,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW117,42,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW117,42,TEAX,2,2022,"cotton-thorn, straight-spined",Perennial,Shrub,1
+LAW117,35,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW117,35,TEAX,1,2022,"cotton-thorn, straight-spined",Perennial,Shrub,0.5
+LAW117,44,EPNE,2,2022,"ephedra, Nevada",Perennial,Shrub,1
+LAW117,44,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,44,TEAX,2,2022,"cotton-thorn, straight-spined",Perennial,Shrub,1
+LAW117,22,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW117,22,TEAX,3,2022,"cotton-thorn, straight-spined",Perennial,Shrub,1.5
+LAW117,22,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,36,EPNE,2,2022,"ephedra, Nevada",Perennial,Shrub,1
+LAW117,36,PSARM,7,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW117,36,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,36,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW117,29,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW117,29,ATCO,6,2022,Shadscale,Perennial,Shrub,3
+LAW117,29,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW117,30,PSARM,7,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW117,30,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,37,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW117,37,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,37,LYAN,2,2022,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,1
+LAW117,37,EPNE,1,2022,"ephedra, Nevada",Perennial,Shrub,0.5
+LAW117,27,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,27,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,19,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW117,19,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW117,21,PSARM,13,2022,"indigo bush, Northern Mojave",Perennial,Shrub,6.5
+LAW117,21,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,21,SATR12,2,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW117,31,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW117,31,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,5,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW117,5,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW117,48,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW117,48,SATR12,2,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW117,38,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,38,PSARM,10,2022,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW117,38,LYAN,2,2022,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,1
+LAW117,41,PSARM,10,2022,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW117,41,KRLA2,5,2022,Winterfat,Perennial,Shrub,2.5
+LAW117,41,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW117,41,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,49,PSARM,9,2022,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW117,49,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,24,PSARM,7,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW117,24,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW117,24,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW117,26,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,26,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW117,3,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,3,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,33,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,33,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW117,33,LEPID,1,2022,Peppergrass/Pepperweed,Annual/Perennial,Herb_Shrub,0.5
+LAW117,32,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,32,PSARM,10,2022,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW117,32,KRLA2,4,2022,Winterfat,Perennial,Shrub,2
+LAW117,32,EPNE,3,2022,"ephedra, Nevada",Perennial,Shrub,1.5
+LAW117,6,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW117,6,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW117,6,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW117,39,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,39,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW117,46,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,46,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW117,10,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW117,10,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW117,10,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW117,50,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW117,50,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW117,23,PSARM,8,2022,"indigo bush, Northern Mojave",Perennial,Shrub,4
+LAW117,23,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW117,8,PSARM,10,2022,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW117,8,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,20,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW117,20,ATCO,13,2022,Shadscale,Perennial,Shrub,6.5
+LAW117,11,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW117,14,PSARM,9,2022,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW117,14,KRLA2,3,2022,Winterfat,Perennial,Shrub,1.5
+LAW117,7,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW117,7,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW117,7,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW117,4,PSARM,9,2022,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW117,4,KRLA2,3,2022,Winterfat,Perennial,Shrub,1.5
+LAW117,4,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW117,28,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW117,28,ATCO,8,2022,Shadscale,Perennial,Shrub,4
+LAW117,28,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW093,6,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW093,6,KRLA2,6,2022,Winterfat,Perennial,Shrub,3
+LAW093,6,TEAX,1,2022,"cotton-thorn, straight-spined",Perennial,Shrub,0.5
+LAW093,6,ATCA2,2,2022,"saltbush, Fourwing",Perennial,Shrub,1
+LAW093,7,PSARM,6,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW093,7,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW093,7,TEAX,3,2022,"cotton-thorn, straight-spined",Perennial,Shrub,1.5
+LAW093,11,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW093,11,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW093,11,PSPO,1,2022,"dalea, Dotted",Perennial,Shrub,0.5
+LAW093,3,PSARM,7,2022,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW093,3,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW093,3,TEAX,2,2022,"cotton-thorn, straight-spined",Perennial,Shrub,1
+LAW093,3,ATCA2,1,2022,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW093,3,PSPO,3,2022,"dalea, Dotted",Perennial,Shrub,1.5
+LAW093,13,PSARM,14,2022,"indigo bush, Northern Mojave",Perennial,Shrub,7
+LAW093,13,ATCA2,1,2022,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW093,13,PSPO,13,2022,"dalea, Dotted",Perennial,Shrub,6.5
+LAW093,13,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW091,1,LYAN,7,2022,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,3.5
+LAW091,1,PSARM,8,2022,"indigo bush, Northern Mojave",Perennial,Shrub,4
+LAW091,1,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW091,1,TEAX,2,2022,"cotton-thorn, straight-spined",Perennial,Shrub,1
+LAW093,5,PSARM,11,2022,"indigo bush, Northern Mojave",Perennial,Shrub,5.5
+LAW093,5,KRLA2,1,2022,Winterfat,Perennial,Shrub,0.5
+LAW093,5,EPNE,5,2022,"ephedra, Nevada",Perennial,Shrub,2.5
+LAW093,14,KRLA2,4,2022,Winterfat,Perennial,Shrub,2
+LAW093,14,PSPO,9,2022,"dalea, Dotted",Perennial,Shrub,4.5
+LAW093,14,SATR12,3,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW093,15,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW093,15,KRLA2,3,2022,Winterfat,Perennial,Shrub,1.5
+LAW093,15,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW093,15,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW093,15,ERNA10,1,2022,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW093,15,ATCA2,1,2022,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW093,10,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW093,10,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW093,10,TEAX,5,2022,"cotton-thorn, straight-spined",Perennial,Shrub,2.5
+LAW093,9,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW093,9,TEAX,4,2022,"cotton-thorn, straight-spined",Perennial,Shrub,2
+LAW093,9,KRLA2,3,2022,Winterfat,Perennial,Shrub,1.5
+LAW093,8,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW093,8,SATR12,4,2022,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW093,2,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW093,2,TEAX,1,2022,"cotton-thorn, straight-spined",Perennial,Shrub,0.5
+LAW093,2,PSPO,6,2022,"dalea, Dotted",Perennial,Shrub,3
+LAW093,2,EPNE,4,2022,"ephedra, Nevada",Perennial,Shrub,2
+LAW093,4,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW093,4,TEAX,6,2022,"cotton-thorn, straight-spined",Perennial,Shrub,3
+LAW093,4,KRLA2,3,2022,Winterfat,Perennial,Shrub,1.5
+LAW093,4,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW093,12,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW093,12,TEAX,2,2022,"cotton-thorn, straight-spined",Perennial,Shrub,1
+LAW093,12,KRLA2,4,2022,Winterfat,Perennial,Shrub,2
+LAW049,8,SATR12,4,2022,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW049,8,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW049,31,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW049,31,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW049,26,SATR12,12,2022,"Tumbleweed /thistle, Russian",Annual,Herb,6
+LAW049,37,SATR12,25,2022,"Tumbleweed /thistle, Russian",Annual,Herb,12.5
+LAW049,39,SAVE4,47,2022,Greasewood,Perennial,Shrub,23.5
+LAW049,27,SAVE4,14,2022,Greasewood,Perennial,Shrub,7
+LAW049,27,ATCO,10,2022,Shadscale,Perennial,Shrub,5
+LAW049,28,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,28,SATR12,3,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW049,66,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW049,66,SATR12,7,2022,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+LAW049,63,SAVE4,11,2022,Greasewood,Perennial,Shrub,5.5
+LAW049,63,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,63,SATR12,3,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW049,47,SATR12,12,2022,"Tumbleweed /thistle, Russian",Annual,Herb,6
+LAW049,35,SATR12,3,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW049,35,ATCO,9,2022,Shadscale,Perennial,Shrub,4.5
+LAW049,67,SATR12,5,2022,"Tumbleweed /thistle, Russian",Annual,Herb,2.5
+LAW049,67,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW049,67,SAVE4,4,2022,Greasewood,Perennial,Shrub,2
+LAW049,67,ATCA2,1,2022,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW049,33,SATR12,7,2022,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+LAW049,33,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW049,36,SATR12,11,2022,"Tumbleweed /thistle, Russian",Annual,Herb,5.5
+LAW049,36,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,17,ATCO,8,2022,Shadscale,Perennial,Shrub,4
+LAW049,17,SATR12,4,2022,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW049,17,SAVE4,14,2022,Greasewood,Perennial,Shrub,7
+LAW049,55,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,55,SAVE4,32,2022,Greasewood,Perennial,Shrub,16
+LAW048,51,SAVE4,30,2022,Greasewood,Perennial,Shrub,15
+LAW048,51,ERNA10,2,2022,"rabbitbrush, Common",Perennial,Shrub,1
+LAW048,61,SAVE4,30,2022,Greasewood,Perennial,Shrub,15
+LAW048,61,ATCA2,3,2022,"saltbush, Fourwing",Perennial,Shrub,1.5
+LAW049,49,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW049,49,SAVE4,22,2022,Greasewood,Perennial,Shrub,11
+LAW049,49,ATCA2,1,2022,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW049,49,ATTO,4,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW049,56,SAVE4,47,2022,Greasewood,Perennial,Shrub,23.5
+LAW049,56,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW048,48,SAVE4,36,2022,Greasewood,Perennial,Shrub,18
+LAW048,48,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW048,48,ATTO,8,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW049,53,SAVE4,65,2022,Greasewood,Perennial,Shrub,32.5
+LAW048,64,SAVE4,27,2022,Greasewood,Perennial,Shrub,13.5
+LAW048,64,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW048,64,ATTO,8,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW049,34,SAVE4,24,2022,Greasewood,Perennial,Shrub,12
+LAW049,34,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,34,ERNA10,2,2022,"rabbitbrush, Common",Perennial,Shrub,1
+LAW048,15,SAVE4,5,2022,Greasewood,Perennial,Shrub,2.5
+LAW048,15,ERNA10,3,2022,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW048,15,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW048,15,ARTR2,2,2022,"sagebrush, Big",Perennial,Shrub,1
+LAW048,15,ATTO,1,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW048,23,SAVE4,7,2022,Greasewood,Perennial,Shrub,3.5
+LAW048,23,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW049,16,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW049,16,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW049,7,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW049,7,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW049,7,SATR12,2,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW049,2,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW049,2,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW049,2,ERIOG,1,2022,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW049,29,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,29,PSARM,3,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW049,29,ERIOG,1,2022,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW049,29,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW049,4,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,4,PSARM,4,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW049,4,KRLA2,2,2022,Winterfat,Perennial,Shrub,1
+LAW049,30,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW049,30,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW049,30,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW049,3,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW049,3,SAVE4,9,2022,Greasewood,Perennial,Shrub,4.5
+LAW049,9,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,9,SATR12,2,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW049,9,SAVE4,3,2022,Greasewood,Perennial,Shrub,1.5
+LAW028,18,ATTO,6,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,3
+LAW028,18,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW028,18,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,18,ERIOG,1,2022,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW028,73,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW028,73,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,73,PSARM,11,2022,"indigo bush, Northern Mojave",Perennial,Shrub,5.5
+LAW028,14,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW028,14,PSARM,8,2022,"indigo bush, Northern Mojave",Perennial,Shrub,4
+LAW048,24,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW048,24,SAVE4,24,2022,Greasewood,Perennial,Shrub,12
+LAW049,1,SATR12,8,2022,"Tumbleweed /thistle, Russian",Annual,Herb,4
+LAW049,1,PSARM,2,2022,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW049,13,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW049,13,SATR12,3,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW049,10,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW049,10,PSARM,5,2022,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW049,22,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,22,SATR12,7,2022,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+LAW049,21,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW049,21,SATR12,6,2022,"Tumbleweed /thistle, Russian",Annual,Herb,3
+LAW028,12,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,12,PSARM,1,2022,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW028,4,SATR12,2,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW028,4,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW028,3,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW028,3,SAVE4,5,2022,Greasewood,Perennial,Shrub,2.5
+LAW028,3,ERNA10,1,2022,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW028,8,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,8,PSARM,1,2022,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW012,22,PSARM,7,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW012,22,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,20b,PSARM,9,2024,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW012,20b,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,4,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW012,4,SATR12,3,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW012,4,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW012,21,ATCO,12,2024,Shadscale,Perennial,Shrub,6
+LAW012,6,PSARM,1,2024,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW012,6,ATCO,6,2024,Shadscale,Perennial,Shrub,3
+LAW012,6,ERNA10,6,2024,"rabbitbrush, Common",Perennial,Shrub,3
+LAW012,29,SATR12,7,2024,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+LAW012,29,PSARM,2,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW012,29,PSPO,6,2024,"dalea, Dotted",Perennial,Shrub,3
+LAW012,27b,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,27b,ERNA10,11,2024,"rabbitbrush, Common",Perennial,Shrub,5.5
+LAW012,27b,SAVE4,8,2024,Greasewood,Perennial,Shrub,4
+LAW012,7,SATR12,5,2024,"Tumbleweed /thistle, Russian",Annual,Herb,2.5
+LAW012,7,PSARM,11,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5.5
+LAW012,7,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW012,7,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW012,18,SATR12,4,2024,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW012,18,PSARM,5,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW012,18,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW012,18,LEFR2,1,2024,"alyssum, Desert",Perennial,Shrub,0.5
+LAW012,15,PSARM,10,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW012,15,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,15,LEFR2,1,2024,"alyssum, Desert",Perennial,Shrub,0.5
+LAW012,15,XYTOT,3,2024,NA,NA,NA,1.5
+LAW012,15,LYAN,3,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,1.5
+LAW012,12,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW012,12,PSARM,7,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW012,12,SATR12,3,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW012,24,PSARM,8,2024,"indigo bush, Northern Mojave",Perennial,Shrub,4
+LAW012,24,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,2,ATCO,4,2024,Shadscale,Perennial,Shrub,2
+LAW012,2,PSARM,11,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5.5
+LAW012,2,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,26,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW012,26,PSARM,5,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW012,26,SATR12,2,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW012,9,PSARM,19,2024,"indigo bush, Northern Mojave",Perennial,Shrub,9.5
+LAW012,9,SATR12,3,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW012,9,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW012,28,SATR12,2,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW012,28,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,28,PSARM,2,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW012,3,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,3,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,3,PSARM,3,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW012,3,LEFR2,1,2024,"alyssum, Desert",Perennial,Shrub,0.5
+LAW012,3,SAVE4,2,2024,Greasewood,Perennial,Shrub,1
+LAW012,23,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,23,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW012,23,PSARM,5,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW012,10,SATR12,4,2024,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW012,10,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW012,10,PSARM,7,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW012,14,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,14,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW012,14,PSARM,10,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW012,25,SATR12,4,2024,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW012,25,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,19,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,19,ATCO,5,2024,Shadscale,Perennial,Shrub,2.5
+LAW012,19,PSARM,7,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW012,19,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW012,16,SATR12,5,2024,"Tumbleweed /thistle, Russian",Annual,Herb,2.5
+LAW012,16,ATCO,4,2024,Shadscale,Perennial,Shrub,2
+LAW012,16,PSARM,6,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW012,16,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW012,1,SATR12,7,2024,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+LAW012,1,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,17,ATCO,8,2024,Shadscale,Perennial,Shrub,4
+LAW012,17,SAVE4,1,2024,Greasewood,Perennial,Shrub,0.5
+LAW012,11,PSARM,13,2024,"indigo bush, Northern Mojave",Perennial,Shrub,6.5
+LAW012,11,LEFR2,1,2024,"alyssum, Desert",Perennial,Shrub,0.5
+LAW012,11,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,13,PSARM,5,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW012,13,ERIN4,2,2024,"trumpet, Desert",Annual/Perennial,Herb,1
+LAW012,5b,PSARM,12,2024,"indigo bush, Northern Mojave",Perennial,Shrub,6
+LAW012,5b,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW012,5b,ERIN4,1,2024,"trumpet, Desert",Annual/Perennial,Herb,0.5
+LAW012,5b,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW012,8,PSARM,9,2024,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW012,8,ERIN4,1,2024,"trumpet, Desert",Annual/Perennial,Herb,0.5
+LAW012,8,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW012,30,PSARM,5,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW012,30,LEFR2,1,2024,"alyssum, Desert",Perennial,Shrub,0.5
+LAW012,30,SATR12,2,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW012,30,ATCO,4,2024,Shadscale,Perennial,Shrub,2
+LAW012,30,LYAN,1,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,0.5
+LAW024,6c,ATCO,7,2024,Shadscale,Perennial,Shrub,3.5
+LAW024,6c,PSARM,3,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW024,2,ATCO,9,2024,Shadscale,Perennial,Shrub,4.5
+LAW024,8c,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW024,8c,PSARM,1,2024,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW024,8c,ATCA2,1,2024,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW024,8c,PSPO,5,2024,"dalea, Dotted",Perennial,Shrub,2.5
+LAW024,8c,SAVE4,4,2024,Greasewood,Perennial,Shrub,2
+LAW024,1,ATCA2,7,2024,"saltbush, Fourwing",Perennial,Shrub,3.5
+LAW024,1,SAVE4,11,2024,Greasewood,Perennial,Shrub,5.5
+LAW024,3b,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW024,3b,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW024,3b,SAVE4,7,2024,Greasewood,Perennial,Shrub,3.5
+LAW024,3b,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW024,4,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW024,4,SAVE4,18,2024,Greasewood,Perennial,Shrub,9
+LAW024,4,ATCO,5,2024,Shadscale,Perennial,Shrub,2.5
+LAW024,4,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW024,7,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW024,7,SAVE4,3,2024,Greasewood,Perennial,Shrub,1.5
+LAW024,7,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW024,7,ERNA10,3,2024,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW024,10,SAVE4,6,2024,Greasewood,Perennial,Shrub,3
+LAW024,10,ERNA10,7,2024,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW024,9b,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW024,9b,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW024,9b,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW024,9b,KRLA2,2,2024,Winterfat,Perennial,Shrub,1
+LAW024,5,PSARM,1,2024,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW024,5,SAVE4,18,2024,Greasewood,Perennial,Shrub,9
+LAW024,5,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW028,20,PSARM,7,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW028,20,ERIN4,1,2024,"trumpet, Desert",Annual/Perennial,Herb,0.5
+LAW028,20,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW028,9,PSARM,1,2024,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW028,9,STPA4,1,2024,"wire-lettuce, Common",Perennial,Herb_Shrub,0.5
+LAW028,13,PSARM,7,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+LAW028,13,ATCO,4,2024,Shadscale,Perennial,Shrub,2
+LAW028,13,LYAN,2,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,1
+LAW028,15,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW028,15,LYAN,3,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,1.5
+LAW028,15,KRLA2,7,2024,Winterfat,Perennial,Shrub,3.5
+LAW028,2,PSARM,6,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW028,2,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW028,2,LYAN,6,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,3
+LAW028,2,KRLA2,4,2024,Winterfat,Perennial,Shrub,2
+LAW028,17,PSARM,8,2024,"indigo bush, Northern Mojave",Perennial,Shrub,4
+LAW028,17,SATR12,3,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW028,17,ATCO,6,2024,Shadscale,Perennial,Shrub,3
+LAW028,17,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW028,17,ATCA2,1,2024,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW028,16,SATR12,3,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW028,16,KRLA2,3,2024,Winterfat,Perennial,Shrub,1.5
+LAW028,16,PSPO,5,2024,"dalea, Dotted",Perennial,Shrub,2.5
+LAW028,16,ATCA2,2,2024,"saltbush, Fourwing",Perennial,Shrub,1
+LAW028,5,PSARM,3,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW028,5,SATR12,2,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW028,5,ATCO,4,2024,Shadscale,Perennial,Shrub,2
+LAW028,5,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW028,5,PSPO,5,2024,"dalea, Dotted",Perennial,Shrub,2.5
+LAW028,5,LYAN,1,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,0.5
+LAW028,12,PSARM,6,2024,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW028,12,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,12,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW028,18,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW028,18,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,18,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW028,18,LYAN,4,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,2
+LAW028,18,TEAX,1,2024,"cotton-thorn, straight-spined",Perennial,Shrub,0.5
+LAW028,18,EPNE,1,2024,"ephedra, Nevada",Perennial,Shrub,0.5
+LAW028,1,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW028,1,PSARM,11,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5.5
+LAW028,19,ATCO,6,2024,Shadscale,Perennial,Shrub,3
+LAW028,19,PSARM,9,2024,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW028,19,LYAN,1,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,0.5
+LAW028,3,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW028,3,PSARM,9,2024,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW028,3,KRLA2,2,2024,Winterfat,Perennial,Shrub,1
+LAW028,3,LEFR2,2,2024,"alyssum, Desert",Perennial,Shrub,1
+LAW028,8b,ATCO,2,2024,Shadscale,Perennial,Shrub,1
+LAW028,8b,PSARM,11,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5.5
+LAW028,8b,LYAN,2,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,1
+LAW028,8b,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,11,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW028,11,PSARM,21,2024,"indigo bush, Northern Mojave",Perennial,Shrub,10.5
+LAW028,11,LYAN,1,2024,"tomato, Desert /wolfberry, Anderson's",Perennial,Shrub,0.5
+LAW028,11,LEFR2,5,2024,"alyssum, Desert",Perennial,Shrub,2.5
+LAW028,14,ATCO,18,2024,Shadscale,Perennial,Shrub,9
+LAW028,14,SAVE4,1,2024,Greasewood,Perennial,Shrub,0.5
+LAW028,7b,ATCO,4,2024,Shadscale,Perennial,Shrub,2
+LAW028,7b,PSARM,10,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW028,7b,LEFR2,1,2024,"alyssum, Desert",Perennial,Shrub,0.5
+LAW028,4,ATCO,7,2024,Shadscale,Perennial,Shrub,3.5
+LAW028,4,PSARM,5,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW028,4,SATR12,1,2024,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW028,6,ATCO,4,2024,Shadscale,Perennial,Shrub,2
+LAW028,6,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW028,6,SATR12,2,2024,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW028,10,ATCO,6,2024,Shadscale,Perennial,Shrub,3
+LAW028,10,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW130,8,ATPO,12,2024,"saltbush, Allscale",Perennial,Shrub,6
+LAW130,3,PSARM,9,2024,"indigo bush, Northern Mojave",Perennial,Shrub,4.5
+LAW130,3,KRLA2,1,2024,Winterfat,Perennial,Shrub,0.5
+LAW130,2,ATPO,5,2024,"saltbush, Allscale",Perennial,Shrub,2.5
+LAW130,2,PSARM,4,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW130,10b,ATPO,15,2024,"saltbush, Allscale",Perennial,Shrub,7.5
+LAW130,4,ATPO,13,2024,"saltbush, Allscale",Perennial,Shrub,6.5
+LAW130,9,ATPO,9,2024,"saltbush, Allscale",Perennial,Shrub,4.5
+LAW130,1,ATPO,6,2024,"saltbush, Allscale",Perennial,Shrub,3
+LAW130,5,ATPO,7,2024,"saltbush, Allscale",Perennial,Shrub,3.5
+LAW130,7,ATPO,19,2024,"saltbush, Allscale",Perennial,Shrub,9.5
+LAW130,6,ATPO,9,2024,"saltbush, Allscale",Perennial,Shrub,4.5
+LAW134,9,ATPO,8,2024,"saltbush, Allscale",Perennial,Shrub,4
+LAW134,9,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW134,4,ATPO,5,2024,"saltbush, Allscale",Perennial,Shrub,2.5
+LAW134,4,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW134,4,PSARM,5,2024,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW134,4,HYSAS,1,2024,NA,NA,NA,0.5
+LAW134,1,ATCO,6,2024,Shadscale,Perennial,Shrub,3
+LAW134,1,PSARM,3,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW134,1,HYSAS,1,2024,NA,NA,NA,0.5
+LAW134,13,ATPO,5,2024,"saltbush, Allscale",Perennial,Shrub,2.5
+LAW134,13,ATCO,7,2024,Shadscale,Perennial,Shrub,3.5
+LAW134,13,PSARM,2,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW134,3,ATPO,29,2024,"saltbush, Allscale",Perennial,Shrub,14.5
+LAW134,15,ATPO,34,2024,"saltbush, Allscale",Perennial,Shrub,17
+LAW134,18,ATPO,17,2024,"saltbush, Allscale",Perennial,Shrub,8.5
+LAW134,18,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW134,18,PSARM,1,2024,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW134,12,ATPO,14,2024,"saltbush, Allscale",Perennial,Shrub,7
+LAW134,14,ATPO,23,2024,"saltbush, Allscale",Perennial,Shrub,11.5
+LAW134,14,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW134,8,ATPO,2,2024,"saltbush, Allscale",Perennial,Shrub,1
+LAW134,8,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW134,11,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW134,11,ATPO,3,2024,"saltbush, Allscale",Perennial,Shrub,1.5
+LAW134,10,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW134,7c,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW134,7c,PSARM,3,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW134,6,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW134,6,ATPO,1,2024,"saltbush, Allscale",Perennial,Shrub,0.5
+LAW134,6,PSARM,10,2024,"indigo bush, Northern Mojave",Perennial,Shrub,5
+LAW134,2,PSARM,3,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+LAW134,20,ATPO,1,2024,"saltbush, Allscale",Perennial,Shrub,0.5
+LAW134,20,ATCO,1,2024,Shadscale,Perennial,Shrub,0.5
+LAW134,20,PSARM,2,2024,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW134,19,ATPO,7,2024,"saltbush, Allscale",Perennial,Shrub,3.5
+LAW134,19,ATCO,5,2024,Shadscale,Perennial,Shrub,2.5
+LAW134,17,ATPO,11,2024,"saltbush, Allscale",Perennial,Shrub,5.5
+LAW134,16,ATPO,31,2024,"saltbush, Allscale",Perennial,Shrub,15.5
+LAW134,5,ATPO,4,2024,"saltbush, Allscale",Perennial,Shrub,2
+LAW134,5,ATCO,3,2024,Shadscale,Perennial,Shrub,1.5
+LAW134,5,PSARM,1,2024,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+PLC219,5,SAVE4,13,2022,Greasewood,Perennial,Shrub,6.5
+PLC219,54,SAVE4,6,2022,Greasewood,Perennial,Shrub,3
+PLC219,54,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+PLC219,23,SAVE4,4,2022,Greasewood,Perennial,Shrub,2
+PLC219,23,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+PLC219,23,SPAI,10,2022,"sacaton, Alkali",Perennial,Grass,5
+PLC219,23,MACA17,6,2022,"aster, Shrubby alkali",Perennial,Shrub,3
+PLC219,45,SAVE4,10,2022,Greasewood,Perennial,Shrub,5
+PLC219,45,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+PLC219,45,SPAI,3,2022,"sacaton, Alkali",Perennial,Grass,1.5
+PLC219,45,MACA17,2,2022,"aster, Shrubby alkali",Perennial,Shrub,1
+PLC219,66,SAVE4,13,2022,Greasewood,Perennial,Shrub,6.5
+PLC219,66,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+PLC219,37,SAVE4,13,2022,Greasewood,Perennial,Shrub,6.5
+PLC219,37,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+PLC219,46,SAVE4,1,2022,Greasewood,Perennial,Shrub,0.5
+PLC219,46,ATTO,9,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,4.5
+PLC219,46,ERIOG,1,2022,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC219,46,ATPO,2,2022,"saltbush, Allscale",Perennial,Shrub,1
+PLC219,22,SAVE4,12,2022,Greasewood,Perennial,Shrub,6
+PLC219,22,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+PLC219,22,ATPO,2,2022,"saltbush, Allscale",Perennial,Shrub,1
+PLC219,30,ATTO,17,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,8.5
+PLC219,30,ERIOG,1,2022,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC219,30,ATPO,7,2022,"saltbush, Allscale",Perennial,Shrub,3.5
+PLC219,71,SAVE4,13,2022,Greasewood,Perennial,Shrub,6.5
+PLC219,71,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+PLC219,71,SUMO,1,2022,"inkweed, Bush",Perennial,Shrub,0.5
+PLC219,20,SAVE4,12,2022,Greasewood,Perennial,Shrub,6
+PLC219,20,MACA17,1,2022,"aster, Shrubby alkali",Perennial,Shrub,0.5
+PLC219,43,SAVE4,16,2022,Greasewood,Perennial,Shrub,8
+PLC219,43,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+PLC219,43,SUMO,8,2022,"inkweed, Bush",Perennial,Shrub,4
+PLC219,27,SAVE4,11,2022,Greasewood,Perennial,Shrub,5.5
+PLC219,27,MACA17,1,2022,"aster, Shrubby alkali",Perennial,Shrub,0.5
+PLC219,27,SUMO,3,2022,"inkweed, Bush",Perennial,Shrub,1.5
+PLC219,27,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+PLC219,82,SAVE4,2,2022,Greasewood,Perennial,Shrub,1
+PLC219,82,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+PLC219,82,ATTO,1,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+PLC219,82,ERIOG,1,2022,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC219,82,SPAI,1,2022,"sacaton, Alkali",Perennial,Grass,0.5
+PLC219,70,SAVE4,9,2022,Greasewood,Perennial,Shrub,4.5
+PLC219,70,MACA17,2,2022,"aster, Shrubby alkali",Perennial,Shrub,1
+PLC219,70,ATTO,2,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC219,70,SPAI,4,2022,"sacaton, Alkali",Perennial,Grass,2
+PLC219,70,ERNA10,10,2022,"rabbitbrush, Common",Perennial,Shrub,5
+PLC219,70,DISP,1,2022,Saltgrass,Perennial,Grass,0.5
+PLC219,52,SAVE4,13,2022,Greasewood,Perennial,Shrub,6.5
+PLC219,52,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+PLC219,44,SAVE4,8,2022,Greasewood,Perennial,Shrub,4
+PLC219,44,MACA17,1,2022,"aster, Shrubby alkali",Perennial,Shrub,0.5
+PLC219,44,ATCO,7,2022,Shadscale,Perennial,Shrub,3.5
+PLC219,6,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+PLC219,6,ERNA10,1,2022,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC219,6,SAVE4,9,2022,Greasewood,Perennial,Shrub,4.5
+PLC219,6,SUMO,1,2022,"inkweed, Bush",Perennial,Shrub,0.5
+PLC219,6,MACA17,1,2022,"aster, Shrubby alkali",Perennial,Shrub,0.5
+PLC219,21,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+PLC219,21,ARTR2,1,2022,"sagebrush, Big",Perennial,Shrub,0.5
+PLC219,21,SAVE4,6,2022,Greasewood,Perennial,Shrub,3
+LAW029,5,ATCO,3,2022,Shadscale,Perennial,Shrub,1.5
+LAW029,5,SAVE4,4,2022,Greasewood,Perennial,Shrub,2
+LAW029,5,ATCA2,1,2022,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW029,15,SAVE4,10,2022,Greasewood,Perennial,Shrub,5
+LAW029,15,ATCO,1,2022,Shadscale,Perennial,Shrub,0.5
+LAW029,19,SAVE4,5,2022,Greasewood,Perennial,Shrub,2.5
+LAW029,19,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW029,19,ATCA2,3,2022,"saltbush, Fourwing",Perennial,Shrub,1.5
+LAW029,19,SATR12,2,2022,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW029,6,SAVE4,12,2022,Greasewood,Perennial,Shrub,6
+LAW029,6,SUMO,3,2022,"inkweed, Bush",Perennial,Shrub,1.5
+LAW029,16,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW029,16,ATTO,6,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,3
+LAW029,16,ERNA10,3,2022,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW029,10,ATTO,10,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,5
+LAW029,10,DISP,16,2022,Saltgrass,Perennial,Grass,8
+LAW029,22,ATTO,11,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,5.5
+LAW029,22,ALOC2,3,2022,"bush, Iodine",Perennial,Shrub,1.5
+LAW029,22,ERNA10,3,2022,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW029,22,DISP,1,2022,Saltgrass,Perennial,Grass,0.5
+LAW029,1,ATTO,3,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW029,1,ERNA10,7,2022,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW029,1,DISP,12,2022,Saltgrass,Perennial,Grass,6
+LAW029,11,ATTO,15,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,7.5
+LAW029,14,ATTO,10,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,5
+LAW029,14,ERNA10,6,2022,"rabbitbrush, Common",Perennial,Shrub,3
+LAW029,17,SUMO,2,2022,"inkweed, Bush",Perennial,Shrub,1
+LAW029,17,SAVE4,1,2022,Greasewood,Perennial,Shrub,0.5
+LAW029,7,SUMO,3,2022,"inkweed, Bush",Perennial,Shrub,1.5
+LAW029,7,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW029,7,SAVE4,4,2022,Greasewood,Perennial,Shrub,2
+LAW029,7,ATTO,2,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW029,2,ATCO,2,2022,Shadscale,Perennial,Shrub,1
+LAW029,2,SAVE4,10,2022,Greasewood,Perennial,Shrub,5
+LAW029,2,ATTO,7,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,3.5
+LAW029,18,SAVE4,3,2022,Greasewood,Perennial,Shrub,1.5
+LAW029,24,ATCO,6,2022,Shadscale,Perennial,Shrub,3
+LAW029,24,SAVE4,2,2022,Greasewood,Perennial,Shrub,1
+LAW029,23,ATCO,8,2022,Shadscale,Perennial,Shrub,4
+LAW029,23,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW029,25,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW029,25,ATCO,5,2022,Shadscale,Perennial,Shrub,2.5
+LAW029,25,SAVE4,1,2022,Greasewood,Perennial,Shrub,0.5
+LAW029,13,ATCO,6,2022,Shadscale,Perennial,Shrub,3
+LAW029,13,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW029,9,SAVE4,3,2022,Greasewood,Perennial,Shrub,1.5
+LAW029,9,ATTO,5,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW029,9,SUMO,1,2022,"inkweed, Bush",Perennial,Shrub,0.5
+LAW029,21,ATCO,4,2022,Shadscale,Perennial,Shrub,2
+LAW029,21,ATTO,3,2022,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW029,21,SATR12,1,2022,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW119,53,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+LAW119,53,SATR12,6,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3
+LAW119,53,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW119,22,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+LAW119,22,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW119,22,ERNA10,10,2023,"rabbitbrush, Common",Perennial,Shrub,5
+LAW119,17,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW119,17,ERNA10,18,2023,"rabbitbrush, Common",Perennial,Shrub,9
+LAW119,12,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW119,12,SPAI,22,2023,"sacaton, Alkali",Perennial,Grass,11
+LAW119,12,IVAX,4,2023,"weed, Poverty",Perennial,Herb,2
+LAW119,12,ELEOC,14,2023,Spikerush,Perennial,Grass,7
+LAW119,12,COCA5,3,2023,"horseweed, Canada",Annual,Herb,1.5
+LAW119,12,PACA6,14,2023,Witchgrass,Annual,Grass,7
+LAW119,12,LELA2,3,2023,"pepperweed, Perennial",Perennial,Herb,1.5
+LAW119,12,EPCI,4,2023,"willow herb, Hairy",Perennial,Herb,2
+LAW119,12,BAHY,7,2023,"bassia, Fivehook",Annual,Herb,3.5
+LAW119,12,HEAN3,3,2023,"sunflower, Annual",Annual,Herb,1.5
+LAW119,12,JUARL,1,2023,"rush, Baltic",Perennial,Grass,0.5
+LAW119,12,SAVE4,2,2023,Greasewood,Perennial,Shrub,1
+LAW119,10,ATTO,12,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,6
+LAW119,10,SAVE4,12,2023,Greasewood,Perennial,Shrub,6
+LAW119,10,BAHY,2,2023,"bassia, Fivehook",Annual,Herb,1
+LAW119,10,ERNA10,7,2023,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW119,10,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+LAW119,10,IVAX,3,2023,"weed, Poverty",Perennial,Herb,1.5
+LAW119,10,DISP,2,2023,Saltgrass,Perennial,Grass,1
+LAW119,10,CAREX,5,2023,Sedge/Carex,Perennial,Grass,2.5
+LAW119,10,CYDA,2,2023,"grass, Bermuda",Perennial,Grass,1
+LAW119,10,TYLA,1,2023,"cattail, Common",Perennial,Grass,0.5
+LAW119,44,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW119,44,MUAS,10,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,5
+LAW119,44,PACA6,3,2023,Witchgrass,Annual,Grass,1.5
+LAW119,44,BAHY,2,2023,"bassia, Fivehook",Annual,Herb,1
+LAW119,44,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,44,ELEOC,3,2023,Spikerush,Perennial,Grass,1.5
+LAW119,44,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,44,CAREX,10,2023,Sedge/Carex,Perennial,Grass,5
+LAW119,44,TYLA,1,2023,"cattail, Common",Perennial,Grass,0.5
+LAW119,64,ATTO,23,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,11.5
+LAW119,64,MUAS,4,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,2
+LAW119,64,SAVE4,1,2023,Greasewood,Perennial,Shrub,0.5
+LAW119,64,BAHY,11,2023,"bassia, Fivehook",Annual,Herb,5.5
+LAW119,64,ERNA10,9,2023,"rabbitbrush, Common",Perennial,Shrub,4.5
+LAW119,64,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW119,64,IVAX,1,2023,"weed, Poverty",Perennial,Herb,0.5
+LAW119,64,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,64,CAREX,1,2023,Sedge/Carex,Perennial,Grass,0.5
+LAW119,64,CYDA,1,2023,"grass, Bermuda",Perennial,Grass,0.5
+LAW119,62,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW119,62,MUAS,8,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,4
+LAW119,62,SAVE4,1,2023,Greasewood,Perennial,Shrub,0.5
+LAW119,62,PACA6,2,2023,Witchgrass,Annual,Grass,1
+LAW119,62,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,62,ELEOC,26,2023,Spikerush,Perennial,Grass,13
+LAW119,62,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW119,62,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,62,FORB,1,2023,UNK,Annual,Herb,0.5
+LAW119,62,CAREX,1,2023,Sedge/Carex,Perennial,Grass,0.5
+LAW119,62,LETR5,12,2023,"wildrye, Beardless/Creeping",Perennial,Grass,6
+LAW119,62,ASFA,2,2023,"milkweed, Narrow-leaf",Perennial,Herb,1
+LAW119,62,EPCI,2,2023,"willow herb, Hairy",Perennial,Herb,1
+LAW119,62,POMO5,1,2023,"grass, Annual rabbitsfoot",Annual,Grass,0.5
+LAW119,18,SAVE4,13,2023,Greasewood,Perennial,Shrub,6.5
+LAW119,18,ATTO,18,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,9
+LAW119,29,SAVE4,1,2023,Greasewood,Perennial,Shrub,0.5
+LAW119,29,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW119,29,ERNA10,10,2023,"rabbitbrush, Common",Perennial,Shrub,5
+LAW119,29,SATR12,13,2023,"Tumbleweed /thistle, Russian",Annual,Herb,6.5
+LAW119,29,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,28,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW119,28,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW119,28,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+LAW119,57,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+LAW119,57,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW119,57,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW119,57,BAHY,4,2023,"bassia, Fivehook",Annual,Herb,2
+LAW119,57,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+LAW119,4,XAST,1,2023,"cocklebur, Rough",Annual,Herb,0.5
+LAW119,4,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW119,4,ERNA10,11,2023,"rabbitbrush, Common",Perennial,Shrub,5.5
+LAW119,4,TYLA,1,2023,"cattail, Common",Perennial,Grass,0.5
+LAW119,4,ECCR,1,2023,Barnyardgrass,Annual,Grass,0.5
+LAW119,4,POMO5,1,2023,"grass, Annual rabbitsfoot",Annual,Grass,0.5
+LAW119,4,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,4,DISP,4,2023,Saltgrass,Perennial,Grass,2
+LAW119,4,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,4,MUAS,2,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,1
+LAW119,4,COCA5,3,2023,"horseweed, Canada",Annual,Herb,1.5
+LAW119,50,EPCI,12,2023,"willow herb, Hairy",Perennial,Herb,6
+LAW119,50,ELEOC,11,2023,Spikerush,Perennial,Grass,5.5
+LAW119,50,CAREX,7,2023,Sedge/Carex,Perennial,Grass,3.5
+LAW119,50,SAEX,16,2023,"willow, Coyote/Narrow-leaf",Perennial,Shrub,8
+LAW119,50,MUAS,18,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,9
+LAW119,50,PACA6,8,2023,Witchgrass,Annual,Grass,4
+LAW119,50,TARA,1,2023,"cedar, Salt",Perennial,Shrub,0.5
+LAW119,50,COCA5,1,2023,"horseweed, Canada",Annual,Herb,0.5
+LAW119,50,JUARL,3,2023,"rush, Baltic",Perennial,Grass,1.5
+LAW119,50,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+LAW119,50,TYLA,1,2023,"cattail, Common",Perennial,Grass,0.5
+LAW119,50,POFR2,2,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,1
+LAW119,50,DISP,5,2023,Saltgrass,Perennial,Grass,2.5
+LAW119,50,BAHY,2,2023,"bassia, Fivehook",Annual,Herb,1
+LAW119,50,CYDA,2,2023,"grass, Bermuda",Perennial,Grass,1
+LAW119,50,LELA2,1,2023,"pepperweed, Perennial",Perennial,Herb,0.5
+LAW119,27,CAREX,1,2023,Sedge/Carex,Perennial,Grass,0.5
+LAW119,27,BAHY,38,2023,"bassia, Fivehook",Annual,Herb,19
+LAW119,27,CYDA,2,2023,"grass, Bermuda",Perennial,Grass,1
+LAW119,27,ERNA10,17,2023,"rabbitbrush, Common",Perennial,Shrub,8.5
+LAW119,27,IVAX,5,2023,"weed, Poverty",Perennial,Herb,2.5
+LAW119,27,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,27,SATR12,5,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2.5
+LAW119,27,HECU3,1,2023,"heliotrope, Salt",Perennial,Herb,0.5
+LAW119,19,ATTO,8,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW119,19,ERNA10,10,2023,"rabbitbrush, Common",Perennial,Shrub,5
+LAW119,19,SATR12,12,2023,"Tumbleweed /thistle, Russian",Annual,Herb,6
+LAW119,19,BAHY,2,2023,"bassia, Fivehook",Annual,Herb,1
+LAW119,59,PACA6,6,2023,Witchgrass,Annual,Grass,3
+LAW119,59,DISP,2,2023,Saltgrass,Perennial,Grass,1
+LAW119,59,CYDA,20,2023,"grass, Bermuda",Perennial,Grass,10
+LAW119,59,HECU3,1,2023,"heliotrope, Salt",Perennial,Herb,0.5
+LAW119,59,LASE,1,2023,"lettuce, Prickly",Annual,Herb,0.5
+LAW119,59,HEAN3,1,2023,"sunflower, Annual",Annual,Herb,0.5
+LAW119,59,LELA2,10,2023,"pepperweed, Perennial",Perennial,Herb,5
+LAW119,59,MEOF,2,2023,"sweetclover, Yellow",Annual/Biennial,Herb,1
+LAW119,59,BAHY,13,2023,"bassia, Fivehook",Annual,Herb,6.5
+LAW119,59,LACO13,4,2023,"horseweed, Coulter's",Annual,Herb,2
+LAW119,59,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,59,MUAS,9,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,4.5
+LAW119,59,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+LAW119,46,PACA6,24,2023,Witchgrass,Annual,Grass,12
+LAW119,46,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,46,CYDA,2,2023,"grass, Bermuda",Perennial,Grass,1
+LAW119,46,HECU3,2,2023,"heliotrope, Salt",Perennial,Herb,1
+LAW119,46,LELA2,3,2023,"pepperweed, Perennial",Perennial,Herb,1.5
+LAW119,46,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,46,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW119,46,LACO13,2,2023,"horseweed, Coulter's",Annual,Herb,1
+LAW119,46,IVAX,7,2023,"weed, Poverty",Perennial,Herb,3.5
+LAW119,46,ELEOC,23,2023,Spikerush,Perennial,Grass,11.5
+LAW119,46,MUAS,6,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,3
+LAW119,60,PACA6,5,2023,Witchgrass,Annual,Grass,2.5
+LAW119,60,CYDA,21,2023,"grass, Bermuda",Perennial,Grass,10.5
+LAW119,60,HEAN3,6,2023,"sunflower, Annual",Annual,Herb,3
+LAW119,60,MEOF,1,2023,"sweetclover, Yellow",Annual/Biennial,Herb,0.5
+LAW119,60,BAHY,24,2023,"bassia, Fivehook",Annual,Herb,12
+LAW119,60,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW119,60,ERNA10,7,2023,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW119,60,IVAX,7,2023,"weed, Poverty",Perennial,Herb,3.5
+LAW119,3,PACA6,11,2023,Witchgrass,Annual,Grass,5.5
+LAW119,3,CYDA,20,2023,"grass, Bermuda",Perennial,Grass,10
+LAW119,3,HEAN3,3,2023,"sunflower, Annual",Annual,Herb,1.5
+LAW119,3,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+LAW119,3,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,3,ELEOC,27,2023,Spikerush,Perennial,Grass,13.5
+LAW119,3,MUAS,1,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,0.5
+LAW119,3,POMO5,6,2023,"grass, Annual rabbitsfoot",Annual,Grass,3
+LAW119,3,TARA,1,2023,"cedar, Salt",Perennial,Shrub,0.5
+LAW119,3,CAREX,2,2023,Sedge/Carex,Perennial,Grass,1
+LAW119,3,SALA3,1,2023,"willow, Red",Perennial,Tree,0.5
+LAW119,52,PACA6,7,2023,Witchgrass,Annual,Grass,3.5
+LAW119,52,DISP,37,2023,Saltgrass,Perennial,Grass,18.5
+LAW119,52,CYDA,2,2023,"grass, Bermuda",Perennial,Grass,1
+LAW119,52,BAHY,6,2023,"bassia, Fivehook",Annual,Herb,3
+LAW119,52,ATTO,20,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,10
+LAW119,52,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,52,MUAS,3,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,1.5
+LAW119,52,EPCI,2,2023,"willow herb, Hairy",Perennial,Herb,1
+LAW119,39,PACA6,12,2023,Witchgrass,Annual,Grass,6
+LAW119,39,HEAN3,3,2023,"sunflower, Annual",Annual,Herb,1.5
+LAW119,39,LETR5,1,2023,"wildrye, Beardless/Creeping",Perennial,Grass,0.5
+LAW119,39,ASFA,1,2023,"milkweed, Narrow-leaf",Perennial,Herb,0.5
+LAW119,39,TARA,5,2023,"cedar, Salt",Perennial,Shrub,2.5
+LAW119,39,SPAI,3,2023,"sacaton, Alkali",Perennial,Grass,1.5
+LAW119,39,LELA2,26,2023,"pepperweed, Perennial",Perennial,Herb,13
+LAW119,39,EPCI,3,2023,"willow herb, Hairy",Perennial,Herb,1.5
+LAW119,39,DISP,8,2023,Saltgrass,Perennial,Grass,4
+LAW119,39,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,39,ELEOC,7,2023,Spikerush,Perennial,Grass,3.5
+LAW119,39,MUAS,9,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,4.5
+LAW119,39,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW119,39,CYDA,6,2023,"grass, Bermuda",Perennial,Grass,3
+LAW119,39,IVAX,1,2023,"weed, Poverty",Perennial,Herb,0.5
+LAW119,2,PACA6,35,2023,Witchgrass,Annual,Grass,17.5
+LAW119,2,LELA2,4,2023,"pepperweed, Perennial",Perennial,Herb,2
+LAW119,2,DISP,28,2023,Saltgrass,Perennial,Grass,14
+LAW119,2,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,2,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW119,2,MUAS,5,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,2.5
+LAW119,2,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW119,24,PACA6,15,2023,Witchgrass,Annual,Grass,7.5
+LAW119,24,TARA,1,2023,"cedar, Salt",Perennial,Shrub,0.5
+LAW119,24,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+LAW119,24,LELA2,2,2023,"pepperweed, Perennial",Perennial,Herb,1
+LAW119,24,DISP,10,2023,Saltgrass,Perennial,Grass,5
+LAW119,24,ELEOC,4,2023,Spikerush,Perennial,Grass,2
+LAW119,24,MUAS,19,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,9.5
+LAW119,24,SAEX,2,2023,"willow, Coyote/Narrow-leaf",Perennial,Shrub,1
+LAW119,24,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW119,24,TYLA,9,2023,"cattail, Common",Perennial,Grass,4.5
+LAW119,24,CYDA,3,2023,"grass, Bermuda",Perennial,Grass,1.5
+LAW119,24,FORB,6,2023,UNK,Annual,Herb,3
+LAW119,24,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW119,24,CYDA,1,2023,"grass, Bermuda",Perennial,Grass,0.5
+LAW119,24,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,24,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,24,COCA5,1,2023,"horseweed, Canada",Annual,Herb,0.5
+LAW119,24,HOJU,1,2023,"barley, Foxtail",Annual,Grass,0.5
+LAW119,24,CHLE4,1,2023,"goosefoot, Narrowleaf",Annual,Herb,0.5
+LAW119,23,ERNA10,10,2023,"rabbitbrush, Common",Perennial,Shrub,5
+LAW119,23,HAGL,2,2023,Halogeton,Annual,Herb,1
+LAW119,23,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW119,23,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+LAW119,23,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW119,23,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,61,ERNA10,8,2023,"rabbitbrush, Common",Perennial,Shrub,4
+LAW119,61,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+LAW119,61,ATTO,30,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,15
+LAW119,54,ERNA10,7,2023,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW119,54,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW119,54,SPAI,4,2023,"sacaton, Alkali",Perennial,Grass,2
+LAW119,54,ATTO,15,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,7.5
+LAW119,54,BAHY,2,2023,"bassia, Fivehook",Annual,Herb,1
+LAW119,54,IVAX,5,2023,"weed, Poverty",Perennial,Herb,2.5
+LAW119,20,ERNA10,17,2023,"rabbitbrush, Common",Perennial,Shrub,8.5
+LAW119,20,ELEOC,2,2023,Spikerush,Perennial,Grass,1
+LAW119,20,CEEX,1,2023,"centaury, Exalted",Annual,Herb,0.5
+LAW119,20,SPAI,40,2023,"sacaton, Alkali",Perennial,Grass,20
+LAW119,20,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW119,20,BAHY,3,2023,"bassia, Fivehook",Annual,Herb,1.5
+LAW119,20,DISP,5,2023,Saltgrass,Perennial,Grass,2.5
+LAW119,20,HEAN3,10,2023,"sunflower, Annual",Annual,Herb,5
+LAW119,14,ERNA10,6,2023,"rabbitbrush, Common",Perennial,Shrub,3
+LAW119,14,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,14,SPAI,33,2023,"sacaton, Alkali",Perennial,Grass,16.5
+LAW119,14,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW119,14,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,13,SPAI,41,2023,"sacaton, Alkali",Perennial,Grass,20.5
+LAW119,13,ATTO,7,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,3.5
+LAW119,13,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW119,13,BAHY,3,2023,"bassia, Fivehook",Annual,Herb,1.5
+LAW119,13,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,13,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,51,SPAI,9,2023,"sacaton, Alkali",Perennial,Grass,4.5
+LAW119,51,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW119,51,DISP,6,2023,Saltgrass,Perennial,Grass,3
+LAW119,51,MUAS,4,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,2
+LAW119,51,HEAN3,1,2023,"sunflower, Annual",Annual,Herb,0.5
+LAW119,51,PACA6,4,2023,Witchgrass,Annual,Grass,2
+LAW119,51,LETR5,4,2023,"wildrye, Beardless/Creeping",Perennial,Grass,2
+LAW119,51,ELEOC,13,2023,Spikerush,Perennial,Grass,6.5
+LAW119,51,ASFA,4,2023,"milkweed, Narrow-leaf",Perennial,Herb,2
+LAW119,51,EPCI,5,2023,"willow herb, Hairy",Perennial,Herb,2.5
+LAW119,51,POMO5,3,2023,"grass, Annual rabbitsfoot",Annual,Grass,1.5
+LAW119,51,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,8,SPAI,8,2023,"sacaton, Alkali",Perennial,Grass,4
+LAW119,8,ATTO,9,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4.5
+LAW119,8,ERNA10,9,2023,"rabbitbrush, Common",Perennial,Shrub,4.5
+LAW119,41,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW119,41,ERNA10,16,2023,"rabbitbrush, Common",Perennial,Shrub,8
+LAW119,41,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,7,ATTO,28,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,14
+LAW119,7,DISP,2,2023,Saltgrass,Perennial,Grass,1
+LAW119,16,ATTO,10,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5
+LAW119,16,ERNA10,25,2023,"rabbitbrush, Common",Perennial,Shrub,12.5
+LAW119,36,ATTO,27,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,13.5
+LAW119,36,ERNA10,15,2023,"rabbitbrush, Common",Perennial,Shrub,7.5
+LAW119,36,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW119,32,ERNA10,23,2023,"rabbitbrush, Common",Perennial,Shrub,11.5
+LAW119,32,SATR12,12,2023,"Tumbleweed /thistle, Russian",Annual,Herb,6
+LAW119,32,SPAI,3,2023,"sacaton, Alkali",Perennial,Grass,1.5
+LAW119,32,DISP,6,2023,Saltgrass,Perennial,Grass,3
+LAW119,55,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW119,55,ERNA10,20,2023,"rabbitbrush, Common",Perennial,Shrub,10
+LAW119,55,SATR12,13,2023,"Tumbleweed /thistle, Russian",Annual,Herb,6.5
+LAW119,55,DISP,6,2023,Saltgrass,Perennial,Grass,3
+LAW119,1,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW119,1,ERNA10,18,2023,"rabbitbrush, Common",Perennial,Shrub,9
+LAW119,1,SPAI,3,2023,"sacaton, Alkali",Perennial,Grass,1.5
+LAW119,1,DISP,7,2023,Saltgrass,Perennial,Grass,3.5
+LAW119,5,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+LAW119,5,SATR12,9,2023,"Tumbleweed /thistle, Russian",Annual,Herb,4.5
+LAW119,5,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+LAW119,58,ERNA10,13,2023,"rabbitbrush, Common",Perennial,Shrub,6.5
+LAW119,58,ATTO,17,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,8.5
+LAW119,58,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,58,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW119,47,ERNA10,29,2023,"rabbitbrush, Common",Perennial,Shrub,14.5
+LAW119,47,SATR12,5,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2.5
+LAW119,47,BAHY,2,2023,"bassia, Fivehook",Annual,Herb,1
+LAW119,47,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW119,47,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,47,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,47,OENOT,1,2023,Evening primrose,Annual/Biennial/Perennial,Herb,0.5
+LAW119,6,ERNA10,29,2023,"rabbitbrush, Common",Perennial,Shrub,14.5
+LAW119,6,LACO13,2,2023,"horseweed, Coulter's",Annual,Herb,1
+LAW119,6,CAREX,1,2023,Sedge/Carex,Perennial,Grass,0.5
+LAW119,26,ERNA10,22,2023,"rabbitbrush, Common",Perennial,Shrub,11
+LAW119,26,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW119,26,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+LAW119,35,ELEOC,26,2023,Spikerush,Perennial,Grass,13
+LAW119,35,MUAS,17,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,8.5
+LAW119,35,POFR2,6,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,3
+LAW119,35,CYDA,3,2023,"grass, Bermuda",Perennial,Grass,1.5
+LAW119,35,LETR5,4,2023,"wildrye, Beardless/Creeping",Perennial,Grass,2
+LAW119,35,EUOC4,3,2023,"goldenrod, Western",Perennial,Herb,1.5
+LAW119,35,LELA2,12,2023,"pepperweed, Perennial",Perennial,Herb,6
+LAW119,35,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,48,ATTO,20,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,10
+LAW119,48,EPCI,2,2023,"willow herb, Hairy",Perennial,Herb,1
+LAW119,48,ELEOC,5,2023,Spikerush,Perennial,Grass,2.5
+LAW119,48,BAHY,5,2023,"bassia, Fivehook",Annual,Herb,2.5
+LAW119,48,JUARL,1,2023,"rush, Baltic",Perennial,Grass,0.5
+LAW119,48,COCA5,2,2023,"horseweed, Canada",Annual,Herb,1
+LAW119,48,MUAS,2,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,1
+LAW119,11,ELEOC,46,2023,Spikerush,Perennial,Grass,23
+LAW119,11,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW119,11,POFR2,1,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,0.5
+LAW119,11,ERNA10,0,2023,"rabbitbrush, Common",Perennial,Shrub,0
+LAW119,11,BAHY,14,2023,"bassia, Fivehook",Annual,Herb,7
+LAW119,11,LELA2,4,2023,"pepperweed, Perennial",Perennial,Herb,2
+LAW119,11,PACA6,1,2023,Witchgrass,Annual,Grass,0.5
+LAW119,11,MUAS,1,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,0.5
+LAW119,56,POFR2,14,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,7
+LAW119,56,BAHY,5,2023,"bassia, Fivehook",Annual,Herb,2.5
+LAW119,56,IVAX,7,2023,"weed, Poverty",Perennial,Herb,3.5
+LAW119,56,MUAS,22,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,11
+LAW119,56,PSLU6,1,2023,"cudweed, Jersey",Annual,Herb,0.5
+LAW119,56,PACA6,1,2023,Witchgrass,Annual,Grass,0.5
+LAW119,56,COCA5,2,2023,"horseweed, Canada",Annual,Herb,1
+LAW119,56,MEOF,9,2023,"sweetclover, Yellow",Annual/Biennial,Herb,4.5
+LAW119,56,EUOC4,5,2023,"goldenrod, Western",Perennial,Herb,2.5
+LAW119,56,SAEX,3,2023,"willow, Coyote/Narrow-leaf",Perennial,Shrub,1.5
+LAW119,56,ELEOC,5,2023,Spikerush,Perennial,Grass,2.5
+LAW119,56,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW119,56,EPCI,1,2023,"willow herb, Hairy",Perennial,Herb,0.5
+LAW119,56,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,30,POFR2,24,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,12
+LAW119,30,BAHY,11,2023,"bassia, Fivehook",Annual,Herb,5.5
+LAW119,30,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW119,30,MUAS,4,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,2
+LAW119,30,DISP,9,2023,Saltgrass,Perennial,Grass,4.5
+LAW119,30,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW119,30,IVAX,1,2023,"weed, Poverty",Perennial,Herb,0.5
+LAW119,30,LELA2,1,2023,"pepperweed, Perennial",Perennial,Herb,0.5
+LAW119,37,ERNA10,25,2023,"rabbitbrush, Common",Perennial,Shrub,12.5
+LAW119,37,POFR2,3,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,1.5
+LAW119,37,MUAS,11,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,5.5
+LAW119,37,ATTO,10,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5
+LAW119,37,LETR5,2,2023,"wildrye, Beardless/Creeping",Perennial,Grass,1
+LAW119,37,PSLU6,2,2023,"cudweed, Jersey",Annual,Herb,1
+LAW119,37,MEOF,6,2023,"sweetclover, Yellow",Annual/Biennial,Herb,3
+LAW119,37,HEAN3,1,2023,"sunflower, Annual",Annual,Herb,0.5
+LAW119,37,DISP,4,2023,Saltgrass,Perennial,Grass,2
+LAW119,37,LACO13,3,2023,"horseweed, Coulter's",Annual,Herb,1.5
+LAW119,37,BAHY,6,2023,"bassia, Fivehook",Annual,Herb,3
+LAW119,31,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW119,31,POFR2,23,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,11.5
+LAW119,31,MUAS,8,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,4
+LAW119,31,MEOF,45,2023,"sweetclover, Yellow",Annual/Biennial,Herb,22.5
+LAW119,43,ERNA10,6,2023,"rabbitbrush, Common",Perennial,Shrub,3
+LAW119,43,POFR2,5,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,2.5
+LAW119,43,MUAS,7,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,3.5
+LAW119,43,PSLU6,2,2023,"cudweed, Jersey",Annual,Herb,1
+LAW119,43,MEOF,1,2023,"sweetclover, Yellow",Annual/Biennial,Herb,0.5
+LAW119,43,PACA6,1,2023,Witchgrass,Annual,Grass,0.5
+LAW119,43,EPCI,4,2023,"willow herb, Hairy",Perennial,Herb,2
+LAW119,43,TYLA,15,2023,"cattail, Common",Perennial,Grass,7.5
+LAW119,43,BOMA7,5,2023,NA,NA,NA,2.5
+LAW119,43,LACO13,2,2023,"horseweed, Coulter's",Annual,Herb,1
+LAW119,43,BAHY,9,2023,"bassia, Fivehook",Annual,Herb,4.5
+LAW119,43,IVAX,3,2023,"weed, Poverty",Perennial,Herb,1.5
+LAW119,43,JUARL,1,2023,"rush, Baltic",Perennial,Grass,0.5
+LAW119,42,BAHY,34,2023,"bassia, Fivehook",Annual,Herb,17
+LAW119,42,ERNA10,20,2023,"rabbitbrush, Common",Perennial,Shrub,10
+LAW119,42,EPCI,1,2023,"willow herb, Hairy",Perennial,Herb,0.5
+LAW119,42,IVAX,2,2023,"weed, Poverty",Perennial,Herb,1
+LAW119,40,BAHY,8,2023,"bassia, Fivehook",Annual,Herb,4
+LAW119,40,ERNA10,10,2023,"rabbitbrush, Common",Perennial,Shrub,5
+LAW119,40,ATTO,9,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4.5
+LAW119,40,DISP,12,2023,Saltgrass,Perennial,Grass,6
+LAW119,25,ERNA10,0,2023,"rabbitbrush, Common",Perennial,Shrub,0
+LAW119,25,ELEOC,57,2023,Spikerush,Perennial,Grass,28.5
+LAW119,25,MUAS,3,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,1.5
+LAW119,25,JUTO,1,2023,"rush, Torrey's",Perennial,Grass,0.5
+LAW119,25,TYLA,4,2023,"cattail, Common",Perennial,Grass,2
+LAW119,25,LELA2,3,2023,"pepperweed, Perennial",Perennial,Herb,1.5
+LAW119,25,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,25,EPCI,1,2023,"willow herb, Hairy",Perennial,Herb,0.5
+LAW119,63,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+LAW119,63,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW119,63,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW119,63,BAHY,9,2023,"bassia, Fivehook",Annual,Herb,4.5
+LAW119,63,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW119,63,EPCI,1,2023,"willow herb, Hairy",Perennial,Herb,0.5
+LAW119,63,ELEOC,6,2023,Spikerush,Perennial,Grass,3
+LAW119,63,JUARL,2,2023,"rush, Baltic",Perennial,Grass,1
+LAW119,63,LELA2,1,2023,"pepperweed, Perennial",Perennial,Herb,0.5
+LAW119,63,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,63,MUAS,1,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,0.5
+LAW119,33,POFR2,16,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,8
+LAW119,33,TYLA,5,2023,"cattail, Common",Perennial,Grass,2.5
+LAW119,33,SAEX,3,2023,"willow, Coyote/Narrow-leaf",Perennial,Shrub,1.5
+LAW119,33,EPCI,20,2023,"willow herb, Hairy",Perennial,Herb,10
+LAW119,33,MUAS,9,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,4.5
+LAW119,33,POMO5,1,2023,"grass, Annual rabbitsfoot",Annual,Grass,0.5
+LAW119,33,BAHY,8,2023,"bassia, Fivehook",Annual,Herb,4
+LAW119,33,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+LAW119,33,DISP,5,2023,Saltgrass,Perennial,Grass,2.5
+LAW119,33,LELA2,9,2023,"pepperweed, Perennial",Perennial,Herb,4.5
+LAW119,33,EUOC4,3,2023,"goldenrod, Western",Perennial,Herb,1.5
+LAW119,33,MEOF,3,2023,"sweetclover, Yellow",Annual/Biennial,Herb,1.5
+LAW119,49,POFR2,4,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,2
+LAW119,49,TYLA,16,2023,"cattail, Common",Perennial,Grass,8
+LAW119,49,SAEX,2,2023,"willow, Coyote/Narrow-leaf",Perennial,Shrub,1
+LAW119,49,EPCI,5,2023,"willow herb, Hairy",Perennial,Herb,2.5
+LAW119,49,MUAS,23,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,11.5
+LAW119,49,POMO5,4,2023,"grass, Annual rabbitsfoot",Annual,Grass,2
+LAW119,49,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW119,49,TARA,2,2023,"cedar, Salt",Perennial,Shrub,1
+LAW119,49,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW119,49,LELA2,2,2023,"pepperweed, Perennial",Perennial,Herb,1
+LAW119,49,JUARL,2,2023,"rush, Baltic",Perennial,Grass,1
+LAW119,49,DISP,4,2023,Saltgrass,Perennial,Grass,2
+LAW119,49,CAREX,16,2023,Sedge/Carex,Perennial,Grass,8
+LAW119,9,MUAS,31,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,15.5
+LAW119,9,BAHY,28,2023,"bassia, Fivehook",Annual,Herb,14
+LAW119,9,LELA2,9,2023,"pepperweed, Perennial",Perennial,Herb,4.5
+LAW119,9,TYLA,3,2023,"cattail, Common",Perennial,Grass,1.5
+LAW119,9,CAREX,1,2023,Sedge/Carex,Perennial,Grass,0.5
+LAW119,9,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW119,9,SAVE4,2,2023,Greasewood,Perennial,Shrub,1
+LAW119,9,LACO13,1,2023,"horseweed, Coulter's",Annual,Herb,0.5
+LAW119,15,MUAS,20,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,10
+LAW119,15,BAHY,18,2023,"bassia, Fivehook",Annual,Herb,9
+LAW119,15,LELA2,11,2023,"pepperweed, Perennial",Perennial,Herb,5.5
+LAW119,15,TYLA,1,2023,"cattail, Common",Perennial,Grass,0.5
+LAW119,15,CAREX,4,2023,Sedge/Carex,Perennial,Grass,2
+LAW119,15,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW119,15,SAEX,3,2023,"willow, Coyote/Narrow-leaf",Perennial,Shrub,1.5
+LAW119,15,JUTO,4,2023,"rush, Torrey's",Perennial,Grass,2
+LAW119,15,POFR2,9,2023,"cottonwood, Fremont's /Alamo",Perennial,Tree,4.5
+LAW119,15,EPCI,3,2023,"willow herb, Hairy",Perennial,Herb,1.5
+LAW119,15,SALA6,1,2023,"willow, Arroyo",Perennial,Tree,0.5
+LAW119,15,PACA6,2,2023,Witchgrass,Annual,Grass,1
+LAW119,45,MUAS,2,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,1
+LAW119,45,BAHY,31,2023,"bassia, Fivehook",Annual,Herb,15.5
+LAW119,45,ATTO,9,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4.5
+LAW119,45,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+LAW119,34,BAHY,30,2023,"bassia, Fivehook",Annual,Herb,15
+LAW119,34,LELA2,12,2023,"pepperweed, Perennial",Perennial,Herb,6
+LAW119,34,ATTO,9,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4.5
+LAW119,34,SPAI,2,2023,"sacaton, Alkali",Perennial,Grass,1
+LAW119,34,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW029,35,SATR12,31,2023,"Tumbleweed /thistle, Russian",Annual,Herb,15.5
+LAW029,35,ATTO,7,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,3.5
+LAW029,35,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW029,19,SATR12,18,2023,"Tumbleweed /thistle, Russian",Annual,Herb,9
+LAW029,19,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW029,12,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW029,12,ATTO,17,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,8.5
+LAW029,12,HAGL,1,2023,Halogeton,Annual,Herb,0.5
+LAW029,8,SATR12,10,2023,"Tumbleweed /thistle, Russian",Annual,Herb,5
+LAW029,8,ATTO,6,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,3
+LAW029,27,SATR12,23,2023,"Tumbleweed /thistle, Russian",Annual,Herb,11.5
+LAW029,27,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW029,37,IVAX,4,2023,"weed, Poverty",Perennial,Herb,2
+LAW029,37,BAHY,17,2023,"bassia, Fivehook",Annual,Herb,8.5
+LAW029,21,SATR12,17,2023,"Tumbleweed /thistle, Russian",Annual,Herb,8.5
+LAW029,21,ATTO,8,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW029,15,JUARL,24,2023,"rush, Baltic",Perennial,Grass,12
+LAW029,15,MUAS,2,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,1
+LAW029,15,TYLA,2,2023,"cattail, Common",Perennial,Grass,1
+LAW029,15,MEOF,43,2023,"sweetclover, Yellow",Annual/Biennial,Herb,21.5
+LAW029,15,CAREX,2,2023,Sedge/Carex,Perennial,Grass,1
+LAW029,15,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW029,15,ASFA,2,2023,"milkweed, Narrow-leaf",Perennial,Herb,1
+LAW029,15,LETR5,3,2023,"wildrye, Beardless/Creeping",Perennial,Grass,1.5
+LAW029,15,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+LAW029,15,COCA5,2,2023,"horseweed, Canada",Annual,Herb,1
+LAW029,15,LOTUS,1,2023,Trefoil,Perennial,Herb,0.5
+LAW029,15,LELA2,1,2023,"pepperweed, Perennial",Perennial,Herb,0.5
+LAW029,37,SATR12,11,2023,"Tumbleweed /thistle, Russian",Annual,Herb,5.5
+LAW029,37,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW029,37,DISP,3,2023,Saltgrass,Perennial,Grass,1.5
+LAW029,37,LETR5,1,2023,"wildrye, Beardless/Creeping",Perennial,Grass,0.5
+LAW029,37,ERNA10,23,2023,"rabbitbrush, Common",Perennial,Shrub,11.5
+LAW029,37,LELA2,4,2023,"pepperweed, Perennial",Perennial,Herb,2
+LAW029,34,ATTO,15,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,7.5
+LAW029,34,ERNA10,9,2023,"rabbitbrush, Common",Perennial,Shrub,4.5
+LAW029,11,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW029,11,ATTO,28,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,14
+LAW029,11,ERNA10,6,2023,"rabbitbrush, Common",Perennial,Shrub,3
+LAW029,11,BAHY,4,2023,"bassia, Fivehook",Annual,Herb,2
+LAW029,17,ATCO,14,2023,Shadscale,Perennial,Shrub,7
+LAW029,22,ATCO,21,2023,Shadscale,Perennial,Shrub,10.5
+LAW029,22,SAVE4,1,2023,Greasewood,Perennial,Shrub,0.5
+LAW029,6,ATCO,5,2023,Shadscale,Perennial,Shrub,2.5
+LAW029,6,SAVE4,6,2023,Greasewood,Perennial,Shrub,3
+LAW029,6,SATR12,20,2023,"Tumbleweed /thistle, Russian",Annual,Herb,10
+LAW029,31,ATCO,4,2023,Shadscale,Perennial,Shrub,2
+LAW029,31,SAVE4,14,2023,Greasewood,Perennial,Shrub,7
+LAW029,31,SATR12,10,2023,"Tumbleweed /thistle, Russian",Annual,Herb,5
+LAW029,40,ATCO,8,2023,Shadscale,Perennial,Shrub,4
+LAW029,40,SAVE4,5,2023,Greasewood,Perennial,Shrub,2.5
+LAW029,23,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+LAW029,23,SUMO,1,2023,"inkweed, Bush",Perennial,Shrub,0.5
+LAW029,23,ATTO,8,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW029,23,ERNA10,12,2023,"rabbitbrush, Common",Perennial,Shrub,6
+LAW029,26,ERNA10,46,2023,"rabbitbrush, Common",Perennial,Shrub,23
+LAW029,30,SAVE4,2,2023,Greasewood,Perennial,Shrub,1
+LAW029,30,ATTO,20,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,10
+LAW029,30,ERNA10,6,2023,"rabbitbrush, Common",Perennial,Shrub,3
+LAW029,30,SUMO,1,2023,"inkweed, Bush",Perennial,Shrub,0.5
+LAW029,30,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+LAW029,1,SAVE4,1,2023,Greasewood,Perennial,Shrub,0.5
+LAW029,1,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW029,1,DISP,22,2023,Saltgrass,Perennial,Grass,11
+LAW029,4,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW029,4,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW029,4,DISP,17,2023,Saltgrass,Perennial,Grass,8.5
+LAW029,33,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW029,33,DISP,11,2023,Saltgrass,Perennial,Grass,5.5
+LAW029,33,ALOC2,2,2023,"bush, Iodine",Perennial,Shrub,1
+LAW029,33,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW029,24,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW029,24,ATCO,3,2023,Shadscale,Perennial,Shrub,1.5
+LAW029,24,SAVE4,5,2023,Greasewood,Perennial,Shrub,2.5
+LAW029,24,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW029,24,ATCA2,1,2023,"saltbush, Fourwing",Perennial,Shrub,0.5
+LAW029,16,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW029,16,SAVE4,1,2023,Greasewood,Perennial,Shrub,0.5
+LAW029,16,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW029,28,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW029,28,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+LAW029,28,SAVE4,15,2023,Greasewood,Perennial,Shrub,7.5
+LAW029,28,SATR12,6,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3
+LAW029,28,SUMO,1,2023,"inkweed, Bush",Perennial,Shrub,0.5
+LAW029,2,ATTO,11,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5.5
+LAW029,2,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+LAW029,2,SAVE4,5,2023,Greasewood,Perennial,Shrub,2.5
+LAW029,2,SATR12,10,2023,"Tumbleweed /thistle, Russian",Annual,Herb,5
+LAW029,2,SUMO,2,2023,"inkweed, Bush",Perennial,Shrub,1
+LAW029,9,ATTO,12,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,6
+LAW029,9,SAVE4,10,2023,Greasewood,Perennial,Shrub,5
+LAW029,9,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW029,9,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW029,7,ATTO,19,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,9.5
+LAW029,7,SAVE4,10,2023,Greasewood,Perennial,Shrub,5
+LAW029,7,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+LAW029,29,ATTO,11,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5.5
+LAW029,29,SAVE4,16,2023,Greasewood,Perennial,Shrub,8
+LAW029,29,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW029,10,ATTO,10,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5
+LAW029,10,SAVE4,3,2023,Greasewood,Perennial,Shrub,1.5
+LAW029,10,ERNA10,4,2023,"rabbitbrush, Common",Perennial,Shrub,2
+LAW029,10,SATR12,8,2023,"Tumbleweed /thistle, Russian",Annual,Herb,4
+LAW029,3,ATTO,8,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW029,3,SATR12,6,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3
+LAW029,14,ERNA10,7,2023,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW029,14,DISP,5,2023,Saltgrass,Perennial,Grass,2.5
+LAW029,14,ATTO,13,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,6.5
+LAW029,13,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW029,13,SAVE4,8,2023,Greasewood,Perennial,Shrub,4
+LAW029,13,ATCO,6,2023,Shadscale,Perennial,Shrub,3
+LAW029,5,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW029,5,SAVE4,13,2023,Greasewood,Perennial,Shrub,6.5
+LAW029,5,ATCO,6,2023,Shadscale,Perennial,Shrub,3
+LAW029,32,SAVE4,6,2023,Greasewood,Perennial,Shrub,3
+LAW029,32,ATCO,11,2023,Shadscale,Perennial,Shrub,5.5
+LAW029,36,SAVE4,4,2023,Greasewood,Perennial,Shrub,2
+LAW029,36,ATCO,12,2023,Shadscale,Perennial,Shrub,6
+LAW029,36,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW029,25,ATCO,5,2023,Shadscale,Perennial,Shrub,2.5
+LAW029,25,SAVE4,2,2023,Greasewood,Perennial,Shrub,1
+LAW029,18,ATCO,13,2023,Shadscale,Perennial,Shrub,6.5
+LAW029,18,PSARM,1,2023,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW029,18,ATPO,1,2023,"saltbush, Allscale",Perennial,Shrub,0.5
+LAW029,20,DISP,17,2023,Saltgrass,Perennial,Grass,8.5
+LAW029,20,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW029,20,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+LAW029,39,SAVE4,4,2023,Greasewood,Perennial,Shrub,2
+LAW029,39,ATTO,10,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5
+LAW029,39,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW029,38,SAVE4,13,2023,Greasewood,Perennial,Shrub,6.5
+LAW029,38,ATTO,8,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW069,2,ERNA10,20,2023,"rabbitbrush, Common",Perennial,Shrub,10
+LAW069,2,ATPH,4,2023,Arrowscale,Annual,Herb,2
+LAW069,2,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW069,2,HECU3,1,2023,"heliotrope, Salt",Perennial,Herb,0.5
+LAW069,2,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+LAW069,2,BAHY,14,2023,"bassia, Fivehook",Annual,Herb,7
+LAW069,2,AMAC2,4,2023,"ragweed, Bur",Annual,Herb,2
+LAW069,3,ERNA10,18,2023,"rabbitbrush, Common",Perennial,Shrub,9
+LAW069,3,PSPO,8,2023,"dalea, Dotted",Perennial,Shrub,4
+LAW069,3,ATCA2,4,2023,"saltbush, Fourwing",Perennial,Shrub,2
+LAW069,11,ERNA10,7,2023,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW069,11,AMAC2,1,2023,"ragweed, Bur",Annual,Herb,0.5
+LAW069,11,ATCA2,6,2023,"saltbush, Fourwing",Perennial,Shrub,3
+LAW069,11,STEPH,5,2023,Wire-lettuce,Perennial,Herb_Shrub,2.5
+LAW069,11,PSPO,2,2023,"dalea, Dotted",Perennial,Shrub,1
+LAW069,5,ERNA10,10,2023,"rabbitbrush, Common",Perennial,Shrub,5
+LAW069,5,AMAC2,5,2023,"ragweed, Bur",Annual,Herb,2.5
+LAW069,5,ATCA2,2,2023,"saltbush, Fourwing",Perennial,Shrub,1
+LAW069,5,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW069,8,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+LAW069,8,IVAX,9,2023,"weed, Poverty",Perennial,Herb,4.5
+LAW069,8,DISP,24,2023,Saltgrass,Perennial,Grass,12
+LAW069,8,HECU3,2,2023,"heliotrope, Salt",Perennial,Herb,1
+LAW069,8,ELEOC,2,2023,Spikerush,Perennial,Grass,1
+LAW069,8,BAHY,15,2023,"bassia, Fivehook",Annual,Herb,7.5
+LAW069,8,AMAC2,1,2023,"ragweed, Bur",Annual,Herb,0.5
+LAW069,8,SALA3,1,2023,"willow, Red",Perennial,Tree,0.5
+LAW069,8,ATSE2,1,2023,Bractscale,Annual,Herb,0.5
+LAW069,8,SPAI,3,2023,"sacaton, Alkali",Perennial,Grass,1.5
+LAW069,8,LELA2,2,2023,"pepperweed, Perennial",Perennial,Herb,1
+LAW069,8,FORB,1,2023,UNK,Annual,Herb,0.5
+LAW069,8,HEAN3,2,2023,"sunflower, Annual",Annual,Herb,1
+LAW069,8,MUAS,1,2023,"muhly, Alkali/ Scratchgrass",Perennial,Grass,0.5
+LAW069,7,ATPH,2,2023,Arrowscale,Annual,Herb,1
+LAW069,7,ATCA2,8,2023,"saltbush, Fourwing",Perennial,Shrub,4
+LAW069,7,DISP,10,2023,Saltgrass,Perennial,Grass,5
+LAW069,7,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+LAW069,7,AMAC2,1,2023,"ragweed, Bur",Annual,Herb,0.5
+LAW069,7,BAHY,3,2023,"bassia, Fivehook",Annual,Herb,1.5
+LAW069,9,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW069,9,AMAC2,15,2023,"ragweed, Bur",Annual,Herb,7.5
+LAW069,9,BAHY,7,2023,"bassia, Fivehook",Annual,Herb,3.5
+LAW069,9,SATR12,13,2023,"Tumbleweed /thistle, Russian",Annual,Herb,6.5
+LAW069,4,ATPH,1,2023,Arrowscale,Annual,Herb,0.5
+LAW069,4,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW069,4,AMAC2,12,2023,"ragweed, Bur",Annual,Herb,6
+LAW069,4,BAHY,30,2023,"bassia, Fivehook",Annual,Herb,15
+LAW069,4,SATR12,8,2023,"Tumbleweed /thistle, Russian",Annual,Herb,4
+LAW069,4,CHIN2,1,2023,"goosefoot, Mealy",Annual,Herb,0.5
+LAW069,6,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+LAW069,6,ERNA10,5,2023,"rabbitbrush, Common",Perennial,Shrub,2.5
+LAW069,6,AMAC2,15,2023,"ragweed, Bur",Annual,Herb,7.5
+LAW069,6,BAHY,13,2023,"bassia, Fivehook",Annual,Herb,6.5
+LAW069,6,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW069,6,HECU3,9,2023,"heliotrope, Salt",Perennial,Herb,4.5
+LAW069,6,TARA,2,2023,"cedar, Salt",Perennial,Shrub,1
+LAW069,6,FORB,2,2023,UNK,Annual,Herb,1
+LAW069,10,AMAC2,13,2023,"ragweed, Bur",Annual,Herb,6.5
+LAW069,10,SATR12,13,2023,"Tumbleweed /thistle, Russian",Annual,Herb,6.5
+LAW069,1,JUARL,2,2023,"rush, Baltic",Perennial,Grass,1
+LAW069,1,DISP,2,2023,Saltgrass,Perennial,Grass,1
+LAW069,1,AMAC2,7,2023,"ragweed, Bur",Annual,Herb,3.5
+LAW069,1,ATCA2,6,2023,"saltbush, Fourwing",Perennial,Shrub,3
+LAW069,1,BAHY,8,2023,"bassia, Fivehook",Annual,Herb,4
+LAW069,1,ERNA10,7,2023,"rabbitbrush, Common",Perennial,Shrub,3.5
+LAW069,1,CAREX,1,2023,Sedge/Carex,Perennial,Grass,0.5
+LAW069,1,HECU3,4,2023,"heliotrope, Salt",Perennial,Herb,2
+LAW069,1,SATR12,7,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+LAW069,12,AMAC2,10,2023,"ragweed, Bur",Annual,Herb,5
+LAW069,12,ATCA2,3,2023,"saltbush, Fourwing",Perennial,Shrub,1.5
+LAW069,12,BAHY,9,2023,"bassia, Fivehook",Annual,Herb,4.5
+LAW069,12,ERNA10,11,2023,"rabbitbrush, Common",Perennial,Shrub,5.5
+LAW069,12,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW069,12,CHIN2,1,2023,"goosefoot, Mealy",Annual,Herb,0.5
+LAW069,12,CAREX,1,2023,Sedge/Carex,Perennial,Grass,0.5
+LAW039,6,SAVE4,8,2023,Greasewood,Perennial,Shrub,4
+LAW039,6,SATR12,7,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+LAW039,6,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+LAW039,6,ERIOG,4,2023,Buckwheat,Annual/Perennial,Herb_Shrub,2
+LAW039,8,SAVE4,9,2023,Greasewood,Perennial,Shrub,4.5
+LAW039,8,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+LAW039,8,ATCO,12,2023,Shadscale,Perennial,Shrub,6
+LAW039,8,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW039,8,PSARM,1,2023,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+LAW039,12,SAVE4,5,2023,Greasewood,Perennial,Shrub,2.5
+LAW039,12,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW039,12,ATCO,3,2023,Shadscale,Perennial,Shrub,1.5
+LAW039,12,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+LAW039,11,SATR12,8,2023,"Tumbleweed /thistle, Russian",Annual,Herb,4
+LAW039,11,ATCO,14,2023,Shadscale,Perennial,Shrub,7
+LAW039,11,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW039,11,PSPO,1,2023,"dalea, Dotted",Perennial,Shrub,0.5
+LAW039,5,SAVE4,6,2023,Greasewood,Perennial,Shrub,3
+LAW039,5,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+LAW039,5,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+LAW039,5,PSARM,4,2023,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW039,2,SAVE4,11,2023,Greasewood,Perennial,Shrub,5.5
+LAW039,2,PSARM,4,2023,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW039,2,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+LAW039,10,SAVE4,6,2023,Greasewood,Perennial,Shrub,3
+LAW039,10,PSARM,5,2023,"indigo bush, Northern Mojave",Perennial,Shrub,2.5
+LAW039,1,SAVE4,11,2023,Greasewood,Perennial,Shrub,5.5
+LAW039,1,PSARM,2,2023,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW039,1,ATCO,4,2023,Shadscale,Perennial,Shrub,2
+LAW039,7,PSARM,2,2023,"indigo bush, Northern Mojave",Perennial,Shrub,1
+LAW039,7,ATCO,3,2023,Shadscale,Perennial,Shrub,1.5
+LAW039,7,ERIOG,5,2023,Buckwheat,Annual/Perennial,Herb_Shrub,2.5
+LAW039,7,SATR12,8,2023,"Tumbleweed /thistle, Russian",Annual,Herb,4
+LAW039,9,ATCO,11,2023,Shadscale,Perennial,Shrub,5.5
+LAW039,9,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW039,9,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW039,3,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW039,3,PSARM,6,2023,"indigo bush, Northern Mojave",Perennial,Shrub,3
+LAW039,3,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+LAW039,3,ATCO,7,2023,Shadscale,Perennial,Shrub,3.5
+LAW039,4,SATR12,5,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2.5
+LAW039,4,PSARM,4,2023,"indigo bush, Northern Mojave",Perennial,Shrub,2
+LAW039,4,SAVE4,5,2023,Greasewood,Perennial,Shrub,2.5
+LAW039,4,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+LAW104,1,CHBE4,1,2023,"goosefoot, Pitseed",Annual,Herb,0.5
+LAW104,1,BAHY,5,2023,"bassia, Fivehook",Annual,Herb,2.5
+LAW104,1,SAVE4,14,2023,Greasewood,Perennial,Shrub,7
+LAW104,1,ERIOG,3,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1.5
+LAW104,1,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW104,8,SAVE4,10,2023,Greasewood,Perennial,Shrub,5
+LAW104,8,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW104,8,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW104,2,BAHY,4,2023,"bassia, Fivehook",Annual,Herb,2
+LAW104,2,ATTO,18,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,9
+LAW104,2,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+LAW104,2,SPAI,3,2023,"sacaton, Alkali",Perennial,Grass,1.5
+LAW104,7,SAVE4,14,2023,Greasewood,Perennial,Shrub,7
+LAW104,7,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+LAW104,7,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+LAW104,11,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW104,11,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW104,11,SATR12,11,2023,"Tumbleweed /thistle, Russian",Annual,Herb,5.5
+LAW104,11,HAGL,6,2023,Halogeton,Annual,Herb,3
+LAW104,11,ATSE2,1,2023,Bractscale,Annual,Herb,0.5
+LAW104,6,SATR12,20,2023,"Tumbleweed /thistle, Russian",Annual,Herb,10
+LAW104,6,HAGL,1,2023,Halogeton,Annual,Herb,0.5
+LAW104,6,SAVE4,1,2023,Greasewood,Perennial,Shrub,0.5
+LAW104,6,ATTO,6,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,3
+LAW104,6,BAHY,1,2023,"bassia, Fivehook",Annual,Herb,0.5
+LAW104,12,SATR12,5,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2.5
+LAW104,12,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+LAW104,12,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW104,12,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+LAW104,10,SATR12,29,2023,"Tumbleweed /thistle, Russian",Annual,Herb,14.5
+LAW104,10,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+LAW104,10,BAHY,19,2023,"bassia, Fivehook",Annual,Herb,9.5
+LAW104,5,SATR12,17,2023,"Tumbleweed /thistle, Russian",Annual,Herb,8.5
+LAW104,5,HAGL,2,2023,Halogeton,Annual,Herb,1
+LAW104,5,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+LAW104,5,CHBE4,1,2023,"goosefoot, Pitseed",Annual,Herb,0.5
+LAW104,4,SATR12,6,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3
+LAW104,4,ATTO,8,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,4
+LAW104,4,BAHY,33,2023,"bassia, Fivehook",Annual,Herb,16.5
+LAW104,3,SAVE4,9,2023,Greasewood,Perennial,Shrub,4.5
+LAW104,3,SATR12,17,2023,"Tumbleweed /thistle, Russian",Annual,Herb,8.5
+LAW104,3,HAGL,4,2023,Halogeton,Annual,Herb,2
+LAW104,3,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW104,3,BAHY,6,2023,"bassia, Fivehook",Annual,Herb,3
+LAW104,9,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+LAW104,9,HAGL,13,2023,Halogeton,Annual,Herb,6.5
+LAW104,9,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+LAW104,9,BAHY,2,2023,"bassia, Fivehook",Annual,Herb,1
+PLC202,11,PSARM,3,2023,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+PLC202,11,EPNE,10,2023,"ephedra, Nevada",Perennial,Shrub,5
+PLC202,11,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+PLC202,11,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC202,11,KRLA2,1,2023,Winterfat,Perennial,Shrub,0.5
+PLC202,11,CALI4,1,2023,"Indian paintbrush, Wyoming/Longleaf",Perennial,Herb,0.5
+PLC202,11,TEAX,1,2023,"cotton-thorn, straight-spined",Perennial,Shrub,0.5
+PLC202,3,PSARM,4,2023,"indigo bush, Northern Mojave",Perennial,Shrub,2
+PLC202,3,EPNE,4,2023,"ephedra, Nevada",Perennial,Shrub,2
+PLC202,3,ERNA10,6,2023,"rabbitbrush, Common",Perennial,Shrub,3
+PLC202,3,TEGL,3,2023,"horsebrush, Little",Perennial,Shrub,1.5
+PLC202,3,LYCIU,1,2023,Desert-thorn,Perennial,Shrub,0.5
+PLC202,1,PSARM,7,2023,"indigo bush, Northern Mojave",Perennial,Shrub,3.5
+PLC202,1,EPNE,1,2023,"ephedra, Nevada",Perennial,Shrub,0.5
+PLC202,1,ATCO,4,2023,Shadscale,Perennial,Shrub,2
+PLC202,1,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+PLC202,1,ERNA10,6,2023,"rabbitbrush, Common",Perennial,Shrub,3
+PLC202,1,ARSP,1,2023,"rockcress, Sicklepod",Perennial,Herb,0.5
+PLC202,1,TEGL,1,2023,"horsebrush, Little",Perennial,Shrub,0.5
+PLC202,6,EPNE,3,2023,"ephedra, Nevada",Perennial,Shrub,1.5
+PLC202,6,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+PLC202,6,ERNA10,12,2023,"rabbitbrush, Common",Perennial,Shrub,6
+PLC202,6,ARTR2,12,2023,"sagebrush, Big",Perennial,Shrub,6
+PLC202,12,STEPH,2,2023,Wire-lettuce,Perennial,Herb_Shrub,1
+PLC202,12,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC202,12,ATTO,13,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,6.5
+PLC202,12,SPAI,2,2023,"sacaton, Alkali",Perennial,Grass,1
+PLC202,12,ARTR2,1,2023,"sagebrush, Big",Perennial,Shrub,0.5
+PLC202,7,ATTO,13,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,6.5
+PLC202,7,ERIOG,9,2023,Buckwheat,Annual/Perennial,Herb_Shrub,4.5
+PLC202,7,ARTR2,1,2023,"sagebrush, Big",Perennial,Shrub,0.5
+PLC202,7,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+PLC202,7,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC202,7,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC202,9,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC202,9,ARTR2,25,2023,"sagebrush, Big",Perennial,Shrub,12.5
+PLC202,9,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC202,9,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC202,9,TEGL,2,2023,"horsebrush, Little",Perennial,Shrub,1
+PLC202,10,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+PLC202,10,ARTR2,26,2023,"sagebrush, Big",Perennial,Shrub,13
+PLC202,5,ATCO,11,2023,Shadscale,Perennial,Shrub,5.5
+PLC202,5,TEGL,3,2023,"horsebrush, Little",Perennial,Shrub,1.5
+PLC202,5,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC202,5,EPNE,1,2023,"ephedra, Nevada",Perennial,Shrub,0.5
+PLC202,4,ARTR2,9,2023,"sagebrush, Big",Perennial,Shrub,4.5
+PLC202,4,ERNA10,10,2023,"rabbitbrush, Common",Perennial,Shrub,5
+PLC202,4,ATCO,6,2023,Shadscale,Perennial,Shrub,3
+PLC202,2,PSARM,3,2023,"indigo bush, Northern Mojave",Perennial,Shrub,1.5
+PLC202,2,ATCO,5,2023,Shadscale,Perennial,Shrub,2.5
+PLC202,2,SPAI,40,2023,"sacaton, Alkali",Perennial,Grass,20
+PLC202,2,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+PLC202,2,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC202,8,DISP,1,2023,Saltgrass,Perennial,Grass,0.5
+PLC202,8,IVAX,11,2023,"weed, Poverty",Perennial,Herb,5.5
+PLC202,8,ELEOC,19,2023,Spikerush,Perennial,Grass,9.5
+PLC202,8,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+PLC202,8,CEEX,2,2023,"centaury, Exalted",Annual,Herb,1
+PLC202,8,HEAN3,2,2023,"sunflower, Annual",Annual,Herb,1
+PLC202,8,BAHY,6,2023,"bassia, Fivehook",Annual,Herb,3
+PLC202,8,HECU3,2,2023,"heliotrope, Salt",Perennial,Herb,1
+PLC219,1,ERIOG,16,2023,Buckwheat,Annual/Perennial,Herb_Shrub,8
+PLC219,1,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+PLC219,1,ATPO,5,2023,"saltbush, Allscale",Perennial,Shrub,2.5
+PLC219,1,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC219,21,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC219,21,SAVE4,11,2023,Greasewood,Perennial,Shrub,5.5
+PLC219,23,SAVE4,13,2023,Greasewood,Perennial,Shrub,6.5
+PLC219,30,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC219,30,SAVE4,6,2023,Greasewood,Perennial,Shrub,3
+PLC219,10,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+PLC219,10,SAVE4,15,2023,Greasewood,Perennial,Shrub,7.5
+PLC219,29,SAVE4,10,2023,Greasewood,Perennial,Shrub,5
+PLC219,29,ATCO,3,2023,Shadscale,Perennial,Shrub,1.5
+PLC219,17,SAVE4,8,2023,Greasewood,Perennial,Shrub,4
+PLC219,17,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC219,17,AMAC2,1,2023,"ragweed, Bur",Annual,Herb,0.5
+PLC219,17,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC219,17,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC219,17,HECU3,4,2023,"heliotrope, Salt",Perennial,Herb,2
+PLC219,3,SPAI,6,2023,"sacaton, Alkali",Perennial,Grass,3
+PLC219,3,ATTO,25,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,12.5
+PLC219,27,SAVE4,15,2023,Greasewood,Perennial,Shrub,7.5
+PLC219,27,ATCO,3,2023,Shadscale,Perennial,Shrub,1.5
+PLC219,27,ATPA3,1,2023,"saltbush, Parry's",Perennial,Shrub,0.5
+PLC219,27,SUMO,1,2023,"inkweed, Bush",Perennial,Shrub,0.5
+PLC219,32,SAVE4,10,2023,Greasewood,Perennial,Shrub,5
+PLC219,32,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+PLC219,32,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC219,32,ARTR2,1,2023,"sagebrush, Big",Perennial,Shrub,0.5
+PLC219,8,SPAI,11,2023,"sacaton, Alkali",Perennial,Grass,5.5
+PLC219,8,STEPH,3,2023,Wire-lettuce,Perennial,Herb_Shrub,1.5
+PLC219,8,SAVE4,9,2023,Greasewood,Perennial,Shrub,4.5
+PLC219,14,SPAI,2,2023,"sacaton, Alkali",Perennial,Grass,1
+PLC219,14,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC219,14,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC219,14,SAVE4,17,2023,Greasewood,Perennial,Shrub,8.5
+PLC219,14,TEAX,1,2023,"cotton-thorn, straight-spined",Perennial,Shrub,0.5
+PLC219,19,SAVE4,11,2023,Greasewood,Perennial,Shrub,5.5
+PLC219,19,PSARM,1,2023,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+PLC219,19,ERNA10,6,2023,"rabbitbrush, Common",Perennial,Shrub,3
+PLC219,19,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+PLC219,19,CORA5,2,2023,"bird's-beak, Bushy",Annual,Herb,1
+PLC219,19,SUMO,1,2023,"inkweed, Bush",Perennial,Shrub,0.5
+PLC219,4,SAVE4,8,2023,Greasewood,Perennial,Shrub,4
+PLC219,4,ATPA3,5,2023,"saltbush, Parry's",Perennial,Shrub,2.5
+PLC219,4,SUMO,2,2023,"inkweed, Bush",Perennial,Shrub,1
+PLC219,12,SAVE4,4,2023,Greasewood,Perennial,Shrub,2
+PLC219,12,ATPA3,1,2023,"saltbush, Parry's",Perennial,Shrub,0.5
+PLC219,20,ATCO,7,2023,Shadscale,Perennial,Shrub,3.5
+PLC219,20,SUMO,9,2023,"inkweed, Bush",Perennial,Shrub,4.5
+PLC219,20,SAVE4,5,2023,Greasewood,Perennial,Shrub,2.5
+PLC219,20,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+PLC219,23,ATCO,3,2023,Shadscale,Perennial,Shrub,1.5
+PLC219,23,SAVE4,11,2023,Greasewood,Perennial,Shrub,5.5
+PLC219,23,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+PLC219,23,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC219,5,SUMO,2,2023,"inkweed, Bush",Perennial,Shrub,1
+PLC219,5,SAVE4,12,2023,Greasewood,Perennial,Shrub,6
+PLC219,5,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC219,5,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC219,5,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC219,2,SAVE4,2,2023,Greasewood,Perennial,Shrub,1
+PLC219,2,ATPA3,4,2023,"saltbush, Parry's",Perennial,Shrub,2
+PLC219,9,SAVE4,12,2023,Greasewood,Perennial,Shrub,6
+PLC219,26,SAVE4,17,2023,Greasewood,Perennial,Shrub,8.5
+PLC219,26,SUMO,1,2023,"inkweed, Bush",Perennial,Shrub,0.5
+PLC219,26,ATCO,3,2023,Shadscale,Perennial,Shrub,1.5
+PLC219,26,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC219,15,SAVE4,8,2023,Greasewood,Perennial,Shrub,4
+PLC219,15,SUMO,4,2023,"inkweed, Bush",Perennial,Shrub,2
+PLC219,15,ATCO,11,2023,Shadscale,Perennial,Shrub,5.5
+PLC219,15,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC219,15,SPAI,7,2023,"sacaton, Alkali",Perennial,Grass,3.5
+PLC219,22,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC219,22,SPAI,16,2023,"sacaton, Alkali",Perennial,Grass,8
+PLC219,22,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+PLC219,7,SAVE4,5,2023,Greasewood,Perennial,Shrub,2.5
+PLC219,7,SPAI,3,2023,"sacaton, Alkali",Perennial,Grass,1.5
+PLC219,7,ERNA10,14,2023,"rabbitbrush, Common",Perennial,Shrub,7
+PLC219,6,SAVE4,15,2023,Greasewood,Perennial,Shrub,7.5
+PLC219,6,ATPA3,3,2023,"saltbush, Parry's",Perennial,Shrub,1.5
+PLC219,11,SAVE4,12,2023,Greasewood,Perennial,Shrub,6
+PLC219,11,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+PLC219,11,SUMO,1,2023,"inkweed, Bush",Perennial,Shrub,0.5
+PLC219,31,SAVE4,6,2023,Greasewood,Perennial,Shrub,3
+PLC219,31,SUMO,9,2023,"inkweed, Bush",Perennial,Shrub,4.5
+PLC219,18,SAVE4,10,2023,Greasewood,Perennial,Shrub,5
+PLC219,18,ATCO,6,2023,Shadscale,Perennial,Shrub,3
+PLC219,18,SUMO,3,2023,"inkweed, Bush",Perennial,Shrub,1.5
+PLC219,28,SAVE4,11,2023,Greasewood,Perennial,Shrub,5.5
+PLC219,16,SAVE4,4,2023,Greasewood,Perennial,Shrub,2
+PLC219,16,ATPA3,1,2023,"saltbush, Parry's",Perennial,Shrub,0.5
+PLC219,16,TEGL,1,2023,"horsebrush, Little",Perennial,Shrub,0.5
+PLC227,16,ATCO,17,2023,Shadscale,Perennial,Shrub,8.5
+PLC227,16,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+PLC227,16,ACHY,1,2023,"ricegrass, Indian",Perennial,Grass,0.5
+PLC227,16,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC227,29,ATCO,5,2023,Shadscale,Perennial,Shrub,2.5
+PLC227,29,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC227,29,PSPO,5,2023,"dalea, Dotted",Perennial,Shrub,2.5
+PLC227,29,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC227,29,ATCA2,3,2023,"saltbush, Fourwing",Perennial,Shrub,1.5
+PLC227,30,ATCO,4,2023,Shadscale,Perennial,Shrub,2
+PLC227,30,PSPO,3,2023,"dalea, Dotted",Perennial,Shrub,1.5
+PLC227,30,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC227,30,ERNA10,9,2023,"rabbitbrush, Common",Perennial,Shrub,4.5
+PLC227,30,ATCA2,4,2023,"saltbush, Fourwing",Perennial,Shrub,2
+PLC227,15,ATCO,10,2023,Shadscale,Perennial,Shrub,5
+PLC227,15,ACHY,1,2023,"ricegrass, Indian",Perennial,Grass,0.5
+PLC227,15,ATCA2,3,2023,"saltbush, Fourwing",Perennial,Shrub,1.5
+PLC227,13,ATCO,1,2023,Shadscale,Perennial,Shrub,0.5
+PLC227,13,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+PLC227,13,PSPO,1,2023,"dalea, Dotted",Perennial,Shrub,0.5
+PLC227,13,ERNA10,2,2023,"rabbitbrush, Common",Perennial,Shrub,1
+PLC227,13,ATCA2,13,2023,"saltbush, Fourwing",Perennial,Shrub,6.5
+PLC227,13,SAVE4,7,2023,Greasewood,Perennial,Shrub,3.5
+PLC227,13,CALI4,1,2023,"Indian paintbrush, Wyoming/Longleaf",Perennial,Herb,0.5
+PLC227,13,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC227,25,ATCO,6,2023,Shadscale,Perennial,Shrub,3
+PLC227,12,ATCO,12,2023,Shadscale,Perennial,Shrub,6
+PLC227,18,ATCO,13,2023,Shadscale,Perennial,Shrub,6.5
+PLC227,24,ATCO,5,2023,Shadscale,Perennial,Shrub,2.5
+PLC227,24,ATCA2,4,2023,"saltbush, Fourwing",Perennial,Shrub,2
+PLC227,1,ATCO,6,2023,Shadscale,Perennial,Shrub,3
+PLC227,1,ATCA2,5,2023,"saltbush, Fourwing",Perennial,Shrub,2.5
+PLC227,1,CALI4,1,2023,"Indian paintbrush, Wyoming/Longleaf",Perennial,Herb,0.5
+PLC227,1,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC227,7,ATCA2,8,2023,"saltbush, Fourwing",Perennial,Shrub,4
+PLC227,7,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC227,7,SATR12,11,2023,"Tumbleweed /thistle, Russian",Annual,Herb,5.5
+PLC227,7,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC227,4,ATCA2,6,2023,"saltbush, Fourwing",Perennial,Shrub,3
+PLC227,4,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC227,4,PSARM,2,2023,"indigo bush, Northern Mojave",Perennial,Shrub,1
+PLC227,10,ATCA2,10,2023,"saltbush, Fourwing",Perennial,Shrub,5
+PLC227,10,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+PLC227,10,PSPO,12,2023,"dalea, Dotted",Perennial,Shrub,6
+PLC227,31,PSARM,1,2023,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+PLC227,31,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC227,31,ATPO,4,2023,"saltbush, Allscale",Perennial,Shrub,2
+PLC227,5,ATCA2,1,2023,"saltbush, Fourwing",Perennial,Shrub,0.5
+PLC227,5,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC227,5,ATPO,12,2023,"saltbush, Allscale",Perennial,Shrub,6
+PLC227,22,ATCA2,9,2023,"saltbush, Fourwing",Perennial,Shrub,4.5
+PLC227,22,PSPO,2,2023,"dalea, Dotted",Perennial,Shrub,1
+PLC227,22,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC227,22,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC227,17,ATCA2,9,2023,"saltbush, Fourwing",Perennial,Shrub,4.5
+PLC227,17,PSPO,7,2023,"dalea, Dotted",Perennial,Shrub,3.5
+PLC227,17,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC227,2,SATR12,58,2023,"Tumbleweed /thistle, Russian",Annual,Herb,29
+PLC227,2,ATPO,1,2023,"saltbush, Allscale",Perennial,Shrub,0.5
+PLC227,2,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC227,11,ATCA2,7,2023,"saltbush, Fourwing",Perennial,Shrub,3.5
+PLC227,11,PSPO,1,2023,"dalea, Dotted",Perennial,Shrub,0.5
+PLC227,11,ATCO,4,2023,Shadscale,Perennial,Shrub,2
+PLC227,11,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC227,11,SAVE4,11,2023,Greasewood,Perennial,Shrub,5.5
+PLC227,11,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC227,3,ATCA2,11,2023,"saltbush, Fourwing",Perennial,Shrub,5.5
+PLC227,3,PSPO,2,2023,"dalea, Dotted",Perennial,Shrub,1
+PLC227,3,ATCO,12,2023,Shadscale,Perennial,Shrub,6
+PLC227,3,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+PLC227,28,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC227,28,PSARM,2,2023,"indigo bush, Northern Mojave",Perennial,Shrub,1
+PLC227,28,ATCA2,6,2023,"saltbush, Fourwing",Perennial,Shrub,3
+PLC227,28,PSPO,9,2023,"dalea, Dotted",Perennial,Shrub,4.5
+PLC227,19,PSARM,1,2023,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+PLC227,19,ATCA2,9,2023,"saltbush, Fourwing",Perennial,Shrub,4.5
+PLC227,19,PSPO,7,2023,"dalea, Dotted",Perennial,Shrub,3.5
+PLC227,14,ATCA2,15,2023,"saltbush, Fourwing",Perennial,Shrub,7.5
+PLC227,14,PSPO,4,2023,"dalea, Dotted",Perennial,Shrub,2
+PLC227,23,ATCA2,12,2023,"saltbush, Fourwing",Perennial,Shrub,6
+PLC227,23,PSPO,6,2023,"dalea, Dotted",Perennial,Shrub,3
+PLC227,23,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC227,8,ATCA2,18,2023,"saltbush, Fourwing",Perennial,Shrub,9
+PLC227,8,PSPO,6,2023,"dalea, Dotted",Perennial,Shrub,3
+PLC227,8,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC227,8,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC227,26,ATCA2,5,2023,"saltbush, Fourwing",Perennial,Shrub,2.5
+PLC227,26,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+PLC227,26,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+PLC227,32,ATCA2,18,2023,"saltbush, Fourwing",Perennial,Shrub,9
+PLC227,32,ERIOG,4,2023,Buckwheat,Annual/Perennial,Herb_Shrub,2
+PLC227,32,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC227,20,ATCA2,10,2023,"saltbush, Fourwing",Perennial,Shrub,5
+PLC227,20,SATR12,10,2023,"Tumbleweed /thistle, Russian",Annual,Herb,5
+PLC227,21,ATCA2,12,2023,"saltbush, Fourwing",Perennial,Shrub,6
+PLC227,21,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+PLC227,21,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+PLC227,21,STEPH,2,2023,Wire-lettuce,Perennial,Herb_Shrub,1
+PLC227,27,ATCA2,6,2023,"saltbush, Fourwing",Perennial,Shrub,3
+PLC227,27,ERNA10,16,2023,"rabbitbrush, Common",Perennial,Shrub,8
+PLC227,6,ATPO,2,2023,"saltbush, Allscale",Perennial,Shrub,1
+PLC227,6,ATCA2,11,2023,"saltbush, Fourwing",Perennial,Shrub,5.5
+PLC227,6,ERIOG,3,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1.5
+PLC227,6,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC227,9,ATPO,1,2023,"saltbush, Allscale",Perennial,Shrub,0.5
+PLC227,9,ATCA2,5,2023,"saltbush, Fourwing",Perennial,Shrub,2.5
+PLC227,9,ERNA10,7,2023,"rabbitbrush, Common",Perennial,Shrub,3.5
+PLC227,9,PSARM,1,2023,"indigo bush, Northern Mojave",Perennial,Shrub,0.5
+PLC230,31,ATPO,24,2023,"saltbush, Allscale",Perennial,Shrub,12
+PLC230,6,ATPO,22,2023,"saltbush, Allscale",Perennial,Shrub,11
+PLC230,6,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+PLC230,6,ATCA2,3,2023,"saltbush, Fourwing",Perennial,Shrub,1.5
+PLC230,5,ATPO,25,2023,"saltbush, Allscale",Perennial,Shrub,12.5
+PLC230,5,SATR12,7,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3.5
+PLC230,5,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC230,1,ATPO,30,2023,"saltbush, Allscale",Perennial,Shrub,15
+PLC230,1,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+PLC230,14,SATR12,30,2023,"Tumbleweed /thistle, Russian",Annual,Herb,15
+PLC230,14,ATTO,3,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1.5
+PLC230,3,SATR12,37,2023,"Tumbleweed /thistle, Russian",Annual,Herb,18.5
+PLC230,3,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+PLC230,28,SATR12,3,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1.5
+PLC230,28,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+PLC230,28,ERIOG,8,2023,Buckwheat,Annual/Perennial,Herb_Shrub,4
+PLC230,7,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC230,7,SPAI,32,2023,"sacaton, Alkali",Perennial,Grass,16
+PLC230,7,ALOC2,1,2023,"bush, Iodine",Perennial,Shrub,0.5
+PLC230,7,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+PLC230,24,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+PLC230,24,ATTO,19,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,9.5
+PLC230,24,SPAI,2,2023,"sacaton, Alkali",Perennial,Grass,1
+PLC230,24,MALE3,1,2023,"mallow, Alkali",Perennial,Herb,0.5
+PLC230,21,SATR12,20,2023,"Tumbleweed /thistle, Russian",Annual,Herb,10
+PLC230,21,ATTO,19,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,9.5
+PLC230,21,MALE3,3,2023,"mallow, Alkali",Perennial,Herb,1.5
+PLC230,25,ATTO,14,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,7
+PLC230,25,SATR12,9,2023,"Tumbleweed /thistle, Russian",Annual,Herb,4.5
+PLC230,25,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC230,25,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC230,35,ATTO,20,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,10
+PLC230,35,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC230,35,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC230,8,SATR12,17,2023,"Tumbleweed /thistle, Russian",Annual,Herb,8.5
+PLC230,8,ATCA2,13,2023,"saltbush, Fourwing",Perennial,Shrub,6.5
+PLC230,8,ACHY,1,2023,"ricegrass, Indian",Perennial,Grass,0.5
+PLC230,8,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+PLC230,2,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+PLC230,2,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC230,2,SPAI,4,2023,"sacaton, Alkali",Perennial,Grass,2
+PLC230,2,ATCO,2,2023,Shadscale,Perennial,Shrub,1
+PLC230,2,ATPO,3,2023,"saltbush, Allscale",Perennial,Shrub,1.5
+PLC230,29,ATTO,7,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,3.5
+PLC230,29,SPAI,14,2023,"sacaton, Alkali",Perennial,Grass,7
+PLC230,12,ATTO,13,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,6.5
+PLC230,12,SATR12,56,2023,"Tumbleweed /thistle, Russian",Annual,Herb,28
+PLC230,23,ATTO,12,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,6
+PLC230,23,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+PLC230,23,SPAI,8,2023,"sacaton, Alkali",Perennial,Grass,4
+PLC230,23,ERNA10,1,2023,"rabbitbrush, Common",Perennial,Shrub,0.5
+PLC230,23,ERIOG,2,2023,Buckwheat,Annual/Perennial,Herb_Shrub,1
+PLC230,23,MALE3,1,2023,"mallow, Alkali",Perennial,Herb,0.5
+PLC230,18,ATTO,18,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,9
+PLC230,18,SATR12,8,2023,"Tumbleweed /thistle, Russian",Annual,Herb,4
+PLC230,18,SPAI,11,2023,"sacaton, Alkali",Perennial,Grass,5.5
+PLC230,18,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC230,18,MALE3,3,2023,"mallow, Alkali",Perennial,Herb,1.5
+PLC230,30,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+PLC230,30,ATPO,26,2023,"saltbush, Allscale",Perennial,Shrub,13
+PLC230,27,ATPO,22,2023,"saltbush, Allscale",Perennial,Shrub,11
+PLC230,27,ATCA2,3,2023,"saltbush, Fourwing",Perennial,Shrub,1.5
+PLC230,38,ATPO,20,2023,"saltbush, Allscale",Perennial,Shrub,10
+PLC230,4,ATPO,16,2023,"saltbush, Allscale",Perennial,Shrub,8
+PLC230,17,ATPO,22,2023,"saltbush, Allscale",Perennial,Shrub,11
+PLC230,26,ATPO,22,2023,"saltbush, Allscale",Perennial,Shrub,11
+PLC230,33,ATCA2,14,2023,"saltbush, Fourwing",Perennial,Shrub,7
+PLC230,33,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+PLC230,33,SAVE4,3,2023,Greasewood,Perennial,Shrub,1.5
+PLC230,33,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC230,33,ACHY,2,2023,"ricegrass, Indian",Perennial,Grass,1
+PLC230,9,ATPO,26,2023,"saltbush, Allscale",Perennial,Shrub,13
+PLC230,19,SATR12,4,2023,"Tumbleweed /thistle, Russian",Annual,Herb,2
+PLC230,19,ATCA2,7,2023,"saltbush, Fourwing",Perennial,Shrub,3.5
+PLC230,19,ERIOG,7,2023,Buckwheat,Annual/Perennial,Herb_Shrub,3.5
+PLC230,22,SATR12,2,2023,"Tumbleweed /thistle, Russian",Annual,Herb,1
+PLC230,22,ATCA2,15,2023,"saltbush, Fourwing",Perennial,Shrub,7.5
+PLC230,22,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC230,13,ATCA2,4,2023,"saltbush, Fourwing",Perennial,Shrub,2
+PLC230,13,PSPO,3,2023,"dalea, Dotted",Perennial,Shrub,1.5
+PLC230,13,ACHY,1,2023,"ricegrass, Indian",Perennial,Grass,0.5
+PLC230,13,STEPH,1,2023,Wire-lettuce,Perennial,Herb_Shrub,0.5
+PLC230,15,ATTO,11,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5.5
+PLC230,15,SPAI,2,2023,"sacaton, Alkali",Perennial,Grass,1
+PLC230,15,ERNA10,3,2023,"rabbitbrush, Common",Perennial,Shrub,1.5
+PLC230,40,ATTO,10,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,5
+PLC230,40,SATR12,19,2023,"Tumbleweed /thistle, Russian",Annual,Herb,9.5
+PLC230,11,ATTO,5,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2.5
+PLC230,11,SATR12,16,2023,"Tumbleweed /thistle, Russian",Annual,Herb,8
+PLC230,11,SPAI,1,2023,"sacaton, Alkali",Perennial,Grass,0.5
+PLC230,37,ATTO,7,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,3.5
+PLC230,37,SATR12,29,2023,"Tumbleweed /thistle, Russian",Annual,Herb,14.5
+PLC230,10,ATTO,6,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,3
+PLC230,10,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC230,10,MALE3,1,2023,"mallow, Alkali",Perennial,Herb,0.5
+PLC230,10,ERIOG,1,2023,Buckwheat,Annual/Perennial,Herb_Shrub,0.5
+PLC230,10,ATPO,2,2023,"saltbush, Allscale",Perennial,Shrub,1
+PLC230,36,ATTO,4,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,2
+PLC230,36,SATR12,6,2023,"Tumbleweed /thistle, Russian",Annual,Herb,3
+PLC230,36,ERIOG,7,2023,Buckwheat,Annual/Perennial,Herb_Shrub,3.5
+PLC230,16,SATR12,14,2023,"Tumbleweed /thistle, Russian",Annual,Herb,7
+PLC230,16,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC230,39,SATR12,1,2023,"Tumbleweed /thistle, Russian",Annual,Herb,0.5
+PLC230,39,ATTO,2,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,1
+PLC230,39,ATPO,17,2023,"saltbush, Allscale",Perennial,Shrub,8.5
+PLC230,39,ATCA2,1,2023,"saltbush, Fourwing",Perennial,Shrub,0.5
+PLC230,32,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+PLC230,32,ATPO,17,2023,"saltbush, Allscale",Perennial,Shrub,8.5
+PLC230,34,ATPO,2,2023,"saltbush, Allscale",Perennial,Shrub,1
+PLC230,20,ATPO,5,2023,"saltbush, Allscale",Perennial,Shrub,2.5
+PLC230,20,ATCA2,3,2023,"saltbush, Fourwing",Perennial,Shrub,1.5
+PLC230,20,ATTO,1,2023,"saltbush, Nevada/Torrey's",Perennial,Shrub,0.5
+LAW028,11,PSARM,4,2025,NA,NA,NA,NA
+LAW028,11,ATCO,3,2025,NA,NA,NA,NA
+LAW028,11,LYAN,2,2025,NA,NA,NA,NA
+LAW028,9,PSARM,3,2025,NA,NA,NA,NA
+LAW028,9,ATCO,2,2025,NA,NA,NA,NA
+LAW028,9,PSPO,1,2025,NA,NA,NA,NA
+LAW028,12,PSARM,11,2025,NA,NA,NA,NA
+LAW028,12,ATCO,1,2025,NA,NA,NA,NA
+LAW028,12,LYAN,3,2025,NA,NA,NA,NA
+LAW028,12,KRLA2,1,2025,NA,NA,NA,NA
+LAW028,13,PSARM,7,2025,NA,NA,NA,NA
+LAW028,13,ATCO,1,2025,NA,NA,NA,NA
+LAW028,13,LYAN,3,2025,NA,NA,NA,NA
+LAW028,13,KRLA2,4,2025,NA,NA,NA,NA
+LAW028,1,PSARM,7,2025,NA,NA,NA,NA
+LAW028,1,ATCO,4,2025,NA,NA,NA,NA
+LAW028,5,LYAN,1,2025,NA,NA,NA,NA
+LAW028,5,ATCO,3,2025,NA,NA,NA,NA
+LAW028,5,PSARM,1,2025,NA,NA,NA,NA
+LAW028,18,KRLA2,4,2025,NA,NA,NA,NA
+LAW028,18,PSPO,5,2025,NA,NA,NA,NA
+LAW028,18,ATCO,1,2025,NA,NA,NA,NA
+LAW028,18,ACHY,1,2025,NA,NA,NA,NA
+LAW028,18,SATR12,1,2025,NA,NA,NA,NA
+LAW028,4,ATCO,7,2025,NA,NA,NA,NA
+LAW028,4,PSARM,11,2025,NA,NA,NA,NA
+LAW028,20,KRLA2,2,2025,NA,NA,NA,NA
+LAW028,20,ATCO,4,2025,NA,NA,NA,NA
+LAW028,20,PSARM,9,2025,NA,NA,NA,NA
+LAW028,15,ATCO,2,2025,NA,NA,NA,NA
+LAW028,15,SATR12,5,2025,NA,NA,NA,NA
+LAW028,2,ATCO,1,2025,NA,NA,NA,NA
+LAW028,2,SATR12,1,2025,NA,NA,NA,NA
+LAW028,2,PSARM,6,2025,NA,NA,NA,NA
+LAW028,2,EPVI,3,2025,NA,NA,NA,NA
+LAW028,2,TEAX,1,2025,NA,NA,NA,NA
+LAW028,3,SATR12,3,2025,NA,NA,NA,NA
+LAW028,3,ATCO,1,2025,NA,NA,NA,NA
+LAW028,3,PSARM,12,2025,NA,NA,NA,NA
+LAW028,8,SATR12,1,2025,NA,NA,NA,NA
+LAW028,8,ATCO,2,2025,NA,NA,NA,NA
+LAW028,8,PSARM,8,2025,NA,NA,NA,NA
+LAW028,8,LEFR2,2,2025,NA,NA,NA,NA
+LAW028,14,ATCO,3,2025,NA,NA,NA,NA
+LAW028,14,PSARM,13,2025,NA,NA,NA,NA
+LAW028,14,LYAN,2,2025,NA,NA,NA,NA
+LAW028,14,KRLA2,1,2025,NA,NA,NA,NA
+LAW028,7,SATR12,3,2025,NA,NA,NA,NA
+LAW028,7,ATCO,1,2025,NA,NA,NA,NA
+LAW028,7,PSARM,4,2025,NA,NA,NA,NA
+LAW028,6,SATR12,1,2025,NA,NA,NA,NA
+LAW028,6,ATCO,4,2025,NA,NA,NA,NA
+LAW028,6,PSARM,10,2025,NA,NA,NA,NA
+LAW028,6,LEFR2,1,2025,NA,NA,NA,NA
+LAW028,16,PSARM,8,2025,NA,NA,NA,NA
+LAW028,16,ATCO,1,2025,NA,NA,NA,NA
+LAW028,16,SATR12,2,2025,NA,NA,NA,NA
+LAW028,19,PSARM,4,2025,NA,NA,NA,NA
+LAW028,19,ATCO,3,2025,NA,NA,NA,NA
+LAW028,19,SATR12,2,2025,NA,NA,NA,NA
+LAW028,10,PSARM,8,2025,NA,NA,NA,NA
+LAW028,10,ATCO,5,2025,NA,NA,NA,NA
+LAW028,10,KRLA2,3,2025,NA,NA,NA,NA
+LAW028,17,ATCO,11,2025,NA,NA,NA,NA
+LAW028,17,SATR12,3,2025,NA,NA,NA,NA
+LAW049,5,PSARM,11,2025,NA,NA,NA,NA
+LAW049,5,XYTO2,1,2025,NA,NA,NA,NA
+LAW049,5,ATCO,2,2025,NA,NA,NA,NA
+LAW049,1,PSARM,10,2025,NA,NA,NA,NA
+LAW049,1,XYTO2,3,2025,NA,NA,NA,NA
+LAW049,7,PSARM,2,2025,NA,NA,NA,NA
+LAW049,7,SATR12,1,2025,NA,NA,NA,NA
+LAW049,3,ATCO,4,2025,NA,NA,NA,NA
+LAW049,3,SATR12,6,2025,NA,NA,NA,NA
+LAW049,9,PSARM,7,2025,NA,NA,NA,NA
+LAW049,9,ATCO,5,2025,NA,NA,NA,NA
+LAW049,9,LYAN,1,2025,NA,NA,NA,NA
+LAW049,10,ATCO,7,2025,NA,NA,NA,NA
+LAW049,10,KRLA2,2,2025,NA,NA,NA,NA
+LAW049,2,ATCO,4,2025,NA,NA,NA,NA
+LAW049,2,SATR12,1,2025,NA,NA,NA,NA
+LAW049,6,KRLA2,1,2025,NA,NA,NA,NA
+LAW049,6,SATR12,12,2025,NA,NA,NA,NA
+LAW049,4,ATCO,1,2025,NA,NA,NA,NA
+LAW049,4,SATR12,1,2025,NA,NA,NA,NA
+LAW049,4,PSARM,11,2025,NA,NA,NA,NA
+LAW012,33,ATCO,8,2025,NA,NA,NA,NA
+LAW012,33,SATR12,4,2025,NA,NA,NA,NA
+LAW012,33,PSPO,2,2025,NA,NA,NA,NA
+LAW012,29,ATCO,3,2025,NA,NA,NA,NA
+LAW012,29,SATR12,1,2025,NA,NA,NA,NA
+LAW012,29,PSPO,7,2025,NA,NA,NA,NA
+LAW012,29,KRLA2,2,2025,NA,NA,NA,NA
+LAW012,29,PSARM,5,2025,NA,NA,NA,NA
+LAW012,31,ATCO,4,2025,NA,NA,NA,NA
+LAW012,31,SATR12,5,2025,NA,NA,NA,NA
+LAW012,31,PSARM,3,2025,NA,NA,NA,NA
+LAW012,15,ATCO,1,2025,NA,NA,NA,NA
+LAW012,15,PSARM,9,2025,NA,NA,NA,NA
+LAW012,15,HYSA,1,2025,NA,NA,NA,NA
+LAW012,15,LYAN,5,2025,NA,NA,NA,NA
+LAW012,34,ATCO,4,2025,NA,NA,NA,NA
+LAW012,34,PSARM,13,2025,NA,NA,NA,NA
+LAW012,34,LEFR2,1,2025,NA,NA,NA,NA
+LAW012,12,PSARM,8,2025,NA,NA,NA,NA
+LAW012,12,LYAN,2,2025,NA,NA,NA,NA
+LAW012,37,PSARM,3,2025,NA,NA,NA,NA
+LAW012,37,LYAN,2,2025,NA,NA,NA,NA
+LAW012,37,KRLA2,1,2025,NA,NA,NA,NA
+LAW012,37,ATCO,1,2025,NA,NA,NA,NA
+LAW012,19,PSARM,5,2025,NA,NA,NA,NA
+LAW012,19,LYAN,2,2025,NA,NA,NA,NA
+LAW012,19,ATCO,1,2025,NA,NA,NA,NA
+LAW012,19,LEFR2,1,2025,NA,NA,NA,NA
+LAW012,19,ERIN4,1,2025,NA,NA,NA,NA
+LAW012,19,XYTO2,1,2025,NA,NA,NA,NA
+LAW012,36,PSARM,5,2025,NA,NA,NA,NA
+LAW012,36,ATCO,1,2025,NA,NA,NA,NA
+LAW012,36,LEFR2,1,2025,NA,NA,NA,NA
+LAW012,36,SATR12,1,2025,NA,NA,NA,NA
+LAW012,25,SATR12,13,2025,NA,NA,NA,NA
+LAW012,23,PSARM,7,2025,NA,NA,NA,NA
+LAW012,35,PSARM,12,2025,NA,NA,NA,NA
+LAW012,35,ATCO,2,2025,NA,NA,NA,NA
+LAW012,11,PSARM,3,2025,NA,NA,NA,NA
+LAW012,11,ATCO,7,2025,NA,NA,NA,NA
+LAW012,11,SAVE4,2,2025,NA,NA,NA,NA
+LAW012,21,PSARM,1,2025,NA,NA,NA,NA
+LAW012,21,ATCO,8,2025,NA,NA,NA,NA
+LAW012,25,SATR12,11,2025,NA,NA,NA,NA
+LAW012,25,ERMA2,1,2025,NA,NA,NA,NA
+LAW012,25,ATCO,4,2025,NA,NA,NA,NA
+LAW012,16,ATCO,1,2025,NA,NA,NA,NA
+LAW012,16,PSARM,2,2025,NA,NA,NA,NA
+LAW012,32,SATR12,5,2025,NA,NA,NA,NA
+LAW012,32,ATCO,3,2025,NA,NA,NA,NA
+LAW012,39,SATR12,1,2025,NA,NA,NA,NA
+LAW012,39,ATCO,1,2025,NA,NA,NA,NA
+LAW012,39,PSARM,9,2025,NA,NA,NA,NA
+LAW012,3,SATR12,1,2025,NA,NA,NA,NA
+LAW012,3,ATCO,5,2025,NA,NA,NA,NA
+LAW012,27,BAHY,1,2025,NA,NA,NA,NA
+LAW012,27,ATCO,5,2025,NA,NA,NA,NA
+LAW012,30,ATCO,4,2025,NA,NA,NA,NA
+LAW012,30,SAVE4,9,2025,NA,NA,NA,NA
+LAW012,30,PSARM,1,2025,NA,NA,NA,NA
+LAW012,30,SATR12,1,2025,NA,NA,NA,NA
+LAW012,18,ATCO,1,2025,NA,NA,NA,NA
+LAW012,18,PSARM,1,2025,NA,NA,NA,NA
+LAW012,6,ATCO,2,2025,NA,NA,NA,NA
+LAW012,6,PSARM,1,2025,NA,NA,NA,NA
+LAW012,6,SATR12,2,2025,NA,NA,NA,NA
+LAW012,13,ATCO,6,2025,NA,NA,NA,NA
+LAW012,13,PSARM,2,2025,NA,NA,NA,NA
+LAW012,13,LEFR2,2,2025,NA,NA,NA,NA
+LAW012,13,KRLA2,1,2025,NA,NA,NA,NA
+LAW012,1,PSARM,3,2025,NA,NA,NA,NA
+LAW012,1,SATR12,1,2025,NA,NA,NA,NA
+LAW012,17,PSARM,5,2025,NA,NA,NA,NA
+LAW012,17,ATCO,1,2025,NA,NA,NA,NA
+LAW012,17,ERIOG,1,2025,NA,NA,NA,NA
+LAW012,9,PSARM,5,2025,NA,NA,NA,NA
+LAW012,9,ATCO,1,2025,NA,NA,NA,NA
+LAW012,22,PSARM,5,2025,NA,NA,NA,NA
+LAW012,22,ATCO,4,2025,NA,NA,NA,NA
+LAW012,28,PSARM,5,2025,NA,NA,NA,NA
+LAW012,28,ATCO,3,2025,NA,NA,NA,NA
+LAW012,28,KRLA2,3,2025,NA,NA,NA,NA
+LAW012,4,PSARM,4,2025,NA,NA,NA,NA
+LAW012,4,SATR12,4,2025,NA,NA,NA,NA
+LAW012,4,KRLA2,1,2025,NA,NA,NA,NA
+LAW012,26,PSARM,5,2025,NA,NA,NA,NA
+LAW012,26,ATCO,5,2025,NA,NA,NA,NA
+LAW012,10,PSARM,4,2025,NA,NA,NA,NA
+LAW012,10,SATR12,1,2025,NA,NA,NA,NA
+LAW012,10,ATCO,2,2025,NA,NA,NA,NA
+LAW012,2,PSARM,6,2025,NA,NA,NA,NA
+LAW012,2,SATR12,2,2025,NA,NA,NA,NA
+LAW012,8,PSARM,14,2025,NA,NA,NA,NA
+LAW012,8,LYAN,2,2025,NA,NA,NA,NA
+LAW012,16,PSARM,8,2025,NA,NA,NA,NA
+LAW012,16,ATCO,2,2025,NA,NA,NA,NA
+LAW012,39,PSARM,9,2025,NA,NA,NA,NA
+LAW012,20,PSARM,8,2025,NA,NA,NA,NA
+LAW012,20,ATCO,3,2025,NA,NA,NA,NA
+LAW012,7,PSARM,4,2025,NA,NA,NA,NA
+LAW012,7,ATCO,4,2025,NA,NA,NA,NA
+LAW012,7,SATR12,1,2025,NA,NA,NA,NA
+LAW012,14,PSARM,7,2025,NA,NA,NA,NA
+LAW012,14,ATCO,1,2025,NA,NA,NA,NA
+LAW012,14,SATR12,2,2025,NA,NA,NA,NA
+LAW012,24,SATR12,5,2025,NA,NA,NA,NA
+LAW012,24,PSARM,15,2025,NA,NA,NA,NA
+LAW012,24,ATCO,3,2025,NA,NA,NA,NA
+LAW012,5,ATCO,3,2025,NA,NA,NA,NA
+LAW012,5,LYAN,9,2025,NA,NA,NA,NA
+LAW012,38,PSARM,9,2025,NA,NA,NA,NA
+LAW012,38,ATCO,3,2025,NA,NA,NA,NA
+LAW012,38,LYAN,2,2025,NA,NA,NA,NA
+LAW012,38,KRLA2,2,2025,NA,NA,NA,NA
+LAW012,40,SATR12,1,2025,NA,NA,NA,NA
+LAW012,40,PSARM,5,2025,NA,NA,NA,NA
+LAW012,40,ATCO,3,2025,NA,NA,NA,NA
+LAW012,40,LYAN,2,2025,NA,NA,NA,NA
+LAW024,3,ATCO,11,2025,NA,NA,NA,NA
+LAW024,3,SATR12,3,2025,NA,NA,NA,NA
+LAW024,9,ATCO,1,2025,NA,NA,NA,NA
+LAW024,9,ERNA10,9,2025,NA,NA,NA,NA
+LAW024,9,PSARM,1,2025,NA,NA,NA,NA
+LAW024,9,ATCA2,1,2025,NA,NA,NA,NA
+LAW024,10,PSARM,2,2025,NA,NA,NA,NA
+LAW024,10,LYAN,14,2025,NA,NA,NA,NA
+LAW024,7,ATCO,3,2025,NA,NA,NA,NA
+LAW024,7,SATR12,1,2025,NA,NA,NA,NA
+LAW024,7,PSARM,4,2025,NA,NA,NA,NA
+LAW024,7,SAVE4,14,2025,NA,NA,NA,NA
+LAW024,1,ATCO,2,2025,NA,NA,NA,NA
+LAW024,1,PSARM,4,2025,NA,NA,NA,NA
+LAW024,1,SAVE4,9,2025,NA,NA,NA,NA
+LAW024,1,KRLA2,2,2025,NA,NA,NA,NA
+LAW024,6,LYAN,15,2025,NA,NA,NA,NA
+LAW024,5,LYAN,5,2025,NA,NA,NA,NA
+LAW024,5,PSARM,3,2025,NA,NA,NA,NA
+LAW024,8,LYAN,2,2025,NA,NA,NA,NA
+LAW024,8,PSARM,3,2025,NA,NA,NA,NA
+LAW024,8,ATCO,6,2025,NA,NA,NA,NA
+LAW024,8,ERNA10,1,2025,NA,NA,NA,NA
+LAW024,8,SAVE4,12,2025,NA,NA,NA,NA
+LAW024,8,TEGL,2,2025,NA,NA,NA,NA
+LAW024,4,LYAN,18,2025,NA,NA,NA,NA
+LAW024,4,ATCO,2,2025,NA,NA,NA,NA
+LAW024,2,LYAN,17,2025,NA,NA,NA,NA
+LAW048,6,SAVE4,17,2025,NA,NA,NA,NA
+LAW048,6,ATCO,3,2025,NA,NA,NA,NA
+LAW048,2,SAVE4,4,2025,NA,NA,NA,NA
+LAW048,2,ATCO,9,2025,NA,NA,NA,NA
+LAW048,2,SUMO,1,2025,NA,NA,NA,NA
+LAW048,1,SAVE4,4,2025,NA,NA,NA,NA
+LAW048,1,ATCO,3,2025,NA,NA,NA,NA
+LAW048,1,SUMO,1,2025,NA,NA,NA,NA
+LAW048,1,ATTO,2,2025,NA,NA,NA,NA
+LAW048,4,SAVE4,10,2025,NA,NA,NA,NA
+LAW048,4,ATCO,8,2025,NA,NA,NA,NA
+LAW048,4,ATTO,3,2025,NA,NA,NA,NA
+LAW048,4,ERNA10,8,2025,NA,NA,NA,NA
+LAW048,3,SAVE4,4,2025,NA,NA,NA,NA
+LAW048,3,ATCO,2,2025,NA,NA,NA,NA
+LAW048,3,TEGL,2,2025,NA,NA,NA,NA
+LAW048,3,ERNA10,2,2025,NA,NA,NA,NA
+LAW048,7,SAVE4,12,2025,NA,NA,NA,NA
+LAW048,7,ATCO,3,2025,NA,NA,NA,NA
+LAW048,7,TEGL,7,2025,NA,NA,NA,NA
+LAW048,8,SAVE4,14,2025,NA,NA,NA,NA
+LAW048,8,ATCO,4,2025,NA,NA,NA,NA
+LAW048,5,SAVE4,12,2025,NA,NA,NA,NA
+LAW048,5,ATCO,3,2025,NA,NA,NA,NA
+LAW048,5,ERNA10,8,2025,NA,NA,NA,NA
+LAW091,5,ATCO,3,2025,NA,NA,NA,NA
+LAW091,5,PSPO,1,2025,NA,NA,NA,NA
+LAW091,5,PSARM,4,2025,NA,NA,NA,NA
+LAW091,5,KRLA2,1,2025,NA,NA,NA,NA
+LAW091,5,GRSP,1,2025,NA,NA,NA,NA
+LAW091,1,ATCO,2,2025,NA,NA,NA,NA
+LAW091,1,PSARM,1,2025,NA,NA,NA,NA
+LAW091,1,GRSP,1,2025,NA,NA,NA,NA
+LAW091,1,LYAN,13,2025,NA,NA,NA,NA
+LAW091,6,PSPO,3,2025,NA,NA,NA,NA
+LAW091,6,KRLA2,2,2025,NA,NA,NA,NA
+LAW091,6,SATR12,9,2025,NA,NA,NA,NA
+LAW091,6,ATCA2,4,2025,NA,NA,NA,NA
+LAW091,2,SATR12,8,2025,NA,NA,NA,NA
+LAW091,2,ATCA2,1,2025,NA,NA,NA,NA
+LAW091,3,SATR12,1,2025,NA,NA,NA,NA
+LAW091,3,ATPO,7,2025,NA,NA,NA,NA
+LAW091,7,HYSA,7,2025,NA,NA,NA,NA
+LAW091,7,ATCO,1,2025,NA,NA,NA,NA
+LAW091,7,PSARM,2,2025,NA,NA,NA,NA
+LAW091,7,LYAN,2,2025,NA,NA,NA,NA
+LAW091,4,ATCO,5,2025,NA,NA,NA,NA
+LAW091,4,PSARM,2,2025,NA,NA,NA,NA
+LAW091,4,TEAX,1,2025,NA,NA,NA,NA
+LAW091,8,ATCO,4,2025,NA,NA,NA,NA
+LAW091,8,PSARM,4,2025,NA,NA,NA,NA
+LAW091,8,LYAN,4,2025,NA,NA,NA,NA
+LAW091,6,SATR12,12,2025,NA,NA,NA,NA
+LAW091,6,KRLA2,1,2025,NA,NA,NA,NA
+LAW091,6,PSPO,4,2025,NA,NA,NA,NA
+LAW091,2,SATR12,7,2025,NA,NA,NA,NA
+LAW091,2,PSPO,6,2025,NA,NA,NA,NA
+LAW091,2,ATCA2,6,2025,NA,NA,NA,NA
+LAW091,3,SATR12,1,2025,NA,NA,NA,NA
+LAW091,3,ATPO,19,2025,NA,NA,NA,NA
+LAW091,7,HYSA,7,2025,NA,NA,NA,NA
+LAW091,7,PSARM,6,2025,NA,NA,NA,NA
+LAW091,7,ATCO,2,2025,NA,NA,NA,NA
+LAW091,4,ATCO,6,2025,NA,NA,NA,NA
+LAW091,4,LYAN,5,2025,NA,NA,NA,NA
+LAW091,4,TEAX,1,2025,NA,NA,NA,NA
+LAW091,8,LYAN,5,2025,NA,NA,NA,NA
+LAW091,8,ATCO,3,2025,NA,NA,NA,NA
+LAW091,8,PSARM,5,2025,NA,NA,NA,NA
+LAW091,5,ATCO,4,2025,NA,NA,NA,NA
+LAW091,5,PSARM,3,2025,NA,NA,NA,NA
+LAW091,5,KRLA2,6,2025,NA,NA,NA,NA
+LAW091,5,SPAM2,1,2025,NA,NA,NA,NA
+LAW091,5,SATR12,1,2025,NA,NA,NA,NA
+LAW091,5,HYSA,5,2025,NA,NA,NA,NA
+LAW091,5,TEAX,2,2025,NA,NA,NA,NA
+LAW091,5,GRSP,6,2025,NA,NA,NA,NA
+LAW091,1,LYAN,6,2025,NA,NA,NA,NA
+LAW091,1,ATCO,3,2025,NA,NA,NA,NA
+LAW091,1,GRSP,2,2025,NA,NA,NA,NA
+LAW093,5,ATCA2,12,2025,NA,NA,NA,NA
+LAW093,5,PSPO,11,2025,NA,NA,NA,NA
+LAW093,5,PSARM,10,2025,NA,NA,NA,NA
+LAW093,5,KRLA2,2,2025,NA,NA,NA,NA
+LAW093,5,SATR12,1,2025,NA,NA,NA,NA
+LAW093,3,PSPO,2,2025,NA,NA,NA,NA
+LAW093,3,PSARM,11,2025,NA,NA,NA,NA
+LAW093,3,KRLA2,7,2025,NA,NA,NA,NA
+LAW093,3,TEAX,4,2025,NA,NA,NA,NA
+LAW093,3,ATCO,1,2025,NA,NA,NA,NA
+LAW093,1,PSARM,9,2025,NA,NA,NA,NA
+LAW093,1,KRLA2,11,2025,NA,NA,NA,NA
+LAW093,1,SATR12,1,2025,NA,NA,NA,NA
+LAW093,1,TEAX,1,2025,NA,NA,NA,NA
+LAW093,1,ATCO,1,2025,NA,NA,NA,NA
+LAW093,4,PSARM,9,2025,NA,NA,NA,NA
+LAW093,4,KRLA2,8,2025,NA,NA,NA,NA
+LAW093,4,TEAX,3,2025,NA,NA,NA,NA
+LAW093,2,ATCA2,1,2025,NA,NA,NA,NA
+LAW093,2,PSPO,4,2025,NA,NA,NA,NA
+LAW093,2,PSARM,3,2025,NA,NA,NA,NA
+LAW093,2,KRLA2,3,2025,NA,NA,NA,NA
+LAW093,2,TEAX,2,2025,NA,NA,NA,NA
+LAW117,13,PSARM,1,2025,NA,NA,NA,NA
+LAW117,13,ATCO,10,2025,NA,NA,NA,NA
+LAW117,13,KRLA2,1,2025,NA,NA,NA,NA
+LAW117,27,PSARM,6,2025,NA,NA,NA,NA
+LAW117,27,ATCO,2,2025,NA,NA,NA,NA
+LAW117,28,PSARM,4,2025,NA,NA,NA,NA
+LAW117,28,ATCO,5,2025,NA,NA,NA,NA
+LAW117,5,PSARM,5,2025,NA,NA,NA,NA
+LAW117,5,KRLA2,5,2025,NA,NA,NA,NA
+LAW117,5,TEAX,4,2025,NA,NA,NA,NA
+LAW117,17,ATCO,5,2025,NA,NA,NA,NA
+LAW117,17,SART12,1,2025,NA,NA,NA,NA
+LAW117,19,ATCO,12,2025,NA,NA,NA,NA
+LAW117,19,PSARM,3,2025,NA,NA,NA,NA
+LAW117,3,ATCO,4,2025,NA,NA,NA,NA
+LAW117,3,KRLA2,3,2025,NA,NA,NA,NA
+LAW117,3,PSARM,7,2025,NA,NA,NA,NA
+LAW117,7,ATCO,10,2025,NA,NA,NA,NA
+LAW117,7,PSARM,3,2025,NA,NA,NA,NA
+LAW117,6,ATCO,5,2025,NA,NA,NA,NA
+LAW117,6,PSARM,7,2025,NA,NA,NA,NA
+LAW117,6,EPHED,1,2025,NA,NA,NA,NA
+LAW117,6,TEAX,1,2025,NA,NA,NA,NA
+LAW117,25,ATCO,5,2025,NA,NA,NA,NA
+LAW117,25,PSARM,1,2025,NA,NA,NA,NA
+LAW117,8,ATCO,9,2025,NA,NA,NA,NA
+LAW117,8,PSARM,8,2025,NA,NA,NA,NA
+LAW117,8,EPHED,2,2025,NA,NA,NA,NA
+LAW117,10,SATR12,1,2025,NA,NA,NA,NA
+LAW117,10,KRLA2,2,2025,NA,NA,NA,NA
+LAW117,10,PSARM,5,2025,NA,NA,NA,NA
+LAW117,29,KRLA2,1,2025,NA,NA,NA,NA
+LAW117,29,PSARM,5,2025,NA,NA,NA,NA
+LAW117,29,TEAX,3,2025,NA,NA,NA,NA
+LAW117,20,KRLA2,2,2025,NA,NA,NA,NA
+LAW117,20,PSARM,5,2025,NA,NA,NA,NA
+LAW117,20,ATCO,4,2025,NA,NA,NA,NA
+LAW117,14,KRLA2,7,2025,NA,NA,NA,NA
+LAW117,14,PSARM,6,2025,NA,NA,NA,NA
+LAW117,14,ATCO,2,2025,NA,NA,NA,NA
+LAW117,4,PSARM,13,2025,NA,NA,NA,NA
+LAW117,4,ATCO,2,2025,NA,NA,NA,NA
+LAW117,2,KRLA2,10,2025,NA,NA,NA,NA
+LAW117,2,PSARM,3,2025,NA,NA,NA,NA
+LAW117,2,ATCO,1,2025,NA,NA,NA,NA
+LAW117,2,PIDE4,1,2025,NA,NA,NA,NA
+LAW117,1,KRLA2,7,2025,NA,NA,NA,NA
+LAW117,1,PSARM,9,2025,NA,NA,NA,NA
+LAW117,19,KRLA2,2,2025,NA,NA,NA,NA
+LAW117,19,PSARM,5,2025,NA,NA,NA,NA
+LAW117,19,ATCO,7,2025,NA,NA,NA,NA
+LAW117,22,PSARM,10,2025,NA,NA,NA,NA
+LAW117,22,ATCO,3,2025,NA,NA,NA,NA
+LAW117,9,KRLA2,8,2025,NA,NA,NA,NA
+LAW117,9,PSARM,5,2025,NA,NA,NA,NA
+LAW117,11,ATPO,31,2025,NA,NA,NA,NA
+LAW117,12,KRLA2,3,2025,NA,NA,NA,NA
+LAW117,12,PSARM,4,2025,NA,NA,NA,NA
+LAW117,12,ATCO,5,2025,NA,NA,NA,NA
+LAW117,26,PSARM,11,2025,NA,NA,NA,NA
+LAW117,26,ATCO,3,2025,NA,NA,NA,NA
+LAW117,26,EPHED,1,2025,NA,NA,NA,NA
+LAW117,23,PSARM,7,2025,NA,NA,NA,NA
+LAW117,23,ATCO,4,2025,NA,NA,NA,NA
+LAW117,23,ERIN4,1,2025,NA,NA,NA,NA
+LAW117,21,KRLA2,3,2025,NA,NA,NA,NA
+LAW117,21,PSARM,9,2025,NA,NA,NA,NA
+LAW117,21,ATCO,2,2025,NA,NA,NA,NA
+LAW117,21,TEAX,1,2025,NA,NA,NA,NA
+LAW117,21,XYTO2,1,2025,NA,NA,NA,NA
+LAW117,30,PSARM,11,2025,NA,NA,NA,NA
+LAW117,30,ERIN4,1,2025,NA,NA,NA,NA
+LAW117,30,ATCO,5,2025,NA,NA,NA,NA
+LAW117,15,PSARM,8,2025,NA,NA,NA,NA
+LAW117,15,ATCO,5,2025,NA,NA,NA,NA
+LAW117,15,TEAX,2,2025,NA,NA,NA,NA
+LAW117,24,PSARM,10,2025,NA,NA,NA,NA
+LAW117,24,ATCO,8,2025,NA,NA,NA,NA
+LAW117,18,PSARM,13,2025,NA,NA,NA,NA
+LAW117,18,TEAX,2,2025,NA,NA,NA,NA
+LAW117,16,PSARM,12,2025,NA,NA,NA,NA
+LAW117,16,ATCO,1,2025,NA,NA,NA,NA
+LAW117,16,KRLA2,3,2025,NA,NA,NA,NA
+LAW130,2,PSARM,2,2025,NA,NA,NA,NA
+LAW130,2,ATPO,7,2025,NA,NA,NA,NA
+LAW130,2,SATR12,1,2025,NA,NA,NA,NA
+LAW130,7,ATPO,7,2025,NA,NA,NA,NA
+LAW130,1,ATPO,11,2025,NA,NA,NA,NA
+LAW130,6,PSARM,5,2025,NA,NA,NA,NA
+LAW130,6,ATPO,14,2025,NA,NA,NA,NA
+LAW130,5,ATPO,14,2025,NA,NA,NA,NA
+LAW130,10,ATPO,15,2025,NA,NA,NA,NA
+LAW130,10,LYAN,2,2025,NA,NA,NA,NA
+LAW130,4,ATPO,20,2025,NA,NA,NA,NA
+LAW130,8,ATPO,16,2025,NA,NA,NA,NA
+LAW130,3,ATPO,11,2025,NA,NA,NA,NA
+LAW130,3,PSARM,1,2025,NA,NA,NA,NA
+LAW130,9,ATPO,20,2025,NA,NA,NA,NA
+LAW134,1,ATCO,5,2025,NA,NA,NA,NA
+LAW134,1,ATPO,14,2025,NA,NA,NA,NA
+LAW134,4,ATCO,5,2025,NA,NA,NA,NA
+LAW134,4,ATPO,12,2025,NA,NA,NA,NA
+LAW134,4,LYAN,2,2025,NA,NA,NA,NA
+LAW134,7,ATPO,24,2025,NA,NA,NA,NA
+LAW134,7,GRSP,2,2025,NA,NA,NA,NA
+LAW134,7,PSARM,1,2025,NA,NA,NA,NA
+LAW134,5,ATPO,14,2025,NA,NA,NA,NA
+LAW134,5,LYAN,5,2025,NA,NA,NA,NA
+LAW134,5,XYTO,1,2025,NA,NA,NA,NA
+LAW134,16,ATCO,4,2025,NA,NA,NA,NA
+LAW134,16,PSARM,10,2025,NA,NA,NA,NA
+LAW134,2,ATPO,11,2025,NA,NA,NA,NA
+LAW134,2,LYAN,2,2025,NA,NA,NA,NA
+LAW134,12,LYAN,3,2025,NA,NA,NA,NA
+LAW134,12,PSARM,4,2025,NA,NA,NA,NA
+LAW134,12,ATCO,9,2025,NA,NA,NA,NA
+LAW134,6,ATPO,16,2025,NA,NA,NA,NA
+LAW134,6,LYAN,1,2025,NA,NA,NA,NA
+LAW134,6,ATCO,1,2025,NA,NA,NA,NA
+LAW134,20,ATPO,3,2025,NA,NA,NA,NA
+LAW134,20,PSARM,6,2025,NA,NA,NA,NA
+LAW134,20,ATCO,3,2025,NA,NA,NA,NA
+LAW134,19,LYAN,2,2025,NA,NA,NA,NA
+LAW134,19,PSARM,1,2025,NA,NA,NA,NA
+LAW134,19,ATCO,2,2025,NA,NA,NA,NA
+LAW134,19,ERIN4,2,2025,NA,NA,NA,NA
+LAW134,14,ERIN4,2,2025,NA,NA,NA,NA
+LAW134,14,LYAN,2,2025,NA,NA,NA,NA
+LAW134,14,ATPO,3,2025,NA,NA,NA,NA
+LAW134,17,ATPO,9,2025,NA,NA,NA,NA
+LAW134,17,ATCO,3,2025,NA,NA,NA,NA
+LAW134,17,GRSP,1,2025,NA,NA,NA,NA
+LAW134,3,LYAN,1,2025,NA,NA,NA,NA
+LAW134,3,ATCO,4,2025,NA,NA,NA,NA
+LAW134,3,AMDU2,9,2025,NA,NA,NA,NA
+LAW134,3,MESP2,2,2025,NA,NA,NA,NA
+LAW134,3,XYTO2,1,2025,NA,NA,NA,NA
+LAW134,18,ERIN4,1,2025,NA,NA,NA,NA
+LAW134,18,LYAN,5,2025,NA,NA,NA,NA
+LAW134,18,ATCO,4,2025,NA,NA,NA,NA
+LAW134,18,XYTO2,3,2025,NA,NA,NA,NA
+LAW134,18,STPA4,1,2025,NA,NA,NA,NA
+LAW134,9,ATPO,22,2025,NA,NA,NA,NA
+LAW134,9,ATCO,7,2025,NA,NA,NA,NA
+LAW134,15,ATCO,3,2025,NA,NA,NA,NA
+LAW134,15,LYAN,4,2025,NA,NA,NA,NA
+LAW134,15,ATPO,2,2025,NA,NA,NA,NA
+LAW134,11,ATCO,7,2025,NA,NA,NA,NA
+LAW134,11,PSARM,8,2025,NA,NA,NA,NA
+LAW134,8,ATPO,20,2025,NA,NA,NA,NA
+LAW134,13,ATCO,3,2025,NA,NA,NA,NA
+LAW134,13,ATPO,23,2025,NA,NA,NA,NA
+LAW134,10,ATCO,16,2025,NA,NA,NA,NA
+LAW134,10,ATPO,3,2025,NA,NA,NA,NA
+LAW134,10,PSARM,2,2025,NA,NA,NA,NA
+LAW134,10,ERIN4,1,2025,NA,NA,NA,NA
+LAW134,10,MESP2,1,2025,NA,NA,NA,NA
+LAW049,8,NO_COVER,1,2025,NA,NA,NA,NA

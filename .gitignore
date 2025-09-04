@@ -4,8 +4,31 @@
 .RData
 .Ruserdata
 
-mduck
+# Ignore system files
+.DS_Store
+.Renviron
+.config/
+
 # Ignore Quarto configuration and build artifacts
 /.quarto/
 
+# Ignore cache directories
+*_cache/
+*_files/
+
+# Ignore targets build directory
+_targets/
+
+# Ignore DuckDB files
+*.duckdb
+*.duckdb.files/
+
+# Ignore archive directory
 /archive/
+
+# Ignore temporary files
+packages-from-*.txt
+targets_network.html
+
+# Ignore MotherDuck files
+mduck

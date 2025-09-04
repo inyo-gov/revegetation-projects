@@ -1,0 +1,13 @@
+# insert jpg image into the document
+# This is a list of images from the 1991 Revegetation Data project, specifying transect locations and directions they were conducted in the past.
+![BIS097](here::here("data","reveg_other","1991 Revegetation Data","Revegetation_Parcel_Map","BIS097.jpg"))
+
+![BGP160E](here::here("data","reveg_other","1991 Revegetation Data","Revegetation_Parcel_Map","IND105.jpg"))
+
+![BGP160W](here::here("data","reveg_other","1991 Revegetation Data","Revegetation_Parcel_Map","BGP160W.jpg"))
+
+![IND123](here::here("data","reveg_other","1991 Revegetation Data","Revegetation_Parcel_Map","IND123.jpg"))
+
+![IND131N](here::here("data","reveg_other","1991 Revegetation Data","Revegetation_Parcel_Map","IND131N.jpg"))
+
+![IND131S](here::here("data","reveg_other","1991 Revegetation Data","Revegetation_Parcel_Map","IND131S.jpg"))

@@ -5,19 +5,43 @@ project:
 website:
   title: "Revegetation Projects"
   navbar:
+    title: "Revegetation Projects"
+    logo: inyo_logo.png
     left:
       - href: index.qmd
-        text: 2024 data
-     # - href: data2024.qmd
-      #  text: 2024 data
+        text: Laws 90/94/95/118/129
+      - href: data_process.qmd
+        text: Data Processing
+      - href: reference.qmd
+        text: Reference Parcels
       - icon: github
         href: https://github.com/inyo-gov/revegetation-projects
+    background: primary
+    search: true
+  sidebar:
+    style: floating
+    background: light
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/inyo-gov/revegetation-projects
+      - icon: download
+        href: data/processed/reference_parcel_summary.csv
+        text: Download Data
 
 format:
   html:
-    theme: sandstone
-    linkcolor: blue
+    theme: 
+      - cosmo
+      - custom.scss
+    linkcolor: "#2E86AB"
     css: styles.css
     toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    fig-responsive: true
+    table-responsive: true
+    subtitle: "Inyo County, California"
 
 editor: visual

@@ -1,0 +1,9 @@
+# Project Architecture and Data Workflow
+
+This document presents the analysis of revegetation data. To ensure efficient data processing and seamless updates, the project architecture uses a CSV-first workflow as follows:
+
+1.  **Data Processing Separation:** All raw data ingestion, cleaning, and complex data transformations are handled in a dedicated Quarto document: `data_process.qmd` and R scripts in `code/`.
+2.  **Intermediate and Final Outputs to CSV:** Processed, analysis-ready datasets are written as CSVs (and GPKG for spatial layers) into `data/processed/`. Examples include `reveg_data_clean.csv`, `species_attributes.csv`, `parcel_sum_filtered.csv`, `species_richness_per_parcel.csv`, `hit_species_per_parcel.csv`, and `transect_summary_overall.csv`.
+3.  **Results Page Reads CSVs:** The compliance report `results.qmd` reads these CSVs directly to publish parcel-level metrics required for reporting (perennial cover ≥10%, ≥6 species with ≥3 hits, species richness ≥10, each transect ≥2% cover, grass species present).
+
+This approach ensures that data updates in the raw sources cascade efficiently through the processing pipeline to the results without requiring live database connectivity.

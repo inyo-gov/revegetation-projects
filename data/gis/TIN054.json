@@ -1,0 +1,93 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "fill": "#efa513",
+        "stroke": "#efa513",
+        "name": "Experimental Plot",
+        "annotation-type": "area"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -118.2277011,
+              37.0130094
+            ],
+            [
+              -118.2270487,
+              37.0131159
+            ],
+            [
+              -118.2268683,
+              37.0128016
+            ],
+            [
+              -118.2272069,
+              37.0128145
+            ],
+            [
+              -118.2272223,
+              37.0128086
+            ],
+            [
+              -118.2277092,
+              37.0130104
+            ],
+            [
+              -118.2277011,
+              37.0130094
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill": "#00bbd3",
+        "stroke": "#00bbd3",
+        "name": "Untitled",
+        "annotation-type": "line"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.2275556,
+            37.0130027
+          ],
+          [
+            -118.2275548,
+            37.0130076
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fill": "#00bbd3",
+        "stroke": "#00bbd3",
+        "name": "Untitled",
+        "annotation-type": "line"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -118.2274944,
+            37.0130064
+          ],
+          [
+            -118.2274815,
+            37.0130076
+          ]
+        ]
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}
