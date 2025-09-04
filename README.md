@@ -1,90 +1,136 @@
-# Land Removed from Irrigation: Laws Parcels 090, 095, 129, and Abandoned Land Parcel 094
+# Laws Revegetation Projects Monitoring
 
-## Objective
+**Inyo County Water Department**  
+*Land Removed from Irrigation: Laws Parcels 090, 094, 095, 118, and 129*
 
-Summarize monitoring data and verify when cover and composition goals are obtained
+## Overview
 
-Goals are outlined in the 2003 plan.
+This repository contains comprehensive monitoring data analysis for revegetation projects on lands removed from irrigation in the Laws area of Inyo County, California. The analysis tracks progress toward revegetation goals established in the 2003 plan and provides interactive data visualization and reporting tools.
 
-Current data tables and summaries can be found at <https://inyo-gov.github.io/revegetation-projects/>
+## 2025 Goal Attainment Status
 
-# 2024 Summary
+### Revegetation Goals
+1. **Perennial Cover ≥ 10%**: Parcel-average native perennial cover must be 10% or greater
+2. **Species with ≥3 Hits ≥ 6**: At least six perennial species must have at least 3 hits within each parcel  
+3. **Species Richness ≥ 10**: Each parcel must have at least 10 distinct perennial species
+4. **Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover
+5. **Grass Species Present**: At least one grass species must be present on each parcel
 
-1.  Parcel-average native perennial cover 10% or greater?
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ❌ - 9.7%
-    -   Laws 95: ✔️
-2.  At least six species have at least 3 hits across all transects? ✔️
-    -   2023
-    -   Laws 118: ❌ - just 4 species have 3 hits across all transects
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ✔️
-3.  Species richness for each parcel \>= 10 species? ✔️
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ✔️
-4.  Each transect has 2% cover?
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ❌-transect 35 at 1%.
-5.  A grass species is present on each parcel? ✔️
-    -   2023
-    -   Laws 118: ✔️
-    -   2024
-    -   Laws 90: ✔️
-    -   Laws 94: ✔️
-    -   Laws 95: ✔️
+### 2025 Compliance Summary
 
-![](images/map.png)
+| Parcel | Overall Compliance | Cover (≥10%) | Species ≥3 Hits (≥6) | Richness (≥10) | Transect Coverage | Grass Present |
+|--------|-------------------|--------------|---------------------|----------------|------------------|---------------|
+| **LAW090** | ✅ **Yes** | ✅ 11.5% | ✅ 6 species | ✅ 10+ species | ✅ 20/20 | ✅ Present |
+| **LAW094** | ❌ No | ❌ 8.7% | ✅ 7 species | ✅ 10+ species | ✅ 20/20 | ✅ Present |
+| **LAW095** | ❌ No | ❌ 7.0% | ❌ 4 species | ✅ 10+ species | ✅ 20/20 | ✅ Present |
+| **LAW129_118** | ❌ No | ❌ 8.2% | ❌ 5 species | ✅ 10+ species | ❌ 19/20 | ✅ Present |
 
-## Reproducing the .Rproj Environment
+**Legend**: ✅ Goal attained | ❌ Goal not attained
 
-1.  **Clone the Repository**: `sh     git clone https://github.com/your-username/revegetation-projects.git     cd revegetation-projects`
+### Key Findings
+- **1 of 4 parcels** (25%) achieved full compliance in 2025
+- **LAW090** is the only parcel meeting all revegetation goals
+- **Cover goals** remain the primary challenge, with 3 of 4 parcels below the 10% threshold
+- **Species diversity** is generally strong, with most parcels meeting richness requirements
+- **Transect coverage** is excellent, with LAW129_118 being the only parcel with coverage issues
 
-2.  **Open the R Project**:
+## Interactive Data Portal
 
-    -   Open the `.Rproj` file in RStudio.
+**🌐 [View Live Analysis & Interactive Maps](https://inyo-gov.github.io/revegetation-projects/)**
 
-3.  **Install Required Packages**: `R     install.packages(c("tidyverse", "ggplot2", "sf"))`
+The website provides:
+- Interactive compliance tables with filtering and search
+- Reference parcel analysis with ATTO/ERNA species thresholds  
+- Historical data visualization and trend analysis
+- Downloadable datasets in multiple formats (CSV, GeoJSON, Shapefile)
+- Comprehensive data processing pipeline documentation
 
-4.  **Run the Analysis**:
+## Repository Structure
 
-    -   Source the analysis scripts or run the necessary R Markdown files to reproduce the figures and tables.
+```
+├── _targets.R              # Reproducible data processing pipeline
+├── code/                   # R functions and data loading scripts
+├── data/                   # Raw and processed monitoring data
+│   ├── raw/               # Original data files (Excel, CSV)
+│   ├── processed/         # Cleaned and analyzed datasets
+│   └── gis/               # Spatial data (shapefiles, GeoJSON)
+├── docs/                  # Rendered website files
+├── output/                # Analysis outputs and summaries
+├── www/                   # Website assets (logos, images)
+├── *.qmd                  # Quarto documents for analysis and reporting
+└── README.md              # This file
+```
+
+## Data Downloads
+
+### Primary Datasets
+- **[Compliance Summary](https://inyo-gov.github.io/revegetation-projects/data/processed/compliance_summary.csv)** - Complete goal attainment analysis
+- **[Reference Parcel Data](https://inyo-gov.github.io/revegetation-projects/data/processed/reference_parcel_summary.csv)** - ATTO/ERNA threshold analysis
+- **[Transect-Species Data](https://inyo-gov.github.io/revegetation-projects/data/processed/transect_species_data.csv)** - Detailed species cover by transect
+- **[Spatial Data](https://inyo-gov.github.io/revegetation-projects/data/gis/)** - Parcel boundaries and transect locations
+
+### Additional Resources
+- **[Data Processing Pipeline](https://inyo-gov.github.io/revegetation-projects/data_process.html)** - Technical documentation
+- **[Reference Analysis](https://inyo-gov.github.io/revegetation-projects/reference.html)** - Species threshold methodology
+
+## Reproducing the Analysis
+
+### Prerequisites
+- R (≥ 4.0)
+- RStudio (recommended)
+- Git
+
+### Setup Instructions
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/inyo-gov/revegetation-projects.git
+   cd revegetation-projects
+   ```
+
+2. **Install Required R Packages**:
+   ```r
+   install.packages(c("targets", "tidyverse", "sf", "DT", "leaflet", "quarto"))
+   ```
+
+3. **Run the Analysis Pipeline**:
+   ```r
+   library(targets)
+   tar_make()  # Builds all analysis targets
+   ```
+
+4. **Render the Website**:
+   ```bash
+   quarto render
+   ```
+
+### Key R Packages
+- `targets` - Reproducible data pipeline
+- `tidyverse` - Data manipulation and visualization  
+- `sf` - Spatial data processing
+- `DT` - Interactive tables
+- `leaflet` - Interactive maps
+- `quarto` - Dynamic document generation
 
 ## Contributing
 
-1.  **Fork the Repository**:
+1. **Fork the Repository** on GitHub
+2. **Create a Feature Branch**: `git checkout -b feature-name`
+3. **Make Changes** and test locally
+4. **Commit Changes**: `git commit -m "Descriptive message"`
+5. **Push to Fork**: `git push origin feature-name`
+6. **Open a Pull Request** with detailed description
 
-    -   Click the "Fork" button on the upper right corner of the repository page.
+## Contact & Support
 
-2.  **Clone Your Fork**: `sh     git clone https://github.com/your-username/revegetation-projects.git     cd revegetation-projects`
+- **Repository**: [github.com/inyo-gov/revegetation-projects](https://github.com/inyo-gov/revegetation-projects)
+- **Live Website**: [inyo-gov.github.io/revegetation-projects](https://inyo-gov.github.io/revegetation-projects)
+- **Issues**: [Report bugs or request features](https://github.com/inyo-gov/revegetation-projects/issues)
 
-3.  **Create a Branch**: `sh     git checkout -b feature-branch`
+## License
 
-4.  **Make Your Changes**:
+This project is developed by the Inyo County Water Department for public land management and environmental monitoring purposes.
 
-    -   Make necessary changes or additions to the codebase.
+---
 
-5.  **Commit Your Changes**: `sh     git commit -m "Description of changes"`
-
-6.  **Push to Your Fork**: `sh     git push origin feature-branch`
-
-7.  **Open a Pull Request**:
-
-    -   Go to the original repository and open a pull request to merge your changes.
-
-## Issues
-
--   If you encounter any issues, please open a new issue in the GitHub repository.
--   Provide a detailed description of the problem and steps to reproduce it.
+*Last updated: January 2025*
