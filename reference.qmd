@@ -405,10 +405,10 @@ download_info <- data.frame(
     ncol(ref_data_combined)
   ),
   Download = c(
-    '<a href="../data/processed/reference_parcel_summary.csv" download>⬇ CSV</a>',
-    '<a href="../data/processed/transect_species_data.csv" download>⬇ CSV</a>',
-    '<a href="../data/processed/reference_atto_erna_analysis.csv" download>⬇ CSV</a>',
-    '<a href="../data/processed/ref_data_combined.csv" download>⬇ CSV</a>'
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/reference_parcel_summary.csv" download>⬇ CSV</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/transect_species_data.csv" download>⬇ CSV</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/reference_atto_erna_analysis.csv" download>⬇ CSV</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/ref_data_combined.csv" download>⬇ CSV</a>'
   )
 )
 
