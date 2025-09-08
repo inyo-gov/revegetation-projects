@@ -61,12 +61,12 @@ data_dictionary <- data.frame(
     ncol(tar_read(raw_parcels_shp))
   ),
   Download = c(
-    '<a href="../output/compliance_summary.csv" download>⬇ CSV</a>',
-    '<a href="../output/transect_coverage.csv" download>⬇ CSV</a>',
-    '<a href="../output/reference_parcel_summary.csv" download>⬇ CSV</a>',
-    '<a href="../output/r3_data_analysis.csv" download>⬇ CSV</a>',
-    '<a href="../output/all_transects_combined.geojson" download>⬇ GeoJSON</a>',
-    '<a href="../output/parcel_boundaries.geojson" download>⬇ GeoJSON</a>'
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/compliance_summary.csv" download>⬇ CSV</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/transect_coverage.csv" download>⬇ CSV</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/reference_parcel_summary.csv" download>⬇ CSV</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/r3_data_analysis.csv" download>⬇ CSV</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/all_transects_combined.geojson" download>⬇ GeoJSON</a>',
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/parcel_boundaries.geojson" download>⬇ GeoJSON</a>'
   )
 )
 
