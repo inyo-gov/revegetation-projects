@@ -25,10 +25,15 @@ This structured approach ensures that data is systematically transformed into re
 library(targets)
 library(dplyr)
 library(DT)
+library(readr)
+
+# Save the new species summary to output directory
+write_csv(tar_read(species_summary_all_years), "output/species_summary_all_years.csv")
 
 # Create comprehensive data dictionary with download links
 data_dictionary <- data.frame(
   Dataset = c(
+    "Species Summary (All Years)",
     "Parcel Summary (Filtered)",
     "Transect Cover Details",
     "Reference Parcel Summary",
@@ -37,6 +42,7 @@ data_dictionary <- data.frame(
     "Raw Parcels"
   ),
   Description = c(
+    "Comprehensive species summary with average cover per parcel across all years, including min-max ranges, common names, lifecycle, and lifeform",
     "Filtered parcel-level summaries with perennial cover and confidence intervals",
     "Transect-level cover analysis with 2% threshold compliance and species data",
     "Reference parcel statistics and ATTO/ERNA analysis",
@@ -45,6 +51,7 @@ data_dictionary <- data.frame(
     "Parcel boundaries for mapping"
   ),
   Rows = c(
+    nrow(tar_read(species_summary_all_years)),
     nrow(tar_read(parcel_sum_filtered)),
     nrow(tar_read(transect_cover_details)),
     nrow(tar_read(reference_parcel_summary)),
@@ -53,6 +60,7 @@ data_dictionary <- data.frame(
     nrow(tar_read(raw_parcels_shp))
   ),
   Columns = c(
+    ncol(tar_read(species_summary_all_years)),
     ncol(tar_read(parcel_sum_filtered)),
     ncol(tar_read(transect_cover_details)),
     ncol(tar_read(reference_parcel_summary)),
@@ -61,6 +69,7 @@ data_dictionary <- data.frame(
     ncol(tar_read(raw_parcels_shp))
   ),
   Download = c(
+    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/species_summary_all_years.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/compliance_summary.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/transect_coverage.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/reference_parcel_summary.csv" download>⬇ CSV</a>',

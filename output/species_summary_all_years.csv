@@ -1,0 +1,81 @@
+parcel,species,CommonName,Lifecycle,Lifeform,years_detected,years_available,min_annual_avg_cover,max_annual_avg_cover,mean_annual_avg_cover,total_hits_all_years,total_transects_all_years
+LAW090,ATPO,"saltbush, Allscale",Perennial,Shrub,3,4,6.83,9.14,7.71,859,55
+LAW090,ATTO,"saltbush, Nevada/Torrey's",Perennial,Shrub,3,4,4.41,5.75,5.24,300,29
+LAW090,ATCA2,"saltbush, Fourwing",Perennial,Shrub,3,4,4.03,4.65,4.44,502,56
+LAW090,POFR2,"cottonwood, Fremont's /Alamo",Perennial,Tree,2,4,2.5,4.5,3.5,14,2
+LAW090,ERNA10,"rabbitbrush, Common",Perennial,Shrub,3,4,1.72,4.61,2.86,150,26
+LAW090,SAVE4,Greasewood,Perennial,Shrub,3,4,2,3.5,2.83,27,5
+LAW090,SATR12,"Tumbleweed /thistle, Russian",Annual,Herb,3,4,1.67,4.34,2.63,240,41
+LAW090,ARTR2,"sagebrush, Big",Perennial,Shrub,1,4,2,2,2,4,1
+LAW090,SPAI,"sacaton, Alkali",Perennial,Grass,1,4,1.75,1.75,1.75,7,2
+LAW090,AMDU2,Burrow-bush,Perennial,Shrub,2,4,0.5,2.5,1.5,11,3
+LAW090,KRLA2,Winterfat,Perennial,Shrub,3,4,0.92,1.5,1.22,30,13
+LAW090,BAHY,"bassia, Fivehook",Annual,Herb,2,4,1,1,1,4,2
+LAW090,HECU3,"heliotrope, Salt",Perennial,Herb,1,4,0.75,0.75,0.75,3,2
+LAW090,ACHY,"ricegrass, Indian",Perennial,Grass,2,4,0,1,0.5,2,2
+LAW090,COAR4,"bindweed, Field",Perennial,Herb,1,4,0.5,0.5,0.5,1,1
+LAW090,ERIN,NA,NA,NA,1,4,0.5,0.5,0.5,1,1
+LAW090,LEFR2,"alyssum, Desert",Perennial,Shrub,1,4,0.5,0.5,0.5,1,1
+LAW090,MACA17,"aster, Shrubby alkali",Perennial,Shrub,1,4,0.5,0.5,0.5,1,1
+LAW090,PSARM,"indigo bush, Northern Mojave",Perennial,Shrub,2,4,0.5,0.5,0.5,2,2
+LAW090,PSPO,"dalea, Dotted",Perennial,Shrub,1,4,0.5,0.5,0.5,1,1
+LAW090,ACSP12,"needlegrass, Desert",Perennial,Grass,2,4,0,0.5,0.25,1,2
+LAW090,GRSP,"hop-sage, Spiny",Perennial,Shrub,2,4,0,0.5,0.25,1,2
+LAW094,ATPO,"saltbush, Allscale",Perennial,Shrub,3,4,3.75,6.22,5.07,482,47
+LAW094,ATCA2,"saltbush, Fourwing",Perennial,Shrub,3,4,3.59,5.03,4.13,424,51
+LAW094,ATTO,"saltbush, Nevada/Torrey's",Perennial,Shrub,3,4,2.88,3.5,3.21,70,11
+LAW094,SATR12,"Tumbleweed /thistle, Russian",Annual,Herb,3,4,0.5,5.95,3.1,353,41
+LAW094,PSARM,"indigo bush, Northern Mojave",Perennial,Shrub,1,4,2.5,2.5,2.5,10,2
+LAW094,ERNA10,"rabbitbrush, Common",Perennial,Shrub,3,4,0.83,3.56,1.98,104,26
+LAW094,ENFA,NA,NA,NA,1,4,1.75,1.75,1.75,7,2
+LAW094,LETR5,"wildrye, Beardless/Creeping",Perennial,Grass,1,4,1.5,1.5,1.5,3,1
+LAW094,ENAC,"brittlebush, Acton's",Perennial,Shrub,2,4,0.33,2.5,1.42,7,4
+LAW094,KRLA2,Winterfat,Perennial,Shrub,3,4,0.92,1.6,1.28,35,14
+LAW094,SPAI,"sacaton, Alkali",Perennial,Grass,2,4,0.71,1.5,1.11,34,15
+LAW094,AMDU2,Burrow-bush,Perennial,Shrub,1,4,0.5,0.5,0.5,2,2
+LAW094,DISP,Saltgrass,Perennial,Grass,1,4,0.5,0.5,0.5,2,2
+LAW094,GRSP,"hop-sage, Spiny",Perennial,Shrub,1,4,0.5,0.5,0.5,1,1
+LAW094,SAVE4,Greasewood,Perennial,Shrub,1,4,0.5,0.5,0.5,1,1
+LAW094,ACSP12,"needlegrass, Desert",Perennial,Grass,2,4,0,0.5,0.25,1,2
+LAW094,ATCO,Shadscale,Perennial,Shrub,2,4,0,0.5,0.25,1,2
+LAW094,LEFR2,"alyssum, Desert",Perennial,Shrub,2,4,0,0.5,0.25,2,3
+LAW095,ATPO,"saltbush, Allscale",Perennial,Shrub,3,4,4.73,7.97,6.15,523,42
+LAW095,ATCA2,"saltbush, Fourwing",Perennial,Shrub,3,4,2.3,3.63,2.88,333,58
+LAW095,ATTO,"saltbush, Nevada/Torrey's",Perennial,Shrub,3,4,2.36,2.86,2.68,160,29
+LAW095,BAHY,"bassia, Fivehook",Annual,Herb,1,4,2.19,2.19,2.19,70,16
+LAW095,ERNA10,"rabbitbrush, Common",Perennial,Shrub,3,4,1.1,2.96,2.07,152,35
+LAW095,SATR12,"Tumbleweed /thistle, Russian",Annual,Herb,3,4,0.5,3.11,1.6,148,36
+LAW095,KRLA2,Winterfat,Perennial,Shrub,2,4,0.5,2.5,1.5,6,2
+LAW095,LYCO2,"thorn, Peach /wolfberry, Cooper's",Perennial,Shrub,1,4,1.5,1.5,1.5,3,1
+LAW095,SPAI,"sacaton, Alkali",Perennial,Grass,2,4,1,1.79,1.39,27,8
+LAW095,LETR5,"wildrye, Beardless/Creeping",Perennial,Grass,1,4,1.25,1.25,1.25,5,2
+LAW095,AMDU2,Burrow-bush,Perennial,Shrub,3,4,0.5,1.75,1.17,14,6
+LAW095,DISP,Saltgrass,Perennial,Grass,2,4,0,1.42,0.71,17,7
+LAW095,GRSP,"hop-sage, Spiny",Perennial,Shrub,1,4,0.5,0.5,0.5,1,1
+LAW095,LECI4,"wildrye, Great Basin",Perennial,Grass,1,4,0.5,0.5,0.5,1,1
+LAW095,LYCO,NA,NA,NA,1,4,0.5,0.5,0.5,1,1
+LAW095,SAVE4,Greasewood,Perennial,Shrub,1,4,0.5,0.5,0.5,1,1
+LAW095,STPA4,"wire-lettuce, Common",Perennial,Herb_Shrub,1,4,0.5,0.5,0.5,1,1
+LAW095,LEFR2,"alyssum, Desert",Perennial,Shrub,3,4,0,0.5,0.33,2,3
+LAW095,ACSP12,"needlegrass, Desert",Perennial,Grass,2,4,0,0.5,0.25,1,2
+LAW095,PSPO,"dalea, Dotted",Perennial,Shrub,2,4,0,0.5,0.25,1,2
+LAW129_118,ERNA10,"rabbitbrush, Common",Perennial,Shrub,3,4,11.25,15.88,12.99,1322,50
+LAW129_118,SATR12,"Tumbleweed /thistle, Russian",Annual,Herb,3,4,2.9,18.5,8.19,760,49
+LAW129_118,ATPO,"saltbush, Allscale",Perennial,Shrub,3,4,3.47,12.82,6.66,502,42
+LAW129_118,ATCA2,"saltbush, Fourwing",Perennial,Shrub,3,4,1.93,9.69,5.57,344,39
+LAW129_118,ERDE6,"buckwheat, Skeleton",Annual,Herb,1,4,4.88,4.88,4.88,39,4
+LAW129_118,LACO13,"horseweed, Coulter's",Annual,Herb,1,4,3.5,3.5,3.5,7,1
+LAW129_118,COCA5,"horseweed, Canada",Annual,Herb,1,4,1.5,1.5,1.5,6,2
+LAW129_118,ARTR2,"sagebrush, Big",Perennial,Shrub,1,4,1,1,1,2,1
+LAW129_118,CLLU2,"bee plant, Yellow",Annual,Herb,1,4,1,1,1,2,1
+LAW129_118,SPAI,"sacaton, Alkali",Perennial,Grass,2,4,1,1,1,4,2
+LAW129_118,IVAX,"weed, Poverty",Perennial,Herb,3,4,0.05,1.5,0.77,17,26
+LAW129_118,DISP,Saltgrass,Perennial,Grass,2,4,0.5,1,0.75,3,2
+LAW129_118,COAR4,"bindweed, Field",Perennial,Herb,3,4,0.3,1,0.6,23,26
+LAW129_118,KRLA2,Winterfat,Perennial,Shrub,3,4,0.1,1,0.53,9,23
+LAW129_118,ACHY,"ricegrass, Indian",Perennial,Grass,1,4,0.5,0.5,0.5,1,1
+LAW129_118,ATTO,"saltbush, Nevada/Torrey's",Perennial,Shrub,1,4,0.5,0.5,0.5,2,2
+LAW129_118,ERCI6,"filaree, Redstem",Annual,Herb,1,4,0.5,0.5,0.5,1,1
+LAW129_118,MEOF,"sweetclover, Yellow",Annual/Biennial,Herb,1,4,0.5,0.5,0.5,1,1
+LAW129_118,STPA4,"wire-lettuce, Common",Perennial,Herb_Shrub,1,4,0.5,0.5,0.5,1,1
+LAW129_118,SYAS3,"aster, Long-leaved",Perennial,Herb,1,4,0.5,0.5,0.5,1,1

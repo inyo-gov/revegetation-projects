@@ -316,6 +316,54 @@ list(
     description = "Species attributes and classifications"
   ),
   
+  # Comprehensive species summary across all years and parcels
+  tar_target(
+    name = species_summary_all_years,
+    command = {
+      # Get all species data with attributes
+      species_data <- r3_data %>%
+        select(parcel, year, species, hits, percent_cover, transect_unique, CommonName, Lifecycle, Lifeform) %>%
+        # Calculate annual average cover per species per parcel
+        group_by(parcel, year, species, CommonName, Lifecycle, Lifeform) %>%
+        summarise(
+          annual_avg_cover = mean(percent_cover, na.rm = TRUE),
+          total_hits = sum(hits, na.rm = TRUE),
+          n_transects = n_distinct(transect_unique),
+          .groups = 'drop'
+        ) %>%
+        # Calculate summary statistics across all years for each species-parcel combination
+        group_by(parcel, species, CommonName, Lifecycle, Lifeform) %>%
+        summarise(
+          years_detected = n_distinct(year),
+          years_available = n_distinct(r3_data$year), # Total years in dataset
+          min_annual_avg_cover = min(annual_avg_cover, na.rm = TRUE),
+          max_annual_avg_cover = max(annual_avg_cover, na.rm = TRUE),
+          mean_annual_avg_cover = mean(annual_avg_cover, na.rm = TRUE),
+          total_hits_all_years = sum(total_hits, na.rm = TRUE),
+          total_transects_all_years = sum(n_transects, na.rm = TRUE),
+          .groups = 'drop'
+        ) %>%
+        # Only include species that were detected at least once
+        filter(total_hits_all_years > 0) %>%
+        # Round numeric columns
+        mutate(
+          across(c(min_annual_avg_cover, max_annual_avg_cover, mean_annual_avg_cover), ~round(., 2))
+        ) %>%
+        # Reorder columns for better presentation
+        select(
+          parcel, species, CommonName, Lifecycle, Lifeform,
+          years_detected, years_available,
+          min_annual_avg_cover, max_annual_avg_cover, mean_annual_avg_cover,
+          total_hits_all_years, total_transects_all_years
+        ) %>%
+        # Sort by parcel, then by mean cover (descending)
+        arrange(parcel, desc(mean_annual_avg_cover))
+      
+      species_data
+    },
+    description = "Comprehensive species summary showing average cover per parcel across all years with min-max ranges"
+  ),
+  
   tar_target(
     name = grass_species_counts,
     command = r3_data %>%
