@@ -288,9 +288,16 @@ footer {
 }
 
 /* Hide Quarto navigation envelope artifacts */
-#quarto-navigation-envelope,
-.quarto-markdown-envelope-contents,
-.hidden {
+#quarto-navigation-envelope {
+  display: none !important;
+}
+
+.quarto-markdown-envelope-contents {
+  display: none !important;
+}
+
+/* Only hide elements that are specifically marked as hidden */
+.hidden[class*="quarto-markdown-envelope"] {
   display: none !important;
 }
 
