@@ -411,7 +411,25 @@ write_csv(transect_species_data, "data/processed/transect_species_data.csv")
 write_csv(reference_atto_erna_analysis, "data/processed/reference_atto_erna_analysis.csv")
 write_csv(ref_data_combined, "data/processed/ref_data_combined.csv")
 
-# Create summary table of available datasets with download links
+# Function to get file modification date
+get_file_date <- function(file_path) {
+  if (file.exists(file_path)) {
+    file_info <- file.info(file_path)
+    return(format(file_info$mtime, "%Y-%m-%d %H:%M"))
+  } else {
+    return("File not found")
+  }
+}
+
+# File paths for the reference data downloads
+ref_file_paths <- c(
+  "data/processed/reference_parcel_summary.csv",
+  "data/processed/transect_species_data.csv",
+  "data/processed/reference_atto_erna_analysis.csv",
+  "data/processed/ref_data_combined.csv"
+)
+
+# Create summary table of available datasets with download links and modification dates
 download_info <- data.frame(
   Dataset = c(
     "Reference Parcel Summary",
@@ -437,6 +455,7 @@ download_info <- data.frame(
     ncol(reference_atto_erna_analysis),
     ncol(ref_data_combined)
   ),
+  "Last Modified" = sapply(ref_file_paths, get_file_date),
   Download = c(
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/reference_parcel_summary.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/transect_species_data.csv" download>⬇ CSV</a>',
@@ -452,11 +471,12 @@ datatable(
     autoWidth = FALSE,
     scrollX = TRUE,
     columnDefs = list(
-      list(width = '20%', targets = 0),    # Dataset Name
-      list(width = '35%', targets = 1),    # Description
-      list(width = '12%', targets = 2),    # Number of Rows
-      list(width = '13%', targets = 3),    # Number of Columns
-      list(width = '20%', targets = 4)     # Download
+      list(width = '18%', targets = 0),    # Dataset Name
+      list(width = '30%', targets = 1),    # Description
+      list(width = '10%', targets = 2),    # Number of Rows
+      list(width = '10%', targets = 3),    # Number of Columns
+      list(width = '17%', targets = 4),    # Last Modified
+      list(width = '15%', targets = 5)     # Download
     ),
     dom = 'Bfrtip',
     buttons = c('csv'),

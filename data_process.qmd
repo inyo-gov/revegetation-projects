@@ -35,7 +35,28 @@ library(readr)
 # Save the new species summary to output directory
 write_csv(tar_read(species_summary_all_years), "output/species_summary_all_years.csv")
 
-# Create comprehensive data dictionary with download links
+# Function to get file modification date
+get_file_date <- function(file_path) {
+  if (file.exists(file_path)) {
+    file_info <- file.info(file_path)
+    return(format(file_info$mtime, "%Y-%m-%d %H:%M"))
+  } else {
+    return("File not found")
+  }
+}
+
+# File paths for the data catalogue
+file_paths <- c(
+  "output/species_summary_all_years.csv",
+  "output/compliance_summary.csv", 
+  "output/transect_coverage.csv",
+  "output/reference_parcel_summary.csv",
+  "output/r3_data_analysis.csv",
+  "output/all_transects_combined.geojson",
+  "output/parcel_boundaries.geojson"
+)
+
+# Create comprehensive data dictionary with download links and modification dates
 data_dictionary <- data.frame(
   Dataset = c(
     "Species Summary (All Years)",
@@ -73,6 +94,7 @@ data_dictionary <- data.frame(
     ncol(tar_read(raw_transects_xy)),
     ncol(tar_read(raw_parcels_shp))
   ),
+  "Last Modified" = sapply(file_paths, get_file_date),
   Download = c(
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/species_summary_all_years.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/compliance_summary.csv" download>⬇ CSV</a>',
@@ -91,11 +113,12 @@ datatable(
     autoWidth = FALSE,
     scrollX = TRUE,
     columnDefs = list(
-      list(width = '20%', targets = 0),    # Dataset
-      list(width = '40%', targets = 1),    # Description
-      list(width = '12%', targets = 2),    # Rows
-      list(width = '12%', targets = 3),    # Columns
-      list(width = '16%', targets = 4)     # Download
+      list(width = '18%', targets = 0),    # Dataset
+      list(width = '35%', targets = 1),    # Description
+      list(width = '10%', targets = 2),    # Rows
+      list(width = '10%', targets = 3),    # Columns
+      list(width = '17%', targets = 4),    # Last Modified
+      list(width = '10%', targets = 5)     # Download
     ),
     pageLength = 20,
     dom = 'Bfrtip',
