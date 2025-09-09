@@ -6,7 +6,7 @@ website:
   title: "Revegetation Projects"
   navbar:
     title: "Revegetation Projects"
-    logo: www/inyo_logo.png
+    logo: inyo_logo.png
     left:
       - href: index.qmd
         text: Laws 90/94/95/118/129
@@ -31,9 +31,7 @@ website:
 
 format:
   html:
-    theme: 
-      - cosmo
-      - custom.scss
+    theme: cosmo
     linkcolor: "#2E86AB"
     css: styles.css
     toc: true
