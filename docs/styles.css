@@ -154,24 +154,28 @@ table {
   width: 100% !important;
   max-width: none !important;
   overflow: visible !important;
+  min-width: 1200px !important;
 }
 
 .dataTables_wrapper .dataTables_scroll {
   width: 100% !important;
   max-width: none !important;
   overflow: visible !important;
+  min-width: 1200px !important;
 }
 
 .dataTables_wrapper .dataTables_scrollBody {
   width: 100% !important;
   max-width: none !important;
   overflow: visible !important;
+  min-width: 1200px !important;
 }
 
 .dataTables_wrapper table {
   width: 100% !important;
   max-width: none !important;
   table-layout: fixed !important;
+  min-width: 1200px !important;
 }
 
 /* Improve button spacing in DT tables */

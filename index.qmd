@@ -92,16 +92,16 @@ datatable(
     autoWidth = FALSE,
     scrollX = FALSE,
     columnDefs = list(
-      list(width = '10%', targets = 0),    # parcel
-      list(width = '6%', targets = 1),     # year
-      list(width = '12%', targets = 2),    # full cover
-      list(width = '12%', targets = 3),    # capped cover
-      list(width = '12%', targets = 4),    # original cover
-      list(width = '10%', targets = 5),    # species ≥3 hits
-      list(width = '10%', targets = 6),    # species richness
-      list(width = '10%', targets = 7),    # transect cover
-      list(width = '10%', targets = 8),    # grass species
-      list(width = '8%', targets = 9)      # compliance summary
+      list(width = '80px', targets = 0),    # parcel
+      list(width = '50px', targets = 1),     # year
+      list(width = '120px', targets = 2),    # full cover
+      list(width = '120px', targets = 3),    # capped cover
+      list(width = '120px', targets = 4),    # original cover
+      list(width = '100px', targets = 5),    # species ≥3 hits
+      list(width = '100px', targets = 6),    # species richness
+      list(width = '100px', targets = 7),    # transect cover
+      list(width = '100px', targets = 8),    # grass species
+      list(width = '80px', targets = 9)      # compliance summary
     ),
     dom = 'Bfrtip',
     buttons = c('csv'),
@@ -208,8 +208,6 @@ datatable(
 ---
 
 ## Citation
-
-If you use this data or analysis in your work, please cite:
 
 **Inyo County Water Department. (2025). *Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis*. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects**
 
