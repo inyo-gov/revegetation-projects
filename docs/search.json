@@ -9,7 +9,7 @@
   {
     "objectID": "index.html#revegetation-goals",
     "href": "index.html#revegetation-goals",
-    "title": "Data Processing Pipeline",
+    "title": "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis",
     "section": "Revegetation Goals",
     "text": "Revegetation Goals\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover\nGrass Species Present: At least one grass species must be present on each parcel\n\n\n✓: Goal attained\n✗: Goal not attained\n—: No data available\n\n\n\n\n\n\n\n\nFull: All perennial species including unlimited ATTO/ERNA (maximum potential)\nCapped: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). LAW90/94/95: Up to 0.38%. LAW118/129: Up to 7.067%\nOriginal: Perennial cover calculations exclude ERNA10 and ATTO species\n\nNote: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA)."
   },
@@ -51,9 +51,9 @@
   {
     "objectID": "index.html#citation",
     "href": "index.html#citation",
-    "title": "Data Processing Pipeline",
+    "title": "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis",
     "section": "Citation",
-    "text": "Citation\nIf you use this data or analysis in your work, please cite:\nInyo County Water Department. (2025). Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n© 2025 Inyo County, California. All rights reserved.\n\n\n\n\nReference parcel data and analysis for comparison with revegetation project areas."
+    "text": "Citation\nIf you use this data or analysis in your work, please cite:\nInyo County Water Department. (2025). Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n© 2025 Inyo County, California. All rights reserved."
   },
   {
     "objectID": "index.html#revegetation-goals-1",
