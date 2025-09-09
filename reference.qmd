@@ -13,6 +13,34 @@ execute:
 
 Reference parcel data and analysis for comparison with revegetation project areas.
 
+## Data Processing Methodology
+
+The reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:
+
+### 1. **Data Ingestion**
+- **LAW90/94/95 parcels**: Processed from individual CSV files with 0.5x scaling (200 hits = 100% cover)
+- **LAW118/129 parcels**: Processed from Excel files with 1.0x scaling (100 hits = 100% cover)
+- **Transect normalization**: All transect labels converted to lowercase (e.g., "3A" → "3a")
+
+### 2. **Cover Calculation**
+- **Per-transect basis**: Cover calculated for each transect individually
+- **Species aggregation**: Multiple hits per species per transect are summed
+- **Percent cover**: Hits converted to percentage based on transect type (100 or 200 total possible hits)
+
+### 3. **Zero-Inflation Handling**
+- **Complete dataset**: All parcel-year-transect-species combinations included
+- **Zero-filling**: Missing species receive 0% cover (not excluded from averages)
+- **Group averages**: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover
+
+### 4. **Policy Cap Calculation**
+- **Two-step averaging**: 
+  1. Average cover per transect within each parcel
+  2. Average across all parcels in reference group
+- **Conservative approach**: Includes parcels with zero ATTO/ERNA to provide realistic baseline
+- **Group-specific caps**: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups
+
+This methodology ensures that policy caps reflect the true range of conditions across reference parcels, providing appropriate baselines for revegetation project compliance assessment.
+
 ```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
 library(sf)
 library(here)
@@ -188,7 +216,7 @@ atto_erna_summary %>%
 The histograms below show cover distributions for parcels split by reference group. Each plot shows all years with 2025 shown in red.
 
 ```{r reference-parcels-histogram, warning=FALSE}
-#| fig-cap: "Distribution of total transect cover by reference parcel and year, sorted by mean cover (lowest to highest). Two separate plots: one for LAW90/94/95 group and one for LAW118/129 group. Each panel shows one parcel with all years overlaid. 2025 data highlighted in red with red mean line; other years in grey with grey mean lines; blue and green thick lines show ATTO and ERNA10 average cover."
+#| fig-cap: "Distribution of total transect cover by reference parcel and year. Two separate plots: one for LAW90/94/95 group and one for LAW118/129 group. Each panel shows one parcel with all years overlaid. 2025 data highlighted in red with red mean line; other years in grey with grey mean lines; blue and green thick lines show ATTO and ERNA10 average cover."
 #| fig-width: 20
 #| fig-height: 32
 
