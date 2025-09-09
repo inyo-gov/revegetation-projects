@@ -109,22 +109,21 @@ pre {
 }
 
 /* Improve navbar logo */
-.navbar-brand img {
-  height: 40px;
-  margin-right: 10px;
-  filter: brightness(0) invert(1); /* Make logo white on dark navbar */
-}
-
-/* Ensure logo is visible */
 .navbar-brand {
   display: flex;
   align-items: center;
 }
 
 .navbar-brand img {
+  height: 40px;
   max-height: 40px;
   width: auto;
+  margin-right: 10px;
   object-fit: contain;
+  background-color: white;
+  border-radius: 4px;
+  padding: 2px;
+  /* Add white background to make logo visible on dark navbar */
 }
 
 /* Better card styling */

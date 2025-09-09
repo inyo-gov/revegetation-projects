@@ -1,20 +1,5 @@
 ---
 title: "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis"
-format:
-  html:
-    grid:
-      sidebar-width: 20px
-      body-width: 1200px
-    toc: true
-    toc-depth: 3
-    anchor-sections: true
-    smooth-scroll: true
-    code-fold: true
-    code-summary: "code"
-    code-line-numbers: true
-    code-overflow: wrap
-    code-link: true
-    html-math-method: katex
 tbl-cap-location: top   
 affiliation: "Inyo County Water Department"
 date: "2025-09-03"

@@ -31,7 +31,7 @@ website:
 
 format:
   html:
-    theme: flatly
+    theme: cosmo
     linkcolor: "#2E86AB"
     css: styles.css
     toc: true
