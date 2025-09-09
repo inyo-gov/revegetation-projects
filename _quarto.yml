@@ -31,11 +31,5 @@ format:
     fig-dir: figure-html
     subtitle: "Inyo County, California"
     footer: "© 2025 Inyo County, California. All rights reserved."
-    include-in-header: |
-      <style>
-        #quarto-navigation-envelope { display: none !important; }
-        .quarto-markdown-envelope-contents { display: none !important; }
-        [class*="quarto-markdown-envelope"] { display: none !important; }
-      </style>
 
 editor: visual

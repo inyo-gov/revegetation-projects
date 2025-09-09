@@ -118,8 +118,8 @@ data_dictionary <- data.frame(
 datatable(
   data_dictionary,
   options = list(
-    autoWidth = FALSE,
-    scrollX = TRUE,
+    autoWidth = TRUE,
+    scrollX = FALSE,
     columnDefs = list(
       list(width = '18%', targets = 0),    # Dataset
       list(width = '35%', targets = 1),    # Description

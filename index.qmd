@@ -89,8 +89,8 @@ comprehensive_table <- compliance_comprehensive_all %>%
 datatable(
   comprehensive_table,
   options = list(
-    autoWidth = FALSE,
-    scrollX = TRUE,
+    autoWidth = TRUE,
+    scrollX = FALSE,
     columnDefs = list(
       list(width = '10%', targets = 0),    # parcel
       list(width = '6%', targets = 1),     # year
@@ -180,8 +180,8 @@ reference_summary <- data.frame(
 datatable(
   reference_summary,
   options = list(
-    autoWidth = FALSE,
-    scrollX = TRUE,
+    autoWidth = TRUE,
+    scrollX = FALSE,
     columnDefs = list(
       list(width = '20%', targets = 0),    # reference group
       list(width = '15%', targets = 1:5)   # other columns
