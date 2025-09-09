@@ -20,15 +20,25 @@ This repository contains comprehensive monitoring data analysis for revegetation
 
 | Parcel | Overall Compliance | Cover (≥10%) | Species ≥3 Hits (≥6) | Richness (≥10) | Transect Coverage | Grass Present |
 |--------|-------------------|--------------|---------------------|----------------|------------------|---------------|
-| **LAW090** | ✅ **Yes** | ✅ 11.5% | ✅ 6 species | ✅ 10+ species | ✅ 20/20 | ✅ Present |
-| **LAW094** | ❌ No | ❌ 8.7% | ✅ 7 species | ✅ 10+ species | ✅ 20/20 | ✅ Present |
-| **LAW095** | ❌ No | ❌ 7.0% | ❌ 4 species | ✅ 10+ species | ✅ 20/20 | ✅ Present |
-| **LAW129_118** | ❌ No | ❌ 8.2% | ❌ 5 species | ✅ 10+ species | ❌ 19/20 | ✅ Present |
+| **LAW090** | ✅ **Yes** | ✅ 10.1% | ✅ 6 species | ✅ 13 species | ✅ 31/31 | ✅ Present |
+| **LAW094** | ❌ No | ❌ 7.8% | ✅ 7 species | ✅ 13 species | ✅ 21/21 | ✅ Present |
+| **LAW095** | ❌ No | ❌ 5.7% | ❌ 4 species | ✅ 13 species | ✅ 21/21 | ✅ Present |
+| **LAW129_118** | ❌ No | ❌ 5.8% | ❌ 5 species | ❌ 6 species | ❌ 19/20 | ❌ None |
 
 **Legend**: ✅ Goal attained | ❌ Goal not attained
 
 ### Key Findings
 - **LAW090** is the only parcel meeting all revegetation goals in 2025
+- **LAW129_118** shows the most challenges, failing 4 out of 5 goals
+- **LAW094** and **LAW095** are close to compliance, primarily failing the 10% cover requirement
+
+### ATTO/ERNA Policy Caps
+The analysis includes policy-based capping of ATTO and ERNA species based on reference parcel averages:
+
+- **LAW90/94/95 Group**: ATTO 0.06%, ERNA10 0.32% (combined 0.38%)
+- **LAW118/129 Group**: ATTO 2.79%, ERNA10 4.28% (combined 7.07%)
+
+These caps ensure revegetation projects don't exceed reference parcel conditions for these species.
 
 ## Interactive Data Portal
 
@@ -129,4 +139,4 @@ This project is developed by the Inyo County Water Department for public land ma
 
 ---
 
-*Last updated: January 2025*
+*Last updated: September 2025*
