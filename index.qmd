@@ -47,6 +47,10 @@ library(janitor)
 library(ggplot2)  # For histograms and maps
 library(targets)  # For loading pipeline data
 source(here('code','functions.R'))
+
+# Load targets data
+tar_load(reference_atto_erna_analysis)
+tar_load(compliance_comprehensive_all)
 ```
 
 ```{r controls, echo=FALSE}
@@ -134,22 +138,60 @@ datatable(
 )
 ```
 
-1.  **Full**: All perennial species including unlimited ATTO/ERNA (maximum potential)
-2.  **Capped**: ATTO/ERNA cover is limited/capped to/at reference parcel averages (policy-based compliance). **LAW90/94/95**: Up to **0.176%**. **LAW118/129**: Up to **2.885%**
-3.  **Original**: Perennial cover calculations exclude ERNA10 and ATTO species
+```{r calculate-caps, echo=FALSE}
+# Calculate reference parcel summary from pipeline data
+law90_94_95_parcels <- c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")
+law118_129_parcels <- c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230")
 
-```{r reference-parcel-summary, warning=FALSE}
-#| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"
+# Get 2025 ATTO/ERNA averages by reference group
+law90_94_95_2025 <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law90_94_95_parcels & year == 2025) %>%
+  group_by(species) %>%
+  summarise(avg_cover = mean(avg_cover, na.rm = TRUE), .groups = 'drop')
+
+law118_129_2025 <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law118_129_parcels & year == 2025) %>%
+  group_by(species) %>%
+  summarise(avg_cover = mean(avg_cover, na.rm = TRUE), .groups = 'drop')
+
+# Calculate combined averages
+law90_94_95_combined <- law90_94_95_2025 %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
+law118_129_combined <- law118_129_2025 %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
+
+# Get ATTO and ERNA10 values
+law90_94_95_atto <- law90_94_95_2025 %>% filter(species == "ATTO") %>% pull(avg_cover)
+law90_94_95_erna <- law90_94_95_2025 %>% filter(species == "ERNA10") %>% pull(avg_cover)
+law118_129_atto <- law118_129_2025 %>% filter(species == "ATTO") %>% pull(avg_cover)
+law118_129_erna <- law118_129_2025 %>% filter(species == "ERNA10") %>% pull(avg_cover)
+
+# Count transects
+law90_94_95_transects <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law90_94_95_parcels & year == 2025) %>%
+  summarise(total = sum(n_transects, na.rm = TRUE)) %>% pull(total)
+
+law118_129_transects <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law118_129_parcels & year == 2025) %>%
+  summarise(total = sum(n_transects, na.rm = TRUE)) %>% pull(total)
 
 # Create reference parcel summary table
 reference_summary <- data.frame(
   Reference_Group = c("LAW90/94/95", "LAW118/129"),
-  ATTO_Average = c("0.029%", "1.34%"),
-  ERNA10_Average = c("0.165%", "1.54%"),
-  Combined_Average = c("0.176%", "2.885%"),
-  Transects = c("170", "87"),
-  Policy_Cap = c("0.176%", "2.885%")
+  ATTO_Average = c(paste0(round(law90_94_95_atto, 3), "%"), paste0(round(law118_129_atto, 3), "%")),
+  ERNA10_Average = c(paste0(round(law90_94_95_erna, 3), "%"), paste0(round(law118_129_erna, 3), "%")),
+  Combined_Average = c(paste0(round(law90_94_95_combined, 3), "%"), paste0(round(law118_129_combined, 3), "%")),
+  Transects = c(as.character(law90_94_95_transects), as.character(law118_129_transects)),
+  Policy_Cap = c(paste0(round(law90_94_95_combined, 3), "%"), paste0(round(law118_129_combined, 3), "%"))
 )
+```
+
+1.  **Full**: All perennial species including unlimited ATTO/ERNA (maximum potential)
+2.  **Capped**: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). **LAW90/94/95**: Up to **`r paste0(round(law90_94_95_combined, 3), "%")`**. **LAW118/129**: Up to **`r paste0(round(law118_129_combined, 3), "%")`**
+3.  **Original**: Perennial cover calculations exclude ERNA10 and ATTO species
+
+**Note**: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA).
+
+```{r reference-parcel-summary, warning=FALSE}
+#| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"
 
 datatable(
   reference_summary,

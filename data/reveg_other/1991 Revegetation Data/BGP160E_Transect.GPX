@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<gpx
+ version="1.1"
+ creator="Global Mapper - http://www.globalmapper.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.topografix.com/GPX/1/1"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+ </metadata>
+<wpt lat="37.159642" lon="-118.277647">
+ <name>BGP160E_1.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160561" lon="-118.277666">
+ <name>BGP160E_1.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161461" lon="-118.277698">
+ <name>BGP160E_1.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164164" lon="-118.277816">
+ <name>BGP160E_1.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165069" lon="-118.277850">
+ <name>BGP160E_1.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165987" lon="-118.277889">
+ <name>BGP160E_1.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165990" lon="-118.276213">
+ <name>BGP160E_2.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165072" lon="-118.276158">
+ <name>BGP160E_2.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164181" lon="-118.276134">
+ <name>BGP160E_2.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163277" lon="-118.276106">
+ <name>BGP160E_2.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162370" lon="-118.276056">
+ <name>BGP160E_2.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161473" lon="-118.276021">
+ <name>BGP160E_2.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160572" lon="-118.275985">
+ <name>BGP160E_2.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.159664" lon="-118.275953">
+ <name>BGP160E_2.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162356" lon="-118.277743">
+ <name>BGP160E_1.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163266" lon="-118.277773">
+ <name>BGP160E_1.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165795" lon="-118.272836">
+ <name>BGP160E_4.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164882" lon="-118.272799">
+ <name>BGP160E_4.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163995" lon="-118.272762">
+ <name>BGP160E_4.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163084" lon="-118.272728">
+ <name>BGP160E_4.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162184" lon="-118.272690">
+ <name>BGP160E_4.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161288" lon="-118.272652">
+ <name>BGP160E_4.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160387" lon="-118.272613">
+ <name>BGP160E_4.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.159489" lon="-118.272573">
+ <name>BGP160E_4.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.159693" lon="-118.274266">
+ <name>BGP160E_3.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160597" lon="-118.274296">
+ <name>BGP160E_3.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161493" lon="-118.274331">
+ <name>BGP160E_3.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162393" lon="-118.274364">
+ <name>BGP160E_3.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163298" lon="-118.274403">
+ <name>BGP160E_3.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164207" lon="-118.274437">
+ <name>BGP160E_3.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165088" lon="-118.274464">
+ <name>BGP160E_3.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165990" lon="-118.274504">
+ <name>BGP160E_3.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165591" lon="-118.271171">
+ <name>BGP160E_5.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164678" lon="-118.271137">
+ <name>BGP160E_5.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163776" lon="-118.271082">
+ <name>BGP160E_5.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162873" lon="-118.271053">
+ <name>BGP160E_5.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161979" lon="-118.271011">
+ <name>BGP160E_5.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161085" lon="-118.270969">
+ <name>BGP160E_5.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160173" lon="-118.270923">
+ <name>BGP160E_5.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.159264" lon="-118.270879">
+ <name>BGP160E_5.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.159554" lon="-118.269243">
+ <name>BGP160E_6.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160456" lon="-118.269273">
+ <name>BGP160E_6.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161353" lon="-118.269313">
+ <name>BGP160E_6.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162251" lon="-118.269349">
+ <name>BGP160E_6.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163163" lon="-118.269378">
+ <name>BGP160E_6.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164060" lon="-118.269413">
+ <name>BGP160E_6.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164971" lon="-118.269449">
+ <name>BGP160E_6.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165868" lon="-118.269473">
+ <name>BGP160E_6.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.166153" lon="-118.267840">
+ <name>BGP160E_7.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.165256" lon="-118.267795">
+ <name>BGP160E_7.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164361" lon="-118.267752">
+ <name>BGP160E_7.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163438" lon="-118.267698">
+ <name>BGP160E_7.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162544" lon="-118.267657">
+ <name>BGP160E_7.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161649" lon="-118.267618">
+ <name>BGP160E_7.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160735" lon="-118.267575">
+ <name>BGP160E_7.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.159835" lon="-118.267524">
+ <name>BGP160E_7.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.159962" lon="-118.265876">
+ <name>BGP160E_8.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.160847" lon="-118.265979">
+ <name>BGP160E_8.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.161773" lon="-118.266047">
+ <name>BGP160E_8.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.162652" lon="-118.266155">
+ <name>BGP160E_8.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.163547" lon="-118.266260">
+ <name>BGP160E_8.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.164445" lon="-118.266327">
+ <name>BGP160E_8.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+ <extensions>
+ </extensions>
+</gpx>

@@ -91,7 +91,7 @@ list(
         rename(transect = tran_name, hits = hit) %>% 
         mutate(transect = as.character(transect)) %>% 
         left_join(raw_species, by = c("species" = "Code")) %>% 
-        mutate(percent_cover = hits*.5) %>% 
+        mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
         select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover),
       # 2025 data from Excel file
       read_excel(here('data','raw','reveg','LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx'), 
@@ -104,7 +104,7 @@ list(
           species = Species
         ) %>%
         left_join(raw_species, by = c("species" = "Code")) %>% 
-        mutate(percent_cover = hits*.5) %>% 
+        mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
         select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover)
     ),
     description = "LAW90/94/95 reference parcel data 2022-2025 (includes 2025 data from Excel)"
@@ -120,20 +120,19 @@ list(
         rename(transect = tran_name, hits = hit) %>% 
         mutate(transect = as.character(transect)) %>% 
         left_join(raw_species, by = c("species" = "Code")) %>% 
-        mutate(percent_cover = hits*.5) %>% 
+        mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
         select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover),
-      # 2025 data from processed output
-      read_csv(here('output','2025','law118_129_reference_parcel_long_format_2025.csv')) %>%
-        mutate(
-          transect = as.character(transect),
-          hits = as.integer(hits),
-          year = as.integer(year)
-        ) %>%
-        left_join(raw_species, by = c("species" = "Code")) %>% 
-        mutate(percent_cover = hits*.5) %>% 
-        select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover)
+      # 2025 data from corrected Excel function
+      {
+        source(here('code','read_reference_parcels_excel.R'))
+        read_reference_parcels_excel(here('data','raw','reference','Reference Parcels_LAW_PLC_2025.xlsx')) %>%
+          filter(parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230')) %>%
+          left_join(raw_species, by = c("species" = "Code")) %>% 
+          mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
+          select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover)
+      }
     ),
-    description = "LAW118/129 reference parcel data 2022-2025 (includes processed 2025 data)"
+    description = "LAW118/129 reference parcel data 2022-2025 (2025 data from corrected Excel function)"
   ),
   
   tar_target(
@@ -411,7 +410,7 @@ list(
         group_by(parcel, year, transect, species) %>%
         summarise(
           transect_hits = sum(hits, na.rm = TRUE),
-          transect_cover = transect_hits * 0.5,  # Convert hits to percent cover
+          transect_cover = sum(percent_cover, na.rm = TRUE),  # Use pre-calculated percent_cover
           .groups = 'drop'
         )
       
@@ -421,7 +420,7 @@ list(
         group_by(parcel, year, transect) %>%
         summarise(
           transect_perennial_hits = sum(hits, na.rm = TRUE),
-          transect_perennial_cover = transect_perennial_hits * 0.5,
+          transect_perennial_cover = sum(percent_cover, na.rm = TRUE),  # Use pre-calculated percent_cover
           .groups = 'drop'
         )
       

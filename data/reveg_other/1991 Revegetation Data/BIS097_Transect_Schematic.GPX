@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<gpx
+ version="1.1"
+ creator="Global Mapper - http://www.globalmapper.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.topografix.com/GPX/1/1"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+ </metadata>
+<wpt lat="37.328337" lon="-118.388525">
+ <ele>0</ele>
+ <name>BIS097_2.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.328745" lon="-118.389666">
+ <ele>0</ele>
+ <name>BIS097_3.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.329241" lon="-118.388511">
+ <ele>0</ele>
+ <name>BIS097_2.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.329649" lon="-118.389667">
+ <ele>0</ele>
+ <name>BIS097_3.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.329298" lon="-118.390793">
+ <ele>0</ele>
+ <name>BIS097_4.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.329934" lon="-118.391935">
+ <ele>0</ele>
+ <name>BIS097_5.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.330214" lon="-118.390826">
+ <ele>0</ele>
+ <name>BIS097_4.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.330133" lon="-118.388540">
+ <ele>0</ele>
+ <name>BIS097_2.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.330422" lon="-118.387417">
+ <ele>0</ele>
+ <name>BIS097_1.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331049" lon="-118.388590">
+ <ele>0</ele>
+ <name>BIS097_2.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.330541" lon="-118.389699">
+ <ele>0</ele>
+ <name>BIS097_3.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331109" lon="-118.390842">
+ <ele>0</ele>
+ <name>BIS097_4.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.330840" lon="-118.391967">
+ <ele>0</ele>
+ <name>BIS097_5.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.330561" lon="-118.393110">
+ <ele>0</ele>
+ <name>BIS097_6.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331337" lon="-118.387417">
+ <ele>0</ele>
+ <name>BIS097_1.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332231" lon="-118.387449">
+ <ele>0</ele>
+ <name>BIS097_1.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331941" lon="-118.388592">
+ <ele>0</ele>
+ <name>BIS097_2.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331444" lon="-118.389714">
+ <ele>0</ele>
+ <name>BIS097_3.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332372" lon="-118.389716">
+ <ele>0</ele>
+ <name>BIS097_3.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332008" lon="-118.390858">
+ <ele>0</ele>
+ <name>BIS097_4.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331744" lon="-118.392000">
+ <ele>0</ele>
+ <name>BIS097_5.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331466" lon="-118.393097">
+ <ele>0</ele>
+ <name>BIS097_6.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.331730" lon="-118.394235">
+ <ele>0</ele>
+ <name>BIS097_7.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332357" lon="-118.393114">
+ <ele>0</ele>
+ <name>BIS097_6.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332636" lon="-118.392000">
+ <ele>0</ele>
+ <name>BIS097_5.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332915" lon="-118.390874">
+ <ele>0</ele>
+ <name>BIS097_4.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.333126" lon="-118.387465">
+ <ele>0</ele>
+ <name>BIS097_1.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332844" lon="-118.388609">
+ <ele>0</ele>
+ <name>BIS097_2.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334027" lon="-118.387479">
+ <ele>0</ele>
+ <name>BIS097_1.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.333752" lon="-118.388623">
+ <ele>0</ele>
+ <name>BIS097_2.7</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.333276" lon="-118.389748">
+ <ele>0</ele>
+ <name>BIS097_3.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.333807" lon="-118.390891">
+ <ele>0</ele>
+ <name>BIS097_4.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.333540" lon="-118.392020">
+ <ele>0</ele>
+ <name>BIS097_5.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.333273" lon="-118.393146">
+ <ele>0</ele>
+ <name>BIS097_6.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.332633" lon="-118.394266">
+ <ele>0</ele>
+ <name>BIS097_7.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.333538" lon="-118.394268">
+ <ele>0</ele>
+ <name>BIS097_7.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334932" lon="-118.387500">
+ <ele>0</ele>
+ <name>BIS097_1.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.335547" lon="-118.388642">
+ <ele>0</ele>
+ <name>BIS097_2.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334664" lon="-118.388643">
+ <ele>0</ele>
+ <name>BIS097_2.8</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334183" lon="-118.389750">
+ <ele>0</ele>
+ <name>BIS097_3.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.335062" lon="-118.389766">
+ <ele>0</ele>
+ <name>BIS097_3.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334698" lon="-118.390909">
+ <ele>0</ele>
+ <name>BIS097_4.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334432" lon="-118.392036">
+ <ele>0</ele>
+ <name>BIS097_5.6</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334179" lon="-118.393147">
+ <ele>0</ele>
+ <name>BIS097_6.5</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.334443" lon="-118.394286">
+ <ele>0</ele>
+ <name>BIS097_7.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.335613" lon="-118.390924">
+ <ele>0</ele>
+ <name>BIS097_4.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.335095" lon="-118.393165">
+ <ele>0</ele>
+ <name>BIS097_6.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.335321" lon="-118.394317">
+ <ele>0</ele>
+ <name>BIS097_7.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="37.335348" lon="-118.392036">
+ <ele>0</ele>
+ <name>BIS097_5.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+ <extensions>
+ </extensions>
+</gpx>

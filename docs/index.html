@@ -233,7 +233,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8"></a><span class="fu">library</span>(janitor)</span>
 <span id="cb1-9"><a href="#cb1-9"></a><span class="fu">library</span>(ggplot2)  <span class="co"># For histograms and maps</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="fu">library</span>(targets)  <span class="co"># For loading pipeline data</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">'code'</span>,<span class="st">'functions.R'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">'code'</span>,<span class="st">'functions.R'</span>))</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># Load targets data</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="fu">tar_load</span>(reference_atto_erna_analysis)</span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">tar_load</span>(compliance_comprehensive_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section><section id="section-1" class="level1"><h1></h1>
@@ -257,57 +261,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell" data-tbl-cap="Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios.">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ca41b6d15fee98655e8b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ca41b6d15fee98655e8b">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2022\" data-max=\"2025\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["LAW090","LAW090","LAW090","LAW094","LAW094","LAW094","LAW095","LAW095","LAW095","LAW129_118","LAW129_118","LAW129_118"],[2022,2024,2025,2022,2024,2025,2022,2024,2025,2022,2023,2025],["✓ 15.7%","✓ 13.3%","✓ 12.2%","✓ 10.7%","✗ 9.7%","✗ 8.7%","✓ 12.2%","✓ 11.2%","✗ 7.4%","✓ 16.6%","✓ 23.2%","✓ 21.7%"],["✓ 13.3%","✓ 11%","✓ 11.5%","✗ 9.9%","✗ 9.7%","✗ 8.7%","✓ 10.2%","✓ 10.3%","✗ 7%","✗ 9%","✓ 17.7%","✗ 8.2%"],["✓ 11.9%","✗ 9.6%","✓ 10.1%","✗ 8.5%","✗ 8.4%","✗ 7.8%","✗ 8.8%","✗ 8.9%","✗ 5.7%","✗ 6.7%","✓ 15.3%","✗ 5.8%"],["✓ 10","✓ 8","✓ 6","✓ 8","✗ 5","✓ 7","✓ 8","✓ 7","✗ 4","✓ 6","✗ 4","✗ 5"],["✓ 13","✓ 13","✓ 13","✗ 9","✓ 15","✓ 13","✓ 10","✓ 15","✓ 13","✗ 9","✓ 12","✗ 6"],["✓ 20/20","✓ 20/20","✓ 31/31","✓ 20/20","✓ 20/20","✓ 21/21","✓ 20/20","✗ 19/20","✓ 21/21","✓ 20/20","✓ 15/15","✗ 19/20"],["✓ 3","✓ 2","✓ 1","✓ 11","✓ 2","✓ 8","✓ 16","✓ 2","✓ 2","✓ 2","✓ 3","✗ 0"],["Yes","Yes","Yes","No","No","No","Yes","No","No","No","No","No"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Parcel<\/th>\n      <th>Year<\/th>\n      <th>Cover ≥10% (Full)<\/th>\n      <th>Cover ≥10% (Capped)<\/th>\n      <th>Cover ≥10% (Original)<\/th>\n      <th>Species ≥3 Hits ≥6<\/th>\n      <th>Species Richness ≥10<\/th>\n      <th>All Transects ≥2%<\/th>\n      <th>Grass Species ≥1<\/th>\n      <th>Compliance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":false,"scrollX":true,"columnDefs":[{"width":"10%","targets":0},{"width":"6%","targets":1},{"width":"12%","targets":2},{"width":"12%","targets":3},{"width":"12%","targets":4},{"width":"10%","targets":5},{"width":"10%","targets":6},{"width":"10%","targets":7},{"width":"10%","targets":8},{"width":"8%","targets":9},{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"parcel","targets":1},{"name":"year","targets":2},{"name":"cover_full","targets":3},{"name":"cover_capped","targets":4},{"name":"cover_original","targets":5},{"name":"species_3hit_status","targets":6},{"name":"richness_status","targets":7},{"name":"transect_status","targets":8},{"name":"grass_status","targets":9},{"name":"compliance_summary","targets":10}],"dom":"Bfrtip","buttons":["csv"],"pageLength":20,"searchCols":[{"search":"2025"},{"search":"","search.1":"","search.2":"","search.3":"","search.4":"","search.5":"","search.6":"","search.7":"","search.8":""}],"order":[],"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7899110f26d9253f401c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7899110f26d9253f401c">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"integer\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"2022\" data-max=\"2025\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["LAW090","LAW090","LAW090","LAW094","LAW094","LAW094","LAW095","LAW095","LAW095","LAW129_118","LAW129_118","LAW129_118"],[2022,2024,2025,2022,2024,2025,2022,2024,2025,2022,2023,2025],["✓ 15.7%","✓ 13.3%","✓ 12.2%","✓ 10.7%","✗ 9.7%","✗ 8.7%","✓ 12.2%","✓ 11.2%","✗ 7.4%","✓ 16.6%","✓ 23.2%","✓ 21.7%"],["✓ 14.7%","✓ 12.4%","✓ 12.2%","✓ 10.7%","✗ 9.7%","✗ 8.7%","✓ 11.6%","✓ 11.2%","✗ 7.4%","✓ 10.9%","✓ 19.5%","✓ 10%"],["✓ 11.9%","✗ 9.6%","✓ 10.1%","✗ 8.5%","✗ 8.4%","✗ 7.8%","✗ 8.8%","✗ 8.9%","✗ 5.7%","✗ 6.7%","✓ 15.3%","✗ 5.8%"],["✓ 10","✓ 8","✓ 6","✓ 8","✗ 5","✓ 7","✓ 8","✓ 7","✗ 4","✓ 6","✗ 4","✗ 5"],["✓ 13","✓ 13","✓ 13","✗ 9","✓ 15","✓ 13","✓ 10","✓ 15","✓ 13","✗ 9","✓ 12","✗ 6"],["✓ 20/20","✓ 20/20","✓ 31/31","✓ 20/20","✓ 20/20","✓ 21/21","✓ 20/20","✗ 19/20","✓ 21/21","✓ 20/20","✓ 15/15","✗ 19/20"],["✓ 3","✓ 2","✓ 1","✓ 11","✓ 2","✓ 8","✓ 16","✓ 2","✓ 2","✓ 2","✓ 3","✗ 0"],["Yes","Yes","Yes","No","No","No","Yes","No","No","No","No","No"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Parcel<\/th>\n      <th>Year<\/th>\n      <th>Cover ≥10% (Full)<\/th>\n      <th>Cover ≥10% (Capped)<\/th>\n      <th>Cover ≥10% (Original)<\/th>\n      <th>Species ≥3 Hits ≥6<\/th>\n      <th>Species Richness ≥10<\/th>\n      <th>All Transects ≥2%<\/th>\n      <th>Grass Species ≥1<\/th>\n      <th>Compliance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":false,"scrollX":true,"columnDefs":[{"width":"10%","targets":0},{"width":"6%","targets":1},{"width":"12%","targets":2},{"width":"12%","targets":3},{"width":"12%","targets":4},{"width":"10%","targets":5},{"width":"10%","targets":6},{"width":"10%","targets":7},{"width":"10%","targets":8},{"width":"8%","targets":9},{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"parcel","targets":1},{"name":"year","targets":2},{"name":"cover_full","targets":3},{"name":"cover_capped","targets":4},{"name":"cover_original","targets":5},{"name":"species_3hit_status","targets":6},{"name":"richness_status","targets":7},{"name":"transect_status","targets":8},{"name":"grass_status","targets":9},{"name":"compliance_summary","targets":10}],"dom":"Bfrtip","buttons":["csv"],"pageLength":20,"searchCols":[{"search":"2025"},{"search":"","search.1":"","search.2":"","search.3":"","search.4":"","search.5":"","search.6":"","search.7":"","search.8":""}],"order":[],"orderClasses":false,"orderCellsTop":true,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <ol type="1">
 <li>
 <strong>Full</strong>: All perennial species including unlimited ATTO/ERNA (maximum potential)</li>
 <li>
-<strong>Capped</strong>: ATTO/ERNA cover is limited/capped to/at reference parcel averages (policy-based compliance). <strong>LAW90/94/95</strong>: Up to <strong>0.176%</strong>. <strong>LAW118/129</strong>: Up to <strong>2.885%</strong>
+<strong>Capped</strong>: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). <strong>LAW90/94/95</strong>: Up to <strong>5.58%</strong>. <strong>LAW118/129</strong>: Up to <strong>8.398%</strong>
 </li>
 <li>
 <strong>Original</strong>: Perennial cover calculations exclude ERNA10 and ATTO species</li>
 </ol>
+<p><strong>Note</strong>: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA).</p>
 <div class="cell" data-tbl-cap="Reference parcel ATTO/ERNA cover averages used for capping calculations">
-<details class="code-fold"><summary>code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Create reference parcel summary table</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>reference_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  <span class="at">Reference_Group =</span> <span class="fu">c</span>(<span class="st">"LAW90/94/95"</span>, <span class="st">"LAW118/129"</span>),</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="at">ATTO_Average =</span> <span class="fu">c</span>(<span class="st">"0.029%"</span>, <span class="st">"1.34%"</span>),</span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="at">ERNA10_Average =</span> <span class="fu">c</span>(<span class="st">"0.165%"</span>, <span class="st">"1.54%"</span>),</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  <span class="at">Combined_Average =</span> <span class="fu">c</span>(<span class="st">"0.176%"</span>, <span class="st">"2.885%"</span>),</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  <span class="at">Transects =</span> <span class="fu">c</span>(<span class="st">"170"</span>, <span class="st">"87"</span>),</span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="at">Policy_Cap =</span> <span class="fu">c</span>(<span class="st">"0.176%"</span>, <span class="st">"2.885%"</span>)</span>
-<span id="cb2-9"><a href="#cb2-9"></a>)</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">datatable</span>(</span>
-<span id="cb2-12"><a href="#cb2-12"></a>  reference_summary,</span>
-<span id="cb2-13"><a href="#cb2-13"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    <span class="at">autoWidth =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb2-15"><a href="#cb2-15"></a>    <span class="at">scrollX =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-16"><a href="#cb2-16"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
-<span id="cb2-17"><a href="#cb2-17"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'20%'</span>, <span class="at">targets =</span> <span class="dv">0</span>),    <span class="co"># reference group</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'15%'</span>, <span class="at">targets =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)   <span class="co"># other columns</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a>    ),</span>
-<span id="cb2-20"><a href="#cb2-20"></a>    <span class="at">dom =</span> <span class="st">'Bfrtip'</span>,</span>
-<span id="cb2-21"><a href="#cb2-21"></a>    <span class="at">buttons =</span> <span class="fu">c</span>(<span class="st">'csv'</span>),</span>
-<span id="cb2-22"><a href="#cb2-22"></a>    <span class="at">pageLength =</span> <span class="dv">10</span></span>
-<span id="cb2-23"><a href="#cb2-23"></a>  ),</span>
-<span id="cb2-24"><a href="#cb2-24"></a>  <span class="at">extensions =</span> <span class="st">'Buttons'</span>,</span>
-<span id="cb2-25"><a href="#cb2-25"></a>  <span class="at">filter =</span> <span class="st">'top'</span>,</span>
-<span id="cb2-26"><a href="#cb2-26"></a>  <span class="at">colnames =</span> <span class="fu">c</span>(</span>
-<span id="cb2-27"><a href="#cb2-27"></a>    <span class="st">"Reference Parcel Group"</span>, </span>
-<span id="cb2-28"><a href="#cb2-28"></a>    <span class="st">"ATTO Average Cover"</span>, </span>
-<span id="cb2-29"><a href="#cb2-29"></a>    <span class="st">"ERNA10 Average Cover"</span>, </span>
-<span id="cb2-30"><a href="#cb2-30"></a>    <span class="st">"Combined ATTO+ERNA10"</span>, </span>
-<span id="cb2-31"><a href="#cb2-31"></a>    <span class="st">"Total Transects"</span>,</span>
-<span id="cb2-32"><a href="#cb2-32"></a>    <span class="st">"Policy Implementation Cap"</span></span>
-<span id="cb2-33"><a href="#cb2-33"></a>  )</span>
-<span id="cb2-34"><a href="#cb2-34"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold"><summary>code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">datatable</span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  reference_summary,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="at">autoWidth =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">scrollX =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
+<span id="cb2-7"><a href="#cb2-7"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'20%'</span>, <span class="at">targets =</span> <span class="dv">0</span>),    <span class="co"># reference group</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'15%'</span>, <span class="at">targets =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)   <span class="co"># other columns</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    ),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="at">dom =</span> <span class="st">'Bfrtip'</span>,</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="at">buttons =</span> <span class="fu">c</span>(<span class="st">'csv'</span>),</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="at">pageLength =</span> <span class="dv">10</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>  ),</span>
+<span id="cb2-14"><a href="#cb2-14"></a>  <span class="at">extensions =</span> <span class="st">'Buttons'</span>,</span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="at">filter =</span> <span class="st">'top'</span>,</span>
+<span id="cb2-16"><a href="#cb2-16"></a>  <span class="at">colnames =</span> <span class="fu">c</span>(</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="st">"Reference Parcel Group"</span>, </span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="st">"ATTO Average Cover"</span>, </span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="st">"ERNA10 Average Cover"</span>, </span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="st">"Combined ATTO+ERNA10"</span>, </span>
+<span id="cb2-21"><a href="#cb2-21"></a>    <span class="st">"Total Transects"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="st">"Policy Implementation Cap"</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>  )</span>
+<span id="cb2-24"><a href="#cb2-24"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ab18a90eadf9c2757b35" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ab18a90eadf9c2757b35">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[["1","2"],["LAW90/94/95","LAW118/129"],["0.029%","1.34%"],["0.165%","1.54%"],["0.176%","2.885%"],["170","87"],["0.176%","2.885%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Reference Parcel Group<\/th>\n      <th>ATTO Average Cover<\/th>\n      <th>ERNA10 Average Cover<\/th>\n      <th>Combined ATTO+ERNA10<\/th>\n      <th>Total Transects<\/th>\n      <th>Policy Implementation Cap<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":false,"scrollX":true,"columnDefs":[{"width":"20%","targets":0},{"width":"15%","targets":[1,2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Reference_Group","targets":1},{"name":"ATTO_Average","targets":2},{"name":"ERNA10_Average","targets":3},{"name":"Combined_Average","targets":4},{"name":"Transects","targets":5},{"name":"Policy_Cap","targets":6}],"dom":"Bfrtip","buttons":["csv"],"pageLength":10,"order":[],"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-86e9f620e29eadbc5203" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-86e9f620e29eadbc5203">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["Buttons"],"data":[["1","2"],["LAW90/94/95","LAW118/129"],["0.08%","3.586%"],["5.5%","4.812%"],["5.58%","8.398%"],["161","174"],["5.58%","8.398%"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Reference Parcel Group<\/th>\n      <th>ATTO Average Cover<\/th>\n      <th>ERNA10 Average Cover<\/th>\n      <th>Combined ATTO+ERNA10<\/th>\n      <th>Total Transects<\/th>\n      <th>Policy Implementation Cap<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":false,"scrollX":true,"columnDefs":[{"width":"20%","targets":0},{"width":"15%","targets":[1,2,3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Reference_Group","targets":1},{"name":"ATTO_Average","targets":2},{"name":"ERNA10_Average","targets":3},{"name":"Combined_Average","targets":4},{"name":"Transects","targets":5},{"name":"Policy_Cap","targets":6}],"dom":"Bfrtip","buttons":["csv"],"pageLength":10,"order":[],"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
@@ -825,135 +820,177 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-47"><a href="#cb3-47"></a><span class="fu">library</span>(ggplot2)  <span class="co"># For histograms and maps</span></span>
 <span id="cb3-48"><a href="#cb3-48"></a><span class="fu">library</span>(targets)  <span class="co"># For loading pipeline data</span></span>
 <span id="cb3-49"><a href="#cb3-49"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">'code'</span>,<span class="st">'functions.R'</span>))</span>
-<span id="cb3-50"><a href="#cb3-50"></a><span class="in">```</span></span>
-<span id="cb3-51"><a href="#cb3-51"></a></span>
-<span id="cb3-52"><a href="#cb3-52"></a><span class="in">```{r controls, echo=FALSE}</span></span>
-<span id="cb3-53"><a href="#cb3-53"></a><span class="co"># Flags to selectively run legacy or heavy-map sections</span></span>
-<span id="cb3-54"><a href="#cb3-54"></a>run_legacy <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb3-55"><a href="#cb3-55"></a>run_maps <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  <span class="co"># Enable histograms and maps</span></span>
-<span id="cb3-56"><a href="#cb3-56"></a><span class="in">```</span></span>
-<span id="cb3-57"><a href="#cb3-57"></a></span>
-<span id="cb3-58"><a href="#cb3-58"></a><span class="fu"># </span></span>
-<span id="cb3-59"><a href="#cb3-59"></a></span>
-<span id="cb3-60"><a href="#cb3-60"></a><span class="fu">## Revegetation Goals</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a></span>
+<span id="cb3-51"><a href="#cb3-51"></a><span class="co"># Load targets data</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a><span class="fu">tar_load</span>(reference_atto_erna_analysis)</span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="fu">tar_load</span>(compliance_comprehensive_all)</span>
+<span id="cb3-54"><a href="#cb3-54"></a><span class="in">```</span></span>
+<span id="cb3-55"><a href="#cb3-55"></a></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="in">```{r controls, echo=FALSE}</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a><span class="co"># Flags to selectively run legacy or heavy-map sections</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a>run_legacy <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb3-59"><a href="#cb3-59"></a>run_maps <span class="ot">&lt;-</span> <span class="cn">TRUE</span>  <span class="co"># Enable histograms and maps</span></span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="in">```</span></span>
 <span id="cb3-61"><a href="#cb3-61"></a></span>
-<span id="cb3-62"><a href="#cb3-62"></a><span class="ss">1.  </span>**Perennial Cover ≥ 10%**: Parcel-average native perennial cover must be 10% or greater</span>
-<span id="cb3-63"><a href="#cb3-63"></a><span class="ss">2.  </span>**Species with ≥3 Hits ≥ 6**: At least six perennial species must have at least 3 hits within each parcel</span>
-<span id="cb3-64"><a href="#cb3-64"></a><span class="ss">3.  </span>**Species Richness ≥ 10**: Each parcel must have at least 10 distinct perennial species</span>
-<span id="cb3-65"><a href="#cb3-65"></a><span class="ss">4.  </span>**Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover</span>
-<span id="cb3-66"><a href="#cb3-66"></a><span class="ss">5.  </span>**Grass Species Present**: At least one grass species must be present on each parcel</span>
-<span id="cb3-67"><a href="#cb3-67"></a></span>
-<span id="cb3-68"><a href="#cb3-68"></a><span class="ss">-   </span>**✓**: Goal attained</span>
-<span id="cb3-69"><a href="#cb3-69"></a></span>
-<span id="cb3-70"><a href="#cb3-70"></a><span class="ss">-   </span>**✗**: Goal not attained</span>
+<span id="cb3-62"><a href="#cb3-62"></a><span class="fu"># </span></span>
+<span id="cb3-63"><a href="#cb3-63"></a></span>
+<span id="cb3-64"><a href="#cb3-64"></a><span class="fu">## Revegetation Goals</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a></span>
+<span id="cb3-66"><a href="#cb3-66"></a><span class="ss">1.  </span>**Perennial Cover ≥ 10%**: Parcel-average native perennial cover must be 10% or greater</span>
+<span id="cb3-67"><a href="#cb3-67"></a><span class="ss">2.  </span>**Species with ≥3 Hits ≥ 6**: At least six perennial species must have at least 3 hits within each parcel</span>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="ss">3.  </span>**Species Richness ≥ 10**: Each parcel must have at least 10 distinct perennial species</span>
+<span id="cb3-69"><a href="#cb3-69"></a><span class="ss">4.  </span>**Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover</span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="ss">5.  </span>**Grass Species Present**: At least one grass species must be present on each parcel</span>
 <span id="cb3-71"><a href="#cb3-71"></a></span>
-<span id="cb3-72"><a href="#cb3-72"></a><span class="ss">-   </span>**—**: No data available</span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="ss">-   </span>**✓**: Goal attained</span>
 <span id="cb3-73"><a href="#cb3-73"></a></span>
-<span id="cb3-74"><a href="#cb3-74"></a><span class="in">```{r compliance-table-comprehensive, warning=FALSE, echo=FALSE}</span></span>
-<span id="cb3-75"><a href="#cb3-75"></a><span class="co">#| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."</span></span>
-<span id="cb3-76"><a href="#cb3-76"></a></span>
-<span id="cb3-77"><a href="#cb3-77"></a><span class="co"># Load comprehensive compliance data from targets pipeline</span></span>
-<span id="cb3-78"><a href="#cb3-78"></a><span class="fu">library</span>(DT)</span>
-<span id="cb3-79"><a href="#cb3-79"></a><span class="fu">library</span>(targets)</span>
-<span id="cb3-80"><a href="#cb3-80"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-81"><a href="#cb3-81"></a></span>
-<span id="cb3-82"><a href="#cb3-82"></a><span class="co"># Load the comprehensive compliance target</span></span>
-<span id="cb3-83"><a href="#cb3-83"></a><span class="fu">tar_load</span>(compliance_comprehensive_all)</span>
-<span id="cb3-84"><a href="#cb3-84"></a></span>
-<span id="cb3-85"><a href="#cb3-85"></a><span class="co"># Create the comprehensive compliance table</span></span>
-<span id="cb3-86"><a href="#cb3-86"></a>comprehensive_table <span class="ot">&lt;-</span> compliance_comprehensive_all <span class="sc">%&gt;%</span></span>
-<span id="cb3-87"><a href="#cb3-87"></a>  <span class="fu">arrange</span>(parcel, year) <span class="sc">%&gt;%</span></span>
-<span id="cb3-88"><a href="#cb3-88"></a>  <span class="fu">select</span>(</span>
-<span id="cb3-89"><a href="#cb3-89"></a>    parcel, year,</span>
-<span id="cb3-90"><a href="#cb3-90"></a>    <span class="at">cover_full =</span> cover_status_full,</span>
-<span id="cb3-91"><a href="#cb3-91"></a>    <span class="at">cover_capped =</span> cover_status_capped, </span>
-<span id="cb3-92"><a href="#cb3-92"></a>    <span class="at">cover_original =</span> cover_status_original,</span>
-<span id="cb3-93"><a href="#cb3-93"></a>    species_3hit_status,</span>
-<span id="cb3-94"><a href="#cb3-94"></a>    richness_status,</span>
-<span id="cb3-95"><a href="#cb3-95"></a>    transect_status,</span>
-<span id="cb3-96"><a href="#cb3-96"></a>    grass_status,</span>
-<span id="cb3-97"><a href="#cb3-97"></a>    compliance_summary</span>
-<span id="cb3-98"><a href="#cb3-98"></a>  )</span>
-<span id="cb3-99"><a href="#cb3-99"></a></span>
-<span id="cb3-100"><a href="#cb3-100"></a><span class="co"># Create the datatable with optimized column widths and default 2025 filter</span></span>
-<span id="cb3-101"><a href="#cb3-101"></a><span class="fu">datatable</span>(</span>
-<span id="cb3-102"><a href="#cb3-102"></a>  comprehensive_table,</span>
-<span id="cb3-103"><a href="#cb3-103"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
-<span id="cb3-104"><a href="#cb3-104"></a>    <span class="at">autoWidth =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-105"><a href="#cb3-105"></a>    <span class="at">scrollX =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-106"><a href="#cb3-106"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
-<span id="cb3-107"><a href="#cb3-107"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">0</span>),    <span class="co"># parcel</span></span>
-<span id="cb3-108"><a href="#cb3-108"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'6%'</span>, <span class="at">targets =</span> <span class="dv">1</span>),     <span class="co"># year</span></span>
-<span id="cb3-109"><a href="#cb3-109"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'12%'</span>, <span class="at">targets =</span> <span class="dv">2</span>),    <span class="co"># full cover</span></span>
-<span id="cb3-110"><a href="#cb3-110"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'12%'</span>, <span class="at">targets =</span> <span class="dv">3</span>),    <span class="co"># capped cover</span></span>
-<span id="cb3-111"><a href="#cb3-111"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'12%'</span>, <span class="at">targets =</span> <span class="dv">4</span>),    <span class="co"># original cover</span></span>
-<span id="cb3-112"><a href="#cb3-112"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">5</span>),    <span class="co"># species ≥3 hits</span></span>
-<span id="cb3-113"><a href="#cb3-113"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">6</span>),    <span class="co"># species richness</span></span>
-<span id="cb3-114"><a href="#cb3-114"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">7</span>),    <span class="co"># transect cover</span></span>
-<span id="cb3-115"><a href="#cb3-115"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">8</span>),    <span class="co"># grass species</span></span>
-<span id="cb3-116"><a href="#cb3-116"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'8%'</span>, <span class="at">targets =</span> <span class="dv">9</span>)      <span class="co"># compliance summary</span></span>
-<span id="cb3-117"><a href="#cb3-117"></a>    ),</span>
-<span id="cb3-118"><a href="#cb3-118"></a>    <span class="at">dom =</span> <span class="st">'Bfrtip'</span>,</span>
-<span id="cb3-119"><a href="#cb3-119"></a>    <span class="at">buttons =</span> <span class="fu">c</span>(<span class="st">'csv'</span>),</span>
-<span id="cb3-120"><a href="#cb3-120"></a>    <span class="at">pageLength =</span> <span class="dv">20</span>,</span>
-<span id="cb3-121"><a href="#cb3-121"></a>    <span class="at">searchCols =</span> <span class="fu">list</span>(</span>
-<span id="cb3-122"><a href="#cb3-122"></a>      <span class="fu">list</span>(<span class="at">search =</span> <span class="st">"2025"</span>),  <span class="co"># Default filter for year column (index 1)</span></span>
-<span id="cb3-123"><a href="#cb3-123"></a>      <span class="fu">rep</span>(<span class="fu">list</span>(<span class="at">search =</span> <span class="st">""</span>), <span class="dv">9</span>)  <span class="co"># Empty search for other columns</span></span>
-<span id="cb3-124"><a href="#cb3-124"></a>    )</span>
-<span id="cb3-125"><a href="#cb3-125"></a>  ),</span>
-<span id="cb3-126"><a href="#cb3-126"></a>  <span class="at">extensions =</span> <span class="st">'Buttons'</span>,</span>
-<span id="cb3-127"><a href="#cb3-127"></a>  <span class="at">filter =</span> <span class="st">'top'</span>,</span>
-<span id="cb3-128"><a href="#cb3-128"></a>  <span class="at">colnames =</span> <span class="fu">c</span>(</span>
-<span id="cb3-129"><a href="#cb3-129"></a>    <span class="st">"Parcel"</span>, <span class="st">"Year"</span>, </span>
-<span id="cb3-130"><a href="#cb3-130"></a>    <span class="st">"Cover ≥10% (Full)"</span>, <span class="st">"Cover ≥10% (Capped)"</span>, <span class="st">"Cover ≥10% (Original)"</span>,</span>
-<span id="cb3-131"><a href="#cb3-131"></a>    <span class="st">"Species ≥3 Hits ≥6"</span>, <span class="st">"Species Richness ≥10"</span>, <span class="st">"All Transects ≥2%"</span>, <span class="st">"Grass Species ≥1"</span>,</span>
-<span id="cb3-132"><a href="#cb3-132"></a>    <span class="st">"Compliance"</span></span>
-<span id="cb3-133"><a href="#cb3-133"></a>  )</span>
-<span id="cb3-134"><a href="#cb3-134"></a>)</span>
-<span id="cb3-135"><a href="#cb3-135"></a><span class="in">```</span></span>
-<span id="cb3-136"><a href="#cb3-136"></a></span>
-<span id="cb3-137"><a href="#cb3-137"></a><span class="ss">1.  </span>**Full**: All perennial species including unlimited ATTO/ERNA (maximum potential)</span>
-<span id="cb3-138"><a href="#cb3-138"></a><span class="ss">2.  </span>**Capped**: ATTO/ERNA cover is limited/capped to/at reference parcel averages (policy-based compliance). **LAW90/94/95**: Up to **0.176%**. **LAW118/129**: Up to **2.885%**</span>
-<span id="cb3-139"><a href="#cb3-139"></a><span class="ss">3.  </span>**Original**: Perennial cover calculations exclude ERNA10 and ATTO species</span>
+<span id="cb3-74"><a href="#cb3-74"></a><span class="ss">-   </span>**✗**: Goal not attained</span>
+<span id="cb3-75"><a href="#cb3-75"></a></span>
+<span id="cb3-76"><a href="#cb3-76"></a><span class="ss">-   </span>**—**: No data available</span>
+<span id="cb3-77"><a href="#cb3-77"></a></span>
+<span id="cb3-78"><a href="#cb3-78"></a><span class="in">```{r compliance-table-comprehensive, warning=FALSE, echo=FALSE}</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="co">#| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a></span>
+<span id="cb3-81"><a href="#cb3-81"></a><span class="co"># Load comprehensive compliance data from targets pipeline</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a><span class="fu">library</span>(DT)</span>
+<span id="cb3-83"><a href="#cb3-83"></a><span class="fu">library</span>(targets)</span>
+<span id="cb3-84"><a href="#cb3-84"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-85"><a href="#cb3-85"></a></span>
+<span id="cb3-86"><a href="#cb3-86"></a><span class="co"># Load the comprehensive compliance target</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a><span class="fu">tar_load</span>(compliance_comprehensive_all)</span>
+<span id="cb3-88"><a href="#cb3-88"></a></span>
+<span id="cb3-89"><a href="#cb3-89"></a><span class="co"># Create the comprehensive compliance table</span></span>
+<span id="cb3-90"><a href="#cb3-90"></a>comprehensive_table <span class="ot">&lt;-</span> compliance_comprehensive_all <span class="sc">%&gt;%</span></span>
+<span id="cb3-91"><a href="#cb3-91"></a>  <span class="fu">arrange</span>(parcel, year) <span class="sc">%&gt;%</span></span>
+<span id="cb3-92"><a href="#cb3-92"></a>  <span class="fu">select</span>(</span>
+<span id="cb3-93"><a href="#cb3-93"></a>    parcel, year,</span>
+<span id="cb3-94"><a href="#cb3-94"></a>    <span class="at">cover_full =</span> cover_status_full,</span>
+<span id="cb3-95"><a href="#cb3-95"></a>    <span class="at">cover_capped =</span> cover_status_capped, </span>
+<span id="cb3-96"><a href="#cb3-96"></a>    <span class="at">cover_original =</span> cover_status_original,</span>
+<span id="cb3-97"><a href="#cb3-97"></a>    species_3hit_status,</span>
+<span id="cb3-98"><a href="#cb3-98"></a>    richness_status,</span>
+<span id="cb3-99"><a href="#cb3-99"></a>    transect_status,</span>
+<span id="cb3-100"><a href="#cb3-100"></a>    grass_status,</span>
+<span id="cb3-101"><a href="#cb3-101"></a>    compliance_summary</span>
+<span id="cb3-102"><a href="#cb3-102"></a>  )</span>
+<span id="cb3-103"><a href="#cb3-103"></a></span>
+<span id="cb3-104"><a href="#cb3-104"></a><span class="co"># Create the datatable with optimized column widths and default 2025 filter</span></span>
+<span id="cb3-105"><a href="#cb3-105"></a><span class="fu">datatable</span>(</span>
+<span id="cb3-106"><a href="#cb3-106"></a>  comprehensive_table,</span>
+<span id="cb3-107"><a href="#cb3-107"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb3-108"><a href="#cb3-108"></a>    <span class="at">autoWidth =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-109"><a href="#cb3-109"></a>    <span class="at">scrollX =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-110"><a href="#cb3-110"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
+<span id="cb3-111"><a href="#cb3-111"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">0</span>),    <span class="co"># parcel</span></span>
+<span id="cb3-112"><a href="#cb3-112"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'6%'</span>, <span class="at">targets =</span> <span class="dv">1</span>),     <span class="co"># year</span></span>
+<span id="cb3-113"><a href="#cb3-113"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'12%'</span>, <span class="at">targets =</span> <span class="dv">2</span>),    <span class="co"># full cover</span></span>
+<span id="cb3-114"><a href="#cb3-114"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'12%'</span>, <span class="at">targets =</span> <span class="dv">3</span>),    <span class="co"># capped cover</span></span>
+<span id="cb3-115"><a href="#cb3-115"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'12%'</span>, <span class="at">targets =</span> <span class="dv">4</span>),    <span class="co"># original cover</span></span>
+<span id="cb3-116"><a href="#cb3-116"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">5</span>),    <span class="co"># species ≥3 hits</span></span>
+<span id="cb3-117"><a href="#cb3-117"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">6</span>),    <span class="co"># species richness</span></span>
+<span id="cb3-118"><a href="#cb3-118"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">7</span>),    <span class="co"># transect cover</span></span>
+<span id="cb3-119"><a href="#cb3-119"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'10%'</span>, <span class="at">targets =</span> <span class="dv">8</span>),    <span class="co"># grass species</span></span>
+<span id="cb3-120"><a href="#cb3-120"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'8%'</span>, <span class="at">targets =</span> <span class="dv">9</span>)      <span class="co"># compliance summary</span></span>
+<span id="cb3-121"><a href="#cb3-121"></a>    ),</span>
+<span id="cb3-122"><a href="#cb3-122"></a>    <span class="at">dom =</span> <span class="st">'Bfrtip'</span>,</span>
+<span id="cb3-123"><a href="#cb3-123"></a>    <span class="at">buttons =</span> <span class="fu">c</span>(<span class="st">'csv'</span>),</span>
+<span id="cb3-124"><a href="#cb3-124"></a>    <span class="at">pageLength =</span> <span class="dv">20</span>,</span>
+<span id="cb3-125"><a href="#cb3-125"></a>    <span class="at">searchCols =</span> <span class="fu">list</span>(</span>
+<span id="cb3-126"><a href="#cb3-126"></a>      <span class="fu">list</span>(<span class="at">search =</span> <span class="st">"2025"</span>),  <span class="co"># Default filter for year column (index 1)</span></span>
+<span id="cb3-127"><a href="#cb3-127"></a>      <span class="fu">rep</span>(<span class="fu">list</span>(<span class="at">search =</span> <span class="st">""</span>), <span class="dv">9</span>)  <span class="co"># Empty search for other columns</span></span>
+<span id="cb3-128"><a href="#cb3-128"></a>    )</span>
+<span id="cb3-129"><a href="#cb3-129"></a>  ),</span>
+<span id="cb3-130"><a href="#cb3-130"></a>  <span class="at">extensions =</span> <span class="st">'Buttons'</span>,</span>
+<span id="cb3-131"><a href="#cb3-131"></a>  <span class="at">filter =</span> <span class="st">'top'</span>,</span>
+<span id="cb3-132"><a href="#cb3-132"></a>  <span class="at">colnames =</span> <span class="fu">c</span>(</span>
+<span id="cb3-133"><a href="#cb3-133"></a>    <span class="st">"Parcel"</span>, <span class="st">"Year"</span>, </span>
+<span id="cb3-134"><a href="#cb3-134"></a>    <span class="st">"Cover ≥10% (Full)"</span>, <span class="st">"Cover ≥10% (Capped)"</span>, <span class="st">"Cover ≥10% (Original)"</span>,</span>
+<span id="cb3-135"><a href="#cb3-135"></a>    <span class="st">"Species ≥3 Hits ≥6"</span>, <span class="st">"Species Richness ≥10"</span>, <span class="st">"All Transects ≥2%"</span>, <span class="st">"Grass Species ≥1"</span>,</span>
+<span id="cb3-136"><a href="#cb3-136"></a>    <span class="st">"Compliance"</span></span>
+<span id="cb3-137"><a href="#cb3-137"></a>  )</span>
+<span id="cb3-138"><a href="#cb3-138"></a>)</span>
+<span id="cb3-139"><a href="#cb3-139"></a><span class="in">```</span></span>
 <span id="cb3-140"><a href="#cb3-140"></a></span>
-<span id="cb3-141"><a href="#cb3-141"></a><span class="in">```{r reference-parcel-summary, warning=FALSE}</span></span>
-<span id="cb3-142"><a href="#cb3-142"></a><span class="co">#| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"</span></span>
-<span id="cb3-143"><a href="#cb3-143"></a></span>
-<span id="cb3-144"><a href="#cb3-144"></a><span class="co"># Create reference parcel summary table</span></span>
-<span id="cb3-145"><a href="#cb3-145"></a>reference_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb3-146"><a href="#cb3-146"></a>  <span class="at">Reference_Group =</span> <span class="fu">c</span>(<span class="st">"LAW90/94/95"</span>, <span class="st">"LAW118/129"</span>),</span>
-<span id="cb3-147"><a href="#cb3-147"></a>  <span class="at">ATTO_Average =</span> <span class="fu">c</span>(<span class="st">"0.029%"</span>, <span class="st">"1.34%"</span>),</span>
-<span id="cb3-148"><a href="#cb3-148"></a>  <span class="at">ERNA10_Average =</span> <span class="fu">c</span>(<span class="st">"0.165%"</span>, <span class="st">"1.54%"</span>),</span>
-<span id="cb3-149"><a href="#cb3-149"></a>  <span class="at">Combined_Average =</span> <span class="fu">c</span>(<span class="st">"0.176%"</span>, <span class="st">"2.885%"</span>),</span>
-<span id="cb3-150"><a href="#cb3-150"></a>  <span class="at">Transects =</span> <span class="fu">c</span>(<span class="st">"170"</span>, <span class="st">"87"</span>),</span>
-<span id="cb3-151"><a href="#cb3-151"></a>  <span class="at">Policy_Cap =</span> <span class="fu">c</span>(<span class="st">"0.176%"</span>, <span class="st">"2.885%"</span>)</span>
-<span id="cb3-152"><a href="#cb3-152"></a>)</span>
-<span id="cb3-153"><a href="#cb3-153"></a></span>
-<span id="cb3-154"><a href="#cb3-154"></a><span class="fu">datatable</span>(</span>
-<span id="cb3-155"><a href="#cb3-155"></a>  reference_summary,</span>
-<span id="cb3-156"><a href="#cb3-156"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
-<span id="cb3-157"><a href="#cb3-157"></a>    <span class="at">autoWidth =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-158"><a href="#cb3-158"></a>    <span class="at">scrollX =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb3-159"><a href="#cb3-159"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
-<span id="cb3-160"><a href="#cb3-160"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'20%'</span>, <span class="at">targets =</span> <span class="dv">0</span>),    <span class="co"># reference group</span></span>
-<span id="cb3-161"><a href="#cb3-161"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'15%'</span>, <span class="at">targets =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)   <span class="co"># other columns</span></span>
-<span id="cb3-162"><a href="#cb3-162"></a>    ),</span>
-<span id="cb3-163"><a href="#cb3-163"></a>    <span class="at">dom =</span> <span class="st">'Bfrtip'</span>,</span>
-<span id="cb3-164"><a href="#cb3-164"></a>    <span class="at">buttons =</span> <span class="fu">c</span>(<span class="st">'csv'</span>),</span>
-<span id="cb3-165"><a href="#cb3-165"></a>    <span class="at">pageLength =</span> <span class="dv">10</span></span>
-<span id="cb3-166"><a href="#cb3-166"></a>  ),</span>
-<span id="cb3-167"><a href="#cb3-167"></a>  <span class="at">extensions =</span> <span class="st">'Buttons'</span>,</span>
-<span id="cb3-168"><a href="#cb3-168"></a>  <span class="at">filter =</span> <span class="st">'top'</span>,</span>
-<span id="cb3-169"><a href="#cb3-169"></a>  <span class="at">colnames =</span> <span class="fu">c</span>(</span>
-<span id="cb3-170"><a href="#cb3-170"></a>    <span class="st">"Reference Parcel Group"</span>, </span>
-<span id="cb3-171"><a href="#cb3-171"></a>    <span class="st">"ATTO Average Cover"</span>, </span>
-<span id="cb3-172"><a href="#cb3-172"></a>    <span class="st">"ERNA10 Average Cover"</span>, </span>
-<span id="cb3-173"><a href="#cb3-173"></a>    <span class="st">"Combined ATTO+ERNA10"</span>, </span>
-<span id="cb3-174"><a href="#cb3-174"></a>    <span class="st">"Total Transects"</span>,</span>
-<span id="cb3-175"><a href="#cb3-175"></a>    <span class="st">"Policy Implementation Cap"</span></span>
-<span id="cb3-176"><a href="#cb3-176"></a>  )</span>
-<span id="cb3-177"><a href="#cb3-177"></a>)</span>
-<span id="cb3-178"><a href="#cb3-178"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb3-141"><a href="#cb3-141"></a><span class="in">```{r calculate-caps, echo=FALSE}</span></span>
+<span id="cb3-142"><a href="#cb3-142"></a><span class="co"># Calculate reference parcel summary from pipeline data</span></span>
+<span id="cb3-143"><a href="#cb3-143"></a>law90_94_95_parcels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"LAW012"</span>, <span class="st">"LAW024"</span>, <span class="st">"LAW028"</span>, <span class="st">"LAW048"</span>, <span class="st">"LAW049"</span>, <span class="st">"LAW091"</span>, <span class="st">"LAW093"</span>, <span class="st">"LAW117"</span>, <span class="st">"LAW130"</span>, <span class="st">"LAW134"</span>)</span>
+<span id="cb3-144"><a href="#cb3-144"></a>law118_129_parcels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"LAW029"</span>, <span class="st">"LAW039"</span>, <span class="st">"LAW069"</span>, <span class="st">"LAW104"</span>, <span class="st">"LAW119"</span>, <span class="st">"PLC202"</span>, <span class="st">"PLC219"</span>, <span class="st">"PLC227"</span>, <span class="st">"PLC230"</span>)</span>
+<span id="cb3-145"><a href="#cb3-145"></a></span>
+<span id="cb3-146"><a href="#cb3-146"></a><span class="co"># Get 2025 ATTO/ERNA averages by reference group</span></span>
+<span id="cb3-147"><a href="#cb3-147"></a>law90_94_95_2025 <span class="ot">&lt;-</span> reference_atto_erna_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb3-148"><a href="#cb3-148"></a>  <span class="fu">filter</span>(parcel <span class="sc">%in%</span> law90_94_95_parcels <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2025</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-149"><a href="#cb3-149"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb3-150"><a href="#cb3-150"></a>  <span class="fu">summarise</span>(<span class="at">avg_cover =</span> <span class="fu">mean</span>(avg_cover, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb3-151"><a href="#cb3-151"></a></span>
+<span id="cb3-152"><a href="#cb3-152"></a>law118_129_2025 <span class="ot">&lt;-</span> reference_atto_erna_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb3-153"><a href="#cb3-153"></a>  <span class="fu">filter</span>(parcel <span class="sc">%in%</span> law118_129_parcels <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2025</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-154"><a href="#cb3-154"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb3-155"><a href="#cb3-155"></a>  <span class="fu">summarise</span>(<span class="at">avg_cover =</span> <span class="fu">mean</span>(avg_cover, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb3-156"><a href="#cb3-156"></a></span>
+<span id="cb3-157"><a href="#cb3-157"></a><span class="co"># Calculate combined averages</span></span>
+<span id="cb3-158"><a href="#cb3-158"></a>law90_94_95_combined <span class="ot">&lt;-</span> law90_94_95_2025 <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">combined =</span> <span class="fu">sum</span>(avg_cover, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(combined)</span>
+<span id="cb3-159"><a href="#cb3-159"></a>law118_129_combined <span class="ot">&lt;-</span> law118_129_2025 <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">combined =</span> <span class="fu">sum</span>(avg_cover, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(combined)</span>
+<span id="cb3-160"><a href="#cb3-160"></a></span>
+<span id="cb3-161"><a href="#cb3-161"></a><span class="co"># Get ATTO and ERNA10 values</span></span>
+<span id="cb3-162"><a href="#cb3-162"></a>law90_94_95_atto <span class="ot">&lt;-</span> law90_94_95_2025 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"ATTO"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_cover)</span>
+<span id="cb3-163"><a href="#cb3-163"></a>law90_94_95_erna <span class="ot">&lt;-</span> law90_94_95_2025 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"ERNA10"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_cover)</span>
+<span id="cb3-164"><a href="#cb3-164"></a>law118_129_atto <span class="ot">&lt;-</span> law118_129_2025 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"ATTO"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_cover)</span>
+<span id="cb3-165"><a href="#cb3-165"></a>law118_129_erna <span class="ot">&lt;-</span> law118_129_2025 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"ERNA10"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_cover)</span>
+<span id="cb3-166"><a href="#cb3-166"></a></span>
+<span id="cb3-167"><a href="#cb3-167"></a><span class="co"># Count transects</span></span>
+<span id="cb3-168"><a href="#cb3-168"></a>law90_94_95_transects <span class="ot">&lt;-</span> reference_atto_erna_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb3-169"><a href="#cb3-169"></a>  <span class="fu">filter</span>(parcel <span class="sc">%in%</span> law90_94_95_parcels <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2025</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-170"><a href="#cb3-170"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(n_transects, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(total)</span>
+<span id="cb3-171"><a href="#cb3-171"></a></span>
+<span id="cb3-172"><a href="#cb3-172"></a>law118_129_transects <span class="ot">&lt;-</span> reference_atto_erna_analysis <span class="sc">%&gt;%</span></span>
+<span id="cb3-173"><a href="#cb3-173"></a>  <span class="fu">filter</span>(parcel <span class="sc">%in%</span> law118_129_parcels <span class="sc">&amp;</span> year <span class="sc">==</span> <span class="dv">2025</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-174"><a href="#cb3-174"></a>  <span class="fu">summarise</span>(<span class="at">total =</span> <span class="fu">sum</span>(n_transects, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(total)</span>
+<span id="cb3-175"><a href="#cb3-175"></a></span>
+<span id="cb3-176"><a href="#cb3-176"></a><span class="co"># Create reference parcel summary table</span></span>
+<span id="cb3-177"><a href="#cb3-177"></a>reference_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-178"><a href="#cb3-178"></a>  <span class="at">Reference_Group =</span> <span class="fu">c</span>(<span class="st">"LAW90/94/95"</span>, <span class="st">"LAW118/129"</span>),</span>
+<span id="cb3-179"><a href="#cb3-179"></a>  <span class="at">ATTO_Average =</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="fu">round</span>(law90_94_95_atto, <span class="dv">3</span>), <span class="st">"%"</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(law118_129_atto, <span class="dv">3</span>), <span class="st">"%"</span>)),</span>
+<span id="cb3-180"><a href="#cb3-180"></a>  <span class="at">ERNA10_Average =</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="fu">round</span>(law90_94_95_erna, <span class="dv">3</span>), <span class="st">"%"</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(law118_129_erna, <span class="dv">3</span>), <span class="st">"%"</span>)),</span>
+<span id="cb3-181"><a href="#cb3-181"></a>  <span class="at">Combined_Average =</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="fu">round</span>(law90_94_95_combined, <span class="dv">3</span>), <span class="st">"%"</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(law118_129_combined, <span class="dv">3</span>), <span class="st">"%"</span>)),</span>
+<span id="cb3-182"><a href="#cb3-182"></a>  <span class="at">Transects =</span> <span class="fu">c</span>(<span class="fu">as.character</span>(law90_94_95_transects), <span class="fu">as.character</span>(law118_129_transects)),</span>
+<span id="cb3-183"><a href="#cb3-183"></a>  <span class="at">Policy_Cap =</span> <span class="fu">c</span>(<span class="fu">paste0</span>(<span class="fu">round</span>(law90_94_95_combined, <span class="dv">3</span>), <span class="st">"%"</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(law118_129_combined, <span class="dv">3</span>), <span class="st">"%"</span>))</span>
+<span id="cb3-184"><a href="#cb3-184"></a>)</span>
+<span id="cb3-185"><a href="#cb3-185"></a><span class="in">```</span></span>
+<span id="cb3-186"><a href="#cb3-186"></a></span>
+<span id="cb3-187"><a href="#cb3-187"></a><span class="ss">1.  </span>**Full**: All perennial species including unlimited ATTO/ERNA (maximum potential)</span>
+<span id="cb3-188"><a href="#cb3-188"></a><span class="ss">2.  </span>**Capped**: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). **LAW90/94/95**: Up to **`r paste0(round(law90_94_95_combined, 3), "%")`**. **LAW118/129**: Up to **`r paste0(round(law118_129_combined, 3), "%")`**</span>
+<span id="cb3-189"><a href="#cb3-189"></a><span class="ss">3.  </span>**Original**: Perennial cover calculations exclude ERNA10 and ATTO species</span>
+<span id="cb3-190"><a href="#cb3-190"></a></span>
+<span id="cb3-191"><a href="#cb3-191"></a>**Note**: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA).</span>
+<span id="cb3-192"><a href="#cb3-192"></a></span>
+<span id="cb3-193"><a href="#cb3-193"></a><span class="in">```{r reference-parcel-summary, warning=FALSE}</span></span>
+<span id="cb3-194"><a href="#cb3-194"></a><span class="co">#| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"</span></span>
+<span id="cb3-195"><a href="#cb3-195"></a></span>
+<span id="cb3-196"><a href="#cb3-196"></a><span class="fu">datatable</span>(</span>
+<span id="cb3-197"><a href="#cb3-197"></a>  reference_summary,</span>
+<span id="cb3-198"><a href="#cb3-198"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb3-199"><a href="#cb3-199"></a>    <span class="at">autoWidth =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-200"><a href="#cb3-200"></a>    <span class="at">scrollX =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-201"><a href="#cb3-201"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
+<span id="cb3-202"><a href="#cb3-202"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'20%'</span>, <span class="at">targets =</span> <span class="dv">0</span>),    <span class="co"># reference group</span></span>
+<span id="cb3-203"><a href="#cb3-203"></a>      <span class="fu">list</span>(<span class="at">width =</span> <span class="st">'15%'</span>, <span class="at">targets =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)   <span class="co"># other columns</span></span>
+<span id="cb3-204"><a href="#cb3-204"></a>    ),</span>
+<span id="cb3-205"><a href="#cb3-205"></a>    <span class="at">dom =</span> <span class="st">'Bfrtip'</span>,</span>
+<span id="cb3-206"><a href="#cb3-206"></a>    <span class="at">buttons =</span> <span class="fu">c</span>(<span class="st">'csv'</span>),</span>
+<span id="cb3-207"><a href="#cb3-207"></a>    <span class="at">pageLength =</span> <span class="dv">10</span></span>
+<span id="cb3-208"><a href="#cb3-208"></a>  ),</span>
+<span id="cb3-209"><a href="#cb3-209"></a>  <span class="at">extensions =</span> <span class="st">'Buttons'</span>,</span>
+<span id="cb3-210"><a href="#cb3-210"></a>  <span class="at">filter =</span> <span class="st">'top'</span>,</span>
+<span id="cb3-211"><a href="#cb3-211"></a>  <span class="at">colnames =</span> <span class="fu">c</span>(</span>
+<span id="cb3-212"><a href="#cb3-212"></a>    <span class="st">"Reference Parcel Group"</span>, </span>
+<span id="cb3-213"><a href="#cb3-213"></a>    <span class="st">"ATTO Average Cover"</span>, </span>
+<span id="cb3-214"><a href="#cb3-214"></a>    <span class="st">"ERNA10 Average Cover"</span>, </span>
+<span id="cb3-215"><a href="#cb3-215"></a>    <span class="st">"Combined ATTO+ERNA10"</span>, </span>
+<span id="cb3-216"><a href="#cb3-216"></a>    <span class="st">"Total Transects"</span>,</span>
+<span id="cb3-217"><a href="#cb3-217"></a>    <span class="st">"Policy Implementation Cap"</span></span>
+<span id="cb3-218"><a href="#cb3-218"></a>  )</span>
+<span id="cb3-219"><a href="#cb3-219"></a>)</span>
+<span id="cb3-220"><a href="#cb3-220"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<gpx
+ version="1.1"
+ creator="Global Mapper - http://www.globalmapper.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns="http://www.topografix.com/GPX/1/1"
+ xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <metadata>
+ </metadata>
+<wpt lat="36.773238" lon="-118.162374">
+ <name>IND123_1.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.772348" lon="-118.162350">
+ <name>IND123_1.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.771433" lon="-118.162334">
+ <name>IND123_1.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.770893" lon="-118.162315">
+ <name>IND123_1.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.770250" lon="-118.161480">
+ <name>IND123_2.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.770581" lon="-118.161488">
+ <name>IND123_2.4</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.771486" lon="-118.161494">
+ <name>IND123_2.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.772384" lon="-118.161494">
+ <name>IND123_2.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.773288" lon="-118.161497">
+ <name>IND123_2.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.773157" lon="-118.160686">
+ <name>IND123_3.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.772250" lon="-118.160674">
+ <name>IND123_3.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.771346" lon="-118.160656">
+ <name>IND123_3.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.770446" lon="-118.159808">
+ <name>IND123_4.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.771209" lon="-118.159811">
+ <name>IND123_4.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.772116" lon="-118.159814">
+ <name>IND123_4.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.773026" lon="-118.159813">
+ <name>IND123_4.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.772881" lon="-118.158909">
+ <name>IND123_5.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.771974" lon="-118.158933">
+ <name>IND123_5.2</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.771074" lon="-118.158946">
+ <name>IND123_5.3</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.770567" lon="-118.158937">
+ <name>IND123_5.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.771866" lon="-118.158164">
+ <name>IND123_6.1</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+<wpt lat="36.772743" lon="-118.158064">
+ <name>IND123_6.0</name>
+ <desc>Unknown Point Feature</desc>
+ <sym>Dot</sym>
+</wpt>
+ <extensions>
+ </extensions>
+</gpx>
