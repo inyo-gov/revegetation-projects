@@ -94,7 +94,7 @@ data_dictionary <- data.frame(
     ncol(tar_read(raw_transects_xy)),
     ncol(tar_read(raw_parcels_shp))
   ),
-  "Last Modified" = sapply(file_paths, get_file_date),
+  "Last Modified" = unname(sapply(file_paths, get_file_date)),
   Download = c(
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/species_summary_all_years.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/output/compliance_summary.csv" download>⬇ CSV</a>',

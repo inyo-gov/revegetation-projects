@@ -455,7 +455,7 @@ download_info <- data.frame(
     ncol(reference_atto_erna_analysis),
     ncol(ref_data_combined)
   ),
-  "Last Modified" = sapply(ref_file_paths, get_file_date),
+  "Last Modified" = unname(sapply(ref_file_paths, get_file_date)),
   Download = c(
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/reference_parcel_summary.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/transect_species_data.csv" download>⬇ CSV</a>',
