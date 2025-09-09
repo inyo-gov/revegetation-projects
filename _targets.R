@@ -404,39 +404,59 @@ list(
     name = reference_atto_erna_analysis,
     command = {
       # Calculate ATTO and ERNA contribution to reference parcels
-      # First, calculate cover per transect for ATTO/ERNA
-      atto_erna_by_transect <- ref_data_combined %>%
+      # Include ALL parcels in reference groups, even those with zero ATTO/ERNA
+      
+      # Get all reference parcels and their transects
+      reference_parcels <- ref_data_combined %>%
+        filter(Lifecycle == 'Perennial') %>%
+        select(parcel, year, transect) %>%
+        distinct() %>%
+        mutate(
+          reference_group = case_when(
+            parcel %in% c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134") ~ "LAW90/94/95",
+            parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230") ~ "LW118/129",
+            TRUE ~ "Other"
+          )
+        ) %>%
+        filter(reference_group != "Other")
+      
+      # Create complete grid of parcel-year-transect-species for ATTO/ERNA
+      atto_erna_grid <- reference_parcels %>%
+        crossing(species = c("ATTO", "ERNA10"))
+      
+      # Get actual ATTO/ERNA data
+      atto_erna_data <- ref_data_combined %>%
         filter(species %in% c("ATTO", "ERNA10")) %>%
         group_by(parcel, year, transect, species) %>%
         summarise(
           transect_hits = sum(hits, na.rm = TRUE),
-          transect_cover = sum(percent_cover, na.rm = TRUE),  # Use pre-calculated percent_cover
+          transect_cover = sum(percent_cover, na.rm = TRUE),
           .groups = 'drop'
         )
       
-      # Calculate total perennial cover per transect
+      # Get perennial cover per transect
       perennial_by_transect <- ref_data_combined %>%
         filter(Lifecycle == 'Perennial') %>%
         group_by(parcel, year, transect) %>%
         summarise(
           transect_perennial_hits = sum(hits, na.rm = TRUE),
-          transect_perennial_cover = sum(percent_cover, na.rm = TRUE),  # Use pre-calculated percent_cover
+          transect_perennial_cover = sum(percent_cover, na.rm = TRUE),
           .groups = 'drop'
         )
       
-      # Join and calculate averages
-      # Use full_join to include all transects, even those without ATTO/ERNA (zero hits)
-      atto_erna_by_transect %>%
-        full_join(perennial_by_transect, by = c("parcel", "year", "transect")) %>%
-        # Fill NA values for transects without ATTO/ERNA with zeros
+      # Join everything together, filling zeros for missing ATTO/ERNA
+      complete_data <- atto_erna_grid %>%
+        left_join(atto_erna_data, by = c("parcel", "year", "transect", "species")) %>%
+        left_join(perennial_by_transect, by = c("parcel", "year", "transect")) %>%
+        # Fill NA values with zeros for missing ATTO/ERNA data
         mutate(
           transect_hits = ifelse(is.na(transect_hits), 0, transect_hits),
-          transect_cover = ifelse(is.na(transect_cover), 0, transect_cover),
-          species = ifelse(is.na(species), "ATTO", species)  # Fill species for zero-hit rows
+          transect_cover = ifelse(is.na(transect_cover), 0, transect_cover)
         ) %>%
         # Calculate relative contribution per transect
         mutate(
-          relative_cover_transect = (transect_cover / transect_perennial_cover) * 100
+          relative_cover_transect = ifelse(transect_perennial_cover > 0, 
+                                         (transect_cover / transect_perennial_cover) * 100, 0)
         ) %>%
         # Average across transects for each parcel-year-species combination
         group_by(parcel, year, species) %>%
@@ -455,7 +475,7 @@ list(
         ) %>%
         arrange(parcel, year, species)
     },
-    description = "ATTO/ERNA contribution analysis in reference parcels by year"
+    description = "ATTO/ERNA contribution analysis in reference parcels by year (includes parcels with zero ATTO/ERNA)"
   ),
   
   # Revegetation data with ATTO/ERNA capping based on reference thresholds
