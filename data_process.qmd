@@ -332,6 +332,6 @@ tar_visnetwork()
 
 If you use this data or analysis in your work, please cite:
 
-**Inyo County Water Department. (2025). *Revegetation Projects Data Processing Pipeline*. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects**
+**Inyo County Water Department. (2025). *Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis*. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects**
 
 **© 2025 Inyo County, California. All rights reserved.**
