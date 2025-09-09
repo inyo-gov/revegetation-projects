@@ -16,7 +16,7 @@ website:
         text: Reference Parcels
       - icon: github
         href: https://github.com/inyo-gov/revegetation-projects
-    background: primary
+    background: dark
     search: true
   sidebar:
     style: floating
@@ -31,7 +31,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: flatly
     linkcolor: "#2E86AB"
     css: styles.css
     toc: true
