@@ -94,18 +94,18 @@ datatable(
   options = list(
     autoWidth = FALSE,
     scrollX = FALSE,
-    columnDefs = list(
-      list(width = '80px', targets = 0),    # parcel
-      list(width = '50px', targets = 1),     # year
-      list(width = '120px', targets = 2),    # full cover
-      list(width = '120px', targets = 3),    # capped cover
-      list(width = '120px', targets = 4),    # original cover
-      list(width = '100px', targets = 5),    # species ≥3 hits
-      list(width = '100px', targets = 6),    # species richness
-      list(width = '100px', targets = 7),    # transect cover
-      list(width = '100px', targets = 8),    # grass species
-      list(width = '80px', targets = 9)      # compliance summary
-    ),
+                    columnDefs = list(
+                      list(width = '70px', targets = 0),    # parcel
+                      list(width = '45px', targets = 1),     # year
+                      list(width = '100px', targets = 2),    # full cover
+                      list(width = '100px', targets = 3),    # capped cover
+                      list(width = '100px', targets = 4),    # original cover
+                      list(width = '85px', targets = 5),    # species ≥3 hits
+                      list(width = '85px', targets = 6),    # species richness
+                      list(width = '85px', targets = 7),    # transect cover
+                      list(width = '85px', targets = 8),    # grass species
+                      list(width = '70px', targets = 9)      # compliance summary
+                    ),
     dom = 'Bfrtip',
     buttons = c('csv'),
     pageLength = 20,

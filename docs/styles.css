@@ -149,41 +149,54 @@ table {
   border-collapse: collapse;
 }
 
-/* Force DT tables to use full width */
+/* Force DT tables to use full width with compact styling */
 .dataTables_wrapper {
   width: 100% !important;
   max-width: none !important;
   overflow: visible !important;
-  min-width: 1200px !important;
+  min-width: 1000px !important;
+  font-size: 0.85rem !important;
 }
 
-/* Quarto column-screen layout */
+.dataTables_wrapper table {
+  font-size: 0.85rem !important;
+  line-height: 1.2 !important;
+}
+
+.dataTables_wrapper th,
+.dataTables_wrapper td {
+  padding: 4px 6px !important;
+  font-size: 0.85rem !important;
+  white-space: nowrap !important;
+}
+
+/* Quarto column-screen layout with margin */
 .column-screen {
-  width: 100% !important;
+  width: 95% !important;
   max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
 }
 
 .dataTables_wrapper .dataTables_scroll {
   width: 100% !important;
   max-width: none !important;
   overflow: visible !important;
-  min-width: 1200px !important;
+  min-width: 1000px !important;
 }
 
 .dataTables_wrapper .dataTables_scrollBody {
   width: 100% !important;
   max-width: none !important;
   overflow: visible !important;
-  min-width: 1200px !important;
+  min-width: 1000px !important;
 }
 
 .dataTables_wrapper table {
   width: 100% !important;
   max-width: none !important;
   table-layout: fixed !important;
-  min-width: 1200px !important;
+  min-width: 1000px !important;
 }
 
 /* Improve button spacing in DT tables */
