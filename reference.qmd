@@ -27,7 +27,7 @@ The reference parcel analysis follows a systematic approach to ensure accurate a
 - **Species aggregation**: Multiple hits per species per transect are summed
 - **Percent cover**: Reference parcel hits directly represent percent cover
 
-### 3. **Zero-Inflation Handling**
+### 3. **Complete Data Accounting**
 - **Complete dataset**: All parcel-year-transect-species combinations included
 - **Zero-filling**: Missing species receive 0% cover (not excluded from averages)
 - **Group averages**: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover
