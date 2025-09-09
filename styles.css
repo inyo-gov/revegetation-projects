@@ -116,6 +116,19 @@ pre {
 .navbar-brand {
   display: flex;
   align-items: center;
+  color: white !important;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e9ecef !important;
+}
+
+.navbar-text {
+  color: white !important;
 }
 
 .navbar-brand img {

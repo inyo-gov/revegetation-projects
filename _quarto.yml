@@ -18,24 +18,12 @@ website:
         href: https://github.com/inyo-gov/revegetation-projects
     background: dark
     search: true
-  sidebar:
-    style: floating
-    background: light
-    search: true
-    tools:
-      - icon: github
-        href: https://github.com/inyo-gov/revegetation-projects
-      - icon: download
-        href: data/processed/reference_parcel_summary.csv
-        text: Download Data
-
 format:
   html:
     theme: bootstrap
     linkcolor: "#2E86AB"
     css: styles.css
-    toc: true
-    toc-depth: 2
+    toc: false
     code-fold: true
     code-tools: true
     fig-responsive: true

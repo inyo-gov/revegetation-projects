@@ -12,8 +12,6 @@ citation:
 google-scholar: true
 format: 
   html:
-    toc: true
-    toc-depth: 3
     anchor-sections: true
     smooth-scroll: true
     code-fold: true
