@@ -149,6 +149,31 @@ table {
   border-collapse: collapse;
 }
 
+/* Force DT tables to use full width */
+.dataTables_wrapper {
+  width: 100% !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+.dataTables_wrapper .dataTables_scroll {
+  width: 100% !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+.dataTables_wrapper .dataTables_scrollBody {
+  width: 100% !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+.dataTables_wrapper table {
+  width: 100% !important;
+  max-width: none !important;
+  table-layout: fixed !important;
+}
+
 /* Improve button spacing in DT tables */
 .dataTables_wrapper .dt-buttons {
   margin-bottom: 1rem;

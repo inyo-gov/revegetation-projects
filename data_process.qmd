@@ -24,10 +24,7 @@ This structured approach ensures that data is systematically transformed into re
 
 ## Data Catalogue
 
-**Download Instructions**: 
-- **CSV buttons** in the table below will download files directly
-- **CSV links** in the table will open in your browser - right-click and "Save As" to download
-- All files are updated with the latest processed data
+**Download Instructions**: - **CSV buttons** in the table below will download files directly - **CSV links** in the table will open in your browser - right-click and "Save As" to download - All files are updated with the latest processed data
 
 ```{r}
 #| label: data-dictionary
@@ -318,7 +315,7 @@ library(visNetwork)
 tar_visnetwork()
 ```
 
----
+------------------------------------------------------------------------
 
 ## Data Disclaimer
 
@@ -326,7 +323,7 @@ tar_visnetwork()
 **Data is provided as-is for informational purposes only.** This data represents the current state of revegetation monitoring and reference parcel analysis as of the last update. While every effort is made to ensure accuracy, data may be updated or corrected as needed without prior notice. No warranty, express or implied, is provided regarding the accuracy, completeness, or suitability of this data for any particular purpose. Users should verify critical information independently before making decisions based on this data.
 :::
 
----
+------------------------------------------------------------------------
 
 ## Citation
 

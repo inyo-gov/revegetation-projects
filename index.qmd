@@ -61,7 +61,6 @@ run_maps <- TRUE  # Enable histograms and maps
 
 ```{r, warning=FALSE, echo=FALSE}
 #| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."
-#| tbl-colwidths: [10, 6, 12, 12, 12, 10, 10, 10, 10, 8]
 
 # Load compliance data
 library(DT)
@@ -90,7 +89,7 @@ comprehensive_table <- compliance_comprehensive_all %>%
 datatable(
   comprehensive_table,
   options = list(
-    autoWidth = TRUE,
+    autoWidth = FALSE,
     scrollX = FALSE,
     columnDefs = list(
       list(width = '10%', targets = 0),    # parcel
@@ -114,6 +113,7 @@ datatable(
   ),
   extensions = 'Buttons',
   filter = 'top',
+  width = '100%',
   colnames = c(
     "Parcel", "Year", 
     "Cover ≥10% (Full)", "Cover ≥10% (Capped)", "Cover ≥10% (Original)",
