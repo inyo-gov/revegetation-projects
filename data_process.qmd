@@ -63,7 +63,7 @@ data_dictionary <- data.frame(
     "Parcel Summary (Filtered)",
     "Transect Cover Details",
     "Reference Parcel Summary",
-    "R3 Analysis Data",
+    "Main Analysis Data",
     "Transects XY",
     "Raw Parcels"
   ),
@@ -72,7 +72,7 @@ data_dictionary <- data.frame(
     "Filtered parcel-level summaries with perennial cover and confidence intervals",
     "Transect-level cover analysis with 2% threshold compliance and species data",
     "Reference parcel statistics and ATTO/ERNA analysis",
-    "Main analysis dataset with transect cover calculations",
+    "Core revegetation analysis dataset with species hits, cover calculations, and parcel aggregations",
     "Transect coordinates and metadata",
     "Parcel boundaries for mapping"
   ),
@@ -308,3 +308,15 @@ library(visNetwork)
 # Generate the targets network diagram
 tar_visnetwork()
 ```
+
+---
+
+## Data Disclaimer
+
+::: {.alert .alert-warning .alert-disclaimer}
+**Data is provided as-is for informational purposes only.** This data represents the current state of revegetation monitoring and reference parcel analysis as of the last update. While every effort is made to ensure accuracy, data may be updated or corrected as needed without prior notice. No warranty, express or implied, is provided regarding the accuracy, completeness, or suitability of this data for any particular purpose. Users should verify critical information independently before making decisions based on this data.
+:::
+
+---
+
+**© 2025 Inyo County, California. All rights reserved.**

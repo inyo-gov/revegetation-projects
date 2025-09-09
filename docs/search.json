@@ -1,282 +1,51 @@
 [
   {
-    "objectID": "plan.html",
-    "href": "plan.html",
-    "title": "",
-    "section": "",
-    "text": "Code\n\n\n\n\n\nProject Architecture and Data Workflow\nThis document presents the analysis of revegetation data. To ensure efficient data processing and seamless updates, the project architecture uses a CSV-first workflow as follows:\n\nData Processing Separation: All raw data ingestion, cleaning, and complex data transformations are handled in a dedicated Quarto document: data_process.qmd and R scripts in code/.\nIntermediate and Final Outputs to CSV: Processed, analysis-ready datasets are written as CSVs (and GPKG for spatial layers) into data/processed/. Examples include reveg_data_clean.csv, species_attributes.csv, parcel_sum_filtered.csv, species_richness_per_parcel.csv, hit_species_per_parcel.csv, and transect_summary_overall.csv.\nResults Page Reads CSVs: The compliance report results.qmd reads these CSVs directly to publish parcel-level metrics required for reporting (perennial cover ≥10%, ≥6 species with ≥3 hits, species richness ≥10, each transect ≥2% cover, grass species present).\n\nThis approach ensures that data updates in the raw sources cascade efficiently through the processing pipeline to the results without requiring live database connectivity."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis",
+    "title": "Revegetation Compliance Results",
     "section": "",
     "text": "codelibrary(sf)\nlibrary(here)\nlibrary(dplyr)\nlibrary(readr)\nlibrary(stringr)\nlibrary(tidyr)\nlibrary(DT)\nlibrary(janitor)\nlibrary(ggplot2)  # For histograms and maps\nlibrary(targets)  # For loading pipeline data\nsource(here('code','functions.R'))\n\n# Load targets data\ntar_load(reference_atto_erna_analysis)\ntar_load(compliance_comprehensive_all)"
   },
   {
     "objectID": "index.html#revegetation-goals",
     "href": "index.html#revegetation-goals",
-    "title": "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis",
+    "title": "Revegetation Compliance Results",
     "section": "Revegetation Goals",
-    "text": "Revegetation Goals\n\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater\n\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel\n\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species\n\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover\n\nGrass Species Present: At least one grass species must be present on each parcel\n\n\n✓: Goal attained\n✗: Goal not attained\n—: No data available\n\n\n\n\n\n\n\n\n\nFull: All perennial species including unlimited ATTO/ERNA (maximum potential)\n\nCapped: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). LAW90/94/95: Up to 5.58%. LAW118/129: Up to 8.398%\n\n\nOriginal: Perennial cover calculations exclude ERNA10 and ATTO species\n\nNote: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA).\n\ncodedatatable(\n  reference_summary,\n  options = list(\n    autoWidth = FALSE,\n    scrollX = TRUE,\n    columnDefs = list(\n      list(width = '20%', targets = 0),    # reference group\n      list(width = '15%', targets = 1:5)   # other columns\n    ),\n    dom = 'Bfrtip',\n    buttons = c('csv'),\n    pageLength = 10\n  ),\n  extensions = 'Buttons',\n  filter = 'top',\n  colnames = c(\n    \"Reference Parcel Group\", \n    \"ATTO Average Cover\", \n    \"ERNA10 Average Cover\", \n    \"Combined ATTO+ERNA10\", \n    \"Total Transects\",\n    \"Policy Implementation Cap\"\n  )\n)"
+    "text": "Revegetation Goals\n\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater\n\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel\n\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species\n\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover\n\nGrass Species Present: At least one grass species must be present on each parcel\n\n\n✓: Goal attained\n✗: Goal not attained\n—: No data available\n\n\n\n\n\n\n\n\n\nFull: All perennial species including unlimited ATTO/ERNA (maximum potential)\n\nCapped: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). LAW90/94/95: Up to 0.38%. LAW118/129: Up to 7.067%\n\n\nOriginal: Perennial cover calculations exclude ERNA10 and ATTO species\n\nNote: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA).\n\ncodedatatable(\n  reference_summary,\n  options = list(\n    autoWidth = FALSE,\n    scrollX = TRUE,\n    columnDefs = list(\n      list(width = '20%', targets = 0),    # reference group\n      list(width = '15%', targets = 1:5)   # other columns\n    ),\n    dom = 'Bfrtip',\n    buttons = c('csv'),\n    pageLength = 10\n  ),\n  extensions = 'Buttons',\n  filter = 'top',\n  colnames = c(\n    \"Reference Parcel Group\", \n    \"ATTO Average Cover\", \n    \"ERNA10 Average Cover\", \n    \"Combined ATTO+ERNA10\", \n    \"Total Transects\",\n    \"Policy Implementation Cap\"\n  )\n)\n\n\n\n\n\n\n\n\n\nThe _targets data pipeline manages dependencies and helps with reproducible processing from raw field data to compliance assessment:\nInput revegetation data (typically in various formats requiring cleaning and pivoting to long format) → Transect-level cover calculations (converting raw hits to percentage cover at each transect) → Parcel-level aggregation (averaging transect cover values and computing goal attainment metrics) → Compliance evaluation (assessing whether all transects meet thresholds like ≥2% cover and calculating species richness, grass presence, and other revegetation goals).\nThis structured approach ensures that data is systematically transformed into reproducible metrics, while maintaining data integrity and transparency across all processing steps."
   },
   {
-    "objectID": "reference.html",
-    "href": "reference.html",
-    "title": "Reference Parcels",
-    "section": "",
-    "text": "Reference parcel data and analysis for comparison with revegetation project areas."
-  },
-  {
-    "objectID": "reference.html#section",
-    "href": "reference.html#section",
-    "title": "Reference Parcels",
-    "section": "",
-    "text": "Methodology: Cover is calculated per transect first, then averaged across transects for each parcel-year-species combination.\n\n\n\n\n\n\n\nATTO/ERNA10 Summary Statistics\n\n\n\n\n\n\nThe histograms below show cover distributions for parcels split by reference group. Each plot shows all years with 2025 shown in red.\n\n\n\n\n\nDistribution of total transect cover by reference parcel and year, sorted by mean cover (lowest to highest). Two separate plots: one for LAW90/94/95 group and one for LAW118/129 group. Each panel shows one parcel with all years overlaid. 2025 data highlighted in red with red mean line; other years in grey with grey mean lines; blue and green thick lines show ATTO and ERNA10 average cover."
-  },
-  {
-    "objectID": "reference.html#reference-data-downloads",
-    "href": "reference.html#reference-data-downloads",
-    "title": "Reference Parcels",
-    "section": "Reference Data Downloads",
-    "text": "Reference Data Downloads\nThe following datasets are available for download:"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#overview",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#overview",
-    "title": "",
-    "section": "Overview",
-    "text": "Overview\nBased on the official DuckLake documentation, we’ve successfully set up a proper DuckLake database for your revegetation project. This provides significant advantages over traditional DuckDB files, including time travel, snapshots, and better data organization."
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#what-weve-accomplished",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#what-weve-accomplished",
-    "title": "",
-    "section": "What We’ve Accomplished",
-    "text": "What We’ve Accomplished\n\n1. DuckLake Database Setup\n\nDatabase: reveg_projects.ducklake\nData Files: reveg_projects.ducklake.files/ (Parquet format)\nSchemas: compliance, species, transects, reference, raw\nTables: 4 main tables with schema-qualified names\n\n\n\n2. Data Organization\nreveg_projects.ducklake/\n├── compliance.parcel_summary (12 rows)\n├── species.hits_summary (248 rows)\n├── transects.cover_details (248 rows)\n└── reference.parcel_summary (variable rows)\n\n\n3. DuckLake Features Demonstrated\n\nTime Travel & Snapshots\n\n29 snapshots created during setup and data loading\nEach data change creates a new snapshot\nQuery historical versions: SELECT * FROM table_name AT (VERSION =&gt; X)\n\n\n\nData Lineage\n\nAll changes tracked with timestamps\nFile-level tracking in reveg_projects.ducklake.files/\nMetadata stored in DuckLake system tables\n\n\n\nSchema Organization\n\nLogical separation of data types\nCross-schema queries supported\nProper data type management"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#key-benefits-over-traditional-duckdb",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#key-benefits-over-traditional-duckdb",
-    "title": "",
-    "section": "Key Benefits Over Traditional DuckDB",
-    "text": "Key Benefits Over Traditional DuckDB\n\n1. Time Travel\n-- Query data at specific snapshot\nSELECT * FROM \"compliance.parcel_summary\" AT (VERSION =&gt; 15);\n\n-- See all snapshots\nFROM snapshots();\n\n\n2. Data Lake Features\n\nParquet file storage for efficiency\nAutomatic file management\nBetter compression and performance\n\n\n\n3. Schema Evolution\n\nEasy to add new schemas and tables\nBackward compatibility\nNo data migration needed\n\n\n\n4. Audit Trail\n\nEvery change tracked\nComplete data lineage\nReproducible analysis"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#hybrid-approach-ducklake-motherduck",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#hybrid-approach-ducklake-motherduck",
-    "title": "",
-    "section": "Hybrid Approach: DuckLake + MotherDuck",
-    "text": "Hybrid Approach: DuckLake + MotherDuck\n\nLocal Development (DuckLake)\n\nFast local queries\nTime travel for analysis\nOffline development\nVersion control friendly\n\n\n\nCloud Backup (MotherDuck)\n\nPeriodic sync for backup\nCollaboration capabilities\nCloud-based queries\nDisaster recovery\n\n\n\nSync Process\n# Check status\nRscript sync_to_motherduck.R\n\n# Perform sync\nRscript -e 'source(\"sync_to_motherduck.R\"); sync_ducklake_to_motherduck()'"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#files-created",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#files-created",
-    "title": "",
-    "section": "Files Created",
-    "text": "Files Created\n\nSetup Scripts\n\nducklake_setup.R - Initial DuckLake database creation\nload_data_to_ducklake.R - Load _targets data into DuckLake\nducklake_queries.R - Demonstrate DuckLake features\nsync_to_motherduck.R - Sync to MotherDuck\n\n\n\nUtility Scripts\n\ncheck_ducklake_tables.R - Verify table structure\nDUCKLAKE_SETUP_SUMMARY.md - This documentation"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#usage-examples",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#usage-examples",
-    "title": "",
-    "section": "Usage Examples",
-    "text": "Usage Examples\n\nBasic Queries\n# Connect to DuckLake\ncon &lt;- dbConnect(duckdb())\ndbExecute(con, \"LOAD ducklake;\")\ndbExecute(con, \"ATTACH 'ducklake:reveg_projects.ducklake' AS reveg_projects;\")\ndbExecute(con, \"USE reveg_projects;\")\n\n# Query compliance data\ncompliance &lt;- dbGetQuery(con, \"SELECT * FROM \\\"compliance.parcel_summary\\\"\")\n\n\nTime Travel Queries\n# See all snapshots\nsnapshots &lt;- dbGetQuery(con, \"FROM snapshots();\")\n\n# Query specific version\nold_data &lt;- dbGetQuery(con, \"SELECT * FROM \\\"compliance.parcel_summary\\\" AT (VERSION =&gt; 10)\")\n\n\nCross-Schema Analysis\n# Join compliance and species data\nanalysis &lt;- dbGetQuery(con, \"\n  SELECT \n    c.parcel, c.year, c.Cover,\n    COUNT(DISTINCT s.transect_unique) as species_transects\n  FROM \\\"compliance.parcel_summary\\\" c\n  LEFT JOIN \\\"species.hits_summary\\\" s \n    ON c.parcel = s.parcel AND c.year = s.year\n  GROUP BY c.parcel, c.year, c.Cover\n\")"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#comparison-traditional-duckdb-vs-ducklake",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#comparison-traditional-duckdb-vs-ducklake",
-    "title": "",
-    "section": "Comparison: Traditional DuckDB vs DuckLake",
-    "text": "Comparison: Traditional DuckDB vs DuckLake\n\n\n\nFeature\nTraditional DuckDB\nDuckLake\n\n\n\n\nStorage\nSingle .db file\nParquet files + metadata\n\n\nTime Travel\nManual versioning\nBuilt-in snapshots\n\n\nData Lineage\nNone\nComplete tracking\n\n\nSchema Organization\nSingle schema\nMultiple schemas\n\n\nFile Management\nManual\nAutomatic\n\n\nPerformance\nGood\nBetter (Parquet)\n\n\nCollaboration\nFile sharing\nCloud sync"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#next-steps",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#next-steps",
-    "title": "",
-    "section": "Next Steps",
-    "text": "Next Steps\n\n1. **Integration with _targets**\n\nUpdate _targets.R to use DuckLake as output\nReplace CSV writes with DuckLake writes\nMaintain time travel for analysis\n\n\n\n2. Quarto Integration\n\nUpdate index.qmd to query DuckLake\nAdd time travel visualizations\nShow data lineage in reports\n\n\n\n3. Automated Sync\n\nSet up cron job for MotherDuck sync\nAdd sync status to project dashboard\nImplement sync notifications\n\n\n\n4. Advanced Features\n\nImplement data partitioning\nAdd data quality checks\nSet up automated maintenance"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#benefits-for-your-project",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#benefits-for-your-project",
-    "title": "",
-    "section": "Benefits for Your Project",
-    "text": "Benefits for Your Project\n\n1. Compliance Reporting\n\nTrack changes to compliance calculations\nAudit trail for regulatory requirements\nReproducible analysis\n\n\n\n2. Data Quality\n\nVersion control for data changes\nEasy rollback if issues found\nComplete data lineage\n\n\n\n3. Collaboration\n\nLocal development with cloud backup\nShare data via MotherDuck\nMaintain data integrity\n\n\n\n4. Performance\n\nFaster queries with Parquet\nBetter compression\nEfficient file management"
-  },
-  {
-    "objectID": "archive/DUCKLAKE_SETUP_SUMMARY.html#conclusion",
-    "href": "archive/DUCKLAKE_SETUP_SUMMARY.html#conclusion",
-    "title": "",
-    "section": "Conclusion",
-    "text": "Conclusion\nDuckLake provides a modern, lakehouse-style approach to your revegetation data management. Combined with MotherDuck for cloud backup, you now have:\n\nLocal development with DuckLake\nCloud backup with MotherDuck\nTime travel for analysis\nComplete audit trail\nBetter performance\n\nThis hybrid approach gives you the best of both worlds: fast local development and reliable cloud backup for collaboration and disaster recovery."
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html",
-    "href": "archive/TARGETS_SUMMARY.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html#overview",
-    "href": "archive/TARGETS_SUMMARY.html#overview",
-    "title": "",
-    "section": "Overview",
-    "text": "Overview\nThe pipeline consists of 31 targets organized in a directed acyclic graph (DAG) that processes raw revegetation data into analysis-ready datasets and summaries."
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html#pipeline-structure",
-    "href": "archive/TARGETS_SUMMARY.html#pipeline-structure",
-    "title": "",
-    "section": "Pipeline Structure",
-    "text": "Pipeline Structure\n\n1. Raw Data Inputs (8 targets)\n\nraw_species: Species attributes lookup table\nraw_parcels_shp: Parcel boundaries shapefile\nraw_transects_xy: Transect XY coordinates\nraw_reveg_2022: 2022 revegetation field data\nraw_reveg_2023: 2023 revegetation field data\nraw_reveg_2024: 2024 revegetation field data\nraw_reveg_2025_118129: 2025 LAW118/129 revegetation field data\nraw_reveg_2025_909495: 2025 LAW90/94/95 revegetation field data\n\n\n\n2. Reference Data (3 targets)\n\nraw_ref_909495: LAW90/94/95 reference parcel data 2022-2024\nraw_ref_118129: LAW118/129 reference parcel data 2022-2023\nraw_ref_2025: LAW118/129 reference parcel data 2025\n\n\n\n3. Combined Datasets (2 targets)\n\nreveg_data_combined: Combined revegetation data across all years\nref_data_combined: Combined reference parcel data\n\n\n\n4. Processed Datasets (3 targets)\n\nr0_data: Revegetation data with species attributes and percent cover\nr2_data: Main analysis dataset with LAW118/129 aggregated as LAW129_118\nr3_data: Analysis dataset with transect cover calculations (aggregated parcels)\n\n\n\n5. Spatial Data (2 targets)\n\nreveg_spatial_xy: Revegetation data with spatial coordinates\nr1_data: Spatial revegetation data with species attributes\n\n\n\n6. Functional Type Summaries (2 targets)\n\nfull_noERNAATTO: Functional type cover excluding ERNA10 and ATTO\nfull_summary: Complete functional type cover summary\n\n\n\n7. Parcel-level Summaries (2 targets)\n\nparcel_sum_filtered: Parcel summaries excluding ERNA10 and ATTO\nparcel_sum_all: Complete parcel summaries\n\n\n\n8. Species Metrics (4 targets)\n\ngrass_species_counts: Grass species counts per parcel\nspecies_hits_summary: Species with &gt;=3 hits per parcel\nspecies_richness_summary: Species richness summary per parcel\nhit_species_per_parcel: Count of species with &gt;=3 hits per parcel\nspecies_richness_per_parcel: Species richness per parcel\n\n\n\n9. Transect Analysis (2 targets)\n\ntransect_cover_details: Transect-level cover analysis with 2% threshold\ntransect_summary_overall: Overall transect summary by parcel\n\n\n\n10. Reference Analysis (1 target)\n\nreference_parcel_summary: Reference parcel summary statistics\n\n\n\n11. Metadata (1 target)\n\nreveg_metadata: Revegetation data metadata summary"
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html#key-dependencies",
-    "href": "archive/TARGETS_SUMMARY.html#key-dependencies",
-    "title": "",
-    "section": "Key Dependencies",
-    "text": "Key Dependencies\nThe pipeline follows this general flow: 1. Raw data ingestion → Combined datasets → Processed datasets 2. Processed datasets → Functional summaries → Parcel summaries 3. Processed datasets → Species metrics and Transect analysis"
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html#functions",
-    "href": "archive/TARGETS_SUMMARY.html#functions",
-    "title": "",
-    "section": "Functions",
-    "text": "Functions\nAll processing functions are defined in code/functions.R: - parse_reveg_totals_simple(): Parse wide-format revegetation data - summarise_reveg_to_transect(): Summarize to transect level - summarise_to_parcel(): Summarize transects to parcel level - summarize_transect_cover_filtered(): Transect cover with 2% threshold - summarize_reference_parcels(): Reference parcel summaries - generate_parcel_summary_table(): Compliance summary table - bubble_maps_with_parcels(): Spatial visualization - calculate_cover_difference(): Year-to-year comparisons"
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html#usage",
-    "href": "archive/TARGETS_SUMMARY.html#usage",
-    "title": "",
-    "section": "Usage",
-    "text": "Usage\n\nView the network diagram:\nlibrary(targets)\nlibrary(visNetwork)\ntar_visnetwork()\n\n\nRun the pipeline:\ntar_make()\n\n\nCheck pipeline status:\ntar_progress()\n\n\nLoad specific targets:\ntar_load(r3_data)  # Load the main analysis dataset\ntar_load(parcel_sum_filtered)  # Load parcel summaries"
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html#benefits-of-this-structure",
-    "href": "archive/TARGETS_SUMMARY.html#benefits-of-this-structure",
-    "title": "",
-    "section": "Benefits of This Structure",
-    "text": "Benefits of This Structure\n\nReproducibility: All data processing steps are explicitly defined\nEfficiency: Only outdated targets are rebuilt\nTransparency: Clear data flow from raw inputs to final outputs\nMaintainability: Easy to modify individual steps without affecting others\nDocumentation: Each target has a description of its purpose"
-  },
-  {
-    "objectID": "archive/TARGETS_SUMMARY.html#files-generated",
-    "href": "archive/TARGETS_SUMMARY.html#files-generated",
-    "title": "",
-    "section": "Files Generated",
-    "text": "Files Generated\n\ntargets_network.html: Interactive network diagram\n_targets/: Directory containing cached target outputs\nTARGETS_SUMMARY.md: This documentation file"
-  },
-  {
-    "objectID": "data_process.html",
-    "href": "data_process.html",
-    "title": "Data Processing Pipeline",
-    "section": "",
-    "text": "The _targets data pipeline manages dependencies and helps with reproducible processing from raw field data to compliance assessment:\nInput revegetation data (typically in various formats requiring cleaning and pivoting to long format) → Transect-level cover calculations (converting raw hits to percentage cover at each transect) → Parcel-level aggregation (averaging transect cover values and computing goal attainment metrics) → Compliance evaluation (assessing whether all transects meet thresholds like ≥2% cover and calculating species richness, grass presence, and other revegetation goals).\nThis structured approach ensures that data is systematically transformed into reproducible metrics, while maintaining data integrity and transparency across all processing steps."
-  },
-  {
-    "objectID": "data_process.html#data-catalogue",
-    "href": "data_process.html#data-catalogue",
-    "title": "Data Processing Pipeline",
+    "objectID": "index.html#data-catalogue",
+    "href": "index.html#data-catalogue",
+    "title": "Revegetation Compliance Results",
     "section": "Data Catalogue",
-    "text": "Data Catalogue"
+    "text": "Data Catalogue\nDownload Instructions: - CSV buttons in the table below will download files directly - CSV links in the table will open in your browser - right-click and “Save As” to download - All files are updated with the latest processed data\n#| label: data-dictionary\n#| echo: false\n#| warning: false\n#| message: false\n\nlibrary(targets)\nlibrary(dplyr)\nlibrary(DT)\nlibrary(readr)\n\n# Save the new species summary to output directory\nwrite_csv(tar_read(species_summary_all_years), \"output/species_summary_all_years.csv\")\n\n# Function to get file modification date\nget_file_date &lt;- function(file_path) {\n  if (file.exists(file_path)) {\n    file_info &lt;- file.info(file_path)\n    return(format(file_info$mtime, \"%Y-%m-%d %H:%M\"))\n  } else {\n    return(\"File not found\")\n  }\n}\n\n# File paths for the data catalogue\nfile_paths &lt;- c(\n  \"output/species_summary_all_years.csv\",\n  \"output/compliance_summary.csv\", \n  \"output/transect_coverage.csv\",\n  \"output/reference_parcel_summary.csv\",\n  \"output/r3_data_analysis.csv\",\n  \"output/all_transects_combined.geojson\",\n  \"output/parcel_boundaries.geojson\"\n)\n\n# Create comprehensive data dictionary with download links and modification dates\ndata_dictionary &lt;- data.frame(\n  Dataset = c(\n    \"Species Summary (All Years)\",\n    \"Parcel Summary (Filtered)\",\n    \"Transect Cover Details\",\n    \"Reference Parcel Summary\",\n    \"Main Analysis Data\",\n    \"Transects XY\",\n    \"Raw Parcels\"\n  ),\n  Description = c(\n    \"Comprehensive species summary with average cover per parcel across all years, including min-max ranges, common names, lifecycle, and lifeform\",\n    \"Filtered parcel-level summaries with perennial cover and confidence intervals\",\n    \"Transect-level cover analysis with 2% threshold compliance and species data\",\n    \"Reference parcel statistics and ATTO/ERNA analysis\",\n    \"Core revegetation analysis dataset with species hits, cover calculations, and parcel aggregations\",\n    \"Transect coordinates and metadata\",\n    \"Parcel boundaries for mapping\"\n  ),\n  Rows = c(\n    nrow(tar_read(species_summary_all_years)),\n    nrow(tar_read(parcel_sum_filtered)),\n    nrow(tar_read(transect_cover_details)),\n    nrow(tar_read(reference_parcel_summary)),\n    nrow(tar_read(r3_data)),\n    nrow(tar_read(raw_transects_xy)),\n    nrow(tar_read(raw_parcels_shp))\n  ),\n  Columns = c(\n    ncol(tar_read(species_summary_all_years)),\n    ncol(tar_read(parcel_sum_filtered)),\n    ncol(tar_read(transect_cover_details)),\n    ncol(tar_read(reference_parcel_summary)),\n    ncol(tar_read(r3_data)),\n    ncol(tar_read(raw_transects_xy)),\n    ncol(tar_read(raw_parcels_shp))\n  ),\n  \"Last Modified\" = unname(sapply(file_paths, get_file_date)),\n  Download = c(\n    '&lt;a href=\"https://github.com/inyo-gov/revegetation-projects/raw/main/output/species_summary_all_years.csv\" download&gt;⬇ CSV&lt;/a&gt;',\n    '&lt;a href=\"https://github.com/inyo-gov/revegetation-projects/raw/main/output/compliance_summary.csv\" download&gt;⬇ CSV&lt;/a&gt;',\n    '&lt;a href=\"https://github.com/inyo-gov/revegetation-projects/raw/main/output/transect_coverage.csv\" download&gt;⬇ CSV&lt;/a&gt;',\n    '&lt;a href=\"https://github.com/inyo-gov/revegetation-projects/raw/main/output/reference_parcel_summary.csv\" download&gt;⬇ CSV&lt;/a&gt;',\n    '&lt;a href=\"https://github.com/inyo-gov/revegetation-projects/raw/main/output/r3_data_analysis.csv\" download&gt;⬇ CSV&lt;/a&gt;',\n    '&lt;a href=\"https://github.com/inyo-gov/revegetation-projects/raw/main/output/all_transects_combined.geojson\" download&gt;⬇ GeoJSON&lt;/a&gt;',\n    '&lt;a href=\"https://github.com/inyo-gov/revegetation-projects/raw/main/output/parcel_boundaries.geojson\" download&gt;⬇ GeoJSON&lt;/a&gt;'\n  )\n)\n\n# Display the data dictionary\ndatatable(\n  data_dictionary,\n  options = list(\n    autoWidth = FALSE,\n    scrollX = TRUE,\n    columnDefs = list(\n      list(width = '18%', targets = 0),    # Dataset\n      list(width = '35%', targets = 1),    # Description\n      list(width = '10%', targets = 2),    # Rows\n      list(width = '10%', targets = 3),    # Columns\n      list(width = '17%', targets = 4),    # Last Modified\n      list(width = '10%', targets = 5)     # Download\n    ),\n    pageLength = 20,\n    dom = 'Bfrtip',\n    buttons = c('csv')\n  ),\n  extensions = 'Buttons',\n  filter = 'top',\n  escape = FALSE,  # Allow HTML in the Download column\n  rownames = FALSE,  # Disable automatic row numbering\n  colnames = c(\"Dataset\", \"Description\", \"Rows\", \"Columns\", \"Last Modified\", \"Download\")\n)"
   },
   {
-    "objectID": "data_process.html#maps",
-    "href": "data_process.html#maps",
-    "title": "Data Processing Pipeline",
+    "objectID": "index.html#maps",
+    "href": "index.html#maps",
+    "title": "Revegetation Compliance Results",
     "section": "Maps",
-    "text": "Maps\nThe interactive map below shows revegetation project parcels and transect locations. Click on transects for details and use the layer control to toggle different features.\n\n\n# A tibble: 6 × 4\n  project_type        source_file                          n_transects n_parcels\n  &lt;chr&gt;               &lt;chr&gt;                                      &lt;int&gt;     &lt;int&gt;\n1 1991 Reveg Projects IND105.shp                                    18         1\n2 1991 Reveg Projects Revegetation_Transects91_view.geojs…         258        12\n3 1991 Reveg Projects TIN054_tpost_transects.json                   32         1\n4 1991 Reveg Projects blk16e_transects.geojson                      14         1\n5 2003 Reveg Projects LAW118_129_transect_start_2025.geoj…          20         2\n6 2003 Reveg Projects raw_transects_xy                              60         3\n\n\n\n\nInteractive map showing revegetation project parcels and transect locations. Click on transects for details and use the layer control to toggle different features."
+    "text": "Maps\nThe interactive map below shows revegetation project parcels and transect locations. Click on transects for details and use the layer control to toggle different features.\n```{r project-map, echo=FALSE, warning=FALSE, message=FALSE} #| fig-cap: “Interactive map showing revegetation project parcels and transect locations. Click on transects for details and use the layer control to toggle different features.”"
   },
   {
-    "objectID": "data_process.html#pipeline",
-    "href": "data_process.html#pipeline",
-    "title": "Data Processing Pipeline",
-    "section": "Pipeline",
-    "text": "Pipeline\nThe interactive targets network shows the complete _targets pipeline structure, illustrating how data flows from raw inputs through processing functions to final outputs. This visualization helps understand dependencies and the overall data processing workflow.\n\n\n\n\n_targets data pipeline structure and dependencies."
+    "objectID": "index.html#data-disclaimer",
+    "href": "index.html#data-disclaimer",
+    "title": "Revegetation Compliance Results",
+    "section": "Data Disclaimer",
+    "text": "Data Disclaimer\n\nData is provided as-is for informational purposes only. This data represents the current state of revegetation monitoring and reference parcel analysis as of the last update. While every effort is made to ensure accuracy, data may be updated or corrected as needed without prior notice. No warranty, express or implied, is provided regarding the accuracy, completeness, or suitability of this data for any particular purpose. Users should verify critical information independently before making decisions based on this data.\n\n\n© 2025 Inyo County, California. All rights reserved.\nReference parcel data and analysis for comparison with revegetation project areas."
   },
   {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
+    "objectID": "index.html#data-processing-methodology",
+    "href": "index.html#data-processing-methodology",
+    "title": "Revegetation Compliance Results",
+    "section": "Data Processing Methodology",
+    "text": "Data Processing Methodology\nThe reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:\n1. Data Ingestion\n\n\n\nLAW90/94/95 parcels: Processed from individual CSV files\n\nLAW118/129 parcels: Processed from Excel files\n\nTransect normalization: All transect labels converted to lowercase (e.g., “3A” → “3a”)\n2. Cover Calculation\n\n\n\nPer-transect basis: Cover calculated for each transect individually\n\nSpecies aggregation: Multiple hits per species per transect are summed\n\nPercent cover: Reference parcel hits directly represent percent cover\n3. Complete Data Accounting\n\n\n\nComplete dataset: All parcel-year-transect-species combinations included\n\nZero-filling: Missing species receive 0% cover (not excluded from averages)\n\nGroup averages: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover\n4. Policy Cap Calculation\n\n\n\nTwo-step averaging:\n\nAverage cover per transect within each parcel\nAverage across all parcels in reference group\n\n\n\nConservative approach: Includes parcels with zero ATTO/ERNA to provide realistic baseline\n\nGroup-specific caps: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups\n\nThis methodology ensures that policy caps reflect the true range of conditions across reference parcels.\n{r setup, message=FALSE, warning=FALSE, echo=FALSE} library(sf) library(here) library(dplyr) library(readr) library(stringr) library(tidyr) library(DT) library(janitor) library(ggplot2) library(targets) source(here('code','functions.R'))"
   },
   {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html#overview",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html#overview",
-    "title": "",
-    "section": "Overview",
-    "text": "Overview\nAfter cleaning up redundant files, here’s the current clean DuckLake setup for your revegetation project."
-  },
-  {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html#core-ducklake-files",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html#core-ducklake-files",
-    "title": "",
-    "section": "Core DuckLake Files",
-    "text": "Core DuckLake Files\n\nDatabase Files\n\nreveg_projects.ducklake - Main DuckLake database (7.3MB)\nreveg_projects.ducklake.files/ - Parquet data files directory\n\n\n\nSetup Scripts\n\nducklake_setup.R - Initial DuckLake database creation\nload_data_to_ducklake.R - Load _targets data into DuckLake\n\n\n\nQuery & Analysis Scripts\n\nducklake_queries.R - Demonstrate DuckLake features and advanced queries\ncheck_ducklake_tables.R - Utility to verify table structure\n\n\n\nSync & Integration\n\nsync_to_motherduck.R - Sync DuckLake data to MotherDuck cloud backup\n\n\n\nDocumentation\n\nDUCKLAKE_SETUP_SUMMARY.md - Comprehensive setup documentation"
-  },
-  {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html#configuration",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html#configuration",
-    "title": "",
-    "section": "Configuration",
-    "text": "Configuration\n\n.Renviron - Environment variables (MOTHERDUCK_TOKEN)"
-  },
-  {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html#files-removed-redundant",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html#files-removed-redundant",
-    "title": "",
-    "section": "Files Removed (Redundant)",
-    "text": "Files Removed (Redundant)\n\n❌ duckdb_lake_setup.R - Old traditional DuckDB setup\n❌ load_data_to_duckdb_lake.R - Old traditional DuckDB loader\n❌ test_duckdb_lake_queries.R - Old traditional DuckDB queries\n❌ duckdb_lake/ - Old traditional DuckDB directory\n❌ motherduck_vs_duckdb_lake_explanation.R - Old explanation file\n❌ motherduck_connection_guide.R - Old connection guide\n❌ motherduck_organization_demo.R - Old demo file\n❌ motherduck_test_queries.R - Old test queries\n❌ motherduck_setup.R - Old MotherDuck setup\n❌ motherduck_integration.R - Old integration file\n❌ MOTHERDUCK_README.md - Old documentation\n❌ local.duckdb - Old local DuckDB file\n❌ Various md: files - Old MotherDuck connection artifacts"
-  },
-  {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html#current-workflow",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html#current-workflow",
-    "title": "",
-    "section": "Current Workflow",
-    "text": "Current Workflow\n\n1. Setup (One-time)\nRscript ducklake_setup.R\n\n\n2. Load Data (After _targets pipeline)\nRscript load_data_to_ducklake.R\n\n\n3. Query & Analyze\nRscript ducklake_queries.R\n\n\n4. Sync to Cloud\nRscript sync_to_motherduck.R"
-  },
-  {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html#benefits-of-clean-structure",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html#benefits-of-clean-structure",
-    "title": "",
-    "section": "Benefits of Clean Structure",
-    "text": "Benefits of Clean Structure\n\n✅ No redundancy - Single source of truth for each function\n✅ Clear workflow - Logical progression from setup to sync\n✅ Easy maintenance - Fewer files to manage\n✅ Better organization - Related files grouped together\n✅ Modern approach - Uses DuckLake instead of traditional DuckDB"
-  },
-  {
-    "objectID": "archive/CLEAN_DUCKLAKE_FILES.html#integration-with-existing-project",
-    "href": "archive/CLEAN_DUCKLAKE_FILES.html#integration-with-existing-project",
-    "title": "",
-    "section": "Integration with Existing Project",
-    "text": "Integration with Existing Project\n\nWorks with existing _targets.R pipeline\nCompatible with index.qmd and reference.qmd\nMaintains all existing functionality\nAdds time travel and better data organization"
-  },
-  {
-    "objectID": "gpx_conversion.html",
-    "href": "gpx_conversion.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
-  },
-  {
-    "objectID": "results.html",
-    "href": "results.html",
+    "objectID": "index.html#section-2",
+    "href": "index.html#section-2",
     "title": "Revegetation Compliance Results",
     "section": "",
-    "text": "Compliance Summary\nThis section presents the key compliance metrics for revegetation efforts."
-  },
-  {
-    "objectID": "kmz_conversion.html",
-    "href": "kmz_conversion.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
+    "text": "Methodology: Cover is calculated per transect first, then averaged across transects for each parcel-year-species combination.\n```{r species-analysis, warning=FALSE} #| tbl-cap: “Species contribution to perennial cover in reference parcels by year. Shows average cover per transect, average perennial cover per transect, relative contribution percentage, and total transects per parcel-year. Default view filtered to show ATTO and ERNA10 species.”"
   }
 ]

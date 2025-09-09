@@ -115,6 +115,18 @@ pre {
   filter: brightness(0) invert(1); /* Make logo white on dark navbar */
 }
 
+/* Ensure logo is visible */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* Better card styling */
 .card {
   border-radius: 0.5rem;
@@ -154,5 +166,26 @@ a:hover {
 .form-control:focus {
   border-color: #2E86AB;
   box-shadow: 0 0 0 0.2rem rgba(46, 134, 171, 0.25);
+}
+
+/* Footer styling */
+footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Data disclaimer styling */
+.alert-disclaimer {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  color: #856404;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 2rem 0;
 }
 

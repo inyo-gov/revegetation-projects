@@ -18,28 +18,32 @@ Reference parcel data and analysis for comparison with revegetation project area
 The reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:
 
 ### 1. **Data Ingestion**
-- **LAW90/94/95 parcels**: Processed from individual CSV files
-- **LAW118/129 parcels**: Processed from Excel files
-- **Transect normalization**: All transect labels converted to lowercase (e.g., "3A" → "3a")
+
+-   **LAW90/94/95 parcels**: Processed from individual CSV files
+-   **LAW118/129 parcels**: Processed from Excel files
+-   **Transect normalization**: All transect labels converted to lowercase (e.g., "3A" → "3a")
 
 ### 2. **Cover Calculation**
-- **Per-transect basis**: Cover calculated for each transect individually
-- **Species aggregation**: Multiple hits per species per transect are summed
-- **Percent cover**: Reference parcel hits directly represent percent cover
+
+-   **Per-transect basis**: Cover calculated for each transect individually
+-   **Species aggregation**: Multiple hits per species per transect are summed
+-   **Percent cover**: Reference parcel hits directly represent percent cover
 
 ### 3. **Complete Data Accounting**
-- **Complete dataset**: All parcel-year-transect-species combinations included
-- **Zero-filling**: Missing species receive 0% cover (not excluded from averages)
-- **Group averages**: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover
+
+-   **Complete dataset**: All parcel-year-transect-species combinations included
+-   **Zero-filling**: Missing species receive 0% cover (not excluded from averages)
+-   **Group averages**: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover
 
 ### 4. **Policy Cap Calculation**
-- **Two-step averaging**: 
-  1. Average cover per transect within each parcel
-  2. Average across all parcels in reference group
-- **Conservative approach**: Includes parcels with zero ATTO/ERNA to provide realistic baseline
-- **Group-specific caps**: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups
 
-This methodology ensures that policy caps reflect the true range of conditions across reference parcels, providing appropriate baselines for revegetation project compliance assessment.
+-   **Two-step averaging**:
+    1.  Average cover per transect within each parcel
+    2.  Average across all parcels in reference group
+-   **Conservative approach**: Includes parcels with zero ATTO/ERNA to provide realistic baseline
+-   **Group-specific caps**: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups
+
+This methodology ensures that policy caps reflect the true range of conditions across reference parcels.
 
 ```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
 library(sf)
@@ -389,10 +393,7 @@ grid.arrange(plot1, plot2, ncol = 1)
 
 The following datasets are available for download:
 
-**Download Instructions**: 
-- **CSV buttons** in the table below will download files directly
-- **CSV links** in the table will open in your browser - right-click and "Save As" to download
-- All files are updated with the latest corrected reference parcel analysis
+**Download Instructions**: - **CSV buttons** in the table below will download files directly - **CSV links** in the table will open in your browser - right-click and "Save As" to download - All files are updated with the latest corrected reference parcel analysis
 
 ```{r reference-data-downloads, warning=FALSE}
 # Load comprehensive reference data
@@ -400,14 +401,8 @@ tar_load(ref_data_combined)
 tar_load(reference_parcel_summary)
 tar_load(reference_atto_erna_analysis)
 
-# Create comprehensive transect x species dataset
-transect_species_data <- ref_data_combined %>%
-  select(parcel, year, transect, species, hits, Lifeform, Lifecycle) %>%
-  arrange(parcel, year, transect, species)
-
 # Save datasets for download
 write_csv(reference_parcel_summary, "data/processed/reference_parcel_summary.csv")
-write_csv(transect_species_data, "data/processed/transect_species_data.csv")
 write_csv(reference_atto_erna_analysis, "data/processed/reference_atto_erna_analysis.csv")
 write_csv(ref_data_combined, "data/processed/ref_data_combined.csv")
 
@@ -424,7 +419,6 @@ get_file_date <- function(file_path) {
 # File paths for the reference data downloads
 ref_file_paths <- c(
   "data/processed/reference_parcel_summary.csv",
-  "data/processed/transect_species_data.csv",
   "data/processed/reference_atto_erna_analysis.csv",
   "data/processed/ref_data_combined.csv"
 )
@@ -433,32 +427,27 @@ ref_file_paths <- c(
 download_info <- data.frame(
   Dataset = c(
     "Reference Parcel Summary",
-    "Transect x Species Cover Data", 
     "ATTO/ERNA Analysis",
     "Combined Reference Data"
   ),
   Description = c(
     "Summary statistics by parcel and year",
-    "Detailed transect-level species cover data",
     "ATTO and ERNA species analysis by parcel-year",
-    "Complete reference dataset with all variables"
+    "Complete reference dataset with all variables (includes transect-level species cover data)"
   ),
   Rows = c(
     nrow(reference_parcel_summary),
-    nrow(transect_species_data),
     nrow(reference_atto_erna_analysis),
     nrow(ref_data_combined)
   ),
   Columns = c(
     ncol(reference_parcel_summary),
-    ncol(transect_species_data),
     ncol(reference_atto_erna_analysis),
     ncol(ref_data_combined)
   ),
   "Last Modified" = unname(sapply(ref_file_paths, get_file_date)),
   Download = c(
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/reference_parcel_summary.csv" download>⬇ CSV</a>',
-    '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/transect_species_data.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/reference_atto_erna_analysis.csv" download>⬇ CSV</a>',
     '<a href="https://github.com/inyo-gov/revegetation-projects/raw/main/data/processed/ref_data_combined.csv" download>⬇ CSV</a>'
   )
