@@ -92,19 +92,19 @@ comprehensive_table <- compliance_comprehensive_all %>%
 datatable(
   comprehensive_table,
   options = list(
-    autoWidth = FALSE,
+    autoWidth = TRUE,
     scrollX = FALSE,
                     columnDefs = list(
-                      list(width = '70px', targets = 0),    # parcel
-                      list(width = '45px', targets = 1),     # year
-                      list(width = '100px', targets = 2),    # full cover
-                      list(width = '100px', targets = 3),    # capped cover
-                      list(width = '100px', targets = 4),    # original cover
-                      list(width = '85px', targets = 5),    # species ≥3 hits
-                      list(width = '85px', targets = 6),    # species richness
-                      list(width = '85px', targets = 7),    # transect cover
-                      list(width = '85px', targets = 8),    # grass species
-                      list(width = '70px', targets = 9)      # compliance summary
+                      list(width = '8%', targets = 0),     # parcel
+                      list(width = '6%', targets = 1),     # year
+                      list(width = '12%', targets = 2),    # full cover
+                      list(width = '12%', targets = 3),    # capped cover
+                      list(width = '12%', targets = 4),    # original cover
+                      list(width = '11%', targets = 5),    # species ≥3 hits
+                      list(width = '11%', targets = 6),    # species richness
+                      list(width = '11%', targets = 7),    # transect cover
+                      list(width = '11%', targets = 8),    # grass species
+                      list(width = '6%', targets = 9)      # compliance summary
                     ),
     dom = 'Bfrtip',
     buttons = c('csv'),
@@ -117,12 +117,17 @@ datatable(
   extensions = 'Buttons',
   filter = 'top',
   width = '100%',
+  escape = FALSE,  # Allow HTML in column names
   colnames = c(
     "Parcel", "Year", 
-    "Cover ≥10% (Full)", "Cover ≥10% (Capped)", "Cover ≥10% (Original)",
-    "Species ≥3 Hits ≥6", "Species Richness ≥10", "All Transects ≥2%", "Grass Species ≥1",
+    "Cover ≥10%<br/>(Full)", "Cover ≥10%<br/>(Capped)", "Cover ≥10%<br/>(Original)",
+    "Species<br/>≥3 Hits ≥6", "Species<br/>Richness ≥10", "All Transects<br/>≥2%", "Grass Species<br/>≥1",
     "Compliance"
-  )
+  ),
+  callback = JS("
+    $('.dataTables_wrapper').css('width', '100%');
+    $('.dataTables_wrapper').css('overflow-x', 'visible');
+  ")
 )
 ```
 
@@ -191,7 +196,7 @@ datatable(
     scrollX = FALSE,
     columnDefs = list(
       list(width = '20%', targets = 0),    # reference group
-      list(width = '15%', targets = 1:5)   # other columns
+      list(width = '16%', targets = 1:5)   # other columns
     ),
     dom = 'Bfrtip',
     buttons = c('csv'),
@@ -199,21 +204,16 @@ datatable(
   ),
   extensions = 'Buttons',
   filter = 'top',
+  escape = FALSE,  # Allow HTML in column names
   colnames = c(
-    "Reference Parcel Group", 
-    "ATTO Average Cover", 
-    "ERNA10 Average Cover", 
-    "Combined ATTO+ERNA10", 
-    "Total Transects",
-    "Policy Implementation Cap"
+    "Reference<br/>Parcel Group", 
+    "ATTO<br/>Average Cover", 
+    "ERNA10<br/>Average Cover", 
+    "Combined<br/>ATTO+ERNA10", 
+    "Total<br/>Transects",
+    "Policy<br/>Implementation Cap"
   )
 )
 ```
 
 ---
-
-## Citation
-
-**Inyo County Water Department. (2025). *Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis*. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects**
-
-**© 2025 Inyo County, California. All rights reserved.**

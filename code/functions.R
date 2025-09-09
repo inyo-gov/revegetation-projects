@@ -164,146 +164,146 @@ summarize_reference_parcels <- function(ref_data) {
   return(parcel_summary)
 }
 
-# Generate parcel summary table for compliance
-generate_parcel_summary_table <- function(r3_data, species_data) {
-  # Use transect_unique if available, otherwise use transect
-  transect_col <- if("transect_unique" %in% colnames(r3_data)) "transect_unique" else "transect"
-  
-  # Calculate count_grass_species
-  count_grass_species <- r3_data %>% 
-    filter(year != 2022, Lifeform == 'Grass') %>%
-    select(parcel, !!sym(transect_col), species, Genus, Species, Lifecycle, CommonName) %>%
-    arrange(parcel, !!sym(transect_col), Genus) %>%
-    group_by(parcel) %>%
-    summarise(grass_species = n(), .groups = 'drop')
-  
-  # Calculate species_hit
-  species_hit <- r3_data %>% 
-    filter(Lifecycle == 'Perennial') %>%
-    group_by(parcel,species) %>%
-    summarise(species_hits = sum(hits), .groups = 'drop') %>%
-    filter(species_hits >= 3) %>% ungroup()
-  
-  # Calculate species_rich
-  species_rich <- r3_data %>% 
-    filter(Lifecycle == 'Perennial') %>%
-    group_by(parcel,species) %>%
-    summarise(species_hits = sum(hits), .groups = 'drop')
-  
-  # Calculate count_hit_species_per_parcel
-  count_hit_species_per_parcel <- species_hit %>%
-    group_by(parcel) %>%
-    summarise(count_3hit_species = n(), .groups = 'drop')
-  
-  # Calculate species_richness_parcel
-  species_richness_parcel <- species_rich %>%
-    group_by(parcel) %>%
-    summarise(sp_richness = n_distinct(species), .groups = 'drop')
-  
-  # Calculate transect_cover_summary
-  transect_cover_summary <- summarize_transect_cover_filtered(r3_data)
-  
-  # Calculate transect_summary
-  transect_summary <- transect_cover_summary %>%
-    filter(year != 2022) %>%
-    group_by(parcel) %>%
-    summarise(
-      transects_at_2_percent = paste0(sum(meets_2_percent == "Yes"), "/", n()),
-      .groups = 'drop'
-    )
-  
-  # Calculate parcel_sum (assuming summarise_to_parcel is available and `full` is derived from `r3_data`)
-  full_data <- summarise_reveg_to_transect(r3_data, possible_hits = 200)
-  parcel_sum <- summarise_to_parcel(full_data)
-  
-  # Create the final summary_table
-  summary_table <- parcel_sum %>%
-    filter(year != 2022) %>%
-    left_join(count_hit_species_per_parcel, by = 'parcel') %>%
-    left_join(count_grass_species, by = 'parcel') %>%
-    left_join(transect_summary, by = 'parcel') %>%
-    left_join(species_richness_parcel, by = 'parcel')
-  
-  return(summary_table)
-}
+# COMMENTED OUT - Function not used by any targets
+# generate_parcel_summary_table <- function(r3_data, species_data) {
+#   # Use transect_unique if available, otherwise use transect
+#   transect_col <- if("transect_unique" %in% colnames(r3_data)) "transect_unique" else "transect"
+#   
+#   # Calculate count_grass_species
+#   count_grass_species <- r3_data %>% 
+#     filter(year != 2022, Lifeform == 'Grass') %>%
+#     select(parcel, !!sym(transect_col), species, Genus, Species, Lifecycle, CommonName) %>%
+#     arrange(parcel, !!sym(transect_col), Genus) %>%
+#     group_by(parcel) %>%
+#     summarise(grass_species = n(), .groups = 'drop')
+#   
+#   # Calculate species_hit
+#   species_hit <- r3_data %>% 
+#     filter(Lifecycle == 'Perennial') %>%
+#     group_by(parcel,species) %>%
+#     summarise(species_hits = sum(hits), .groups = 'drop') %>%
+#     filter(species_hits >= 3) %>% ungroup()
+#   
+#   # Calculate species_rich
+#   species_rich <- r3_data %>% 
+#     filter(Lifecycle == 'Perennial') %>%
+#     group_by(parcel,species) %>%
+#     summarise(species_hits = sum(hits), .groups = 'drop')
+#   
+#   # Calculate count_hit_species_per_parcel
+#   count_hit_species_per_parcel <- species_hit %>%
+#     group_by(parcel) %>%
+#     summarise(count_3hit_species = n(), .groups = 'drop')
+#   
+#   # Calculate species_richness_parcel
+#   species_richness_parcel <- species_rich %>%
+#     group_by(parcel) %>%
+#     summarise(sp_richness = n_distinct(species), .groups = 'drop')
+#   
+#   # Calculate transect_cover_summary
+#   transect_cover_summary <- summarize_transect_cover_filtered(r3_data)
+#   
+#   # Calculate transect_summary
+#   transect_summary <- transect_cover_summary %>%
+#     filter(year != 2022) %>%
+#     group_by(parcel) %>%
+#     summarise(
+#       transects_at_2_percent = paste0(sum(meets_2_percent == "Yes"), "/", n()),
+#       .groups = 'drop'
+#     )
+#   
+#   # Calculate parcel_sum (assuming summarise_to_parcel is available and `full` is derived from `r3_data`)
+#   full_data <- summarise_reveg_to_transect(r3_data, possible_hits = 200)
+#   parcel_sum <- summarise_to_parcel(full_data)
+#   
+#   # Create the final summary_table
+#   summary_table <- parcel_sum %>%
+#     filter(year != 2022) %>%
+#     left_join(count_hit_species_per_parcel, by = 'parcel') %>%
+#     left_join(count_grass_species, by = 'parcel') %>%
+#     left_join(transect_summary, by = 'parcel') %>%
+#     left_join(species_richness_parcel, by = 'parcel')
+#   
+#   return(summary_table)
+# }
 
-# Bubble map function for spatial visualization
-bubble_maps_with_parcels <- function(data, parcels) {
-  ggplot(data) +
-    # Adding parcel boundaries with no fill and a black outline
-    geom_sf(data = parcels, fill = NA, color = "black", size = 0.5) +
-    
-    # Add text labels for parcels using the PCL field
-    geom_sf_text(data = parcels, aes(label = PCL), size = 3, color = "black", fontface = "bold") +
-    
-    # Mapping the size of the points to the absolute percent cover and coloring based on the percent change
-    geom_sf(aes(size = abs(percent_cover), 
-                color = case_when(
-                  percent_cover > 0 ~ "positive",
-                  percent_cover < 0 ~ "negative",
-                  percent_cover == 0 ~ "zero"
-                ), geometry = geometry)) +  
-    coord_sf() +
-    
-    # Adjust the size breaks to have more granular control over point sizes
-    scale_size_binned(breaks = c(0, 2, 4, 6, 8, 10), range = c(0.1, 6)) +
-    
-    # Apply color scale for three categories: red for negative, white for zero, green for positive
-    scale_color_manual(
-      values = c("negative" = "red", "zero" = "white", "positive" = "green"),
-      guide = guide_legend(override.aes = list(size = 5))
-    ) +
-    
-    # Facet by species and year_compare to see changes per species over years
-    facet_grid(species ~ year_compare) +
-    
-    # Move legend to the bottom and adjust its layout
-    theme(
-      axis.text.x = element_blank(),
-      axis.text.y = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.x = element_blank(),
-      axis.title.y = element_blank(),
-      plot.title = element_blank(),
-      legend.position = "bottom",
-      legend.box = "vertical",
-      strip.text.y = element_text(angle = 0, hjust = 0.5)
-    )
-}
+# COMMENTED OUT - Function not used by any targets
+# bubble_maps_with_parcels <- function(data, parcels) {
+#   ggplot(data) +
+#     # Adding parcel boundaries with no fill and a black outline
+#     geom_sf(data = parcels, fill = NA, color = "black", size = 0.5) +
+#     
+#     # Add text labels for parcels using the PCL field
+#     geom_sf_text(data = parcels, aes(label = PCL), size = 3, color = "black", fontface = "bold") +
+#     
+#     # Mapping the size of the points to the absolute percent cover and coloring based on the percent change
+#     geom_sf(aes(size = abs(percent_cover), 
+#                 color = case_when(
+#                   percent_cover > 0 ~ "positive",
+#                   percent_cover < 0 ~ "negative",
+#                   percent_cover == 0 ~ "zero"
+#                 ), geometry = geometry)) +  
+#     coord_sf() +
+#     
+#     # Adjust the size breaks to have more granular control over point sizes
+#     scale_size_binned(breaks = c(0, 2, 4, 6, 8, 10), range = c(0.1, 6)) +
+#     
+#     # Apply color scale for three categories: red for negative, white for zero, green for positive
+#     scale_color_manual(
+#       values = c("negative" = "red", "zero" = "white", "positive" = "green"),
+#       guide = guide_legend(override.aes = list(size = 5))
+#     ) +
+#     
+#     # Facet by species and year_compare to see changes per species over years
+#     facet_grid(species ~ year_compare) +
+#     
+#     # Move legend to the bottom and adjust its layout
+#     theme(
+#       axis.text.x = element_blank(),
+#       axis.text.y = element_blank(),
+#       axis.ticks.x = element_blank(),
+#       axis.ticks.y = element_blank(),
+#       axis.title.x = element_blank(),
+#       axis.title.y = element_blank(),
+#       plot.title = element_blank(),
+#       legend.position = "bottom",
+#       legend.box = "vertical",
+#       strip.text.y = element_text(angle = 0, hjust = 0.5)
+#     )
+# }
 
-# Calculate cover differences between years
-calculate_cover_difference <- function(data) {
-  # Remove geometry temporarily to handle pivoting
-  data_no_geometry <- st_drop_geometry(data)
-  
-  # Group by necessary columns and calculate the mean percent_cover
-  cover_diff_data <- data_no_geometry %>%
-    group_by(parcel, transect, species, year) %>%
-    summarise(percent_cover = mean(percent_cover, na.rm = TRUE), .groups = 'drop') %>%
-    
-    # Pivot wider to compare 2022 and 2024 data
-    pivot_wider(
-      names_from = year,
-      values_from = percent_cover,
-      names_prefix = "cover_"
-    ) %>%
-    
-    # Replace NAs with 0 in both cover_2022 and cover_2024
-    mutate(cover_2022 = replace_na(cover_2022, 0),
-           cover_2024 = replace_na(cover_2024, 0)) %>%
-    
-    # Calculate the difference between 2024 and 2022
-    mutate(cover_diff = cover_2024 - cover_2022) %>%
-    
-    # Ensure unique records
-    distinct(parcel, transect, species, cover_2022, cover_2024, cover_diff)
-  
-  # Join geometry back into the dataset, ensuring no duplicates are created
-  result_with_geometry <- left_join(cover_diff_data,
-                                    distinct(select(data, parcel, transect, geometry)),
-                                    by = c("parcel", "transect"))
-  
-  return(result_with_geometry)
-}
+# COMMENTED OUT - Function not used by any targets
+# calculate_cover_difference <- function(data) {
+#   # Remove geometry temporarily to handle pivoting
+#   data_no_geometry <- st_drop_geometry(data)
+#   
+#   # Group by necessary columns and calculate the mean percent_cover
+#   cover_diff_data <- data_no_geometry %>%
+#     group_by(parcel, transect, species, year) %>%
+#     summarise(percent_cover = mean(percent_cover, na.rm = TRUE), .groups = 'drop') %>%
+#     
+#     # Pivot wider to compare 2022 and 2024 data
+#     pivot_wider(
+#       names_from = year,
+#       values_from = percent_cover,
+#       names_prefix = "cover_"
+#     ) %>%
+#     
+#     # Replace NAs with 0 in both cover_2022 and cover_2024
+#     mutate(cover_2022 = replace_na(cover_2022, 0),
+#            cover_2024 = replace_na(cover_2024, 0)) %>%
+#     
+#     # Calculate the difference between 2024 and 2022
+#     mutate(cover_diff = cover_2024 - cover_2022) %>%
+#     
+#     # Ensure unique records
+#     distinct(parcel, transect, species, cover_2022, cover_2024, cover_diff)
+#   
+#   # Join geometry back into the dataset, ensuring no duplicates are created
+#   result_with_geometry <- left_join(cover_diff_data,
+#                                     distinct(select(data, parcel, transect, geometry)),
+#                                     by = c("parcel", "transect"))
+#   
+#   return(result_with_geometry)
+# }
 

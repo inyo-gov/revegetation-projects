@@ -1,5 +1,6 @@
 ---
 title: "Reference Parcels"
+tbl-cap-location: top
 affiliation: "Inyo County Water Department"
 date: "2025-09-03"
 date-modified: "2025-09-03"
@@ -70,7 +71,7 @@ source(here('code','functions.R'))
 
 ```{r species-analysis, warning=FALSE}
 #| tbl-cap: "Species contribution to perennial cover in reference parcels by year. Shows average cover per transect, average perennial cover per transect, relative contribution percentage, and total transects per parcel-year. Default view filtered to show ATTO and ERNA10 species."
-#| tbl-colwidths: [15, 8, 12, 12, 12, 12, 12, 12, 5]
+#| column: screen
 
 # Load comprehensive reference data
 tar_load(ref_data_combined)
@@ -140,11 +141,11 @@ species_analysis %>%
         list(width = '12%', targets = 0),    # reference_group
         list(width = '10%', targets = 1),    # parcel
         list(width = '8%', targets = 2),     # year
-        list(width = '15%', targets = 3),    # species
+        list(width = '14%', targets = 3),    # species
         list(width = '12%', targets = 4),    # avg_cover
-        list(width = '15%', targets = 5),    # avg_perennial_cover
-        list(width = '15%', targets = 6),    # avg_relative_cover
-        list(width = '13%', targets = 7)     # total_transects
+        list(width = '14%', targets = 5),    # avg_perennial_cover
+        list(width = '14%', targets = 6),    # avg_relative_cover
+        list(width = '16%', targets = 7)     # total_transects
       ),
       dom = 'Bfrtip',
       buttons = c('csv'),
@@ -152,7 +153,23 @@ species_analysis %>%
     ),
     extensions = 'Buttons',
     filter = 'top',
-    caption = "All species data available. Use filters to view specific species (e.g., ATTO, ERNA10) and years (e.g., 2025)."
+    width = '100%',
+    escape = FALSE,  # Allow HTML in column names
+    colnames = c(
+      "Reference<br/>Parcel Group",
+      "Parcel<br/>ID",
+      "Year",
+      "Species<br/>Code",
+      "Average<br/>Cover %",
+      "Average<br/>Perennial Cover %",
+      "Average<br/>Relative Cover %",
+      "Total<br/>Transects"
+    ),
+    caption = "All species data available. Use filters to view specific species (e.g., ATTO, ERNA10) and years (e.g., 2025).",
+    callback = JS("
+      $('.dataTables_wrapper').css('width', '100%');
+      $('.dataTables_wrapper').css('overflow-x', 'visible');
+    ")
   )
 ```
 
@@ -160,7 +177,7 @@ species_analysis %>%
 
 ```{r atto-erna-summary, warning=FALSE}
 #| tbl-cap: "Summary statistics for ATTO and ERNA contribution to reference parcel perennial cover, grouped by species, reference parcel group, and year. Shows mean average cover, standard deviation of average cover, mean relative contribution, and number of parcels per group-year combination."
-#| tbl-colwidths: [15, 20, 8, 12, 12, 12, 12, 9]
+#| column: screen
 
 # Create reference parcel group identifier for ATTO/ERNA species only
 # But include ALL parcels for each reference group-year combination
@@ -207,8 +224,8 @@ atto_erna_summary %>%
       autoWidth = TRUE,
       scrollX = FALSE,
       columnDefs = list(
-        list(width = '15%', targets = 0),    # species
-        list(width = '15%', targets = 1),    # reference_group
+        list(width = '14%', targets = 0),    # species
+        list(width = '16%', targets = 1),    # reference_group
         list(width = '10%', targets = 2),    # year
         list(width = '15%', targets = 3),    # mean_avg_cover
         list(width = '15%', targets = 4),    # sd_avg_cover
@@ -220,7 +237,22 @@ atto_erna_summary %>%
       pageLength = 10
     ),
     extensions = 'Buttons',
-    filter = 'top'
+    filter = 'top',
+    width = '100%',
+    escape = FALSE,  # Allow HTML in column names
+    colnames = c(
+      "Species<br/>Code",
+      "Reference<br/>Parcel Group",
+      "Year",
+      "Mean Average<br/>Cover %",
+      "Standard<br/>Deviation",
+      "Mean Relative<br/>Cover %",
+      "Number of<br/>Parcels"
+    ),
+    callback = JS("
+      $('.dataTables_wrapper').css('width', '100%');
+      $('.dataTables_wrapper').css('overflow-x', 'visible');
+    ")
   )
 ```
 
@@ -403,7 +435,7 @@ The following datasets are available for download:
 **Download Instructions**: - **CSV buttons** in the table below will download files directly - **CSV links** in the table will open in your browser - right-click and "Save As" to download - All files are updated with the latest corrected reference parcel analysis
 
 ```{r reference-data-downloads, warning=FALSE}
-#| tbl-colwidths: [25, 35, 10, 10, 10, 10]
+#| column: screen
 # Load comprehensive reference data
 tar_load(ref_data_combined)
 tar_load(reference_parcel_summary)
@@ -464,40 +496,39 @@ download_info <- data.frame(
 # Display download information
 datatable(
   download_info,
-  options = list(
-    autoWidth = FALSE,
-    scrollX = TRUE,
-    columnDefs = list(
-      list(width = '18%', targets = 0),    # Dataset Name
-      list(width = '30%', targets = 1),    # Description
-      list(width = '10%', targets = 2),    # Number of Rows
-      list(width = '10%', targets = 3),    # Number of Columns
-      list(width = '17%', targets = 4),    # Last Modified
-      list(width = '15%', targets = 5)     # Download
-    ),
+    options = list(
+      autoWidth = TRUE,
+      scrollX = FALSE,
+      columnDefs = list(
+        list(width = '15%', targets = 0),    # Dataset Name
+        list(width = '30%', targets = 1),    # Description
+        list(width = '12%', targets = 2),    # Number of Rows
+        list(width = '12%', targets = 3),    # Number of Columns
+        list(width = '16%', targets = 4),    # Last Modified
+        list(width = '15%', targets = 5)     # Download
+      ),
     dom = 'Bfrtip',
     buttons = c('csv'),
     pageLength = 10
   ),
   extensions = 'Buttons',
   filter = 'top',
-  escape = FALSE,  # Allow HTML in the Download column
+  width = '100%',
+  escape = FALSE,  # Allow HTML in column names and Download column
   rownames = FALSE,  # Disable automatic row numbering
   colnames = c(
-    "Dataset Name",
-    "Description", 
-    "Number of Rows",
-    "Number of Columns",
-    "Last Modified",
-    "Download"
-  )
+    "Dataset<br/>Name",
+    "Description<br/>& Details", 
+    "Number<br/>of Rows",
+    "Number<br/>of Columns",
+    "Last<br/>Modified",
+    "Download<br/>Link"
+  ),
+  callback = JS("
+    $('.dataTables_wrapper').css('width', '100%');
+    $('.dataTables_wrapper').css('overflow-x', 'visible');
+  ")
 )
 ```
 
 ---
-
-## Citation
-
-**Inyo County Water Department. (2025). *Revegetation Projects Reference Parcel Analysis*. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects**
-
-**© 2025 Inyo County, California. All rights reserved.**

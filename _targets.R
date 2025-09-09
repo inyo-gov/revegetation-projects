@@ -23,20 +23,22 @@ list(
     description = "Species attributes lookup table"
   ),
   
-  tar_target(
-    name = raw_parcels_shp,
-    command = st_read(here('data','gis', 'LA_parcels_rasterizedd.shp'), quiet = TRUE),
-    description = "Parcel boundaries shapefile"
-  ),
+  # COMMENTED OUT - Not used by any downstream targets
+  # tar_target(
+  #   name = raw_parcels_shp,
+  #   command = st_read(here('data','gis', 'LA_parcels_rasterizedd.shp'), quiet = TRUE),
+  #   description = "Parcel boundaries shapefile"
+  # ),
   
-  tar_target(
-    name = raw_transects_xy,
-    command = st_read(here('data','gis', 'laws_reveg_xy.shp'), quiet = TRUE) %>%
-      mutate(transect = as.character(transect)) %>%
-      mutate(x = sf::st_coordinates(.)[,1], y = sf::st_coordinates(.)[,2]) %>%
-      st_drop_geometry(),
-    description = "Transect XY coordinates"
-  ),
+  # COMMENTED OUT - Not used by any downstream targets
+  # tar_target(
+  #   name = raw_transects_xy,
+  #   command = st_read(here('data','gis', 'laws_reveg_xy.shp'), quiet = TRUE) %>%
+  #     mutate(transect = as.character(transect)) %>%
+  #     mutate(x = sf::st_coordinates(.)[,1], y = sf::st_coordinates(.)[,2]) %>%
+  #     st_drop_geometry(),
+  #   description = "Transect XY coordinates"
+  # ),
   
   # Raw field data by year
   tar_target(
@@ -135,31 +137,33 @@ list(
     description = "LAW118/129 reference parcel data 2022-2025 (2025 data from corrected Excel function)"
   ),
   
-  tar_target(
-    name = raw_ref_2025,
-    command = read_excel(here('data','raw', 'reveg','LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx'), 
-                        sheet = "ReferenceParcelData") %>% 
-      mutate(year = as.integer(Year), 
-             transect = as.character(Transect), 
-             hits = as.integer(Green + Live),
-             parcel = Parcel,
-             species = Species) %>%
-      select(parcel, year, transect, species, hits),
-    description = "2025 LAW90/94/95 reference parcel data from Excel"
-  ),
+  # COMMENTED OUT - Duplicate of raw_ref_2025_law909495, not used downstream
+  # tar_target(
+  #   name = raw_ref_2025,
+  #   command = read_excel(here('data','raw', 'reveg','LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx'), 
+  #                       sheet = "ReferenceParcelData") %>% 
+  #     mutate(year = as.integer(Year), 
+  #            transect = as.character(Transect), 
+  #            hits = as.integer(Green + Live),
+  #            parcel = Parcel,
+  #            species = Species) %>%
+  #     select(parcel, year, transect, species, hits),
+  #   description = "2025 LAW90/94/95 reference parcel data from Excel"
+  # ),
   
-  tar_target(
-    name = raw_ref_2025_law909495,
-    command = read_excel(here('data','raw', 'reveg','LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx'), 
-                        sheet = "ReferenceParcelData") %>% 
-      mutate(year = as.integer(Year), 
-             transect = as.character(Transect), 
-             hits = as.integer(Green + Live),
-             parcel = Parcel,
-             species = Species) %>%
-      select(parcel, year, transect, species, hits),
-    description = "2025 LAW90/94/95 reference parcel data (separate target for clarity)"
-  ),
+  # COMMENTED OUT - Not used by any downstream targets
+  # tar_target(
+  #   name = raw_ref_2025_law909495,
+  #   command = read_excel(here('data','raw', 'reveg','LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx'), 
+  #                       sheet = "ReferenceParcelData") %>% 
+  #     mutate(year = as.integer(Year), 
+  #            transect = as.character(Transect), 
+  #            hits = as.integer(Green + Live),
+  #            parcel = Parcel,
+  #            species = Species) %>%
+  #     select(parcel, year, transect, species, hits),
+  #   description = "2025 LAW90/94/95 reference parcel data (separate target for clarity)"
+  # ),
   
 
   
@@ -605,28 +609,28 @@ list(
     description = "Revegetation data metadata summary"
   ),
   
-  # MotherDuck Integration
-  tar_target(
-    name = motherduck_push,
-    command = {
-      # This target pushes all key datasets to MotherDuck
-      # Note: Requires MotherDuck authentication token
-      
-      # Load required packages
-      if (!require(duckdb, quietly = TRUE)) {
-        message("DuckDB not available, skipping MotherDuck push")
-        return(NULL)
-      }
-      
-      # Connect to MotherDuck (commented out for safety)
-      # con <- dbConnect(duckdb(), "md:?motherduck_token=YOUR_TOKEN_HERE")
-      
-      # For now, just return a message
-      message("MotherDuck integration ready - uncomment connection code and add token")
-      return("MotherDuck push target created")
-    },
-    description = "Push all processed data to MotherDuck backend"
-  ),
+  # COMMENTED OUT - MotherDuck integration not currently used
+  # tar_target(
+  #   name = motherduck_push,
+  #   command = {
+  #     # This target pushes all key datasets to MotherDuck
+  #     # Note: Requires MotherDuck authentication token
+  #     
+  #     # Load required packages
+  #     if (!require(duckdb, quietly = TRUE)) {
+  #       message("DuckDB not available, skipping MotherDuck push")
+  #       return(NULL)
+  #     }
+  #     
+  #     # Connect to MotherDuck (commented out for safety)
+  #     # con <- dbConnect(duckdb(), "md:?motherduck_token=YOUR_TOKEN_HERE")
+  #     
+  #     # For now, just return a message
+  #     message("MotherDuck integration ready - uncomment connection code and add token")
+  #     return("MotherDuck push target created")
+  #   },
+  #   description = "Push all processed data to MotherDuck backend"
+  # ),
   
   # Comprehensive compliance table for all years
   tar_target(
