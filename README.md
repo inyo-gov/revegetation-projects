@@ -20,10 +20,10 @@ This repository contains comprehensive monitoring data analysis for revegetation
 
 | Parcel | Overall Compliance | Cover (≥10%) | Species ≥3 Hits (≥6) | Richness (≥10) | Transect Coverage | Grass Present |
 |--------|-------------------|--------------|---------------------|----------------|------------------|---------------|
-| **LAW090** | ✅ **Yes** | ✅ 10.1% | ✅ 6 species | ✅ 13 species | ✅ 31/31 | ✅ Present |
-| **LAW094** | ❌ No | ❌ 7.8% | ✅ 7 species | ✅ 13 species | ✅ 21/21 | ✅ Present |
-| **LAW095** | ❌ No | ❌ 5.7% | ❌ 4 species | ✅ 13 species | ✅ 21/21 | ✅ Present |
-| **LAW129_118** | ❌ No | ❌ 5.8% | ❌ 5 species | ❌ 6 species | ❌ 19/20 | ❌ None |
+| **LAW090** | ✅ **Yes** | ✅ 10.3% | ✅ 6 species | ✅ 13 species | ✅ 31/31 | ✅ Present |
+| **LAW094** | ❌ No | ❌ 8.0% | ✅ 7 species | ✅ 13 species | ✅ 21/21 | ✅ Present |
+| **LAW095** | ❌ No | ❌ 5.8% | ❌ 4 species | ✅ 13 species | ✅ 21/21 | ✅ Present |
+| **LAW129_118** | ❌ No | ❌ 9.4% | ❌ 5 species | ❌ 6 species | ❌ 19/20 | ❌ None |
 
 **Legend**: ✅ Goal attained | ❌ Goal not attained
 
@@ -35,8 +35,8 @@ This repository contains comprehensive monitoring data analysis for revegetation
 ### ATTO/ERNA Policy Caps
 The analysis includes policy-based capping of ATTO and ERNA species based on reference parcel averages:
 
-- **LAW90/94/95 Group**: ATTO 0.06%, ERNA10 0.32% (combined 0.38%)
-- **LAW118/129 Group**: ATTO 2.79%, ERNA10 4.28% (combined 7.07%)
+- **LAW90/94/95 Group**: ATTO 0.19%, ERNA10 0.28% (combined 0.47%)
+- **LAW118/129 Group**: ATTO 2.78%, ERNA10 3.24% (combined 6.02%)
 
 These caps ensure revegetation projects don't exceed reference parcel conditions for these species.
 
