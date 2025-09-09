@@ -59,8 +59,11 @@ run_maps <- TRUE  # Enable histograms and maps
 
 -   **—**: No data available
 
+::: {.column-screen}
+
 ```{r, warning=FALSE, echo=FALSE}
 #| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."
+#| column: screen
 
 # Load compliance data
 library(DT)
@@ -122,6 +125,8 @@ datatable(
   )
 )
 ```
+
+:::
 
 ```{r, echo=FALSE}
 # Calculate reference summary

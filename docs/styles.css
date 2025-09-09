@@ -157,6 +157,14 @@ table {
   min-width: 1200px !important;
 }
 
+/* Quarto column-screen layout */
+.column-screen {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .dataTables_wrapper .dataTables_scroll {
   width: 100% !important;
   max-width: none !important;
