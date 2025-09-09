@@ -42,6 +42,7 @@ format:
     code-tools: true
     fig-responsive: true
     table-responsive: true
+    fig-dir: figure-html
     subtitle: "Inyo County, California"
 
 editor: visual
