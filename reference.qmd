@@ -389,6 +389,11 @@ grid.arrange(plot1, plot2, ncol = 1)
 
 The following datasets are available for download:
 
+**Download Instructions**: 
+- **CSV buttons** in the table below will download files directly
+- **CSV links** in the table will open in your browser - right-click and "Save As" to download
+- All files are updated with the latest corrected reference parcel analysis
+
 ```{r reference-data-downloads, warning=FALSE}
 # Load comprehensive reference data
 tar_load(ref_data_combined)
