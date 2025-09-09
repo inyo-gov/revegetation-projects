@@ -61,6 +61,7 @@ run_maps <- TRUE  # Enable histograms and maps
 
 ```{r, warning=FALSE, echo=FALSE}
 #| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."
+#| tbl-colwidths: [10, 6, 12, 12, 12, 10, 10, 10, 10, 8]
 
 # Load compliance data
 library(DT)
@@ -176,6 +177,7 @@ reference_summary <- data.frame(
 
 ```{r, warning=FALSE}
 #| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"
+#| tbl-colwidths: [20, 15, 15, 15, 15, 20]
 
 datatable(
   reference_summary,

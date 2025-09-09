@@ -70,6 +70,7 @@ source(here('code','functions.R'))
 
 ```{r species-analysis, warning=FALSE}
 #| tbl-cap: "Species contribution to perennial cover in reference parcels by year. Shows average cover per transect, average perennial cover per transect, relative contribution percentage, and total transects per parcel-year. Default view filtered to show ATTO and ERNA10 species."
+#| tbl-colwidths: [15, 8, 12, 12, 12, 12, 12, 12, 5]
 
 # Load comprehensive reference data
 tar_load(ref_data_combined)
@@ -159,6 +160,7 @@ species_analysis %>%
 
 ```{r atto-erna-summary, warning=FALSE}
 #| tbl-cap: "Summary statistics for ATTO and ERNA contribution to reference parcel perennial cover, grouped by species, reference parcel group, and year. Shows mean average cover, standard deviation of average cover, mean relative contribution, and number of parcels per group-year combination."
+#| tbl-colwidths: [15, 20, 8, 12, 12, 12, 12, 9]
 
 # Create reference parcel group identifier for ATTO/ERNA species only
 # But include ALL parcels for each reference group-year combination
@@ -401,6 +403,7 @@ The following datasets are available for download:
 **Download Instructions**: - **CSV buttons** in the table below will download files directly - **CSV links** in the table will open in your browser - right-click and "Save As" to download - All files are updated with the latest corrected reference parcel analysis
 
 ```{r reference-data-downloads, warning=FALSE}
+#| tbl-colwidths: [25, 35, 10, 10, 10, 10]
 # Load comprehensive reference data
 tar_load(ref_data_combined)
 tar_load(reference_parcel_summary)

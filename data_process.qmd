@@ -33,6 +33,7 @@ This structured approach ensures that data is systematically transformed into re
 #| label: data-dictionary
 #| echo: false
 #| warning: false
+#| tbl-colwidths: [18, 35, 10, 10, 10, 17]
 #| message: false
 
 library(targets)
