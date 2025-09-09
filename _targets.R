@@ -91,7 +91,7 @@ list(
         rename(transect = tran_name, hits = hit) %>% 
         mutate(transect = as.character(transect)) %>% 
         left_join(raw_species, by = c("species" = "Code")) %>% 
-        mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
+        mutate(percent_cover = hits) %>%  # Reference parcels: hits = percent cover
         select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover),
       # 2025 data from Excel file
       read_excel(here('data','raw','reveg','LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx'), 
@@ -104,7 +104,7 @@ list(
           species = Species
         ) %>%
         left_join(raw_species, by = c("species" = "Code")) %>% 
-        mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
+        mutate(percent_cover = hits) %>%  # Reference parcels: hits = percent cover
         select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover)
     ),
     description = "LAW90/94/95 reference parcel data 2022-2025 (includes 2025 data from Excel)"
@@ -120,7 +120,7 @@ list(
         rename(transect = tran_name, hits = hit) %>% 
         mutate(transect = as.character(transect)) %>% 
         left_join(raw_species, by = c("species" = "Code")) %>% 
-        mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
+        mutate(percent_cover = hits) %>%  # Reference parcels: hits = percent cover
         select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover),
       # 2025 data from corrected Excel function
       {
@@ -128,7 +128,7 @@ list(
         read_reference_parcels_excel(here('data','raw','reference','Reference Parcels_LAW_PLC_2025.xlsx')) %>%
           filter(parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230')) %>%
           left_join(raw_species, by = c("species" = "Code")) %>% 
-          mutate(percent_cover = hits*1.0) %>%  # Reference parcels: 100 hits = 100% cover
+          mutate(percent_cover = hits) %>%  # Reference parcels: hits = percent cover
           select(parcel, transect, species, hits, year, CommonName, Lifecycle, Lifeform, percent_cover)
       }
     ),
