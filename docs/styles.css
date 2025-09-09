@@ -205,3 +205,10 @@ footer {
   margin: 2rem 0;
 }
 
+/* Hide Quarto navigation envelope artifacts */
+#quarto-navigation-envelope,
+.quarto-markdown-envelope-contents,
+.hidden {
+  display: none !important;
+}
+
