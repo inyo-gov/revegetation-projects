@@ -126,8 +126,9 @@ datatable(
   ),
   extensions = 'Buttons',
   filter = 'top',
-  colnames = c("Dataset", "Description", "Rows", "Columns", "Download"),
-  escape = FALSE  # Allow HTML in the Download column
+  escape = FALSE,  # Allow HTML in the Download column
+  rownames = FALSE,  # Disable automatic row numbering
+  colnames = c("Dataset", "Description", "Rows", "Columns", "Last Modified", "Download")
 )
 ```
 

@@ -485,11 +485,13 @@ datatable(
   extensions = 'Buttons',
   filter = 'top',
   escape = FALSE,  # Allow HTML in the Download column
+  rownames = FALSE,  # Disable automatic row numbering
   colnames = c(
     "Dataset Name",
     "Description", 
     "Number of Rows",
     "Number of Columns",
+    "Last Modified",
     "Download"
   )
 )
