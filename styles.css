@@ -69,6 +69,27 @@ main {
   max-width: none !important;
 }
 
+/* Force full width on all table containers */
+.table-responsive,
+.dataTables_wrapper,
+.dataTables_scroll,
+.dataTables_scrollBody,
+table {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Override any Bootstrap or Quarto width constraints */
+.quarto-container-fluid,
+.quarto-container,
+.container-fluid,
+.container {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
 /* DT table improvements */
 .dataTables_wrapper {
   overflow-x: auto;

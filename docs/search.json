@@ -67,7 +67,7 @@
     "href": "index.html#citation-1",
     "title": "Reference Parcels",
     "section": "Citation",
-    "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Reference Parcel Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved. ```"
+    "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Reference Parcel Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved."
   },
   {
     "objectID": "index.html#section-3",
@@ -159,5 +159,54 @@
     "title": "Reference Parcels",
     "section": "Citation",
     "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Compliance Results. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved."
+  },
+  {
+    "objectID": "reference.html",
+    "href": "reference.html",
+    "title": "Reference Parcels",
+    "section": "",
+    "text": "Reference parcel data and analysis for comparison with revegetation project areas."
+  },
+  {
+    "objectID": "reference.html#data-processing-methodology",
+    "href": "reference.html#data-processing-methodology",
+    "title": "Reference Parcels",
+    "section": "Data Processing Methodology",
+    "text": "Data Processing Methodology\nThe reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:\n\n1. Data Ingestion\n\nLAW90/94/95 parcels: Processed from individual CSV files\nLAW118/129 parcels: Processed from Excel files\nTransect normalization: All transect labels converted to lowercase (e.g., “3A” → “3a”)\n\n\n\n2. Cover Calculation\n\nPer-transect basis: Cover calculated for each transect individually\nSpecies aggregation: Multiple hits per species per transect are summed\nPercent cover: Reference parcel hits directly represent percent cover\n\n\n\n3. Complete Data Accounting\n\nComplete dataset: All parcel-year-transect-species combinations included\nZero-filling: Missing species receive 0% cover (not excluded from averages)\nGroup averages: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover\n\n\n\n4. Policy Cap Calculation\n\nTwo-step averaging:\n\nAverage cover per transect within each parcel\nAverage across all parcels in reference group\n\nConservative approach: Includes parcels with zero ATTO/ERNA to provide realistic baseline\nGroup-specific caps: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups\n\nThis methodology ensures that policy caps reflect the true range of conditions across reference parcels."
+  },
+  {
+    "objectID": "reference.html#section",
+    "href": "reference.html#section",
+    "title": "Reference Parcels",
+    "section": "",
+    "text": "Methodology: Cover is calculated per transect first, then averaged across transects for each parcel-year-species combination.\n\n\n\n\n\n\n\nATTO/ERNA10 Summary Statistics\n\n\n\n\n\n\nThe histograms below show cover distributions for parcels split by reference group. Each plot shows all years with 2025 shown in red.\n\n\n\n\n\nDistribution of total transect cover by reference parcel and year. Two separate plots: one for LAW90/94/95 group and one for LAW118/129 group. Each panel shows one parcel with all years overlaid. 2025 data highlighted in red with red mean line; other years in grey with grey mean lines; blue and green thick lines show ATTO and ERNA10 average cover."
+  },
+  {
+    "objectID": "reference.html#reference-data-downloads",
+    "href": "reference.html#reference-data-downloads",
+    "title": "Reference Parcels",
+    "section": "Reference Data Downloads",
+    "text": "Reference Data Downloads\nThe following datasets are available for download:\nDownload Instructions: - CSV buttons in the table below will download files directly - CSV links in the table will open in your browser - right-click and “Save As” to download - All files are updated with the latest corrected reference parcel analysis"
+  },
+  {
+    "objectID": "reference.html#citation",
+    "href": "reference.html#citation",
+    "title": "Reference Parcels",
+    "section": "Citation",
+    "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Reference Parcel Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved.\n\n\n\n:::{#quarto-navigation-envelope .hidden}\n[Revegetation Projects]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl\"}\n[Revegetation Projects]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXItdGl0bGU=\"}\n[Laws 90/94/95/118/129]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXI6TGF3cyA5MC85NC85NS8xMTgvMTI5\"}\n[/index.html]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXI6L2luZGV4Lmh0bWw=\"}\n[Data Processing]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXI6RGF0YSBQcm9jZXNzaW5n\"}\n[/data_process.html]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXI6L2RhdGFfcHJvY2Vzcy5odG1s\"}\n[Reference Parcels]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXI6UmVmZXJlbmNlIFBhcmNlbHM=\"}\n[/reference.html]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXI6L3JlZmVyZW5jZS5odG1s\"}\n[https://github.com/inyo-gov/revegetation-projects]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXI6aHR0cHM6Ly9naXRodWIuY29tL2lueW8tZ292L3JldmVnZXRhdGlvbi1wcm9qZWN0cw==\"}\n:::\n\n\n\n:::{#quarto-meta-markdown .hidden}\n[Reference Parcels – Revegetation Projects]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGF0aXRsZQ==\"}\n[Reference Parcels – Revegetation Projects]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=\"}\n[Reference Parcels – Revegetation Projects]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZHRpdGxl\"}\n[Revegetation Projects]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGFzaXRlbmFtZQ==\"}\n[Inyo County, California]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==\"}\n[Inyo County, California]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZGRkZXNj\"}\n:::\n\n\n\n\n&lt;!-- --&gt;\n\n::: {.quarto-embedded-source-code}\n```````````````````{.markdown shortcodes=\"false\"}\n---\ntitle: \"Reference Parcels\"\naffiliation: \"Inyo County Water Department\"\ndate: \"2025-09-03\"\ndate-modified: \"2025-09-03\"\ncitation:\n  type: report\n  container-title: \"Data Report\"\n  publisher: \"Inyo County Water Department\"\n  issued: \"2025-09-03\"\n  url: https://github.com/inyo-gov/revegetation-projects\ngoogle-scholar: true\nexecute:\n  echo: false\n  warning: false\n  message: false\n---\n\nReference parcel data and analysis for comparison with revegetation project areas.\n\n## Data Processing Methodology\n\nThe reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:\n\n### 1. **Data Ingestion**\n\n-   **LAW90/94/95 parcels**: Processed from individual CSV files\n-   **LAW118/129 parcels**: Processed from Excel files\n-   **Transect normalization**: All transect labels converted to lowercase (e.g., \"3A\" → \"3a\")\n\n### 2. **Cover Calculation**\n\n-   **Per-transect basis**: Cover calculated for each transect individually\n-   **Species aggregation**: Multiple hits per species per transect are summed\n-   **Percent cover**: Reference parcel hits directly represent percent cover\n\n### 3. **Complete Data Accounting**\n\n-   **Complete dataset**: All parcel-year-transect-species combinations included\n-   **Zero-filling**: Missing species receive 0% cover (not excluded from averages)\n-   **Group averages**: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover\n\n### 4. **Policy Cap Calculation**\n\n-   **Two-step averaging**:\n    1.  Average cover per transect within each parcel\n    2.  Average across all parcels in reference group\n-   **Conservative approach**: Includes parcels with zero ATTO/ERNA to provide realistic baseline\n-   **Group-specific caps**: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups\n\nThis methodology ensures that policy caps reflect the true range of conditions across reference parcels.\n\n```{r setup, message=FALSE, warning=FALSE, echo=FALSE}\nlibrary(sf)\nlibrary(here)\nlibrary(dplyr)\nlibrary(readr)\nlibrary(stringr)\nlibrary(tidyr)\nlibrary(DT)\nlibrary(janitor)\nlibrary(ggplot2)\nlibrary(targets)\nsource(here('code','functions.R'))"
+  },
+  {
+    "objectID": "reference.html#section-1",
+    "href": "reference.html#section-1",
+    "title": "Reference Parcels",
+    "section": "",
+    "text": "Methodology: Cover is calculated per transect first, then averaged across transects for each parcel-year-species combination.\n```{r species-analysis, warning=FALSE} #| tbl-cap: “Species contribution to perennial cover in reference parcels by year. Shows average cover per transect, average perennial cover per transect, relative contribution percentage, and total transects per parcel-year. Default view filtered to show ATTO and ERNA10 species.”"
+  },
+  {
+    "objectID": "reference.html#citation-1",
+    "href": "reference.html#citation-1",
+    "title": "Reference Parcels",
+    "section": "Citation",
+    "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Reference Parcel Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved.\n\n:::"
   }
 ]
