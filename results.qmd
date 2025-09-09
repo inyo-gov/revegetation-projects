@@ -10,17 +10,6 @@ citation:
   issued: "2025-09-03"
   url: https://github.com/inyo-gov/revegetation-projects
 google-scholar: true
-format: 
-  html:
-    anchor-sections: true
-    smooth-scroll: true
-    code-fold: true
-    code-summary: "code"
-    code-line-numbers: true
-    code-overflow: wrap
-    code-link: true
-    html-math-method: katex
-tbl-cap-location: top
 ---
 
 # Compliance Summary

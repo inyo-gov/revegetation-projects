@@ -89,5 +89,75 @@
     "title": "Reference Parcels",
     "section": "Citation",
     "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Compliance Results. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved."
+  },
+  {
+    "objectID": "data_process.html",
+    "href": "data_process.html",
+    "title": "Reference Parcels",
+    "section": "",
+    "text": "The _targets data pipeline manages dependencies and helps with reproducible processing from raw field data to compliance assessment:\nInput revegetation data (typically in various formats requiring cleaning and pivoting to long format) → Transect-level cover calculations (converting raw hits to percentage cover at each transect) → Parcel-level aggregation (averaging transect cover values and computing goal attainment metrics) → Compliance evaluation (assessing whether all transects meet thresholds like ≥2% cover and calculating species richness, grass presence, and other revegetation goals).\nThis structured approach ensures that data is systematically transformed into reproducible metrics, while maintaining data integrity and transparency across all processing steps."
+  },
+  {
+    "objectID": "data_process.html#data-catalogue",
+    "href": "data_process.html#data-catalogue",
+    "title": "Reference Parcels",
+    "section": "Data Catalogue",
+    "text": "Data Catalogue\nDownload Instructions: - CSV buttons in the table below will download files directly - CSV links in the table will open in your browser - right-click and “Save As” to download - All files are updated with the latest processed data"
+  },
+  {
+    "objectID": "data_process.html#maps",
+    "href": "data_process.html#maps",
+    "title": "Reference Parcels",
+    "section": "Maps",
+    "text": "Maps\nThe interactive map below shows revegetation project parcels and transect locations. Click on transects for details and use the layer control to toggle different features.\n\n\n# A tibble: 6 × 4\n  project_type        source_file                          n_transects n_parcels\n  &lt;chr&gt;               &lt;chr&gt;                                      &lt;int&gt;     &lt;int&gt;\n1 1991 Reveg Projects IND105.shp                                    18         1\n2 1991 Reveg Projects Revegetation_Transects91_view.geojs…         258        12\n3 1991 Reveg Projects TIN054_tpost_transects.json                   32         1\n4 1991 Reveg Projects blk16e_transects.geojson                      14         1\n5 2003 Reveg Projects LAW118_129_transect_start_2025.geoj…          20         2\n6 2003 Reveg Projects raw_transects_xy                              60         3\n\n\n\n\nInteractive map showing revegetation project parcels and transect locations. Click on transects for details and use the layer control to toggle different features."
+  },
+  {
+    "objectID": "data_process.html#pipeline",
+    "href": "data_process.html#pipeline",
+    "title": "Reference Parcels",
+    "section": "Pipeline",
+    "text": "Pipeline\nThe interactive targets network shows the complete _targets pipeline structure, illustrating how data flows from raw inputs through processing functions to final outputs. This visualization helps understand dependencies and the overall data processing workflow.\n\n\n\n\n_targets data pipeline structure and dependencies."
+  },
+  {
+    "objectID": "data_process.html#data-disclaimer",
+    "href": "data_process.html#data-disclaimer",
+    "title": "Reference Parcels",
+    "section": "Data Disclaimer",
+    "text": "Data Disclaimer\n\nData is provided as-is for informational purposes only. This data represents the current state of revegetation monitoring and reference parcel analysis as of the last update. While every effort is made to ensure accuracy, data may be updated or corrected as needed without prior notice. No warranty, express or implied, is provided regarding the accuracy, completeness, or suitability of this data for any particular purpose. Users should verify critical information independently before making decisions based on this data."
+  },
+  {
+    "objectID": "data_process.html#citation",
+    "href": "data_process.html#citation",
+    "title": "Reference Parcels",
+    "section": "Citation",
+    "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Data Processing Pipeline. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved.\n\n\n\n\nReference parcel data and analysis for comparison with revegetation project areas."
+  },
+  {
+    "objectID": "data_process.html#data-processing-methodology",
+    "href": "data_process.html#data-processing-methodology",
+    "title": "Reference Parcels",
+    "section": "Data Processing Methodology",
+    "text": "Data Processing Methodology\nThe reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:\n\n1. Data Ingestion\n\nLAW90/94/95 parcels: Processed from individual CSV files\nLAW118/129 parcels: Processed from Excel files\nTransect normalization: All transect labels converted to lowercase (e.g., “3A” → “3a”)\n\n\n\n2. Cover Calculation\n\nPer-transect basis: Cover calculated for each transect individually\nSpecies aggregation: Multiple hits per species per transect are summed\nPercent cover: Reference parcel hits directly represent percent cover\n\n\n\n3. Complete Data Accounting\n\nComplete dataset: All parcel-year-transect-species combinations included\nZero-filling: Missing species receive 0% cover (not excluded from averages)\nGroup averages: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover\n\n\n\n4. Policy Cap Calculation\n\nTwo-step averaging:\n\nAverage cover per transect within each parcel\nAverage across all parcels in reference group\n\nConservative approach: Includes parcels with zero ATTO/ERNA to provide realistic baseline\nGroup-specific caps: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups\n\nThis methodology ensures that policy caps reflect the true range of conditions across reference parcels.\n{r setup, message=FALSE, warning=FALSE, echo=FALSE} library(sf) library(here) library(dplyr) library(readr) library(stringr) library(tidyr) library(DT) library(janitor) library(ggplot2) library(targets) source(here('code','functions.R'))"
+  },
+  {
+    "objectID": "data_process.html#section",
+    "href": "data_process.html#section",
+    "title": "Reference Parcels",
+    "section": "",
+    "text": "Methodology: Cover is calculated per transect first, then averaged across transects for each parcel-year-species combination.\n```{r species-analysis, warning=FALSE} #| tbl-cap: “Species contribution to perennial cover in reference parcels by year. Shows average cover per transect, average perennial cover per transect, relative contribution percentage, and total transects per parcel-year. Default view filtered to show ATTO and ERNA10 species.”"
+  },
+  {
+    "objectID": "data_process.html#citation-1",
+    "href": "data_process.html#citation-1",
+    "title": "Reference Parcels",
+    "section": "Citation",
+    "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Reference Parcel Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved.\n\n---\ntitle: \"Revegetation Compliance Results\"\naffiliation: \"Inyo County Water Department\"\ndate: \"2025-09-03\"\ndate-modified: \"2025-09-03\"\ncitation:\n  type: report\n  container-title: \"Data Report\"\n  publisher: \"Inyo County Water Department\"\n  issued: \"2025-09-03\"\n  url: https://github.com/inyo-gov/revegetation-projects\ngoogle-scholar: true\n---\n\n# Compliance Summary\n\nThis section presents the key compliance metrics for revegetation efforts.\n\n```{r setup, message = FALSE, warning = FALSE, echo=FALSE}\n#| label: load-libraries\n\nlibrary(dplyr)\nlibrary(readr)\nlibrary(here)\nlibrary(DT)\nlibrary(sf)\nlibrary(gt)\nlibrary(gtExtras)\nlibrary(janitor)\n\n# Source custom functions\nsource(here('code','functions.R'))\n\n# --- Data Loading (from targets pipeline) ---\nlibrary(targets)\ntar_load(r2_data)\ntar_load(r3_data)\ntar_load(parcel_sum_filtered)\n\n# Assign to local variables for compatibility\nr2 &lt;- r2_data\nr3 &lt;- r3_data\nparcel_sum_f &lt;- parcel_sum_filtered\n\n# --- Build compliance metrics by parcel and year ---\n# 1) Parcel-average perennial cover (mean Cover with CI) from parcel_sum_f\ncover_tbl &lt;- parcel_sum_f %&gt;%\n  filter(year != 2022) %&gt;%\n  transmute(parcel, year, Cover = round(Cover, 1),\n            CI_95_Cover_Lower = round(CI_95_Cover_Lower, 1), \n            CI_95_Cover_Upper = round(CI_95_Cover_Upper, 1), \n            n.transects)\n\n# 2) Species with &gt;=3 hits per parcel-year (Perennial only) from r2\ncount_3hit_tbl &lt;- r2 %&gt;%\n  filter(Lifecycle == 'Perennial') %&gt;%\n  group_by(parcel, year, species) %&gt;%\n  summarise(species_hits = sum(hits), .groups = 'drop') %&gt;%\n  filter(species_hits &gt;= 3) %&gt;%\n  group_by(parcel, year) %&gt;%\n  summarise(count_3hit_species = n(), .groups = 'drop')\n\n# 3) Species richness (distinct perennial species) per parcel-year from r2\nrichness_tbl &lt;- r2 %&gt;%\n  filter(Lifecycle == 'Perennial') %&gt;%\n  group_by(parcel, year) %&gt;%\n  summarise(sp_richness = n_distinct(species), .groups = 'drop')\n\n# 4) Each transect has &gt;=2% cover? from r3\ntransect_cover_summary &lt;- r3 %&gt;%\n  filter(Lifecycle == 'Perennial', Veg_Type != 'weed') %&gt;%\n  group_by(parcel, year, transect) %&gt;%\n  summarise(total_hits = sum(hits, na.rm = TRUE),\n            total_tcov = sum(tcov, na.rm = TRUE), .groups = 'drop') %&gt;%\n  mutate(meets_2_percent = ifelse(total_tcov &gt;= 2, \"Yes\", \"No\"))\n\ntransect_summary_tbl &lt;- transect_cover_summary %&gt;%\n  filter(year != 2022) %&gt;%\n  group_by(parcel, year) %&gt;%\n  summarise(transects_at_2_percent = paste0(sum(meets_2_percent == \"Yes\"), \"/\", n()), .groups = 'drop')\n\n# 5) Presence of a grass species per parcel-year from r3\ngrass_presence_tbl &lt;- r3 %&gt;%\n  filter(year != 2022, Lifeform == 'Grass') %&gt;%\n  group_by(parcel, year) %&gt;%\n  summarise(grass_species = n(), .groups = 'drop')\n\n# --- Join into a single compliance table ---\ncompliance_table &lt;- cover_tbl %&gt;%\n  left_join(count_3hit_tbl, by = c('parcel','year')) %&gt;%\n  left_join(richness_tbl, by = c('parcel','year')) %&gt;%\n  left_join(transect_summary_tbl, by = c('parcel','year')) %&gt;%\n  left_join(grass_presence_tbl, by = c('parcel','year')) %&gt;%\n  arrange(parcel, year)\n\n# Display\ndatatable(\n  compliance_table,\n  options = list(\n    autoWidth = TRUE,\n    scrollX = TRUE,\n    columnDefs = list(list(width = '100%', targets = \"_all\")),\n    dom = 'Bfrtip',\n    buttons = c('csv')\n  ),\n  extensions = 'Buttons',\n  filter = 'top'\n)"
+  },
+  {
+    "objectID": "data_process.html#citation-2",
+    "href": "data_process.html#citation-2",
+    "title": "Reference Parcels",
+    "section": "Citation",
+    "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Compliance Results. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved."
   }
 ]

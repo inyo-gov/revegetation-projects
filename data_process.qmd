@@ -10,12 +10,10 @@ citation:
   issued: "2025-09-03"
   url: https://github.com/inyo-gov/revegetation-projects
 google-scholar: true
-format: 
-  html:
-    echo: false
-    code-fold: true
-    warning: false
-    message: false
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
 
 The `_targets` data pipeline manages dependencies and helps with reproducible processing from raw field data to compliance assessment:

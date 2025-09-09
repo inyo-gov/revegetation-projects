@@ -10,9 +10,6 @@ citation:
   issued: "2025-09-03"
   url: https://github.com/inyo-gov/revegetation-projects
 google-scholar: true
-format: 
-  html:
-    code-fold: true
 execute:
   echo: false
   warning: false
