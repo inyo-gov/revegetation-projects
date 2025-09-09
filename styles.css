@@ -21,11 +21,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Table responsiveness improvements */
 .table-responsive {
-  overflow-x: auto;
+  overflow-x: visible !important;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1rem;
-  width: 100%;
-  max-width: none;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 100% !important;
 }
 
 /* Full width table containers */
@@ -74,20 +75,33 @@ main {
 .dataTables_wrapper,
 .dataTables_scroll,
 .dataTables_scrollBody,
-table {
+table,
+.dataTables_wrapper .dataTables_scrollBody table,
+.dataTables_wrapper table {
   width: 100% !important;
   max-width: none !important;
+  min-width: 100% !important;
 }
 
 /* Override any Bootstrap or Quarto width constraints */
 .quarto-container-fluid,
 .quarto-container,
 .container-fluid,
-.container {
+.container,
+.quarto-container-fluid .container,
+.quarto-container .container {
   max-width: none !important;
   width: 100% !important;
   padding-left: 15px !important;
   padding-right: 15px !important;
+}
+
+/* Force full width on all possible container classes */
+[class*="container"],
+[class*="quarto-container"],
+[class*="page-layout"] {
+  max-width: none !important;
+  width: 100% !important;
 }
 
 /* DT table improvements */
@@ -101,9 +115,18 @@ table {
 
 /* Ensure tables fit comfortably on page */
 table {
-  width: 100%;
-  max-width: 100%;
-  table-layout: auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  table-layout: auto !important;
+}
+
+/* Override Bootstrap table defaults */
+.table {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 100% !important;
+  margin-bottom: 0 !important;
 }
 
 /* Improve table cell padding for better readability */
