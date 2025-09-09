@@ -31,7 +31,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: bootstrap
     linkcolor: "#2E86AB"
     css: styles.css
     toc: true

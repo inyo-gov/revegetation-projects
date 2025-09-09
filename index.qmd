@@ -20,7 +20,7 @@ execute:
 
 # 
 
-```{r setup, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(sf)
 library(here)
 library(dplyr)
@@ -38,7 +38,7 @@ tar_load(reference_atto_erna_analysis)
 tar_load(compliance_comprehensive_all)
 ```
 
-```{r controls, echo=FALSE}
+```{r, echo=FALSE}
 # Flags to selectively run legacy or heavy-map sections
 run_legacy <- FALSE
 run_maps <- TRUE  # Enable histograms and maps
@@ -60,7 +60,7 @@ run_maps <- TRUE  # Enable histograms and maps
 
 -   **—**: No data available
 
-```{r compliance-table-comprehensive, warning=FALSE, echo=FALSE}
+```{r, warning=FALSE, echo=FALSE}
 #| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."
 
 # Load comprehensive compliance data from targets pipeline
@@ -123,7 +123,7 @@ datatable(
 )
 ```
 
-```{r calculate-caps, echo=FALSE}
+```{r, echo=FALSE}
 # Calculate reference parcel summary from pipeline data
 law90_94_95_parcels <- c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")
 law118_129_parcels <- c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230")
@@ -175,7 +175,7 @@ reference_summary <- data.frame(
 
 **Note**: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA).
 
-```{r reference-parcel-summary, warning=FALSE}
+```{r, warning=FALSE}
 #| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"
 
 datatable(
