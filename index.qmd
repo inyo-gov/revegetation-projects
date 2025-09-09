@@ -63,15 +63,15 @@ run_maps <- TRUE  # Enable histograms and maps
 ```{r, warning=FALSE, echo=FALSE}
 #| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."
 
-# Load comprehensive compliance data from targets pipeline
+# Load compliance data
 library(DT)
 library(targets)
 library(dplyr)
 
-# Load the comprehensive compliance target
+# Load compliance target
 tar_load(compliance_comprehensive_all)
 
-# Create the comprehensive compliance table
+# Create compliance table
 comprehensive_table <- compliance_comprehensive_all %>%
   arrange(parcel, year) %>%
   select(
@@ -86,7 +86,7 @@ comprehensive_table <- compliance_comprehensive_all %>%
     compliance_summary
   )
 
-# Create the datatable with optimized column widths and default 2025 filter
+# Create datatable
 datatable(
   comprehensive_table,
   options = list(
@@ -124,11 +124,11 @@ datatable(
 ```
 
 ```{r, echo=FALSE}
-# Calculate reference parcel summary from pipeline data
+# Calculate reference summary
 law90_94_95_parcels <- c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")
 law118_129_parcels <- c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230")
 
-# Get 2025 ATTO/ERNA averages by reference group
+# Get ATTO/ERNA averages
 law90_94_95_2025 <- reference_atto_erna_analysis %>%
   filter(parcel %in% law90_94_95_parcels & year == 2025) %>%
   group_by(species) %>%
@@ -139,11 +139,11 @@ law118_129_2025 <- reference_atto_erna_analysis %>%
   group_by(species) %>%
   summarise(avg_cover = mean(avg_cover, na.rm = TRUE), .groups = 'drop')
 
-# Calculate combined averages
+# Calculate averages
 law90_94_95_combined <- law90_94_95_2025 %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
 law118_129_combined <- law118_129_2025 %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
 
-# Get ATTO and ERNA10 values
+# Get values
 law90_94_95_atto <- law90_94_95_2025 %>% filter(species == "ATTO") %>% pull(avg_cover)
 law90_94_95_erna <- law90_94_95_2025 %>% filter(species == "ERNA10") %>% pull(avg_cover)
 law118_129_atto <- law118_129_2025 %>% filter(species == "ATTO") %>% pull(avg_cover)
@@ -158,7 +158,7 @@ law118_129_transects <- reference_atto_erna_analysis %>%
   filter(parcel %in% law118_129_parcels & year == 2025) %>%
   summarise(total = sum(n_transects, na.rm = TRUE)) %>% pull(total)
 
-# Create reference parcel summary table
+# Create summary table
 reference_summary <- data.frame(
   Reference_Group = c("LAW90/94/95", "LAW118/129"),
   ATTO_Average = c(paste0(round(law90_94_95_atto, 3), "%"), paste0(round(law118_129_atto, 3), "%")),

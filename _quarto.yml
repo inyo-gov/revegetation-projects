@@ -35,7 +35,7 @@ format:
     linkcolor: "#2E86AB"
     css: styles.css
     toc: true
-    toc-depth: 3
+    toc-depth: 2
     code-fold: true
     code-tools: true
     fig-responsive: true
