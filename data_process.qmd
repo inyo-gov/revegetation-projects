@@ -16,6 +16,11 @@ This structured approach ensures that data is systematically transformed into re
 
 ## Data Catalogue
 
+**Download Instructions**: 
+- **CSV buttons** in the table below will download files directly
+- **CSV links** in the table will open in your browser - right-click and "Save As" to download
+- All files are updated with the latest processed data
+
 ```{r}
 #| label: data-dictionary
 #| echo: false
