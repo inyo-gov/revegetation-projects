@@ -1,5 +1,24 @@
 /* Custom styles for Revegetation Projects website */
 
+/* Global font consistency */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* Ensure consistent font rendering across all pages */
+.quarto-title-block,
+.quarto-title-meta,
+.page-layout-article {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
 /* Table responsiveness improvements */
 .table-responsive {
   overflow-x: auto;

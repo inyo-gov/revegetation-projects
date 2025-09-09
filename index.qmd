@@ -12,10 +12,9 @@ citation:
   url: https://github.com/inyo-gov/revegetation-projects
 google-scholar: true
 execute:
-  sql:
-    echo: fenced
-  r:
-    echo: true
+  echo: false
+  warning: false
+  message: false
 ---
 
 # 
