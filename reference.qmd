@@ -18,14 +18,14 @@ Reference parcel data and analysis for comparison with revegetation project area
 The reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:
 
 ### 1. **Data Ingestion**
-- **LAW90/94/95 parcels**: Processed from individual CSV files (hits = percent cover)
-- **LAW118/129 parcels**: Processed from Excel files (hits = percent cover)
+- **LAW90/94/95 parcels**: Processed from individual CSV files
+- **LAW118/129 parcels**: Processed from Excel files
 - **Transect normalization**: All transect labels converted to lowercase (e.g., "3A" → "3a")
 
 ### 2. **Cover Calculation**
 - **Per-transect basis**: Cover calculated for each transect individually
 - **Species aggregation**: Multiple hits per species per transect are summed
-- **Percent cover**: Reference parcel hits directly represent percent cover (no scaling needed)
+- **Percent cover**: Reference parcel hits directly represent percent cover
 
 ### 3. **Zero-Inflation Handling**
 - **Complete dataset**: All parcel-year-transect-species combinations included
