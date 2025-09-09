@@ -290,14 +290,23 @@ footer {
 /* Hide Quarto navigation envelope artifacts */
 #quarto-navigation-envelope {
   display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
 .quarto-markdown-envelope-contents {
   display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
-/* Only hide elements that are specifically marked as hidden */
-.hidden[class*="quarto-markdown-envelope"] {
+/* Hide any elements with quarto-markdown-envelope in their class */
+[class*="quarto-markdown-envelope"] {
   display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
