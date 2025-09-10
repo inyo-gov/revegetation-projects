@@ -625,12 +625,8 @@ transects_by_parcel_year <- ref_data_combined %>%
 # Print for debugging
 print("Fresh calculation completed")
 print(paste("2025 values:", paste(transects_by_parcel_year$Year_2025, collapse = ", ")))
-```
 
-```{r, warning=FALSE}
-#| tbl-cap: "Number of transects per reference parcel by year"
-#| column: screen
-
+# Create the table in the same chunk
 datatable(
   transects_by_parcel_year,
   options = list(
