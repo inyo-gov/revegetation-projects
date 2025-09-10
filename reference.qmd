@@ -43,9 +43,10 @@ The reference parcel analysis follows a systematic approach to ensure accurate a
 
 ### 4. **Policy Cap Calculation**
 
--   **Two-step averaging**:
-    1.  Average cover per transect within each parcel
-    2.  Average across all parcels in reference group
+-   **Three-step process**:
+    1.  Sum hits per species per transect (transect scale)
+    2.  Average cover per transect within each parcel (parcel scale)
+    3.  Average across all parcels in reference group (group scale)
 -   **Conservative approach**: Includes parcels with zero ATTO/ERNA to provide realistic baseline
 -   **Group-specific caps**: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups
 
@@ -121,6 +122,27 @@ species_analysis <- ref_data_combined %>%
       TRUE ~ "Other"
     )
   ) %>%
+  # Ensure complete zero-filling at parcel level for all species
+  # Create complete grid of all parcel-year-species combinations
+  group_by(reference_group, year, species) %>%
+  complete(parcel = c(
+    # LAW90/94/95 parcels
+    "LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134",
+    # LAW118/129 parcels  
+    "LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230"
+  ), fill = list(
+    avg_cover = 0, 
+    avg_perennial_cover = 0, 
+    avg_relative_cover = 0, 
+    total_transects = 0,
+    n_transects = 0
+  )) %>%
+  ungroup() %>%
+  # Filter to only include parcels that belong to the current reference group
+  filter(
+    (reference_group == "LAW90/94/95" & parcel %in% c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")) |
+    (reference_group == "LW118/129" & parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230"))
+  ) %>%
   # Round numeric columns to 1 decimal place
   mutate(
     avg_cover = round(avg_cover, 1),
@@ -138,23 +160,33 @@ species_analysis %>%
       autoWidth = TRUE,
       scrollX = FALSE,
       columnDefs = list(
-        list(width = '12%', targets = 0),    # reference_group
-        list(width = '10%', targets = 1),    # parcel
-        list(width = '8%', targets = 2),     # year
-        list(width = '14%', targets = 3),    # species
-        list(width = '12%', targets = 4),    # avg_cover
-        list(width = '14%', targets = 5),    # avg_perennial_cover
-        list(width = '14%', targets = 6),    # avg_relative_cover
-        list(width = '16%', targets = 7)     # total_transects
+        list(width = '12%', targets = 0),    # reference_group (shorter)
+        list(width = '10%', targets = 1),    # parcel (shorter)
+        list(width = '5%', targets = 2),     # year (even smaller)
+        list(width = '10%', targets = 3),    # species (shorter)
+        list(width = '10%', targets = 4),    # avg_cover
+        list(width = '18%', targets = 5),    # avg_perennial_cover (more space)
+        list(width = '18%', targets = 6),    # avg_relative_cover (more space)
+        list(width = '12%', targets = 7)     # total_transects (shorter)
       ),
-      dom = 'Bfrtip',
+      dom = 'Blfrtip',
       buttons = c('csv'),
-      pageLength = 25
+      pageLength = 5,
+      lengthMenu = list(c(5, 10, 20), c('5', '10', '20')),
+      callback = JS("
+        function(settings) {
+          // Set default filter for Average Cover % column (index 4) to show only non-zero values
+          var api = new $.fn.dataTable.Api(settings);
+          api.column(4).search('>0');
+          api.draw();
+        }
+      ")
     ),
     extensions = 'Buttons',
     filter = 'top',
     width = '100%',
     escape = FALSE,  # Allow HTML in column names
+    rownames = FALSE,  # Remove row numbers to save space
     colnames = c(
       "Reference<br/>Parcel Group",
       "Parcel<br/>ID",
@@ -199,6 +231,15 @@ atto_erna_with_groups <- species_analysis %>%
     (reference_group == "LW118/129" & parcel %in% c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230"))
   )
 
+# Calculate group-level perennial cover (same for all species in a group-year)
+group_perennial_cover <- atto_erna_with_groups %>%
+  group_by(reference_group, year) %>%
+  summarise(
+    group_mean_perennial_cover = mean(avg_perennial_cover, na.rm = TRUE),
+    n_parcels = n_distinct(parcel),
+    .groups = 'drop'
+  )
+
 # Calculate summary statistics grouped by species, reference group, AND year
 atto_erna_summary <- atto_erna_with_groups %>%
   group_by(species, reference_group, year) %>%
@@ -208,14 +249,18 @@ atto_erna_summary <- atto_erna_with_groups %>%
     sd_avg_cover = sd(avg_cover, na.rm = TRUE),
     # Relative cover statistics (keep only mean)
     mean_relative_cover = mean(avg_relative_cover, na.rm = TRUE),
-    # Sample size
-    n_parcels = n(),
     .groups = 'drop'
   ) %>%
+  # Join with group-level perennial cover
+  left_join(group_perennial_cover, by = c("reference_group", "year")) %>%
   filter(reference_group != "Other") %>%  # Remove any "Other" groups
+  # Calculate proportion of species cover relative to total perennial cover
+  mutate(
+    species_proportion_of_total = round((mean_avg_cover / group_mean_perennial_cover) * 100, 1)
+  ) %>%
   mutate(across(where(is.numeric), round, 2)) %>%
-  # Reorder columns for better display
-  select(species, reference_group, year, mean_avg_cover, sd_avg_cover, mean_relative_cover, n_parcels)
+  # Reorder columns for better display (removed species_proportion_of_total as it's redundant with mean_relative_cover)
+  select(species, reference_group, year, mean_avg_cover, sd_avg_cover, group_mean_perennial_cover, mean_relative_cover, n_parcels)
 
 # Display summary table
 atto_erna_summary %>%
@@ -224,29 +269,33 @@ atto_erna_summary %>%
       autoWidth = TRUE,
       scrollX = FALSE,
       columnDefs = list(
-        list(width = '14%', targets = 0),    # species
-        list(width = '16%', targets = 1),    # reference_group
-        list(width = '10%', targets = 2),    # year
-        list(width = '15%', targets = 3),    # mean_avg_cover
-        list(width = '15%', targets = 4),    # sd_avg_cover
-        list(width = '15%', targets = 5),    # mean_relative_cover
-        list(width = '15%', targets = 6)     # n_parcels
+        list(width = '12%', targets = 0),    # species
+        list(width = '14%', targets = 1),    # reference_group
+        list(width = '8%', targets = 2),     # year
+        list(width = '14%', targets = 3),    # mean_avg_cover
+        list(width = '12%', targets = 4),    # sd_avg_cover
+        list(width = '14%', targets = 5),    # mean_perennial_cover
+        list(width = '14%', targets = 6),    # mean_relative_cover
+        list(width = '12%', targets = 7)     # n_parcels
       ),
-      dom = 'Bfrtip',
+      dom = 'Blfrtip',
       buttons = c('csv'),
-      pageLength = 10
+      pageLength = 5,
+      lengthMenu = list(c(5, 10, 20), c('5', '10', '20'))
     ),
     extensions = 'Buttons',
     filter = 'top',
     width = '100%',
     escape = FALSE,  # Allow HTML in column names
+    rownames = FALSE,  # Remove row numbers to save space
     colnames = c(
       "Species<br/>Code",
       "Reference<br/>Parcel Group",
       "Year",
-      "Mean Average<br/>Cover %",
+      "Group Average<br/>Species Cover %",
       "Standard<br/>Deviation",
-      "Mean Relative<br/>Cover %",
+      "Group Average<br/>Total Perennial Cover %",
+      "Group Average<br/>Relative Cover %",
       "Number of<br/>Parcels"
     ),
     callback = JS("
@@ -500,11 +549,11 @@ datatable(
       autoWidth = TRUE,
       scrollX = FALSE,
       columnDefs = list(
-        list(width = '15%', targets = 0),    # Dataset Name
-        list(width = '30%', targets = 1),    # Description
-        list(width = '12%', targets = 2),    # Number of Rows
-        list(width = '12%', targets = 3),    # Number of Columns
-        list(width = '16%', targets = 4),    # Last Modified
+        list(width = '20%', targets = 0),    # Dataset Name
+        list(width = '33%', targets = 1),    # Description
+        list(width = '10%', targets = 2),    # Number of Rows
+        list(width = '10%', targets = 3),    # Number of Columns
+        list(width = '12%', targets = 4),    # Last Modified
         list(width = '15%', targets = 5)     # Download
       ),
     dom = 'Bfrtip',
@@ -527,8 +576,283 @@ datatable(
   callback = JS("
     $('.dataTables_wrapper').css('width', '100%');
     $('.dataTables_wrapper').css('overflow-x', 'visible');
+    $('.dataTables_wrapper td:nth-child(1)').css('white-space', 'normal');
+    $('.dataTables_wrapper td:nth-child(1)').css('word-wrap', 'break-word');
+    $('.dataTables_wrapper td:nth-child(1)').css('max-width', '20%');
+    $('.dataTables_wrapper td:nth-child(2)').css('white-space', 'normal');
+    $('.dataTables_wrapper td:nth-child(2)').css('word-wrap', 'break-word');
+    $('.dataTables_wrapper td:nth-child(2)').css('max-width', '33%');
   ")
 )
 ```
 
----
+## Transects per Reference Parcel by Year
+
+```{r, echo=FALSE}
+# Calculate transects per reference parcel by year
+# Note: n_transects in reference_atto_erna_analysis is per species, so we need to take the max
+# (not sum) since all species in a parcel-year are sampled on the same transects
+transects_by_parcel_year <- reference_atto_erna_analysis %>%
+  group_by(parcel, year) %>%
+  summarise(
+    n_transects = max(n_transects, na.rm = TRUE),  # Take max instead of sum
+    .groups = 'drop'
+  ) %>%
+  pivot_wider(
+    names_from = year,
+    values_from = n_transects,
+    names_prefix = "Year_",
+    values_fill = 0
+  ) %>%
+  arrange(parcel)
+
+# Add reference group column
+transects_by_parcel_year <- transects_by_parcel_year %>%
+  mutate(
+    reference_group = case_when(
+      parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134') ~ 'LAW90/94/95',
+      parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230') ~ 'LAW118/129',
+      TRUE ~ 'Other'
+    )
+  ) %>%
+  filter(reference_group != 'Other') %>%
+  select(reference_group, parcel, everything())
+```
+
+```{r, warning=FALSE}
+#| tbl-cap: "Number of transects per reference parcel by year"
+#| column: screen
+
+datatable(
+  transects_by_parcel_year,
+  options = list(
+    autoWidth = TRUE,
+    scrollX = FALSE,
+    dom = 'Bfrtip',
+    buttons = c('csv'),
+    pageLength = 15
+  ),
+  rownames = FALSE,
+  extensions = 'Buttons',
+  filter = 'top',
+  width = '100%',
+  escape = FALSE,
+  colnames = c(
+    "Reference<br/>Group",
+    "Parcel",
+    "2022",
+    "2023", 
+    "2024",
+    "2025"
+  )
+)
+```
+
+## Transects Summary by Reference Group and Year
+
+```{r, echo=FALSE}
+# Calculate transects summary by reference group and year
+# First get unique transects per parcel-year, then sum by group
+transects_summary_by_group <- reference_atto_erna_analysis %>%
+  mutate(
+    reference_group = case_when(
+      parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134') ~ 'LAW90/94/95',
+      parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230') ~ 'LAW118/129',
+      TRUE ~ 'Other'
+    )
+  ) %>%
+  filter(reference_group != 'Other') %>%
+  group_by(reference_group, parcel, year) %>%
+  summarise(
+    parcel_transects = max(n_transects, na.rm = TRUE),  # Max per parcel-year
+    .groups = 'drop'
+  ) %>%
+  group_by(reference_group, year) %>%
+  summarise(
+    total_transects = sum(parcel_transects, na.rm = TRUE),
+    n_parcels = n_distinct(parcel),
+    .groups = 'drop'
+  ) %>%
+  pivot_wider(
+    names_from = year,
+    values_from = total_transects,
+    names_prefix = "Year_",
+    values_fill = 0
+  ) %>%
+  arrange(reference_group)
+```
+
+```{r, warning=FALSE}
+#| tbl-cap: "Total transects by reference group and year"
+#| column: screen
+
+datatable(
+  transects_summary_by_group,
+  options = list(
+    autoWidth = TRUE,
+    scrollX = FALSE,
+    dom = 'Bfrtip',
+    buttons = c('csv'),
+    pageLength = 10
+  ),
+  rownames = FALSE,
+  extensions = 'Buttons',
+  filter = 'top',
+  width = '100%',
+  escape = FALSE,
+  colnames = c(
+    "Reference<br/>Group",
+    "2022",
+    "2023", 
+    "2024",
+    "2025"
+  )
+)
+```
+
+## Policy-Based Capping Parameters Summary
+
+```{r, echo=FALSE}
+# Calculate reference summary
+law90_94_95_parcels <- c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")
+law118_129_parcels <- c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230")
+
+# Get ATTO/ERNA averages across all years
+law90_94_95_all_years <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law90_94_95_parcels) %>%
+  group_by(species) %>%
+  summarise(avg_cover = mean(avg_cover, na.rm = TRUE), .groups = 'drop')
+
+law118_129_all_years <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law118_129_parcels) %>%
+  group_by(species) %>%
+  summarise(avg_cover = mean(avg_cover, na.rm = TRUE), .groups = 'drop')
+
+# Calculate averages from reference data
+law90_94_95_combined <- law90_94_95_all_years %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
+law118_129_combined <- law118_129_all_years %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
+
+# Set policy caps to specific values as requested
+law90_94_95_policy_cap <- 0.3 + 0.3  # 0.3% each for ERNA10 & ATTO
+# For LAW118/129: 2% each for ERNA10 & ATTO, with ATPO capped at max 3% when present
+# Note: ATPO cap is a maximum limit, not an addition - actual ATPO in parcels will be capped at 3%
+law118_129_policy_cap <- 2.0 + 2.0  # Base cap for ERNA10 & ATTO (ATPO handled separately in capping logic)
+
+# Get values
+law90_94_95_atto <- law90_94_95_all_years %>% filter(species == "ATTO") %>% pull(avg_cover)
+law90_94_95_erna <- law90_94_95_all_years %>% filter(species == "ERNA10") %>% pull(avg_cover)
+law118_129_atto <- law118_129_all_years %>% filter(species == "ATTO") %>% pull(avg_cover)
+law118_129_erna <- law118_129_all_years %>% filter(species == "ERNA10") %>% pull(avg_cover)
+
+# Count transects across all years
+law90_94_95_transects <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law90_94_95_parcels) %>%
+  summarise(total = sum(n_transects, na.rm = TRUE)) %>% pull(total)
+
+law118_129_transects <- reference_atto_erna_analysis %>%
+  filter(parcel %in% law118_129_parcels) %>%
+  summarise(total = sum(n_transects, na.rm = TRUE)) %>% pull(total)
+
+# Calculate group average total perennial cover across all years
+law90_94_95_perennial <- reference_atto_erna_analysis %>%
+  filter(parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134')) %>%
+  summarise(avg_perennial = mean(avg_perennial_cover, na.rm = TRUE)) %>% pull(avg_perennial)
+
+law118_129_perennial <- reference_atto_erna_analysis %>%
+  filter(parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230')) %>%
+  summarise(avg_perennial = mean(avg_perennial_cover, na.rm = TRUE)) %>% pull(avg_perennial)
+
+# Calculate ATPO averages for each group across all years
+law90_94_95_atpo <- reference_atto_erna_analysis %>%
+  filter(parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134') & 
+         species == 'ATPO') %>%
+  summarise(avg_atpo = mean(avg_cover, na.rm = TRUE)) %>% 
+  pull(avg_atpo)
+# Handle NaN case (no ATPO in LAW90/94/95 group)
+if (is.na(law90_94_95_atpo) || is.nan(law90_94_95_atpo)) {
+  law90_94_95_atpo <- 0
+}
+
+law118_129_atpo <- reference_atto_erna_analysis %>%
+  filter(parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230') & 
+         species == 'ATPO') %>%
+  summarise(avg_atpo = mean(avg_cover, na.rm = TRUE)) %>% 
+  pull(avg_atpo)
+# Handle NaN case
+if (is.na(law118_129_atpo) || is.nan(law118_129_atpo)) {
+  law118_129_atpo <- 0
+}
+
+# Create summary table with separate species columns
+reference_summary <- data.frame(
+  Reference_Group = c("LAW90/94/95", "LAW118/129"),
+  ATTO_Total = c(paste0(round(law90_94_95_atto, 3), "%"), paste0(round(law118_129_atto, 3), "%")),
+  ATTO_Allowable = c("0.3%", "2.0%"),
+  ERNA10_Total = c(paste0(round(law90_94_95_erna, 3), "%"), paste0(round(law118_129_erna, 3), "%")),
+  ERNA10_Allowable = c("0.3%", "2.0%"),
+  ATPO_Total = c(paste0(round(law90_94_95_atpo, 3), "%"), paste0(round(law118_129_atpo, 3), "%")),
+  ATPO_Allowable = c("N/A", "3.0%"),
+  Group_Avg_Perennial = c(paste0(round(law90_94_95_perennial, 1), "%"), paste0(round(law118_129_perennial, 1), "%")),
+  Transects = c(as.character(law90_94_95_transects), as.character(law118_129_transects)),
+  Policy_Cap_Summary = c("0.6% total", "4% + 3% ATPO")
+)
+```
+
+```{r, warning=FALSE}
+#| tbl-cap: "Policy-based capping parameters for ATTO/ERNA/ATPO species"
+#| tbl-colwidths: [15, 10, 8, 10, 8, 10, 8, 12, 8, 15]
+
+datatable(
+  reference_summary,
+  options = list(
+    autoWidth = TRUE,
+    scrollX = FALSE,
+    columnDefs = list(
+      list(width = '15%', targets = 0),    # reference group
+      list(width = '10%', targets = c(1, 3, 5)),   # ATTO Total, ERNA10 Total, ATPO Total
+      list(width = '8%', targets = c(2, 4, 6)),    # ATTO Allowable, ERNA10 Allowable, ATPO Allowable
+      list(width = '12%', targets = 7),    # Group Avg Perennial
+      list(width = '8%', targets = 8),     # transects
+      list(width = '15%', targets = 9)     # policy cap summary
+    ),
+    dom = 'Bfrtip',
+    buttons = c('csv'),
+    pageLength = 10
+  ),
+  rownames = FALSE,
+  extensions = 'Buttons',
+  filter = 'top',
+  escape = FALSE,  # Allow HTML in column names
+  colnames = c(
+    "Reference<br/>Parcel Group", 
+    "ATTO<br/>Total", "ATTO<br/>Allowable",
+    "ERNA10<br/>Total", "ERNA10<br/>Allowable", 
+    "ATPO<br/>Total", "ATPO<br/>Allowable",
+    "Group Avg<br/>Perennial", "Transects", "Policy Cap<br/>Summary"
+  )
+)
+```
+
+## Policy-Based Capping Parameters
+
+The capping system uses fixed policy-based parameters rather than reference data averages:
+
+### **LAW90/94/95 Group:**
+- **ATTO**: 0.3% maximum allowable cover
+- **ERNA10**: 0.3% maximum allowable cover
+- **ATPO**: Not applicable (no cap set)
+
+### **LAW118/129 Group:**
+- **ATTO**: 2.0% maximum allowable cover
+- **ERNA10**: 2.0% maximum allowable cover
+- **ATPO**: 3.0% maximum allowable cover (when present)
+
+### **How Capping Works:**
+The capping mechanism limits species cover to policy-based caps. For example:
+- If a transect has 10% ERNA cover but the cap is 2%, only 2% is added to the original perennial cover (excluding ATTO/ERNA/ATPO)
+- For LAW118/129 parcels, if ATPO is present, it is capped at maximum 3% regardless of actual cover
+- Only actual cover present is added - no theoretical maximums are applied
+
+This approach ensures conservative compliance assessment by only including cover for species that are actually present, while applying appropriate policy-based limits.
+
+------------------------------------------------------------------------

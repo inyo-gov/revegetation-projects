@@ -2,16 +2,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis",
+    "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
     "section": "",
-    "text": "Code\nlibrary(sf)\nlibrary(here)\nlibrary(dplyr)\nlibrary(readr)\nlibrary(stringr)\nlibrary(tidyr)\nlibrary(DT)\nlibrary(janitor)\nlibrary(ggplot2)  # For histograms and maps\nlibrary(targets)  # For loading pipeline data\nsource(here('code','functions.R'))\n\n# Load targets data\ntar_load(reference_atto_erna_analysis)\ntar_load(compliance_comprehensive_all)"
+    "text": "This analysis presents compliance data for revegetation parcels across multiple years (2022-2025). The data shows original perennial cover (excluding ATTO/ERNA/ATPO species), capped cover (with policy-based limits applied), and full cover (all species included) to assess compliance with revegetation goals.\n\n\nThe following goals must be met for successful revegetation:\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater.\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel.\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species.\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover.\nGrass Species Present: At least one grass species must be present on each parcel.\n\nLegend: - ✓: Goal attained - ✗: Goal not attained - -: No data available"
   },
   {
     "objectID": "index.html#revegetation-goals",
     "href": "index.html#revegetation-goals",
-    "title": "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis",
-    "section": "Revegetation Goals",
-    "text": "Revegetation Goals\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover\nGrass Species Present: At least one grass species must be present on each parcel\n\n\n✓: Goal attained\n✗: Goal not attained\n—: No data available\n\n\n\n\n\n\n\n\n\n\nFull: All perennial species including unlimited ATTO/ERNA (maximum potential)\nCapped: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). LAW90/94/95: Up to 0.38%. LAW118/129: Up to 7.067%\nOriginal: Perennial cover calculations exclude ERNA10 and ATTO species\n\nNote: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA)."
+    "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
+    "section": "",
+    "text": "The following goals must be met for successful revegetation:\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater.\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel.\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species.\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover.\nGrass Species Present: At least one grass species must be present on each parcel.\n\nLegend: - ✓: Goal attained - ✗: Goal not attained - -: No data available"
   },
   {
     "objectID": "index.html#data-catalogue",
@@ -58,9 +58,9 @@
   {
     "objectID": "index.html#revegetation-goals-1",
     "href": "index.html#revegetation-goals-1",
-    "title": "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis",
+    "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
     "section": "Revegetation Goals",
-    "text": "Revegetation Goals\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover\nGrass Species Present: At least one grass species must be present on each parcel\n\n\n✓: Goal attained\n✗: Goal not attained\n—: No data available\n\n```{r, warning=FALSE, echo=FALSE} #| tbl-cap: “Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios.”"
+    "text": "Revegetation Goals\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover\nGrass Species Present: At least one grass species must be present on each parcel\n\n\n✓: Goal attained\n✗: Goal not attained\n—: No data available\n\n\n\n\n\n\n\n\n\n\nFull: All perennial species including unlimited ATTO/ERNA/ATPO (maximum potential)\nCapped: ATTO/ERNA/ATPO cover is limited to policy-based caps. LAW90/94/95: 0.3% each for ERNA10 & ATTO. LAW118/129: 2% each for ERNA10 & ATTO, plus ATPO capped at 3% when present\nExcl. ATTO/ERNA/ATPO: Perennial cover calculations exclude ATTO, ERNA10, and ATPO species"
   },
   {
     "objectID": "index.html#citation-1",
@@ -172,7 +172,7 @@
     "href": "reference.html#data-processing-methodology",
     "title": "Reference Parcels",
     "section": "Data Processing Methodology",
-    "text": "Data Processing Methodology\nThe reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:\n\n1. Data Ingestion\n\nLAW90/94/95 parcels: Processed from individual CSV files\nLAW118/129 parcels: Processed from Excel files\nTransect normalization: All transect labels converted to lowercase (e.g., “3A” → “3a”)\n\n\n\n2. Cover Calculation\n\nPer-transect basis: Cover calculated for each transect individually\nSpecies aggregation: Multiple hits per species per transect are summed\nPercent cover: Reference parcel hits directly represent percent cover\n\n\n\n3. Complete Data Accounting\n\nComplete dataset: All parcel-year-transect-species combinations included\nZero-filling: Missing species receive 0% cover (not excluded from averages)\nGroup averages: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover\n\n\n\n4. Policy Cap Calculation\n\nTwo-step averaging:\n\nAverage cover per transect within each parcel\nAverage across all parcels in reference group\n\nConservative approach: Includes parcels with zero ATTO/ERNA to provide realistic baseline\nGroup-specific caps: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups\n\nThis methodology ensures that policy caps reflect the true range of conditions across reference parcels."
+    "text": "Data Processing Methodology\nThe reference parcel analysis follows a systematic approach to ensure accurate and consistent policy cap calculations:\n\n1. Data Ingestion\n\nLAW90/94/95 parcels: Processed from individual CSV files\nLAW118/129 parcels: Processed from Excel files\nTransect normalization: All transect labels converted to lowercase (e.g., “3A” → “3a”)\n\n\n\n2. Cover Calculation\n\nPer-transect basis: Cover calculated for each transect individually\nSpecies aggregation: Multiple hits per species per transect are summed\nPercent cover: Reference parcel hits directly represent percent cover\n\n\n\n3. Complete Data Accounting\n\nComplete dataset: All parcel-year-transect-species combinations included\nZero-filling: Missing species receive 0% cover (not excluded from averages)\nGroup averages: Policy caps calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover\n\n\n\n4. Policy Cap Calculation\n\nThree-step process:\n\nSum hits per species per transect (transect scale)\nAverage cover per transect within each parcel (parcel scale)\nAverage across all parcels in reference group (group scale)\n\nConservative approach: Includes parcels with zero ATTO/ERNA to provide realistic baseline\nGroup-specific caps: Separate thresholds for LAW90/94/95 vs. LAW118/129 reference groups\n\nThis methodology ensures that policy caps reflect the true range of conditions across reference parcels."
   },
   {
     "objectID": "reference.html#section",
@@ -208,5 +208,40 @@
     "title": "Reference Parcels",
     "section": "Citation",
     "text": "Citation\nIf you use this data or analysis in your work, please cite:\n\nInyo County Water Department. (2025). Revegetation Projects Reference Parcel Analysis. Data Report. Retrieved from https://github.com/inyo-gov/revegetation-projects\n\n© 2025 Inyo County, California. All rights reserved.\n\n:::"
+  },
+  {
+    "objectID": "reference.html#policy-based-capping-parameters",
+    "href": "reference.html#policy-based-capping-parameters",
+    "title": "Reference Parcels",
+    "section": "Policy-Based Capping Parameters",
+    "text": "Policy-Based Capping Parameters\nThe capping system uses fixed policy-based parameters rather than reference data averages:\n\nLAW90/94/95 Group:\n\nATTO: 0.3% maximum allowable cover\nERNA10: 0.3% maximum allowable cover\nATPO: Not applicable (no cap set)\n\n\n\nLAW118/129 Group:\n\nATTO: 2.0% maximum allowable cover\nERNA10: 2.0% maximum allowable cover\nATPO: 3.0% maximum allowable cover (when present)\n\n\n\nHow Capping Works:\nThe capping mechanism limits species cover to policy-based caps. For example: - If a transect has 10% ERNA cover but the cap is 2%, only 2% is added to the original perennial cover (excluding ATTO/ERNA/ATPO) - For LAW118/129 parcels, if ATPO is present, it is capped at maximum 3% regardless of actual cover - Only actual cover present is added - no theoretical maximums are applied\nThis approach ensures conservative compliance assessment by only including cover for species that are actually present, while applying appropriate policy-based limits."
+  },
+  {
+    "objectID": "reference.html#policy-based-capping-parameters-summary",
+    "href": "reference.html#policy-based-capping-parameters-summary",
+    "title": "Reference Parcels",
+    "section": "Policy-Based Capping Parameters Summary",
+    "text": "Policy-Based Capping Parameters Summary"
+  },
+  {
+    "objectID": "reference.html#transects-per-reference-parcel-by-year",
+    "href": "reference.html#transects-per-reference-parcel-by-year",
+    "title": "Reference Parcels",
+    "section": "Transects per Reference Parcel by Year",
+    "text": "Transects per Reference Parcel by Year"
+  },
+  {
+    "objectID": "reference.html#transects-summary-by-reference-group-and-year",
+    "href": "reference.html#transects-summary-by-reference-group-and-year",
+    "title": "Reference Parcels",
+    "section": "Transects Summary by Reference Group and Year",
+    "text": "Transects Summary by Reference Group and Year"
+  },
+  {
+    "objectID": "index.html#species-cover-analysis-for-revegetation-parcels",
+    "href": "index.html#species-cover-analysis-for-revegetation-parcels",
+    "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
+    "section": "Species Cover Analysis for Revegetation Parcels",
+    "text": "Species Cover Analysis for Revegetation Parcels\nThis table shows the average cover by species for revegetation parcels (LAW090, LAW094, LAW095, and LAW129_118), grouped by reference group. It helps assess which species are most dominant in the revegetation areas and provides context for understanding the success of revegetation efforts compared to reference conditions."
   }
 ]

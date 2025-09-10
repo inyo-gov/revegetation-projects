@@ -75,9 +75,9 @@ data_dictionary <- data.frame(
     "Raw Parcels"
   ),
   Description = c(
-    "Species summary with average cover per parcel across all years",
+    "Species summary with average cover per parcel",
     "Filtered parcel-level summaries with perennial cover",
-    "Transect-level cover analysis with 2% threshold compliance",
+    "Transect-level cover analysis with 2% threshold",
     "Reference parcel statistics and ATTO/ERNA analysis",
     "Core revegetation analysis dataset with species hits",
     "Transect coordinates and metadata",
@@ -120,11 +120,11 @@ datatable(
     autoWidth = TRUE,
     scrollX = FALSE,
     columnDefs = list(
-      list(width = '15%', targets = 0),    # Dataset
-      list(width = '30%', targets = 1),    # Description
-      list(width = '12%', targets = 2),    # Rows
-      list(width = '12%', targets = 3),    # Columns
-      list(width = '16%', targets = 4),    # Last Modified
+      list(width = '20%', targets = 0),    # Dataset
+      list(width = '33%', targets = 1),    # Description
+      list(width = '10%', targets = 2),    # Rows
+      list(width = '10%', targets = 3),    # Columns
+      list(width = '12%', targets = 4),    # Last Modified
       list(width = '15%', targets = 5)     # Download
     ),
     pageLength = 20,
@@ -147,6 +147,12 @@ datatable(
   callback = JS("
     $('.dataTables_wrapper').css('width', '100%');
     $('.dataTables_wrapper').css('overflow-x', 'visible');
+    $('.dataTables_wrapper td:nth-child(1)').css('white-space', 'normal');
+    $('.dataTables_wrapper td:nth-child(1)').css('word-wrap', 'break-word');
+    $('.dataTables_wrapper td:nth-child(1)').css('max-width', '20%');
+    $('.dataTables_wrapper td:nth-child(2)').css('white-space', 'normal');
+    $('.dataTables_wrapper td:nth-child(2)').css('word-wrap', 'break-word');
+    $('.dataTables_wrapper td:nth-child(2)').css('max-width', '33%');
   ")
 )
 ```

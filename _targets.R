@@ -486,20 +486,12 @@ list(
   tar_target(
     name = reveg_capped_2025,
     command = {
-      # Get reference thresholds for ATTO/ERNA capping from reference parcels
-      reference_thresholds <- reference_atto_erna_analysis %>%
-        filter(year == 2025) %>%
-        mutate(reference_group = case_when(
-          parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134') ~ 'LAW90/94/95',
-          parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230') ~ 'LW118/129',
-          TRUE ~ 'Other'
-        )) %>%
-        filter(reference_group != 'Other') %>%
-        group_by(species, reference_group) %>%
-        summarise(
-          cap_threshold = mean(avg_cover, na.rm = TRUE),
-          .groups = 'drop'
-        )
+      # Set policy-based caps for ATTO/ERNA capping
+      reference_thresholds <- data.frame(
+        species = c('ATTO', 'ERNA10', 'ATTO', 'ERNA10'),
+        reference_group = c('LAW90/94/95', 'LAW90/94/95', 'LW118/129', 'LW118/129'),
+        cap_threshold = c(0.3, 0.3, 2.0, 2.0)  # Policy-based caps: 0.3% each for 90/94/95, 2% each for 118/129
+      )
       
       # Get 2025 revegetation data
       reveg_2025 <- r3_data %>%
@@ -508,7 +500,7 @@ list(
           # Determine reference group for each reveg parcel
           reference_group = case_when(
             parcel %in% c('LAW090', 'LAW094', 'LAW095') ~ 'LAW90/94/95',
-            parcel %in% c('LAW118', 'LAW129') ~ 'LW118/129',
+            parcel %in% c('LAW118', 'LAW129', 'LAW129_118') ~ 'LW118/129',
             TRUE ~ 'Other'
           )
         ) %>%
@@ -521,10 +513,11 @@ list(
           # Calculate transect cover (hits/200*100)
           transect_cover = hits * 1/200 * 100,
           
-          # Apply capping for ATTO/ERNA
+          # Apply capping for ATTO/ERNA/ATPO
           capped_cover = case_when(
             species == 'ATTO' ~ pmin(transect_cover, cap_threshold),
             species == 'ERNA10' ~ pmin(transect_cover, cap_threshold),
+            species == 'ATPO' & reference_group == 'LW118/129' ~ pmin(transect_cover, 3.0),  # ATPO capped at 3% for 118/129
             TRUE ~ transect_cover
           ),
           
@@ -540,9 +533,9 @@ list(
       transect_summary <- reveg_capped %>%
         group_by(parcel, year, transect_unique, reference_group) %>%
         summarise(
-          # Original perennial cover (excluding ATTO/ERNA)
+          # Original perennial cover (excluding ATTO/ERNA/ATPO)
           original_perennial_cover = sum(
-            ifelse(species %in% c('ATTO', 'ERNA10'), 0, 
+            ifelse(species %in% c('ATTO', 'ERNA10', 'ATPO'), 0, 
                    ifelse(Lifecycle == 'Perennial', transect_cover, 0)), 
             na.rm = TRUE
           ),
@@ -558,8 +551,13 @@ list(
             na.rm = TRUE
           ),
           
+          capped_atpo_cover = sum(
+            ifelse(species == 'ATPO', capped_cover, 0), 
+            na.rm = TRUE
+          ),
+          
           # Total adjusted perennial cover
-          adjusted_perennial_cover = original_perennial_cover + capped_atto_cover + capped_erna_cover,
+          adjusted_perennial_cover = original_perennial_cover + capped_atto_cover + capped_erna_cover + capped_atpo_cover,
           
           # Full ATTO/ERNA cover (uncapped)
           full_atto_cover = sum(
@@ -572,8 +570,13 @@ list(
             na.rm = TRUE
           ),
           
-          # Full perennial cover (including uncapped ATTO/ERNA)
-          full_perennial_cover = original_perennial_cover + full_atto_cover + full_erna_cover,
+          full_atpo_cover = sum(
+            ifelse(species == 'ATPO', transect_cover, 0), 
+            na.rm = TRUE
+          ),
+          
+          # Full perennial cover (including uncapped ATTO/ERNA/ATPO)
+          full_perennial_cover = original_perennial_cover + full_atto_cover + full_erna_cover + full_atpo_cover,
           
           # ATTO/ERNA contribution proportions
           atto_contribution = ifelse(adjusted_perennial_cover > 0, 
@@ -584,8 +587,8 @@ list(
           .groups = 'drop'
         ) %>%
         mutate(
-          across(c(original_perennial_cover, capped_atto_cover, capped_erna_cover, 
-                   adjusted_perennial_cover, full_atto_cover, full_erna_cover, 
+          across(c(original_perennial_cover, capped_atto_cover, capped_erna_cover, capped_atpo_cover,
+                   adjusted_perennial_cover, full_atto_cover, full_erna_cover, full_atpo_cover,
                    full_perennial_cover, atto_contribution, erna_contribution), 
                  ~round(., 2))
         )
@@ -632,54 +635,132 @@ list(
   #   description = "Push all processed data to MotherDuck backend"
   # ),
   
+  # Revegetation data with ATTO/ERNA capping for all years
+  tar_target(
+    name = reveg_capped_all_years,
+    command = {
+      # Set policy-based caps for ATTO/ERNA capping
+      reference_thresholds <- data.frame(
+        species = c('ATTO', 'ERNA10', 'ATTO', 'ERNA10'),
+        reference_group = c('LAW90/94/95', 'LAW90/94/95', 'LW118/129', 'LW118/129'),
+        cap_threshold = c(0.3, 0.3, 2.0, 2.0)  # Policy-based caps: 0.3% each for 90/94/95, 2% each for 118/129
+      )
+      
+      # Get all years revegetation data
+      reveg_all_years <- r3_data %>%
+        mutate(
+          # Determine reference group for each reveg parcel
+          reference_group = case_when(
+            parcel %in% c('LAW090', 'LAW094', 'LAW095') ~ 'LAW90/94/95',
+            parcel %in% c('LAW118', 'LAW129', 'LAW129_118') ~ 'LW118/129',
+            TRUE ~ 'Other'
+          )
+        ) %>%
+        filter(reference_group != 'Other')
+      
+      # Calculate capped ATTO/ERNA cover
+      reveg_capped <- reveg_all_years %>%
+        left_join(reference_thresholds, by = c('species', 'reference_group')) %>%
+        mutate(
+          # Calculate transect cover (hits/200*100)
+          transect_cover = hits * 1/200 * 100,
+          
+          # Apply capping logic
+          capped_cover = case_when(
+            species == 'ATTO' ~ pmin(transect_cover, cap_threshold),
+            species == 'ERNA10' ~ pmin(transect_cover, cap_threshold),
+            species == 'ATPO' & reference_group == 'LW118/129' ~ pmin(transect_cover, 3.0),  # ATPO capped at 3% for 118/129
+            TRUE ~ transect_cover
+          )
+        )
+      
+      # Calculate perennial cover summaries by transect
+      transect_summary <- reveg_capped %>%
+        group_by(parcel, year, transect_unique, reference_group) %>%
+        summarise(
+          # Original perennial cover (excluding ATTO/ERNA/ATPO)
+          original_perennial_cover = sum(
+            ifelse(species %in% c('ATTO', 'ERNA10', 'ATPO'), 0, 
+                   ifelse(Lifecycle == 'Perennial', transect_cover, 0)), 
+            na.rm = TRUE
+          ),
+          
+          # Capped ATTO/ERNA cover
+          capped_atto_cover = sum(
+            ifelse(species == 'ATTO', capped_cover, 0), 
+            na.rm = TRUE
+          ),
+          capped_erna_cover = sum(
+            ifelse(species == 'ERNA10', capped_cover, 0), 
+            na.rm = TRUE
+          ),
+          capped_atpo_cover = sum(
+            ifelse(species == 'ATPO', capped_cover, 0), 
+            na.rm = TRUE
+          ),
+          
+          # Full ATTO/ERNA cover (uncapped)
+          full_atto_cover = sum(
+            ifelse(species == 'ATTO', transect_cover, 0), 
+            na.rm = TRUE
+          ),
+          full_erna_cover = sum(
+            ifelse(species == 'ERNA10', transect_cover, 0), 
+            na.rm = TRUE
+          ),
+          full_atpo_cover = sum(
+            ifelse(species == 'ATPO', transect_cover, 0), 
+            na.rm = TRUE
+          ),
+          
+          # Full perennial cover (all species)
+          full_perennial_cover = sum(
+            ifelse(Lifecycle == 'Perennial', transect_cover, 0), 
+            na.rm = TRUE
+          ),
+          
+          # Adjusted perennial cover (original + capped ATTO/ERNA/ATPO)
+          adjusted_perennial_cover = original_perennial_cover + capped_atto_cover + capped_erna_cover + capped_atpo_cover,
+          
+          # ATTO/ERNA contributions
+          atto_contribution = capped_atto_cover,
+          erna_contribution = capped_erna_cover,
+          
+          .groups = 'drop'
+        ) %>%
+        # Round all numeric columns
+        mutate(across(where(is.numeric), ~ round(., 2)))
+      
+      return(transect_summary)
+    },
+    description = "Revegetation data with policy-based capping for all years"
+  ),
+
   # Comprehensive compliance table for all years
   tar_target(
     name = compliance_comprehensive_all,
     command = {
-      # Get reference thresholds for ATTO/ERNA capping
-      reference_thresholds <- reference_atto_erna_analysis %>%
-        filter(year == 2025) %>%
-        mutate(reference_group = case_when(
-          parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134') ~ 'LAW90/94/95',
-          parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230') ~ 'LW118/129',
-          TRUE ~ 'Other'
-        )) %>%
-        filter(reference_group != 'Other') %>%
-        group_by(species, reference_group) %>%
+      # Use accurate capping results from reveg_capped_all_years
+      # Get detailed capping data (species-level accuracy)
+      detailed_capping <- reveg_capped_all_years %>%
+        group_by(parcel, year) %>%
         summarise(
-          cap_threshold = mean(avg_cover, na.rm = TRUE),
+          cover_original = mean(original_perennial_cover, na.rm = TRUE),
+          cover_capped = mean(adjusted_perennial_cover, na.rm = TRUE),
+          cover_full = mean(full_perennial_cover, na.rm = TRUE),
+          n_transects = n(),
           .groups = 'drop'
-        )
-      
-      # Get all parcel summaries
-      parcel_sum_filtered_wide <- parcel_sum_filtered %>%
-        select(parcel, year, Cover, n.transects) %>%
-        rename(cover_original = Cover)
-      
-      parcel_sum_all_wide <- parcel_sum_all %>%
-        select(parcel, year, Cover) %>%
-        rename(cover_full = Cover)
-      
-      # Calculate capped cover (original + allowed ATTO/ERNA)
-      capped_covers <- parcel_sum_all_wide %>%
-        left_join(parcel_sum_filtered_wide, by = c('parcel', 'year')) %>%
-        # Assign reference groups to revegetation parcels
+        ) %>%
+        # Add reference group for filtering
         mutate(reference_group = case_when(
           parcel %in% c('LAW090', 'LAW094', 'LAW095') ~ 'LAW90/94/95',
-          parcel == 'LAW129_118' ~ 'LW118/129',
+          parcel %in% c('LAW118', 'LAW129', 'LAW129_118') ~ 'LW118/129',
           TRUE ~ 'Other'
         )) %>%
-        filter(reference_group != 'Other') %>%
-        # Calculate allowed ATTO/ERNA addition (use mean, not sum)
-        left_join(
-          reference_thresholds %>% 
-            group_by(reference_group) %>% 
-            summarise(allowed_atto_erna = mean(cap_threshold), .groups = 'drop'),
-          by = 'reference_group'
-        ) %>%
-        mutate(
-          cover_capped = pmin(cover_original + allowed_atto_erna, cover_full)
-        )
+        filter(reference_group != 'Other')
+      
+      # Use the detailed capping results
+      capped_covers <- detailed_capping
       
       # Get other compliance metrics from existing data
       # Use target names directly instead of tar_load()

@@ -1,5 +1,5 @@
 ---
-title: "Laws 90, 94, 95, 118, 129 2025 Monitoring Data Analysis"
+title: "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis"
 tbl-cap-location: top   
 affiliation: "Inyo County Water Department"
 date: "2025-09-03"
@@ -17,7 +17,24 @@ execute:
   message: false
 ---
 
-# 
+# Laws 90, 94, 95, 118, 129 Monitoring Data Analysis
+
+This analysis presents compliance data for revegetation parcels across multiple years (2022-2025). The data shows original perennial cover (excluding ATTO/ERNA/ATPO species), capped cover (with policy-based limits applied), and full cover (all species included) to assess compliance with revegetation goals.
+
+## Revegetation Goals
+
+The following goals must be met for successful revegetation:
+
+1.  **Perennial Cover ≥ 10%**: Parcel-average native perennial cover must be 10% or greater.
+2.  **Species with ≥3 Hits ≥ 6**: At least six perennial species must have at least 3 hits within each parcel.
+3.  **Species Richness ≥ 10**: Each parcel must have at least 10 distinct perennial species.
+4.  **Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover.
+5.  **Grass Species Present**: At least one grass species must be present on each parcel.
+
+**Legend:**
+- `✓`: Goal attained
+- `✗`: Goal not attained
+- `-`: No data available
 
 ```{r, message=FALSE, warning=FALSE}
 library(sf)
@@ -45,24 +62,11 @@ run_maps <- TRUE  # Enable histograms and maps
 
 # 
 
-## Revegetation Goals
-
-1.  **Perennial Cover ≥ 10%**: Parcel-average native perennial cover must be 10% or greater
-2.  **Species with ≥3 Hits ≥ 6**: At least six perennial species must have at least 3 hits within each parcel
-3.  **Species Richness ≥ 10**: Each parcel must have at least 10 distinct perennial species
-4.  **Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover
-5.  **Grass Species Present**: At least one grass species must be present on each parcel
-
--   **✓**: Goal attained
-
--   **✗**: Goal not attained
-
--   **—**: No data available
 
 ::: {.column-screen}
 
 ```{r, warning=FALSE, echo=FALSE}
-#| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA), Capped (reference-based ATTO/ERNA limits), and Full (unlimited ATTO/ERNA). All other goals (species counts, richness, transect coverage, grass presence) remain consistent across scenarios."
+#| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA/ATPO), Capped (policy-based ATTO/ERNA/ATPO limits), and Full (unlimited ATTO/ERNA/ATPO)."
 #| column: screen
 
 # Load compliance data
@@ -96,10 +100,10 @@ datatable(
     scrollX = FALSE,
                     columnDefs = list(
                       list(width = '8%', targets = 0),     # parcel
-                      list(width = '6%', targets = 1),     # year
-                      list(width = '12%', targets = 2),    # full cover
-                      list(width = '12%', targets = 3),    # capped cover
-                      list(width = '12%', targets = 4),    # original cover
+                      list(width = '3%', targets = 1),     # year
+                      list(width = '9%', targets = 2),     # full cover
+                      list(width = '9%', targets = 3),     # capped cover
+                      list(width = '16%', targets = 4),    # original cover (Excl. ATTO/ERNA/ATPO)
                       list(width = '11%', targets = 5),    # species ≥3 hits
                       list(width = '11%', targets = 6),    # species richness
                       list(width = '11%', targets = 7),    # transect cover
@@ -108,11 +112,7 @@ datatable(
                     ),
     dom = 'Bfrtip',
     buttons = c('csv'),
-    pageLength = 20,
-    searchCols = list(
-      list(search = "2025"),  # Default filter for year column (index 1)
-      rep(list(search = ""), 9)  # Empty search for other columns
-    )
+    pageLength = 20
   ),
   extensions = 'Buttons',
   filter = 'top',
@@ -120,7 +120,7 @@ datatable(
   escape = FALSE,  # Allow HTML in column names
   colnames = c(
     "Parcel", "Year", 
-    "Cover ≥10%<br/>(Full)", "Cover ≥10%<br/>(Capped)", "Cover ≥10%<br/>(Original)",
+    "Cover ≥10%<br/>(Full)", "Cover ≥10%<br/>(Capped)", "Cover ≥10%<br/>(Excl. ATTO/ERNA/ATPO)",
     "Species<br/>≥3 Hits ≥6", "Species<br/>Richness ≥10", "All Transects<br/>≥2%", "Grass Species<br/>≥1",
     "Compliance"
   ),
@@ -133,85 +133,67 @@ datatable(
 
 :::
 
+1.  **Full**: All perennial species including unlimited ATTO/ERNA/ATPO (maximum potential)
+2.  **Capped**: ATTO/ERNA/ATPO cover is limited to policy-based caps. **LAW90/94/95**: 0.3% each for ERNA10 & ATTO. **LAW118/129**: 2% each for ERNA10 & ATTO, plus ATPO capped at 3% when present
+3.  **Excl. ATTO/ERNA/ATPO**: Perennial cover calculations exclude ATTO, ERNA10, and ATPO species
+
+## Species Cover Analysis for Revegetation Parcels
+
+This table shows the average cover by species for revegetation parcels (LAW090, LAW094, LAW095, and LAW129_118), grouped by reference group. It helps assess which species are most dominant in the revegetation areas and provides context for understanding the success of revegetation efforts compared to reference conditions.
+
 ```{r, echo=FALSE}
-# Calculate reference summary
-law90_94_95_parcels <- c("LAW012", "LAW024", "LAW028", "LAW048", "LAW049", "LAW091", "LAW093", "LAW117", "LAW130", "LAW134")
-law118_129_parcels <- c("LAW029", "LAW039", "LAW069", "LAW104", "LAW119", "PLC202", "PLC219", "PLC227", "PLC230")
+# Load revegetation data and calculate species cover
+library(targets)
+tar_load(r3_data)
 
-# Get ATTO/ERNA averages
-law90_94_95_2025 <- reference_atto_erna_analysis %>%
-  filter(parcel %in% law90_94_95_parcels & year == 2025) %>%
-  group_by(species) %>%
-  summarise(avg_cover = mean(avg_cover, na.rm = TRUE), .groups = 'drop')
-
-law118_129_2025 <- reference_atto_erna_analysis %>%
-  filter(parcel %in% law118_129_parcels & year == 2025) %>%
-  group_by(species) %>%
-  summarise(avg_cover = mean(avg_cover, na.rm = TRUE), .groups = 'drop')
-
-# Calculate averages
-law90_94_95_combined <- law90_94_95_2025 %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
-law118_129_combined <- law118_129_2025 %>% summarise(combined = sum(avg_cover, na.rm = TRUE)) %>% pull(combined)
-
-# Get values
-law90_94_95_atto <- law90_94_95_2025 %>% filter(species == "ATTO") %>% pull(avg_cover)
-law90_94_95_erna <- law90_94_95_2025 %>% filter(species == "ERNA10") %>% pull(avg_cover)
-law118_129_atto <- law118_129_2025 %>% filter(species == "ATTO") %>% pull(avg_cover)
-law118_129_erna <- law118_129_2025 %>% filter(species == "ERNA10") %>% pull(avg_cover)
-
-# Count transects
-law90_94_95_transects <- reference_atto_erna_analysis %>%
-  filter(parcel %in% law90_94_95_parcels & year == 2025) %>%
-  summarise(total = sum(n_transects, na.rm = TRUE)) %>% pull(total)
-
-law118_129_transects <- reference_atto_erna_analysis %>%
-  filter(parcel %in% law118_129_parcels & year == 2025) %>%
-  summarise(total = sum(n_transects, na.rm = TRUE)) %>% pull(total)
-
-# Create summary table
-reference_summary <- data.frame(
-  Reference_Group = c("LAW90/94/95", "LAW118/129"),
-  ATTO_Average = c(paste0(round(law90_94_95_atto, 3), "%"), paste0(round(law118_129_atto, 3), "%")),
-  ERNA10_Average = c(paste0(round(law90_94_95_erna, 3), "%"), paste0(round(law118_129_erna, 3), "%")),
-  Combined_Average = c(paste0(round(law90_94_95_combined, 3), "%"), paste0(round(law118_129_combined, 3), "%")),
-  Transects = c(as.character(law90_94_95_transects), as.character(law118_129_transects)),
-  Policy_Cap = c(paste0(round(law90_94_95_combined, 3), "%"), paste0(round(law118_129_combined, 3), "%"))
-)
+# Calculate average cover by species for revegetation parcels
+revegetation_species_cover <- r3_data %>%
+  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118')) %>%
+  mutate(
+    reference_group = case_when(
+      parcel %in% c('LAW090', 'LAW094', 'LAW095') ~ 'LAW90/94/95',
+      parcel == 'LAW129_118' ~ 'LAW118/129 (Combined)',
+      TRUE ~ 'Other'
+    ),
+    transect_cover = hits * 1/200 * 100
+  ) %>%
+  group_by(reference_group, species, Lifecycle) %>%
+  summarise(
+    avg_cover = mean(transect_cover, na.rm = TRUE),
+    n_transects = n(),
+    .groups = 'drop'
+  ) %>%
+  filter(avg_cover > 0) %>%  # Only show species with some cover
+  arrange(reference_group, desc(avg_cover)) %>%
+  mutate(
+    avg_cover = round(avg_cover, 2)
+  )
 ```
 
-1.  **Full**: All perennial species including unlimited ATTO/ERNA (maximum potential)
-2.  **Capped**: ATTO/ERNA cover is limited to reference parcel averages (policy-based compliance). **LAW90/94/95**: Up to **`r paste0(round(law90_94_95_combined, 3), "%")`**. **LAW118/129**: Up to **`r paste0(round(law118_129_combined, 3), "%")`**
-3.  **Original**: Perennial cover calculations exclude ERNA10 and ATTO species
-
-**Note**: The capping works by limiting ATTO/ERNA cover to the reference parcel averages. For example, if a transect has 10% ERNA cover but the cap is 4.1%, only 4.1% is added to the original perennial cover (excluding ATTO/ERNA).
-
 ```{r, warning=FALSE}
-#| tbl-cap: "Reference parcel ATTO/ERNA cover averages used for capping calculations"
-#| tbl-colwidths: [20, 15, 15, 15, 15, 20]
+#| tbl-cap: "Average cover by species for revegetation parcels. Note: LAW118/129 data represents the combined LAW129_118 parcel only."
+#| column: screen
 
 datatable(
-  reference_summary,
+  revegetation_species_cover,
   options = list(
     autoWidth = TRUE,
     scrollX = FALSE,
-    columnDefs = list(
-      list(width = '20%', targets = 0),    # reference group
-      list(width = '16%', targets = 1:5)   # other columns
-    ),
     dom = 'Bfrtip',
     buttons = c('csv'),
-    pageLength = 10
+    pageLength = 20
   ),
+  rownames = FALSE,
   extensions = 'Buttons',
   filter = 'top',
-  escape = FALSE,  # Allow HTML in column names
+  width = '100%',
+  escape = FALSE,
   colnames = c(
-    "Reference<br/>Parcel Group", 
-    "ATTO<br/>Average Cover", 
-    "ERNA10<br/>Average Cover", 
-    "Combined<br/>ATTO+ERNA10", 
-    "Total<br/>Transects",
-    "Policy<br/>Implementation Cap"
+    "Reference<br/>Group",
+    "Species",
+    "Lifecycle",
+    "Average<br/>Cover %",
+    "Number of<br/>Transects"
   )
 )
 ```
