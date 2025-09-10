@@ -2,14 +2,14 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Data Processing Pipeline",
+    "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
     "section": "",
     "text": "This analysis presents compliance data for revegetation parcels across multiple years (2022-2025). The data shows original perennial cover (excluding ATTO/ERNA/ATPO species), capped cover (with policy-based limits applied), and full cover (all species included) to assess compliance with revegetation goals.\n\n\nThe following goals must be met for successful revegetation:\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater.\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel.\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species.\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover.\nGrass Species Present: At least one grass species must be present on each parcel.\n\nLegend: - ✓: Goal attained - ✗: Goal not attained - -: No data available"
   },
   {
     "objectID": "index.html#revegetation-goals",
     "href": "index.html#revegetation-goals",
-    "title": "Data Processing Pipeline",
+    "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
     "section": "",
     "text": "The following goals must be met for successful revegetation:\n\nPerennial Cover ≥ 10%: Parcel-average native perennial cover must be 10% or greater.\nSpecies with ≥3 Hits ≥ 6: At least six perennial species must have at least 3 hits within each parcel.\nSpecies Richness ≥ 10: Each parcel must have at least 10 distinct perennial species.\nTransect Cover ≥ 2%: Each individual transect must have at least 2% perennial cover.\nGrass Species Present: At least one grass species must be present on each parcel.\n\nLegend: - ✓: Goal attained - ✗: Goal not attained - -: No data available"
   },
@@ -240,9 +240,9 @@
   {
     "objectID": "index.html#species-cover-analysis-for-revegetation-parcels",
     "href": "index.html#species-cover-analysis-for-revegetation-parcels",
-    "title": "Data Processing Pipeline",
+    "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
     "section": "Species Cover Analysis for Revegetation Parcels",
-    "text": "Species Cover Analysis for Revegetation Parcels\nThis table shows the average cover by species for each individual revegetation parcel (LAW090, LAW094, LAW095, and LAW129_118) for 2025. The average cover is calculated across ALL transects (including zeros for transects where the species was not detected), following the same statistical approach as the reference parcel analysis. This provides a true statistical average that accounts for the full sampling effort for each parcel.\n\n\n\n\n\n\n\n\n\n\n\nThe _targets data pipeline manages dependencies and helps with reproducible processing from raw field data to compliance assessment:\nInput revegetation data (typically in various formats requiring cleaning and pivoting to long format) → Transect-level cover calculations (converting raw hits to percentage cover at each transect) → Parcel-level aggregation (averaging transect cover values and computing goal attainment metrics) → Compliance evaluation (assessing whether all transects meet thresholds like ≥2% cover and calculating species richness, grass presence, and other revegetation goals).\nThis structured approach ensures that data is systematically transformed into reproducible metrics, while maintaining data integrity and transparency across all processing steps."
+    "text": "Species Cover Analysis for Revegetation Parcels\nThis table shows the average cover by species for each individual revegetation parcel (LAW090, LAW094, LAW095, and LAW129_118) for 2025. The average cover is calculated across ALL transects (including zeros for transects where the species was not detected), following the same statistical approach as the reference parcel analysis. This provides a true statistical average that accounts for the full sampling effort for each parcel."
   },
   {
     "objectID": "data_process.html#reference-parcels-summary",
