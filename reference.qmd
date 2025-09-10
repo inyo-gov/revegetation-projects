@@ -620,6 +620,8 @@ transects_by_parcel_year <- ref_data_combined %>%
     names_prefix = "Year_",
     values_fill = 0
   ) %>%
+  # Reorder columns to be chronological
+  select(reference_group, parcel, Year_2022, Year_2023, Year_2024, Year_2025) %>%
   arrange(reference_group, parcel)
 
 # Print for debugging
