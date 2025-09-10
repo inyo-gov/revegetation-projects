@@ -588,12 +588,18 @@ datatable(
 
 ## Transects per Reference Parcel by Year
 
-```{r, echo=FALSE, cache=FALSE}
-# Calculate transects per reference parcel by year
+```{r transects-by-parcel-year-fresh, echo=FALSE, cache=FALSE}
+# Calculate transects per reference parcel by year - FRESH VERSION
 # Use raw reference data to get ALL transects, not just ATTO/ERNA analysis
+# Force refresh: 2025-01-10 16:35
 library(targets)
+library(dplyr)
+library(tidyr)
+
+# Load fresh data
 tar_load(ref_data_combined)
 
+# Calculate transects per parcel-year
 transects_by_parcel_year <- ref_data_combined %>%
   filter(Lifecycle == 'Perennial') %>%
   select(parcel, year, transect) %>%
@@ -615,6 +621,10 @@ transects_by_parcel_year <- ref_data_combined %>%
     values_fill = 0
   ) %>%
   arrange(reference_group, parcel)
+
+# Print for debugging
+print("Fresh calculation completed")
+print(paste("2025 values:", paste(transects_by_parcel_year$Year_2025, collapse = ", ")))
 ```
 
 ```{r, warning=FALSE}
