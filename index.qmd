@@ -139,39 +139,87 @@ datatable(
 
 ## Species Cover Analysis for Revegetation Parcels
 
-This table shows the average cover by species for revegetation parcels (LAW090, LAW094, LAW095, and LAW129_118), grouped by reference group. It helps assess which species are most dominant in the revegetation areas and provides context for understanding the success of revegetation efforts compared to reference conditions.
+This table shows the average cover by species for each individual revegetation parcel (LAW090, LAW094, LAW095, and LAW129_118) for 2025. The average cover is calculated across ALL transects (including zeros for transects where the species was not detected), following the same statistical approach as the reference parcel analysis. This provides a true statistical average that accounts for the full sampling effort for each parcel.
 
 ```{r, echo=FALSE}
 # Load revegetation data and calculate species cover
 library(targets)
+library(tidyr)
 tar_load(r3_data)
 
 # Calculate average cover by species for revegetation parcels
-revegetation_species_cover <- r3_data %>%
-  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118')) %>%
+# Following the same approach as reference data: include ALL transects (with zeros)
+
+# Get all revegetation parcels and their transects for 2025 only
+# Use transect_unique to avoid duplication issues
+revegetation_parcels <- r3_data %>%
+  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118') & year == 2025) %>%
+  select(parcel, year, transect_unique) %>%
+  distinct() %>%
   mutate(
     reference_group = case_when(
       parcel %in% c('LAW090', 'LAW094', 'LAW095') ~ 'LAW90/94/95',
       parcel == 'LAW129_118' ~ 'LAW118/129 (Combined)',
       TRUE ~ 'Other'
-    ),
-    transect_cover = hits * 1/200 * 100
+    )
   ) %>%
-  group_by(reference_group, species, Lifecycle) %>%
+  filter(reference_group != 'Other')
+
+# Create complete grid of parcel-year-transect-species for all species (2025 only)
+all_species <- r3_data %>%
+  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118') & year == 2025) %>%
+  select(species, Lifecycle) %>%
+  distinct()
+
+species_grid <- revegetation_parcels %>%
+  crossing(all_species)
+
+# Get actual species data (2025 only)
+# Use transect_unique to avoid duplication issues
+species_data <- r3_data %>%
+  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118') & year == 2025) %>%
+  group_by(parcel, year, transect_unique, species, Lifecycle) %>%
   summarise(
-    avg_cover = mean(transect_cover, na.rm = TRUE),
-    n_transects = n(),
+    transect_hits = sum(hits, na.rm = TRUE),
+    transect_cover = sum(hits * 1/200 * 100, na.rm = TRUE),
+    .groups = 'drop'
+  )
+
+# Join everything together, filling zeros for missing species
+complete_reveg_data <- species_grid %>%
+  left_join(species_data, by = c("parcel", "year", "transect_unique", "species", "Lifecycle")) %>%
+  # Fill NA values with zeros for missing species data
+  mutate(
+    transect_hits = ifelse(is.na(transect_hits), 0, transect_hits),
+    transect_cover = ifelse(is.na(transect_cover), 0, transect_cover)
+  ) %>%
+  # Average across transects for each parcel-species-lifecycle combination
+  group_by(parcel, species, Lifecycle) %>%
+  summarise(
+    avg_cover_all_transects = mean(transect_cover, na.rm = TRUE),
+    n_transects_total = n(),
+    n_transects_with_species = sum(transect_hits > 0, na.rm = TRUE),
     .groups = 'drop'
   ) %>%
-  filter(avg_cover > 0) %>%  # Only show species with some cover
-  arrange(reference_group, desc(avg_cover)) %>%
+  # Only show species with some cover
+  filter(avg_cover_all_transects > 0) %>%
+  arrange(parcel, desc(avg_cover_all_transects)) %>%
   mutate(
-    avg_cover = round(avg_cover, 2)
-  )
+    avg_cover_all_transects = round(avg_cover_all_transects, 2)
+  ) %>%
+  # Rename for display
+  rename(
+    avg_cover = avg_cover_all_transects
+  ) %>%
+  # Create final table
+  select(parcel, species, Lifecycle, avg_cover, n_transects_total, n_transects_with_species)
+
+# Assign to the expected variable name
+revegetation_species_cover <- complete_reveg_data
 ```
 
 ```{r, warning=FALSE}
-#| tbl-cap: "Average cover by species for revegetation parcels. Note: LAW118/129 data represents the combined LAW129_118 parcel only."
+#| tbl-cap: "Average cover by species for each individual revegetation parcel in 2025 (includes all transects, with zeros for missing species)."
 #| column: screen
 
 datatable(
@@ -189,11 +237,12 @@ datatable(
   width = '100%',
   escape = FALSE,
   colnames = c(
-    "Reference<br/>Group",
+    "Parcel",
     "Species",
     "Lifecycle",
     "Average<br/>Cover %",
-    "Number of<br/>Transects"
+    "Total<br/>Transects",
+    "Transects<br/>with Species"
   )
 )
 ```

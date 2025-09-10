@@ -242,6 +242,6 @@
     "href": "index.html#species-cover-analysis-for-revegetation-parcels",
     "title": "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis",
     "section": "Species Cover Analysis for Revegetation Parcels",
-    "text": "Species Cover Analysis for Revegetation Parcels\nThis table shows the average cover by species for revegetation parcels (LAW090, LAW094, LAW095, and LAW129_118), grouped by reference group. It helps assess which species are most dominant in the revegetation areas and provides context for understanding the success of revegetation efforts compared to reference conditions."
+    "text": "Species Cover Analysis for Revegetation Parcels\nThis table shows the average cover by species for each individual revegetation parcel (LAW090, LAW094, LAW095, and LAW129_118) for 2025. The average cover is calculated across ALL transects (including zeros for transects where the species was not detected), following the same statistical approach as the reference parcel analysis. This provides a true statistical average that accounts for the full sampling effort for each parcel."
   }
 ]
