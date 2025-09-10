@@ -320,6 +320,71 @@ leaflet() %>%
   )
 ```
 
+## Reference Parcels Summary
+
+The following table shows the transect counts for reference parcels by reference group and year. This provides an overview of the monitoring effort across different reference parcel groups.
+
+```{r reference-parcels-summary, echo=FALSE, warning=FALSE}
+#| tbl-cap: "Reference parcels transect counts by group and year."
+
+library(targets)
+library(dplyr)
+tar_load(ref_data_combined)
+
+# Create reference parcels summary
+law90_94_95_parcels <- c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134')
+law118_129_parcels <- c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230')
+
+reference_summary <- ref_data_combined %>%
+  select(parcel, year, transect) %>%
+  distinct() %>%
+  mutate(
+    reference_group = case_when(
+      parcel %in% law90_94_95_parcels ~ 'LAW90/94/95',
+      parcel %in% law118_129_parcels ~ 'LAW118/129',
+      TRUE ~ 'Other'
+    )
+  ) %>%
+  filter(reference_group != 'Other') %>%
+  group_by(reference_group, year) %>%
+  summarise(
+    n_parcels = n_distinct(parcel),
+    n_transects = n(),
+    .groups = 'drop'
+  ) %>%
+  arrange(reference_group, year) %>%
+  mutate(
+    reference_group = case_when(
+      reference_group == 'LAW90/94/95' ~ 'LAW90/94/95',
+      reference_group == 'LAW118/129' ~ 'LAW118/129',
+      TRUE ~ reference_group
+    )
+  )
+
+# Display the table
+datatable(
+  reference_summary,
+  options = list(
+    autoWidth = TRUE,
+    scrollX = FALSE,
+    dom = 'Bfrtip',
+    buttons = c('csv'),
+    pageLength = 10
+  ),
+  rownames = FALSE,
+  extensions = 'Buttons',
+  filter = 'top',
+  width = '100%',
+  escape = FALSE,
+  colnames = c(
+    "Reference<br/>Group",
+    "Year",
+    "Number of<br/>Parcels",
+    "Number of<br/>Transects"
+  )
+)
+```
+
 ## Pipeline
 
 The interactive targets network shows the complete `_targets` pipeline structure, illustrating how data flows from raw inputs through processing functions to final outputs. This visualization helps understand dependencies and the overall data processing workflow.

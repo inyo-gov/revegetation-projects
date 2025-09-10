@@ -31,10 +31,7 @@ The following goals must be met for successful revegetation:
 4.  **Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover.
 5.  **Grass Species Present**: At least one grass species must be present on each parcel.
 
-**Legend:**
-- `✓`: Goal attained
-- `✗`: Goal not attained
-- `-`: No data available
+**Legend:** - `✓`: Goal attained - `✗`: Goal not attained - `-`: No data available
 
 ```{r, message=FALSE, warning=FALSE}
 library(sf)
@@ -62,9 +59,7 @@ run_maps <- TRUE  # Enable histograms and maps
 
 # 
 
-
-::: {.column-screen}
-
+::: column-screen
 ```{r, warning=FALSE, echo=FALSE}
 #| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA/ATPO), Capped (policy-based ATTO/ERNA/ATPO limits), and Full (unlimited ATTO/ERNA/ATPO)."
 #| column: screen
@@ -130,7 +125,6 @@ datatable(
   ")
 )
 ```
-
 :::
 
 1.  **Full**: All perennial species including unlimited ATTO/ERNA/ATPO (maximum potential)
@@ -247,4 +241,4 @@ datatable(
 )
 ```
 
----
+------------------------------------------------------------------------
