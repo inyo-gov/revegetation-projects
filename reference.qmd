@@ -588,7 +588,7 @@ datatable(
 
 ## Transects per Reference Parcel by Year
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, cache=FALSE}
 # Calculate transects per reference parcel by year
 # Use raw reference data to get ALL transects, not just ATTO/ERNA analysis
 library(targets)
