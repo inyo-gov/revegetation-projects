@@ -646,67 +646,6 @@ datatable(
 )
 ```
 
-## Transects Summary by Reference Group and Year
-
-```{r, echo=FALSE}
-# Calculate transects summary by reference group and year
-# First get unique transects per parcel-year, then sum by group
-transects_summary_by_group <- reference_atto_erna_analysis %>%
-  mutate(
-    reference_group = case_when(
-      parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134') ~ 'LAW90/94/95',
-      parcel %in% c('LAW029', 'LAW039', 'LAW069', 'LAW104', 'LAW119', 'PLC202', 'PLC219', 'PLC227', 'PLC230') ~ 'LAW118/129',
-      TRUE ~ 'Other'
-    )
-  ) %>%
-  filter(reference_group != 'Other') %>%
-  group_by(reference_group, parcel, year) %>%
-  summarise(
-    parcel_transects = max(n_transects, na.rm = TRUE),  # Max per parcel-year
-    .groups = 'drop'
-  ) %>%
-  group_by(reference_group, year) %>%
-  summarise(
-    total_transects = sum(parcel_transects, na.rm = TRUE),
-    n_parcels = n_distinct(parcel),
-    .groups = 'drop'
-  ) %>%
-  pivot_wider(
-    names_from = year,
-    values_from = total_transects,
-    names_prefix = "Year_",
-    values_fill = 0
-  ) %>%
-  arrange(reference_group)
-```
-
-```{r, warning=FALSE}
-#| tbl-cap: "Total transects by reference group and year"
-#| column: screen
-
-datatable(
-  transects_summary_by_group,
-  options = list(
-    autoWidth = TRUE,
-    scrollX = FALSE,
-    dom = 'Bfrtip',
-    buttons = c('csv'),
-    pageLength = 10
-  ),
-  rownames = FALSE,
-  extensions = 'Buttons',
-  filter = 'top',
-  width = '100%',
-  escape = FALSE,
-  colnames = c(
-    "Reference<br/>Group",
-    "2022",
-    "2023", 
-    "2024",
-    "2025"
-  )
-)
-```
 
 ## Policy-Based Capping Parameters Summary
 
