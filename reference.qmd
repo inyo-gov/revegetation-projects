@@ -590,24 +590,14 @@ datatable(
 
 ```{r, echo=FALSE}
 # Calculate transects per reference parcel by year
-# Note: n_transects in reference_atto_erna_analysis is per species, so we need to take the max
-# (not sum) since all species in a parcel-year are sampled on the same transects
-transects_by_parcel_year <- reference_atto_erna_analysis %>%
-  group_by(parcel, year) %>%
-  summarise(
-    n_transects = max(n_transects, na.rm = TRUE),  # Take max instead of sum
-    .groups = 'drop'
-  ) %>%
-  pivot_wider(
-    names_from = year,
-    values_from = n_transects,
-    names_prefix = "Year_",
-    values_fill = 0
-  ) %>%
-  arrange(parcel)
+# Use raw reference data to get ALL transects, not just ATTO/ERNA analysis
+library(targets)
+tar_load(ref_data_combined)
 
-# Add reference group column
-transects_by_parcel_year <- transects_by_parcel_year %>%
+transects_by_parcel_year <- ref_data_combined %>%
+  filter(Lifecycle == 'Perennial') %>%
+  select(parcel, year, transect) %>%
+  distinct() %>%
   mutate(
     reference_group = case_when(
       parcel %in% c('LAW012', 'LAW024', 'LAW028', 'LAW048', 'LAW049', 'LAW091', 'LAW093', 'LAW117', 'LAW130', 'LAW134') ~ 'LAW90/94/95',
@@ -616,7 +606,15 @@ transects_by_parcel_year <- transects_by_parcel_year %>%
     )
   ) %>%
   filter(reference_group != 'Other') %>%
-  select(reference_group, parcel, everything())
+  group_by(reference_group, parcel, year) %>%
+  summarise(n_transects = n(), .groups = 'drop') %>%
+  pivot_wider(
+    names_from = year,
+    values_from = n_transects,
+    names_prefix = "Year_",
+    values_fill = 0
+  ) %>%
+  arrange(reference_group, parcel)
 ```
 
 ```{r, warning=FALSE}
