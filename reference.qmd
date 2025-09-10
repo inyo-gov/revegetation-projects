@@ -473,7 +473,7 @@ download_info <- data.frame(
   Description = c(
     "Summary statistics by parcel and year",
     "ATTO and ERNA species analysis by parcel-year",
-    "Complete reference dataset with all variables (includes transect-level species cover data)"
+    "Complete reference dataset with all variables"
   ),
   Rows = c(
     nrow(reference_parcel_summary),
