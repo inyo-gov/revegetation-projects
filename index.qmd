@@ -1,246 +1,1987 @@
 ---
-title: "Laws 90, 94, 95, 118, 129 Monitoring Data Analysis"
-tbl-cap-location: top   
-affiliation: "Inyo County Water Department"
-date: "2025-09-03"
-date-modified: "2025-09-03"
-citation:
-  type: report
-  container-title: "Data Report"
-  publisher: "Inyo County Water Department"
-  issued: "2025-09-03"
-  url: https://github.com/inyo-gov/revegetation-projects
-google-scholar: true
+title: "Laws Revegetation Data Analysis"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    embed-resources: true
+    css: styles.css
 execute:
-  echo: false
+  echo: true
   warning: false
   message: false
 ---
 
-# Laws 90, 94, 95, 118, 129 Monitoring Data Analysis
+## Background
 
-This analysis presents compliance data for revegetation parcels across multiple years (2022-2025). The data shows original perennial cover (excluding ATTO/ERNA/ATPO species), capped cover (with policy-based limits applied), and full cover (all species included) to assess compliance with revegetation goals.
+The Laws Revegetation Project is based on the [Laws Negative Declaration](https://www.inyowater.org/wp-content/uploads/2021/06/Laws_Neg_Dec_3-17-03.pdf) and the [Laws Revegetation Plan](https://www.inyowater.org/wp-content/uploads/2021/10/Laws-Neg-Dec-Reveg-plan-FINAL-3-17-03-copy.pdf) describing 193 acres that would be reclassified from Type E to Type A. The reclassified land was to be revegetated and not irrigated in the future. This data report focuses on the revegetation targets for the Laws vegetation parcels: LAW090, LAW094, LAW095, LAW118/LAW129 that were part of this reclassification effort. data originate from 2022-2025.
 
-## Revegetation Goals
+A forthcoming amendment is being developed by the Inyo/LA Technical Group detailing any changes to the 2003 plan needed going forward. This analysis applies species-specific filtering according to the 2003 plan and policy-based capping rules recommended by the working group to assess revegetation targets.
 
-The following goals must be met for successful revegetation:
 
-1.  **Perennial Cover ≥ 10%**: Parcel-average native perennial cover must be 10% or greater.
-2.  **Species with ≥3 Hits ≥ 6**: At least six perennial species must have at least 3 hits within each parcel.
-3.  **Species Richness ≥ 10**: Each parcel must have at least 10 distinct perennial species.
-4.  **Transect Cover ≥ 2%**: Each individual transect must have at least 2% perennial cover.
-5.  **Grass Species Present**: At least one grass species must be present on each parcel.
+**Revegetation Targets:**
 
-**Legend:** - `✓`: Goal attained - `✗`: Goal not attained - `-`: No data available
+1.  **Perennial Cover ≥ 10%**: Parcel-average native perennial cover from list of allowed species, with specific capping implemented for ATTO, ERNA10 and ATPO.
+2.  **Species with ≥3 Hits ≥ 6**: At least six perennial species with 3+ hits - from list of allowed species plus ATTO, ERNA10 and ATPO.
+3.  **Species Richness ≥ 10**: At least 10 distinct perennial species from list of allowed species plus ATTO, ERNA10 and ATPO
+4.  **Transect Cover ≥ 2%**: Each transect must have ≥2% perennial cover from list of allowed species plus ATTO, ERNA10 and ATPO
+5.  **Grass Species Present**: At least one grass species per parcel from list of allowed species
 
-```{r, message=FALSE, warning=FALSE}
+**Capping Rules:** - **LAW090/094/095**: ATTO and ERNA10 capped at 0.3% maximum contribution per parcel **LAW090 Exception**: No limit on ATPO species for LAW090 parcel **LAW118/129**: ATPO capped at 3%, ATTO and ERNA10 capped at 2% each
+
+**Overall Target Achievement**: Requires ALL targets to be met (cover AND richness AND transect coverage AND grass presence)
+
+**Legend:** ✓ = Target attained \| ✗ = Target not attained
+
+### Detailed Methodology
+
+**Target 1: Perennial Cover ≥ 10%** - **Calculation**: Sum hits for all allowable species per transect, convert to percentage cover - **Formula**: `(hits / 200) × 100` per transect, then average across parcel - **Capping**: Apply species-specific limits before final calculation - **Threshold**: Final cover must be ≥ 10%
+
+**Target 2: Species with ≥3 Hits ≥ 6** - **Method**: Count species with 3+ hits from allowed species list - **Process**: Identify species meeting threshold, count total - **Threshold**: Must have at least 6 species with 3+ hits
+
+**Target 3: Species Richness ≥ 10** - **Method**: Count distinct perennial species from allowed species list - **Process**: Count unique species present in parcel - **Threshold**: Must have at least 10 distinct species
+
+**Target 4: Transect Cover ≥ 2%** - **Method**: Calculate cover for each individual transect - **Process**: Ensure each transect meets 2% threshold - **Assessment**: Calculate compliance rate as percentage of transects meeting threshold
+
+**Target 5: Grass Species Present** - **Method**: Verify at least one grass species per parcel - **Process**: Check for grass species from allowed species list - **Assessment**: Mark as compliant if any grass species found
+
+## Location
+
+Parcels and transect locations are shown in the map below. Click on transects for details and use the layer control to toggle different features.
+
+```{r project-map, echo=FALSE, warning=FALSE, message=FALSE}
+#| fig-cap: "Interactive map showing Laws revegetation parcels and transect locations. Click on transects for details and use the layer control to toggle different features."
+
+# add parcel labels
+
+# Load spatial data directly (working approach)
+library(leaflet)
 library(sf)
-library(here)
-library(dplyr)
-library(readr)
-library(stringr)
-library(tidyr)
-library(DT)
-library(janitor)
-library(ggplot2)  # For histograms and maps
-library(targets)  # For loading pipeline data
-source(here('code','functions.R'))
-
-# Load targets data
-tar_load(reference_atto_erna_analysis)
-tar_load(compliance_comprehensive_all)
-```
-
-```{r, echo=FALSE}
-# Flags to selectively run legacy or heavy-map sections
-run_legacy <- FALSE
-run_maps <- TRUE  # Enable histograms and maps
-```
-
-# 
-
-```{r, warning=FALSE, echo=FALSE}
-#| tbl-cap: "Comprehensive Revegetation Goal Attainment by Parcel and Year. Shows three compliance scenarios: Original (no ATTO/ERNA/ATPO), Capped (policy-based ATTO/ERNA/ATPO limits), and Full (unlimited ATTO/ERNA/ATPO)."
-#| column: screen
-
-# Load compliance data
-library(DT)
-library(targets)
 library(dplyr)
 
-# Load compliance target
-tar_load(compliance_comprehensive_all)
-
-# Create compliance table
-comprehensive_table <- compliance_comprehensive_all %>%
-  arrange(parcel, year) %>%
-  select(
-    parcel, year,
-    cover_full = cover_status_full,
-    cover_capped = cover_status_capped, 
-    cover_original = cover_status_original,
-    species_3hit_status,
-    richness_status,
-    transect_status,
-    grass_status,
-    compliance_summary
-  )
-
-# Create datatable
-datatable(
-  comprehensive_table,
-  options = list(
-    autoWidth = TRUE,
-    scrollX = TRUE,
-    columnDefs = list(
-      list(width = '10%', targets = 0),     # parcel
-      list(width = '5%', targets = 1),      # year
-      list(width = '12%', targets = 2),     # full cover
-      list(width = '12%', targets = 3),     # capped cover
-      list(width = '18%', targets = 4),     # original cover (Excl. ATTO/ERNA/ATPO)
-      list(width = '12%', targets = 5),     # species ≥3 hits
-      list(width = '12%', targets = 6),     # species richness
-      list(width = '12%', targets = 7),     # transect cover
-      list(width = '12%', targets = 8),     # grass species
-      list(width = '7%', targets = 9)       # compliance summary
-    ),
-    dom = 'Bfrtip',
-    buttons = c('csv'),
-    pageLength = 20
-  ),
-  extensions = 'Buttons',
-  filter = 'top',
-  width = '100%',
-  escape = FALSE,  # Allow HTML in column names
-  colnames = c(
-    "Parcel", "Year", 
-    "Cover ≥10%<br/>(Full)", "Cover ≥10%<br/>(Capped)", "Cover ≥10%<br/>(Excl. ATTO/ERNA/ATPO)",
-    "Species<br/>≥3 Hits ≥6", "Species<br/>Richness ≥10", "All Transects<br/>≥2%", "Grass Species<br/>≥1",
-    "Compliance"
-  )
-)
-```
-
-1.  **Full**: All perennial species including unlimited ATTO/ERNA/ATPO (maximum potential)
-2.  **Capped**: ATTO/ERNA/ATPO cover is limited to policy-based caps. **LAW90/94/95**: 0.3% each for ERNA10 & ATTO. **LAW118/129**: 2% each for ERNA10 & ATTO, plus ATPO capped at 3% when present
-3.  **Excl. ATTO/ERNA/ATPO**: Perennial cover calculations exclude ATTO, ERNA10, and ATPO species
-
-## Species Cover Analysis for Revegetation Parcels
-
-This table shows the average cover by species for each individual revegetation parcel (LAW090, LAW094, LAW095, and LAW129_118) for 2025. The average cover is calculated across ALL transects (including zeros for transects where the species was not detected), following the same statistical approach as the reference parcel analysis. This provides a true statistical average that accounts for the full sampling effort for each parcel.
-
-```{r, echo=FALSE}
-# Load revegetation data and calculate species cover
-library(targets)
-library(tidyr)
-tar_load(r3_data)
-
-# Calculate average cover by species for revegetation parcels
-# Following the same approach as reference data: include ALL transects (with zeros)
-
-# Get all revegetation parcels and their transects for 2025 only
-# Use transect_unique to avoid duplication issues
-revegetation_parcels <- r3_data %>%
-  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118') & year == 2025) %>%
-  select(parcel, year, transect_unique) %>%
-  distinct() %>%
+# Load parcel boundaries and filter to Laws parcels only
+parcels_sf <- st_read("data/gis/LA_parcels_rasterizedd.shp", quiet = TRUE) %>%
+  filter(PCL %in% c("LAW090", "LAW094", "LAW095", "LAW118", "LAW129")) %>%
+  st_transform(4326) %>%
+  st_make_valid() %>%
   mutate(
-    reference_group = case_when(
-      parcel %in% c('LAW090', 'LAW094', 'LAW095') ~ 'LAW90/94/95',
-      parcel == 'LAW129_118' ~ 'LAW118/129 (Combined)',
-      TRUE ~ 'Other'
+    popup_text = paste0(
+      "<b>Parcel ", PCL, "</b><br>",
+      "Community: ", COMM_NAME, "<br>",
+      "Acres: ", round(Acreage, 1)
+    )
+  )
+
+# Load transect data from CSV
+transects_csv <- read.csv("data/gis/laws_reveg_transects.csv")
+all_transects_combined <- st_as_sf(transects_csv, coords = c("x", "y"), crs = 26911) %>%  # UTM Zone 11N
+  st_transform(4326) %>%  # Convert to WGS84
+  filter(parcel %in% c("LAW090", "LAW094", "LAW095", "LAW118", "LAW129")) %>%
+  mutate(
+    project_type = "2003 Reveg Projects",  # All Laws parcels are 2003 projects
+    popup_text = paste0(
+      "<b>Transect ", transect, "</b><br>",
+      "Parcel: ", parcel, "<br>",
+      "Bearing: ", bearing, "°<br>",
+      "Type: 2003 Reveg Projects"
+    )
+  )
+
+# Create downloadable map data files
+write_sf(parcels_sf, "output/laws_parcels.geojson")
+write_sf(all_transects_combined, "output/laws_transects.geojson")
+write.csv(st_drop_geometry(all_transects_combined), "output/laws_transects.csv", row.names = FALSE)
+
+# Create color palette for parcels
+parcel_colors <- colorFactor(
+  palette = "Set3", 
+  domain = parcels_sf$PCL
+)
+
+# Create working map with layer controls
+leaflet() %>%
+  addTiles() %>%
+  
+  # Add parcel boundaries
+  addPolygons(
+    data = parcels_sf,
+    fillColor = ~parcel_colors(PCL),
+    fillOpacity = 0.3,
+    color = "#000000",
+    weight = 2,
+    popup = ~popup_text,
+    group = "Parcels"
+  ) %>%
+  
+  # Add transects
+    addCircleMarkers(
+    data = all_transects_combined,
+      radius = 6,
+    color = "#FF0000",
+    fillColor = "#FF0000",
+      fillOpacity = 0.8,
+    popup = ~popup_text,
+    group = "Transects"
+  ) %>%
+  
+  # Add layer controls
+  addLayersControl(
+    overlayGroups = c("Parcels", "Transects"),
+    options = layersControlOptions(collapsed = FALSE)
+  ) %>%
+  
+  # Set view to transect centroid with appropriate zoom
+  setView(
+    lng = st_coordinates(st_centroid(st_union(all_transects_combined)))[1], 
+    lat = st_coordinates(st_centroid(st_union(all_transects_combined)))[2], 
+    zoom = 14
+  )
+```
+
+## Data Processing
+
+### Step 1: Load and Combine Data Sources
+
+**LAW090/094/095 Parcels (2022-2025)** - Load from LADWP Excel file covering 2022-2025 - Species hits zeroed if not on allowed species list - Cover conversion: `cover = hits × (1/200) × 100` - Raw hits converted to percentage cover for analysis
+
+**LAW118/129 Parcels (2022-2025)** - Load 2025 data from ICWD staff CSV with special parsing - Combine LAW118 and LAW129 into single "LAW118/129" parcel - Apply same cover conversion formula as other parcels - Maintain consistent naming conventions across all years
+
+**Data Integration** - Apply uniform naming conventions and cover calculations - Ensure consistent data structure across all parcel-year combinations - Validate data completeness and quality
+
+```{r setup}
+#| echo: false
+
+# Load required libraries
+library(dplyr)
+library(tidyr)
+library(readr)
+library(readxl)
+library(DT)
+library(leaflet)
+library(sf)
+library(stringr)
+library(janitor)
+library(purrr)
+
+# Data loading (no targets pipeline needed)
+```
+
+```{r load-data}
+#| echo: true
+
+# Load ALL data from LawsRevegetationData Excel file (Species List Data sheet)
+# This file contains LAW090, LAW094, LAW095 for all years (2022-2025)
+data_law909495 <- read_excel("data/LawsRevegetationData_SummaryTable_2025_ForICWD092525.xlsx", 
+                             sheet = "Species List Data") %>%
+  clean_names() %>%
+  select(parcel, year, transect, species, cover) %>%
+  rename(hits = cover) %>%  # Rename cover to hits for consistency
+  mutate(
+    year = as.numeric(year),
+    transect = as.character(transect),  # Ensure transect is character
+    species = str_trim(species)  # Remove leading/trailing spaces from species names
+  ) %>%
+  filter(year >= 2022 & year <= 2025) 
+# %>%
+  # filter(!str_detect(transect, "999"))
+
+# Load LAW118/129 2025 data from CSV (different format)
+# This file has a special format with metadata in first 3 rows
+# Read without headers to preserve the raw structure
+law118_129_raw <- read_csv("data/raw/reveg/LAW118_129_reveg2025_e.csv", 
+                          col_names = FALSE,
+                          show_col_types = FALSE)
+
+# Extract metadata from first 3 rows
+# Row 1: Parcel names (LAW118, LAW129)
+# Row 2: Transect numbers  
+# Row 3: Bearing numbers
+parcel_names <- as.character(law118_129_raw[1, -1])  # Skip first column 
+transect_numbers <- as.character(law118_129_raw[2, -1])
+bearing_numbers <- as.numeric(law118_129_raw[3, -1])
+
+# Data processing summary for LAW118/129
+cat("LAW118/129 data processing:\n",
+    "- Raw data dimensions:", nrow(law118_129_raw), "x", ncol(law118_129_raw), "\n",
+    "- Parcel names:", paste(unique(parcel_names), collapse = ", "), "\n",
+    "- Total transects (LAW118 + LAW129):", length(transect_numbers), "\n",
+    "- Unique transect numbers:", paste(unique(transect_numbers), collapse = ", "), "\n",
+    "- Note: Transect numbers overlap between LAW118 and LAW129, will create unique identifiers\n")
+
+# Process species data (rows 4+)
+species_data <- law118_129_raw[4:nrow(law118_129_raw), ]
+
+# Create the long format data for LAW118/129 manually
+law118_129_processed <- data.frame()
+
+# Loop through each species (rows 4+)
+for (i in 1:nrow(species_data)) {
+  species_name <- as.character(species_data[i, 1])
+  
+  # Loop through each transect (columns 2+)
+  for (j in 2:ncol(species_data)) {
+    hits_value <- as.numeric(species_data[i, j])
+    
+    if (!is.na(hits_value) && hits_value > 0) {
+      # Create a row for this species-transect combination
+      # Combine LAW118 and LAW129 into single "LAW118/129" parcel
+      parcel_name <- ifelse(parcel_names[j-1] %in% c("LAW118", "LAW129"), "LAW118/129", parcel_names[j-1])
+      
+      # Create unique transect identifier by combining parcel and transect number
+      unique_transect <- paste0(parcel_names[j-1], "_", transect_numbers[j-1])
+      
+      new_row <- data.frame(
+        parcel = parcel_name,
+        year = 2025,
+        transect = unique_transect,
+        species = str_trim(species_name),
+        hits = hits_value
+      )
+      
+      law118_129_processed <- bind_rows(law118_129_processed, new_row)
+    }
+  }
+}
+
+# Combine all data
+data_combined <- bind_rows(data_law909495, law118_129_processed)
+
+# Fix parcel naming for consistency - combine LAW118 and LAW129 into "LAW118/129"
+data_combined <- data_combined %>%
+  mutate(
+    parcel = case_when(
+      parcel == "LAW129" & year == 2022 ~ "LAW118/129",
+      parcel == "LAW118" & year == 2023 ~ "LAW118/129",  # Add LAW118 2023 to LAW118/129
+      TRUE ~ parcel
+    )
+  )
+
+# Display data processing summary
+cat("Data processing summary:\n",
+    "- LAW090/094/095 data:", nrow(data_law909495), "rows\n",
+    "- LAW118/129 2025 data:", nrow(law118_129_processed), "rows\n",
+    "- Combined data:", nrow(data_combined), "rows\n",
+    "- Unique parcels:", paste(unique(data_combined$parcel), collapse = ", "), "\n",
+    "- Years covered:", paste(sort(unique(data_combined$year)), collapse = ", "), "\n")
+
+# Visual audit: Show sample of LAW090/094/095 data
+cat("\n=== LAW090/094/095 Data Sample ===\n")
+print(head(data_law909495, 10))
+
+# Visual audit: Show sample of LAW118/129 data
+cat("\n=== LAW118/129 2025 Data Sample ===\n")
+print(head(law118_129_processed, 10))
+
+# Visual audit: Show combined data summary
+cat("\n=== Combined Data Summary ===\n")
+data_combined %>%
+  group_by(parcel, year) %>%
+  summarise(
+    n_transects = n_distinct(transect),
+    n_species = n_distinct(species),
+    total_hits = sum(hits),
+    .groups = 'drop'
+  ) %>%
+  print()
+
+# Note about LAW118/129 transect counting
+cat("\nNote: LAW118/129 transects use unique identifiers (e.g., LAW118_6, LAW129_6) to handle overlapping transect numbers between parcels.\n")
+
+# Visual audit: Show hit-to-cover conversion
+cat("\n=== Hit-to-Cover Conversion Example ===\n")
+# Show sample data with hit-to-cover conversion
+sample_data <- data_combined %>%
+  filter(parcel == "LAW090", year == 2025) %>%
+  head(10) %>%
+  mutate(
+    cover_percent = hits / 200 * 100,  # Convert hits to cover percentage
+    cover_per_transect = cover_percent / n_distinct(data_combined$transect[data_combined$parcel == "LAW090" & data_combined$year == 2025])
+  )
+print(sample_data)
+
+# Visual audit: Show transect-to-parcel averaging
+cat("\n=== Transect-to-Parcel Averaging Example ===\n")
+# Show how transect-level cover is averaged to parcel-level cover
+parcel_averaging_example <- data_combined %>%
+  filter(parcel == "LAW090", year == 2025) %>%
+  group_by(transect) %>%
+  summarise(
+    transect_total_hits = sum(hits),
+    transect_cover_percent = sum(hits) / 200 * 100,
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    n_transects = n(),
+    parcel_average_cover = mean(transect_cover_percent)
+  )
+print(parcel_averaging_example)
+```
+
+### Step 2: Create Parcel Groups for Analysis
+
+**Purpose**: Group related parcels together for consistent analysis and rule application
+
+**LAW90_94_95 Group** - Parcels: LAW090, LAW094, LAW095 - Use same species list and capping rules - Apply strict capping: ERNA10 and ATTO capped at 0.3% each - ATPO species have no limit for LAW090 parcel
+
+**LAW118_129 Group** - Parcels: LAW118, LAW129 (treated as single management unit) - Use same species list and capping rules - Apply more generous capping: ERNA10/ATTO capped at 2% each, ATPO capped at 3%
+
+### Step 3: Apply Species Filtering and Capping Rules
+
+**Species Filtering Process** 1. **Load Allowable Species Lists**: Import species lists for each parcel group 2. **Filter Data**: Keep only species that are on the allowable lists 3. **Apply Capping Rules**: Limit contribution of specific species (ERNA10, ATTO, ATPO) 4. **Calculate Final Cover**: Sum capped species contributions for compliance assessment
+
+**Capping Rules by Parcel Group** - **LAW90/94/95**: ERNA10 and ATTO capped at 0.3% each, ATPO unlimited for LAW090 - **LAW118/129**: ERNA10/ATTO capped at 2% each, ATPO capped at 3%
+
+```{r}
+# Use all data without species filtering for now
+data_filtered <- data_combined %>%
+  mutate(
+    parcel_group = case_when(
+      parcel %in% c("LAW090", "LAW094", "LAW095") ~ "LAW90_94_95",
+      parcel %in% c("LAW118", "LAW129") ~ "LAW118_129",
+      TRUE ~ "Other"
+    )
+  )
+
+# Debug: Check data loading
+cat("Data filtered rows:", nrow(data_filtered), "\n")
+cat("Data filtered columns:", paste(colnames(data_filtered), collapse = ", "), "\n")
+```
+
+**Step 1.6:**
+
+**Load Allowable Species Lists** **Purpose**: Define which species are allowed for compliance calculations for each parcel group
+
+**Two Separate Lists**: LAW90/94/95 and LAW118/129 have different allowable species ERNA10, ATTO, ATPO automatically added to both lists.
+
+```{r}
+# Load allowable species from BOTH sheets and combine
+# Sheet 1: LAW90/94/95 species
+allowable_law90_94_95 <- read_excel("data/TypeE_Transfer_SppList.xlsx", sheet = "TypeE_List_90_94_95") %>%
+  clean_names() %>%
+  pull(species_code) %>%
+  c("ERNA10", "ATTO", "ATPO") %>%  # Add core species if not already included
+  unique()
+
+# Sheet 2: LAW118/129 species  
+allowable_law118_129 <- read_excel("data/TypeE_Transfer_SppList.xlsx", sheet = "TypeE_List_118_129") %>%
+  clean_names() %>%
+  pull(species_code) %>%
+  c("ERNA10", "ATTO", "ATPO") %>%  # Add core species if not already included
+  unique()
+
+# Debug: Check if SATR12 is in the loaded allowable species
+cat("SATR12 in loaded LAW90/94/95:", "SATR12" %in% allowable_law90_94_95, "\n")
+cat("SATR12 in loaded LAW118/129:", "SATR12" %in% allowable_law118_129, "\n")
+
+# Create combined allowable species dataframe
+allowable_species_combined <- data.frame(
+  species = c(allowable_law90_94_95, allowable_law118_129),
+  parcel_group = c(rep("LAW90_94_95", length(allowable_law90_94_95)),
+                   rep("LAW118_129", length(allowable_law118_129)))
+) %>%
+  distinct()  # Remove any duplicates
+
+# Debug: Show allowable species lists
+cat("Allowable species summary:\n",
+    "- LAW90/94/95 allowable species:", length(allowable_law90_94_95), "species\n",
+    "- LAW118/129 allowable species:", length(allowable_law118_129), "species\n",
+    "- Additional species (ERNA10, ATTO, ATPO) included in both lists\n")
+
+# Debug: Check data_filtered
+cat("Data filtered rows:", nrow(data_filtered), "\n")
+cat("Data filtered columns:", paste(colnames(data_filtered), collapse = ", "), "\n")
+
+# Calculate compliance metrics with error handling
+compliance_metrics <- tryCatch({
+  data_filtered %>%
+    group_by(parcel, year) %>%
+    summarise(
+      species_richness = n_distinct(species),#need to add trace species also tho
+      total_transects = n_distinct(transect),
+      total_hits = if("hits" %in% colnames(data_filtered)) sum(hits, na.rm = TRUE) else 0,
+      avg_cover_percent = if("hits" %in% colnames(data_filtered)) round(mean((hits / 200) * 100, na.rm = TRUE), 2) else 0,
+      .groups = 'drop'
+    ) %>%
+    mutate(
+      capped_cover_percent = ifelse(avg_cover_percent > 10, 10, avg_cover_percent),
+      richness_goal = ifelse(species_richness >= 10, "✓", "✗"),
+      cover_goal = ifelse(avg_cover_percent >= 10, "✓", "✗"),
+      capped_cover_goal = ifelse(capped_cover_percent >= 10, "✓", "✗"),
+      overall_compliance = ifelse(richness_goal == "✓" & cover_goal == "✓", "Yes", "No")
+    )
+}, error = function(e) {
+  cat("Error in compliance_metrics calculation:", e$message, "\n")
+  # Return empty data frame with correct structure
+  data.frame(
+    parcel = character(),
+    year = numeric(),
+    species_richness = numeric(),
+    total_transects = numeric(),
+    total_hits = numeric(),
+    avg_cover_percent = numeric(),
+    capped_cover_percent = numeric(),
+    richness_goal = character(),
+    cover_goal = character(),
+    capped_cover_goal = character(),
+    overall_compliance = character()
+  )
+})
+```
+
+## Compliance Results
+
+### Comprehensive Parcel-Year Summary
+
+```{r comprehensive-summary}
+#| echo: true
+
+# Debug: Check if compliance_metrics exists and has data
+cat("Compliance metrics exists:", exists("compliance_metrics"), "\n")
+if(exists("compliance_metrics")) {
+  cat("Compliance metrics rows:", nrow(compliance_metrics), "\n")
+  cat("Compliance metrics columns:", paste(colnames(compliance_metrics), collapse = ", "), "\n")
+}
+
+```
+
+### Results
+
+**Step 2: Calculate Metrics** - Apply species capping rules (ATTO, ERNA10, ATPO limits) - Calculate cover percentages and species richness - Determine compliance status for each parcel-year combination - Remove duplicate entries to ensure data integrity
+
+```{r interactive-dashboard}
+#| echo: true
+#| warning: false
+#| message: false
+
+# Function to calculate cover and capping for a parcel/year
+calculate_parcel_cover <- function(parcel, year) {
+  # Handle LAW118/129 as combined parcel
+  if (parcel == "LAW118/129") {
+    # Get data for LAW118/129 (already combined in data processing)
+    parcel_data <- data_filtered %>%
+      filter(parcel == "LAW118/129", year == !!year)
+    # Get original data for transect counting
+    original_parcel_data <- data_combined %>%
+      filter(parcel == "LAW118/129", year == !!year)
+  } else {
+    # Get data for this specific parcel/year
+    parcel_data <- data_filtered %>%
+      filter(parcel == !!parcel, year == !!year)
+    # Get original data for transect counting
+    original_parcel_data <- data_combined %>%
+      filter(parcel == !!parcel, year == !!year)
+  }
+  
+  if (nrow(parcel_data) == 0) {
+    return(NULL)
+  }
+  
+  # Determine which species list to use
+  allowable_species_codes <- if (parcel %in% c("LAW090", "LAW094", "LAW095")) {
+    allowable_species_combined %>% 
+      filter(parcel_group == "LAW90_94_95") %>% 
+      pull(species)
+  } else if (parcel == "LAW118/129") {
+    allowable_species_combined %>% 
+      filter(parcel_group == "LAW118_129") %>% 
+      pull(species)
+  } else {
+    character(0)
+  }
+  
+  # Filter to only allowable species
+  parcel_allowable <- parcel_data %>%
+    filter(species %in% allowable_species_codes)
+  
+  # Debug: Show species filtering for LAW118/129 2025
+  if (parcel == "LAW118/129" && year == 2025) {
+    cat("\n=== Species Filtering for", parcel, year, "===\n")
+    cat("Allowable species codes:", paste(allowable_species_codes, collapse = ", "), "\n")
+    cat("Species in data before filtering:", paste(unique(parcel_data$species), collapse = ", "), "\n")
+    cat("Species after filtering:", paste(unique(parcel_allowable$species), collapse = ", "), "\n")
+    excluded_species <- setdiff(unique(parcel_data$species), unique(parcel_allowable$species))
+    if (length(excluded_species) > 0) {
+      cat("EXCLUDED species (not allowable):", paste(excluded_species, collapse = ", "), "\n")
+    }
+  }
+  
+  # Calculate original cover (sum of all species cover)
+  n_transects <- n_distinct(original_parcel_data$transect)
+  original_cover <- if(nrow(parcel_allowable) > 0) {
+    # Convert hits to cover: hits / 200 * 100
+    total_cover_percent <- sum(parcel_allowable$hits / 200 * 100)
+    parcel_average_cover <- total_cover_percent / n_transects
+    
+    # Debug: Show calculation for LAW118/129 2025
+    if (parcel == "LAW118/129" && year == 2025) {
+      cat("\n=== Cover Calculation Debug for", parcel, year, "===\n")
+      cat("Number of transects:", n_transects, "\n")
+      cat("Parcel average cover:", round(parcel_average_cover, 2), "%\n")
+      cat("Species breakdown (before capping):\n")
+      species_breakdown <- parcel_allowable %>% 
+        group_by(species) %>% 
+        summarise(total_hits = sum(hits), .groups = 'drop') %>%
+        mutate(
+          total_cover_percent = round(total_hits / 200 * 100, 2),
+          species_avg_cover = round(total_cover_percent / n_transects, 2)
+        ) %>%
+        arrange(desc(species_avg_cover))
+      print(species_breakdown)
+    }
+    
+    parcel_average_cover
+  } else {
+    0
+  }
+  
+  # Apply capping rules (from backup file)
+  if(nrow(parcel_allowable) > 0) {
+    parcel_species_cover <- parcel_allowable %>%
+      group_by(species) %>%
+      summarise(
+        total_hits = sum(hits),
+        .groups = 'drop'
+      ) %>%
+      mutate(
+        species_cover = (total_hits / 200 * 100) / n_transects,
+        # Apply species-specific capping rules
+        capped_cover = case_when(
+          # LAW90/94/95: Strict capping (0.3% max for ERNA10 and ATTO)
+          parcel %in% c("LAW090", "LAW094", "LAW095") & species == "ERNA10" ~ pmin(species_cover, 0.3),
+          parcel %in% c("LAW090", "LAW094", "LAW095") & species == "ATTO" ~ pmin(species_cover, 0.3),
+          # LAW118/129: More generous capping (2% for ERNA10/ATTO, 3% for ATPO)
+          parcel == "LAW118/129" & species == "ERNA10" ~ pmin(species_cover, 2.0),
+          parcel == "LAW118/129" & species == "ATTO" ~ pmin(species_cover, 2.0),
+          parcel == "LAW118/129" & species == "ATPO" ~ pmin(species_cover, 3.0),
+          # All other species: No capping (full contribution)
+          TRUE ~ species_cover
+        )
+      )
+    
+    
+    # Calculate final cover after capping
+    final_cover <- sum(parcel_species_cover$capped_cover)
+    
+    # Debug: Show capping results for LAW118/129 2025
+    if (parcel == "LAW118/129" && year == 2025) {
+      cat("\n=== Species Capping Results for", parcel, year, "===\n")
+      capping_results <- parcel_species_cover %>%
+        mutate(
+          capping_applied = ifelse(species_cover != capped_cover, "YES", "NO"),
+          reduction = round(species_cover - capped_cover, 2)
+        ) %>%
+        arrange(desc(capped_cover))
+      print(capping_results)
+      cat("Final cover after capping:", round(final_cover, 2), "%\n")
+    }
+  } else {
+    final_cover <- 0
+  }
+  
+  result <- data.frame(
+    Parcel = parcel,
+    Year = year,
+    `Cover %` = round(original_cover, 2),
+    `Transects` = n_transects,
+    `Cover After Species Caps` = round(final_cover, 2),
+    `Allowed Sp Count` = n_distinct(parcel_allowable$species),
+    `Cover Status` = ifelse(final_cover >= 10, "✅ Compliant", "❌ Non-compliant")
+  )
+  
+  return(result)
+}
+
+# Calculate for all parcels/years based on available data
+# Get all unique parcel/year combinations from the data
+available_combinations <- data_combined %>%
+  select(parcel, year) %>%
+  distinct() %>%
+  arrange(parcel, year)
+
+# Add LAW118/129 2025 data (combine LAW118 and LAW129)
+law118_129_2025 <- calculate_parcel_cover("LAW118/129", 2025)
+
+# Create dashboard data for all available combinations
+dashboard_data <- available_combinations %>%
+  rowwise() %>%
+  mutate(
+    result = list(calculate_parcel_cover(parcel, year))
+  ) %>%
+  ungroup() %>%
+  filter(!purrr::map_lgl(result, is.null)) %>%
+  mutate(result = purrr::map(result, as.data.frame)) %>%
+  pull(result) %>%
+  bind_rows()
+
+# Add LAW118/129 2025 if it exists
+if (!is.null(law118_129_2025)) {
+  dashboard_data <- bind_rows(dashboard_data, law118_129_2025)
+}
+
+# Remove any duplicate rows
+dashboard_data <- dashboard_data %>%
+  distinct(Parcel, Year, .keep_all = TRUE)
+
+# Visual audit: Show analytical results data
+cat("\n=== Analytical Results Data ===\n")
+cat("Total rows:", nrow(dashboard_data), "\n")
+cat("Unique parcel-year combinations:", nrow(unique(dashboard_data[, c("Parcel", "Year")])), "\n")
+
+# Display wider table
+if(nrow(dashboard_data) > 0) {
+DT::datatable(
+  dashboard_data,
+    caption = 'Analytical Results Table',
+    options = list(
+      pageLength = -1,  # Show all rows by default
+      scrollX = FALSE,  # Disable horizontal scrolling to make table wider
+      dom = 'Bfrtip',
+      buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+      columnDefs = list(
+        list(className = 'dt-center', targets = c(1, 2, 3, 4, 5, 6)),
+        list(width = '80px', targets = 0),  # Parcel column
+        list(width = '60px', targets = 1),  # Year column
+        list(width = '80px', targets = 2),  # Cover column
+        list(width = '80px', targets = 3),  # Transects column
+        list(width = '120px', targets = 4), # Cover After column
+        list(width = '100px', targets = 5), # Allowed Sp Count column
+        list(width = '120px', targets = 6) # Cover Status column
+      ),
+      extensions = 'Buttons',
+      autoWidth = TRUE
+    ),
+    rownames = FALSE,
+    width = '100%'
+  )
+} else {
+  cat("No data available for display")
+}
+```
+
+## Species Richness Analysis
+
+**Step 3: Analyze Species Diversity** - Combine transect-detected species with trace species observations - **Filter to allowable species only** - exclude non-allowable species from richness counts - Calculate total species richness per parcel for 2025 - Include common names for better species identification - Apply consistent LAW118/129 parcel naming
+
+This section analyzes species richness for each parcel in 2025, including both transect-detected species and trace species detected on the parcel. **Only allowable species are counted toward the richness targets.**
+
+```{r species-richness-analysis}
+#| echo: true
+
+# Load trace species data
+trace_species <- read_excel("data/LawsRevegetationData_SummaryTable_2025_ForICWD092525.xlsx", 
+                           sheet = "Trace Species") %>%
+  clean_names() %>%
+  select(parcel, species = trace_species) %>%
+  mutate(species = str_trim(species))
+
+# Load species attributes for common names
+species_attributes <- read_csv("data/species.csv", show_col_types = FALSE) %>%
+  select(Code, CommonName) %>%
+  rename(species = Code, common_name = CommonName)
+
+# Get transect-detected species for 2025 (ALLOWABLE SPECIES ONLY)
+transect_species_2025 <- data_combined %>%
+  filter(year == 2025) %>%
+  select(parcel, species) %>%
+  distinct() %>%
+  # Filter to only allowable species based on parcel group
+  mutate(
+    parcel_group = case_when(
+      parcel %in% c("LAW090", "LAW094", "LAW095") ~ "LAW90_94_95",
+      parcel %in% c("LAW118", "LAW129") ~ "LAW118_129",
+      TRUE ~ "Other"
     )
   ) %>%
-  filter(reference_group != 'Other')
+  left_join(allowable_species_combined, by = c("species", "parcel_group")) %>%
+  filter(!is.na(parcel_group)) %>%  # Only keep allowable species
+  filter(species %in% allowable_species_combined$species) %>%  # Double-check filtering
+  select(parcel, species) %>%
+  left_join(species_attributes, by = "species") %>%
+  mutate(
+    detection_method = "Transect",
+    # Combine LAW118 and LAW129 into LAW118/129
+    parcel = ifelse(parcel %in% c("LAW118", "LAW129"), "LAW118/129", parcel)
+  )
 
-# Create complete grid of parcel-year-transect-species for all species (2025 only)
-all_species <- r3_data %>%
-  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118') & year == 2025) %>%
-  select(species, Lifecycle) %>%
+# Get trace species for 2025 (ALLOWABLE SPECIES ONLY)
+trace_species_2025 <- trace_species %>%
+  filter(parcel %in% c("LAW090", "LAW094", "LAW095", "LAW118", "LAW129")) %>%
+  # Filter to only allowable species based on parcel group
+  mutate(
+    parcel_group = case_when(
+      parcel %in% c("LAW090", "LAW094", "LAW095") ~ "LAW90_94_95",
+      parcel %in% c("LAW118", "LAW129") ~ "LAW118_129",
+      TRUE ~ "Other"
+    )
+  ) %>%
+  left_join(allowable_species_combined, by = c("species", "parcel_group")) %>%
+  filter(!is.na(parcel_group)) %>%  # Only keep allowable species
+  filter(species %in% allowable_species_combined$species) %>%  # Double-check filtering
+  select(parcel, species) %>%
+  left_join(species_attributes, by = "species") %>%
+  mutate(
+    detection_method = "Trace",
+    # Combine LAW118 and LAW129 into LAW118/129
+    parcel = ifelse(parcel %in% c("LAW118", "LAW129"), "LAW118/129", parcel)
+  )
+
+# Debug: Show which trace species are being filtered out
+cat("\n=== Trace Species Filtering Debug ===\n")
+trace_before_filter <- trace_species %>%
+  filter(parcel %in% c("LAW090", "LAW094", "LAW095", "LAW118", "LAW129"))
+cat("Trace species before filtering:", nrow(trace_before_filter), "rows\n")
+cat("Trace species after filtering:", nrow(trace_species_2025), "rows\n")
+cat("Filtered out:", nrow(trace_before_filter) - nrow(trace_species_2025), "non-allowable species\n")
+
+# Debug: Show which species are in the final trace species list
+cat("Final trace species list:\n")
+print(unique(trace_species_2025$species))
+cat("SATR12 in trace species:", "SATR12" %in% trace_species_2025$species, "\n")
+
+# Debug: Check if SATR12 is in allowable species lists
+cat("SATR12 in LAW90/94/95 allowable:", "SATR12" %in% allowable_law90_94_95, "\n")
+cat("SATR12 in LAW118/129 allowable:", "SATR12" %in% allowable_law118_129, "\n")
+cat("SATR12 in combined allowable:", "SATR12" %in% allowable_species_combined$species, "\n")
+
+# Combine all species detections
+all_species_2025 <- bind_rows(
+  transect_species_2025,
+  trace_species_2025
+) %>%
+  # Use common name from species attributes, fallback to species code
+  mutate(
+    common_name = case_when(
+      !is.na(common_name) & common_name != "" ~ common_name,
+      TRUE ~ species
+    )
+  ) %>%
+  select(parcel, species, common_name, detection_method) %>%
   distinct()
 
-species_grid <- revegetation_parcels %>%
-  crossing(all_species)
+# Debug: Check if SATR12 is in the final combined species list
+cat("SATR12 in final all_species_2025:", "SATR12" %in% all_species_2025$species, "\n")
+if("SATR12" %in% all_species_2025$species) {
+  satr12_rows <- all_species_2025[all_species_2025$species == "SATR12", ]
+  cat("SATR12 detection method:", paste(unique(satr12_rows$detection_method), collapse = ", "), "\n")
+  cat("SATR12 parcels:", paste(unique(satr12_rows$parcel), collapse = ", "), "\n")
+}
 
-# Get actual species data (2025 only)
-# Use transect_unique to avoid duplication issues
-species_data <- r3_data %>%
-  filter(parcel %in% c('LAW090', 'LAW094', 'LAW095', 'LAW129_118') & year == 2025) %>%
-  group_by(parcel, year, transect_unique, species, Lifecycle) %>%
+# Visual audit: Show species detection summary
+cat("\n=== Species Detection Summary ===\n")
+all_species_2025 %>%
+  group_by(parcel, detection_method) %>%
+  summarise(n_species = n(), .groups = 'drop') %>%
+  print()
+
+cat("\n=== Sample Species Detections ===\n")
+print(head(all_species_2025, 15))
+
+# Calculate species richness by parcel
+species_richness_2025 <- all_species_2025 %>%
+  group_by(parcel) %>%
   summarise(
-    transect_hits = sum(hits, na.rm = TRUE),
-    transect_cover = sum(hits * 1/200 * 100, na.rm = TRUE),
+    total_species = n_distinct(species),
+    transect_species = n_distinct(species[detection_method == "Transect"]),
+    trace_species = n_distinct(species[detection_method == "Trace"]),
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    richness_goal_met = total_species >= 10,
+    status = ifelse(richness_goal_met, "✅ ≥10 species", "❌ <10 species")
+  )
+
+# Create detailed species list for each parcel
+species_lists_2025 <- all_species_2025 %>%
+  group_by(parcel) %>%
+  summarise(
+    species_list = paste(common_name, collapse = ", "),
     .groups = 'drop'
   )
 
-# Join everything together, filling zeros for missing species
-complete_reveg_data <- species_grid %>%
-  left_join(species_data, by = c("parcel", "year", "transect_unique", "species", "Lifecycle")) %>%
-  # Fill NA values with zeros for missing species data
-  mutate(
-    transect_hits = ifelse(is.na(transect_hits), 0, transect_hits),
-    transect_cover = ifelse(is.na(transect_cover), 0, transect_cover)
-  ) %>%
-  # Average across transects for each parcel-species-lifecycle combination
-  group_by(parcel, species, Lifecycle) %>%
-  summarise(
-    avg_cover_all_transects = mean(transect_cover, na.rm = TRUE),
-    n_transects_total = n(),
-    n_transects_with_species = sum(transect_hits > 0, na.rm = TRUE),
-    .groups = 'drop'
-  ) %>%
-  # Only show species with some cover
-  filter(avg_cover_all_transects > 0) %>%
-  arrange(parcel, desc(avg_cover_all_transects)) %>%
-  mutate(
-    avg_cover_all_transects = round(avg_cover_all_transects, 2)
-  ) %>%
-  # Rename for display
-  rename(
-    avg_cover = avg_cover_all_transects
-  ) %>%
-  # Create final table
-  select(parcel, species, Lifecycle, avg_cover, n_transects_total, n_transects_with_species)
+# Combine richness metrics with species lists
+species_richness_table <- species_richness_2025 %>%
+  left_join(species_lists_2025, by = "parcel") %>%
+  select(parcel, total_species, transect_species, trace_species, status, species_list)
 
-# Assign to the expected variable name
-revegetation_species_cover <- complete_reveg_data
-```
-
-```{r, warning=FALSE}
-#| tbl-cap: "Average cover by species for each individual revegetation parcel in 2025 (includes all transects, with zeros for missing species)."
-#| column: screen
-
-datatable(
-  revegetation_species_cover,
+# Display species richness table
+DT::datatable(
+  species_richness_table,
+  caption = 'Species Richness Analysis - 2025',
   options = list(
-    autoWidth = TRUE,
+    pageLength = 10,
     scrollX = TRUE,
-    columnDefs = list(
-      list(width = '15%', targets = 0),     # Parcel
-      list(width = '15%', targets = 1),     # Species
-      list(width = '12%', targets = 2),     # Lifecycle
-      list(width = '15%', targets = 3),     # Average Cover %
-      list(width = '18%', targets = 4),     # Total Transects
-      list(width = '25%', targets = 5)      # Transects with Species
-    ),
     dom = 'Bfrtip',
-    buttons = c('csv'),
-    pageLength = 20
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    columnDefs = list(
+      list(className = 'dt-center', targets = c(1, 2, 3, 4)),
+      list(width = '100px', targets = 0),  # Parcel column
+      list(width = '80px', targets = 1),  # Total species
+      list(width = '80px', targets = 2),  # Transect species
+      list(width = '80px', targets = 3),  # Trace species
+      list(width = '120px', targets = 4), # Status
+      list(width = '300px', targets = 5)  # Species list
+  ),
+  extensions = 'Buttons',
+    autoWidth = TRUE
   ),
   rownames = FALSE,
-  extensions = 'Buttons',
-  filter = 'top',
-  width = '100%',
-  escape = FALSE,
-  colnames = c(
-    "Parcel",
-    "Species",
-    "Lifecycle",
-    "Average<br/>Cover %",
-    "Total<br/>Transects",
-    "Transects<br/>with Species"
+  width = '100%'
+) %>%
+  DT::formatStyle(
+    'status',
+    backgroundColor = DT::styleEqual(
+      c("✅ ≥10 species", "❌ <10 species"),
+      c("#d4edda", "#f8d7da")
+    )
   )
-)
 ```
 
-------------------------------------------------------------------------
+## Grass Species Analysis
+
+**Step 4: Assess Grass Species Presence** - Join species richness data with species attributes to identify grass species - Check if each parcel has at least one grass species (Lifeform = 'Grass') - Create summary table showing grass species presence by parcel and year
+
+```{r grass-species-analysis}
+#| echo: true
+
+# Load species attributes for lifeform information
+species_attributes_full <- read_csv("data/species.csv", show_col_types = FALSE) %>%
+  select(Code, CommonName, Lifeform) %>%
+  rename(species = Code, common_name = CommonName)
+
+# Get all species detections for all years (not just 2025)
+all_species_all_years <- data_combined %>%
+  select(parcel, year, species) %>%
+  distinct() %>%
+  # Filter to only allowable species based on parcel group
+  mutate(
+    parcel_group = case_when(
+      parcel %in% c("LAW090", "LAW094", "LAW095") ~ "LAW90_94_95",
+      parcel %in% c("LAW118", "LAW129") ~ "LAW118_129",
+      TRUE ~ "Other"
+    )
+  ) %>%
+  left_join(allowable_species_combined, by = c("species", "parcel_group")) %>%
+  filter(!is.na(parcel_group)) %>%  # Only keep allowable species
+  filter(species %in% allowable_species_combined$species) %>%  # Double-check filtering
+  select(parcel, year, species) %>%
+  # Join with species attributes to get lifeform information
+  left_join(species_attributes_full, by = "species") %>%
+  # Apply consistent LAW118/129 naming
+  mutate(
+    parcel = ifelse(parcel %in% c("LAW118", "LAW129"), "LAW118/129", parcel)
+  )
+
+# Debug: Check what species are being detected and their lifeforms
+cat("\n=== Grass Species Debug ===\n")
+cat("Sample of species with lifeform data:\n")
+print(head(all_species_all_years %>% select(species, Lifeform) %>% distinct(), 10))
+
+cat("\nUnique lifeforms in data:\n")
+print(unique(all_species_all_years$Lifeform))
+
+cat("\nSpecies with Lifeform = 'Grass':\n")
+grass_species <- all_species_all_years %>% 
+  filter(Lifeform == "Grass") %>% 
+  select(species, Lifeform) %>% 
+  distinct()
+print(grass_species)
+
+cat("\nSpecies with grass-related lifeforms (case insensitive):\n")
+grass_related <- all_species_all_years %>% 
+  filter(str_detect(Lifeform, regex("grass", ignore_case = TRUE))) %>% 
+  select(species, Lifeform) %>% 
+  distinct()
+print(grass_related)
+
+cat("\nAll species detected in 2025 for LAW090:\n")
+law090_2025 <- all_species_all_years %>% 
+  filter(parcel == "LAW090", year == 2025) %>% 
+  select(species, Lifeform) %>% 
+  distinct()
+print(law090_2025)
+
+# Calculate grass species presence by parcel and year
+grass_analysis <- all_species_all_years %>%
+  group_by(parcel, year) %>%
+  summarise(
+    total_species = n_distinct(species),
+    grass_species_count = sum(str_detect(Lifeform, regex("grass", ignore_case = TRUE)), na.rm = TRUE),
+    grass_species_list = if(grass_species_count > 0) {
+      paste(unique(species[str_detect(Lifeform, regex("grass", ignore_case = TRUE))]), collapse = ", ")
+    } else {
+      "None"
+    },
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    grass_target_met = grass_species_count > 0,
+    status = ifelse(grass_target_met, "✅ Grass present", "❌ No grass species")
+  ) %>%
+  # Shorten column names
+  rename(
+    "Total" = total_species,
+    "Count" = grass_species_count,
+    "List" = grass_species_list,
+    "Target" = grass_target_met
+  )
+
+# Display grass species analysis table
+DT::datatable(
+  grass_analysis,
+  caption = 'Grass Species Presence Analysis',
+  options = list(
+    pageLength = -1,  # Show all rows
+    scrollX = TRUE,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    columnDefs = list(
+      list(className = 'dt-center', targets = c(1, 2, 3, 4, 5, 6)),
+      list(width = '120px', targets = 0),  # Parcel column
+      list(width = '80px', targets = 1),   # Year column
+      list(width = '120px', targets = 2),  # Total species
+      list(width = '120px', targets = 3),  # Grass count
+      list(width = '140px', targets = 4),  # Grass present
+      list(width = '160px', targets = 5),  # Status
+      list(width = '250px', targets = 6)   # Grass species list
+    ),
+    extensions = 'Buttons',
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  width = '100%'
+) %>%
+  DT::formatStyle(
+    'status',
+    backgroundColor = DT::styleEqual(
+      c("✅ Grass present", "❌ No grass species"),
+      c("#d4edda", "#f8d7da")
+    )
+  )
+```
+
+## Grass Species Summary
+
+**Step 5: Comprehensive Grass Species Analysis** - Show all grass species detected (both allowed and non-allowed) - Compare grass species presence between allowed and non-allowed lists - Provide complete grass species inventory by parcel and year
+
+```{r grass-species-summary}
+#| echo: true
+
+# Get ALL grass species (not just allowable ones)
+all_grass_species <- data_combined %>%
+  select(parcel, year, species) %>%
+  distinct() %>%
+  # Join with species attributes to get lifeform information
+  left_join(species_attributes_full, by = "species") %>%
+  # Filter for grass species (case insensitive)
+  filter(str_detect(Lifeform, regex("grass", ignore_case = TRUE))) %>%
+  # Apply consistent LAW118/129 naming
+  mutate(
+    parcel = ifelse(parcel %in% c("LAW118", "LAW129"), "LAW118/129", parcel)
+  ) %>%
+  # Add allowable status
+  mutate(
+    parcel_group = case_when(
+      parcel %in% c("LAW090", "LAW094", "LAW095") ~ "LAW90_94_95",
+      parcel == "LAW118/129" ~ "LAW118_129",
+      TRUE ~ "Other"
+    )
+  ) %>%
+  mutate(
+    is_allowable = species %in% allowable_species_combined$species,
+    status = ifelse(is_allowable, "✅ Allowed", "❌ Not Allowed")
+  ) %>%
+  select(parcel, year, species, common_name, Lifeform, is_allowable, status)
+
+# Create summary table of grass species by parcel and year
+grass_summary <- all_grass_species %>%
+  group_by(parcel, year) %>%
+  summarise(
+    total_grass_species = n(),
+    allowed_grass_species = sum(is_allowable),
+    non_allowed_grass_species = sum(!is_allowable),
+    grass_species_list = paste(species, collapse = ", "),
+    allowed_grass_list = if(sum(is_allowable) > 0) {
+      paste(species[is_allowable], collapse = ", ")
+    } else {
+      "None"
+    },
+    non_allowed_grass_list = if(sum(!is_allowable) > 0) {
+      paste(species[!is_allowable], collapse = ", ")
+    } else {
+      "None"
+    },
+    .groups = 'drop'
+  ) %>%
+  mutate(
+    grass_target_met = allowed_grass_species > 0,
+    status = ifelse(grass_target_met, "✅ Allowed grass present", "❌ No allowed grass")
+  ) %>%
+  # Remove redundant columns and shorten names
+  select(-grass_species_list, -non_allowed_grass_list) %>%
+  rename(
+    "Total" = total_grass_species,
+    "Allowed" = allowed_grass_species,
+    "Non-Allowed" = non_allowed_grass_species,
+    "Allowed List" = allowed_grass_list,
+    "Target" = grass_target_met
+  )
+
+# Display comprehensive grass species summary
+DT::datatable(
+  grass_summary,
+  caption = 'Comprehensive Grass Species Analysis - All Grass Species (Allowed and Non-Allowed)',
+  options = list(
+    pageLength = -1,  # Show all rows
+    scrollX = TRUE,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    columnDefs = list(
+      list(className = 'dt-center', targets = c(1, 2, 3, 4, 5, 6))  # Center align status columns
+  ),
+  extensions = 'Buttons',
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  width = '100%'
+) %>%
+  DT::formatStyle(
+    'status',
+    backgroundColor = DT::styleEqual(
+      c("✅ Allowed grass present", "❌ No allowed grass"),
+      c("#d4edda", "#f8d7da")
+    )
+  )
+
+# Also show detailed grass species table
+cat("\n=== Detailed Grass Species by Parcel and Year ===\n")
+DT::datatable(
+  all_grass_species,
+  caption = 'Detailed Grass Species List - All Grass Species Detected',
+  options = list(
+    pageLength = 20,
+    scrollX = TRUE,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    columnDefs = list(
+      list(className = 'dt-center', targets = c(1, 2, 3, 4, 5, 6)),
+      list(width = '100px', targets = 0),  # Parcel column
+      list(width = '60px', targets = 1),  # Year column
+      list(width = '80px', targets = 2),  # Species code
+      list(width = '150px', targets = 3), # Common name
+      list(width = '100px', targets = 4), # Lifeform
+      list(width = '100px', targets = 5)  # Status
+    ),
+    extensions = 'Buttons',
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  width = '100%'
+) %>%
+  DT::formatStyle(
+    'status',
+    backgroundColor = DT::styleEqual(
+      c("✅ Allowed", "❌ Not Allowed"),
+      c("#d4edda", "#f8d7da")
+    )
+  )
+```
+
+## Transect-Level Cover Analysis
+
+**Step 6: Assess Transect-Level Cover Requirements** - Calculate allowable cover percentage for each individual transect - Check if each transect meets the ≥2% allowable cover requirement - Provide summary statistics of transect compliance - Identify which transects fail to meet the 2% allowable cover threshold
+
+```{r transect-cover-analysis}
+#| echo: true
+
+# Function to calculate transect-level cover
+calculate_transect_cover <- function(parcel_name, year_value, allowable_species_codes) {
+  # Filter data for specific parcel and year
+  parcel_data <- data_combined %>%
+    filter(parcel == parcel_name, year == year_value)
+  
+  if (nrow(parcel_data) == 0) {
+    return(data.frame(
+      parcel = character(0),
+      year = integer(0),
+      transect = character(0),
+      total_hits = numeric(0),
+      cover_percentage = numeric(0),
+      meets_2_percent = logical(0)
+    ))
+  }
+  
+  # Calculate cover for each transect
+  transect_cover <- parcel_data %>%
+    # Filter to only allowable species
+    filter(species %in% allowable_species_codes) %>%
+    group_by(transect) %>%
+    summarise(
+      total_hits = sum(hits, na.rm = TRUE),
+      .groups = 'drop'
+    ) %>%
+    mutate(
+      # Convert hits to cover percentage (hits/200 * 100)
+      cover_percentage = (total_hits / 200) * 100,
+      meets_2_percent = cover_percentage >= 2.0,
+      parcel = parcel_name,
+      year = year_value
+    ) %>%
+    select(parcel, year, transect, total_hits, cover_percentage, meets_2_percent)
+  
+  return(transect_cover)
+}
+
+# Debug: Check what data is available
+cat("\n=== Transect Analysis Debug ===\n")
+cat("Available parcels and years in data_combined:\n")
+print(data_combined %>% select(parcel, year) %>% distinct() %>% arrange(parcel, year))
+
+cat("\nAllowable species count:", length(allowable_species_combined$species), "\n")
+cat("Sample allowable species:", head(allowable_species_combined$species, 5), "\n")
+
+# Calculate transect cover for all parcels and years
+transect_results <- list()
+
+# LAW090
+cat("\nProcessing LAW090...\n")
+transect_results[["LAW090_2022"]] <- calculate_transect_cover("LAW090", 2022, allowable_species_combined$species)
+transect_results[["LAW090_2023"]] <- calculate_transect_cover("LAW090", 2023, allowable_species_combined$species)
+transect_results[["LAW090_2024"]] <- calculate_transect_cover("LAW090", 2024, allowable_species_combined$species)
+transect_results[["LAW090_2025"]] <- calculate_transect_cover("LAW090", 2025, allowable_species_combined$species)
+
+# LAW094
+cat("Processing LAW094...\n")
+transect_results[["LAW094_2022"]] <- calculate_transect_cover("LAW094", 2022, allowable_species_combined$species)
+transect_results[["LAW094_2023"]] <- calculate_transect_cover("LAW094", 2023, allowable_species_combined$species)
+transect_results[["LAW094_2024"]] <- calculate_transect_cover("LAW094", 2024, allowable_species_combined$species)
+transect_results[["LAW094_2025"]] <- calculate_transect_cover("LAW094", 2025, allowable_species_combined$species)
+
+# LAW095
+cat("Processing LAW095...\n")
+transect_results[["LAW095_2022"]] <- calculate_transect_cover("LAW095", 2022, allowable_species_combined$species)
+transect_results[["LAW095_2023"]] <- calculate_transect_cover("LAW095", 2023, allowable_species_combined$species)
+transect_results[["LAW095_2024"]] <- calculate_transect_cover("LAW095", 2024, allowable_species_combined$species)
+transect_results[["LAW095_2025"]] <- calculate_transect_cover("LAW095", 2025, allowable_species_combined$species)
+
+# LAW118/129 (combined)
+cat("Processing LAW118/129...\n")
+transect_results[["LAW118_129_2022"]] <- calculate_transect_cover("LAW118/129", 2022, allowable_species_combined$species)
+transect_results[["LAW118_129_2023"]] <- calculate_transect_cover("LAW118/129", 2023, allowable_species_combined$species)
+transect_results[["LAW118_129_2025"]] <- calculate_transect_cover("LAW118/129", 2025, allowable_species_combined$species)
+
+# Check results
+cat("\nTransect results summary:\n")
+for(i in names(transect_results)) {
+  cat(i, ":", nrow(transect_results[[i]]), "rows\n")
+}
+
+# Combine all results
+all_transect_results <- bind_rows(transect_results, .id = "parcel_year") %>%
+  select(-parcel_year)  # Remove the ID column
+
+cat("\nCombined transect results:", nrow(all_transect_results), "rows\n")
+if(nrow(all_transect_results) > 0) {
+  cat("Sample of combined results:\n")
+  print(head(all_transect_results, 3))
+  
+  # Debug: Check LAW118/129 2025 specifically
+  cat("\n=== LAW118/129 2025 Debug ===\n")
+  law118_129_2025 <- all_transect_results %>% 
+    filter(parcel == "LAW118/129", year == 2025)
+  cat("LAW118/129 2025 rows:", nrow(law118_129_2025), "\n")
+  if(nrow(law118_129_2025) > 0) {
+    cat("Cover percentages:\n")
+    print(law118_129_2025$cover_percentage)
+    cat("Below 2% count:", sum(law118_129_2025$cover_percentage < 2.0), "\n")
+    cat("Below 2% transects:\n")
+    below_2 <- law118_129_2025 %>% filter(cover_percentage < 2.0)
+    print(below_2)
+    
+    # Check the exact threshold calculation
+    cat("Threshold check (cover_percentage < 2.0):\n")
+    print(law118_129_2025$cover_percentage < 2.0)
+    cat("meets_2_percent values:\n")
+    print(law118_129_2025$meets_2_percent)
+  }
+} else {
+  cat("WARNING: No transect results found!\n")
+}
+
+# Debug: Check if we have data for summary
+cat("\n=== Summary Table Debug ===\n")
+cat("All transect results structure:\n")
+str(all_transect_results)
+cat("\nUnique parcels in results:\n")
+print(unique(all_transect_results$parcel))
+cat("\nUnique years in results:\n")
+print(unique(all_transect_results$year))
+
+# Create summary statistics
+if(nrow(all_transect_results) > 0) {
+  cat("Creating summary statistics...\n")
+  transect_summary <- all_transect_results %>%
+    group_by(parcel, year) %>%
+    summarise(
+      total_transects = n(),
+      transects_meeting_2_percent = sum(meets_2_percent, na.rm = TRUE),
+      transects_below_2_percent = sum(!meets_2_percent, na.rm = TRUE),
+      compliance_rate = round((transects_meeting_2_percent / total_transects) * 100, 1),
+      avg_cover_percentage = round(mean(cover_percentage, na.rm = TRUE), 2),
+      min_cover_percentage = round(min(cover_percentage, na.rm = TRUE), 2),
+      max_cover_percentage = round(max(cover_percentage, na.rm = TRUE), 2),
+      .groups = 'drop'
+    ) %>%
+    mutate(
+      status = ifelse(compliance_rate == 100, "✅ All transects ≥2% allowable", 
+                     ifelse(compliance_rate >= 80, "⚠️ Most transects ≥2% allowable", "❌ Many transects <2% allowable"))
+    ) %>%
+    # Rename columns for readability
+    rename(
+      "Total Transects" = total_transects,
+      "Meeting 2%" = transects_meeting_2_percent,
+      "Below 2%" = transects_below_2_percent,
+      "Compliance Rate (%)" = compliance_rate,
+      "Avg Cover (%)" = avg_cover_percentage,
+      "Min Cover (%)" = min_cover_percentage,
+      "Max Cover (%)" = max_cover_percentage,
+      "Status" = status
+    )
+  
+  cat("Summary table created with", nrow(transect_summary), "rows\n")
+  cat("Summary table structure:\n")
+  str(transect_summary)
+  cat("Sample summary data:\n")
+  print(head(transect_summary, 3))
+  
+  # Debug: Check LAW118/129 2025 summary specifically
+  cat("\n=== LAW118/129 2025 Summary Debug ===\n")
+  law118_129_2025_summary <- transect_summary %>% 
+    filter(parcel == "LAW118/129", year == 2025)
+  if(nrow(law118_129_2025_summary) > 0) {
+    print(law118_129_2025_summary)
+  } else {
+    cat("No LAW118/129 2025 summary found!\n")
+  }
+} else {
+  cat("No data available, creating empty summary...\n")
+  # Create empty summary when no data
+  transect_summary <- data.frame(
+    parcel = character(0),
+    year = integer(0),
+    total_transects = integer(0),
+    transects_meeting_2_percent = integer(0),
+    transects_below_2_percent = integer(0),
+    compliance_rate = numeric(0),
+    avg_cover_percentage = numeric(0),
+    min_cover_percentage = numeric(0),
+    max_cover_percentage = numeric(0),
+    status = character(0)
+  )
+}
+
+# Display transect summary table
+DT::datatable(
+  transect_summary,
+  caption = 'Transect-Level Cover Analysis Summary - 2% Allowable Cover Requirement',
+  options = list(
+    pageLength = -1,  # Show all rows
+    scrollX = TRUE,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    columnDefs = list(
+      list(className = 'dt-center', targets = c(1, 2, 3, 4, 5, 6, 7, 8, 9)),
+      list(width = '120px', targets = 0),  # Parcel column
+      list(width = '80px', targets = 1),   # Year column
+      list(width = '120px', targets = 2),  # Total transects
+      list(width = '140px', targets = 3), # Meeting 2%
+      list(width = '120px', targets = 4), # Below 2%
+      list(width = '160px', targets = 5), # Compliance rate
+      list(width = '140px', targets = 6), # Avg cover
+      list(width = '140px', targets = 7), # Min cover
+      list(width = '140px', targets = 8), # Max cover
+      list(width = '200px', targets = 9)  # Status
+    ),
+    extensions = 'Buttons',
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  width = '100%'
+) %>%
+  DT::formatStyle(
+    'Status',
+    backgroundColor = DT::styleEqual(
+      c("✅ All transects ≥2% allowable", "⚠️ Most transects ≥2% allowable", "❌ Many transects <2% allowable"),
+      c("#d4edda", "#fff3cd", "#f8d7da")
+    )
+  )
+
+# Display detailed transect results
+if(nrow(all_transect_results) > 0) {
+  DT::datatable(
+    all_transect_results,
+    caption = 'Detailed Transect-Level Cover Analysis - Individual Transect Results (Allowable Species Only)',
+  options = list(
+    pageLength = 20,
+    scrollX = TRUE,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    columnDefs = list(
+      list(className = 'dt-center', targets = c(1, 2, 3, 4, 5)),
+      list(width = '100px', targets = 0),  # Parcel column
+      list(width = '60px', targets = 1),  # Year column
+      list(width = '80px', targets = 2),  # Transect column
+      list(width = '80px', targets = 3),  # Total hits
+      list(width = '100px', targets = 4), # Cover percentage
+      list(width = '100px', targets = 5)  # Meets 2%
+    ),
+    extensions = 'Buttons',
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  width = '100%'
+) %>%
+  DT::formatStyle(
+    'meets_2_percent',
+    backgroundColor = DT::styleEqual(
+      c(TRUE, FALSE),
+      c("#d4edda", "#f8d7da")
+    )
+  ) %>%
+  DT::formatRound(
+    columns = 'cover_percentage',
+    digits = 2
+  )
+} else {
+  cat("\n=== No Transect Data Available ===\n")
+  cat("No transect-level data found. This could be due to:\n")
+  cat("1. No data available for the specified parcels/years\n")
+  cat("2. No allowable species found in the data\n")
+  cat("3. Data filtering issues\n")
+  cat("Please check the debug output above for more details.\n")
+}
+```
+
+## Species with 3+ Hits Analysis
+
+**Step 7: Assess Species with 3+ Hits Requirement** - Count species with 3+ hits for each parcel and year - Check if each parcel meets the ≥6 species with 3+ hits requirement - Filter to only allowable species (including ATTO, ERNA10, ATPO) - Provide summary statistics of species diversity compliance
+
+```{r species-3plus-hits-analysis}
+#| echo: true
+
+# Function to calculate species with 3+ hits for each parcel and year
+calculate_species_3plus_hits <- function(parcel_name, year_value, allowable_species_codes) {
+  # Filter data for specific parcel and year
+  parcel_data <- data_combined %>%
+    filter(parcel == parcel_name, year == year_value)
+  
+  if (nrow(parcel_data) == 0) {
+    return(data.frame(
+      parcel = parcel_name,
+      year = year_value,
+      species_3plus_count = 0,
+      meets_6_species = FALSE,
+      species_3plus_list = "None"
+    ))
+  }
+  
+  # Calculate species with 3+ hits (allowable species only)
+  species_3plus <- parcel_data %>%
+    # Filter to only allowable species
+    filter(species %in% allowable_species_codes) %>%
+    group_by(species) %>%
+    summarise(
+      total_hits = sum(hits, na.rm = TRUE),
+      .groups = 'drop'
+    ) %>%
+    filter(total_hits >= 3) %>%
+    arrange(desc(total_hits))
+  
+  # Create summary
+  species_3plus_count <- nrow(species_3plus)
+  meets_6_species <- species_3plus_count >= 6
+  species_3plus_list <- if(species_3plus_count > 0) {
+    paste(species_3plus$species, collapse = ", ")
+  } else {
+    "None"
+  }
+  
+  return(data.frame(
+    parcel = parcel_name,
+    year = year_value,
+    species_3plus_count = species_3plus_count,
+    meets_6_species = meets_6_species,
+    species_3plus_list = species_3plus_list
+  ))
+}
+
+# Calculate species with 3+ hits for all parcels and years
+species_3plus_results <- list()
+
+# LAW090
+cat("Processing LAW090 species with 3+ hits...\n")
+species_3plus_results[["LAW090_2022"]] <- calculate_species_3plus_hits("LAW090", 2022, allowable_species_combined$species)
+species_3plus_results[["LAW090_2023"]] <- calculate_species_3plus_hits("LAW090", 2023, allowable_species_combined$species)
+species_3plus_results[["LAW090_2024"]] <- calculate_species_3plus_hits("LAW090", 2024, allowable_species_combined$species)
+species_3plus_results[["LAW090_2025"]] <- calculate_species_3plus_hits("LAW090", 2025, allowable_species_combined$species)
+
+# LAW094
+cat("Processing LAW094 species with 3+ hits...\n")
+species_3plus_results[["LAW094_2022"]] <- calculate_species_3plus_hits("LAW094", 2022, allowable_species_combined$species)
+species_3plus_results[["LAW094_2023"]] <- calculate_species_3plus_hits("LAW094", 2023, allowable_species_combined$species)
+species_3plus_results[["LAW094_2024"]] <- calculate_species_3plus_hits("LAW094", 2024, allowable_species_combined$species)
+species_3plus_results[["LAW094_2025"]] <- calculate_species_3plus_hits("LAW094", 2025, allowable_species_combined$species)
+
+# LAW095
+cat("Processing LAW095 species with 3+ hits...\n")
+species_3plus_results[["LAW095_2022"]] <- calculate_species_3plus_hits("LAW095", 2022, allowable_species_combined$species)
+species_3plus_results[["LAW095_2023"]] <- calculate_species_3plus_hits("LAW095", 2023, allowable_species_combined$species)
+species_3plus_results[["LAW095_2024"]] <- calculate_species_3plus_hits("LAW095", 2024, allowable_species_combined$species)
+species_3plus_results[["LAW095_2025"]] <- calculate_species_3plus_hits("LAW095", 2025, allowable_species_combined$species)
+
+# LAW118/129 (combined)
+cat("Processing LAW118/129 species with 3+ hits...\n")
+species_3plus_results[["LAW118_129_2022"]] <- calculate_species_3plus_hits("LAW118/129", 2022, allowable_species_combined$species)
+species_3plus_results[["LAW118_129_2023"]] <- calculate_species_3plus_hits("LAW118/129", 2023, allowable_species_combined$species)
+species_3plus_results[["LAW118_129_2025"]] <- calculate_species_3plus_hits("LAW118/129", 2025, allowable_species_combined$species)
+
+# Combine all results
+all_species_3plus_results <- bind_rows(species_3plus_results, .id = "parcel_year") %>%
+  select(-parcel_year)  # Remove the ID column
+
+cat("\nSpecies with 3+ hits results:", nrow(all_species_3plus_results), "rows\n")
+if(nrow(all_species_3plus_results) > 0) {
+  cat("Sample results:\n")
+  print(head(all_species_3plus_results, 3))
+}
+
+# Create summary statistics (simplified) - only show monitored years
+# Define which years were actually monitored for each parcel
+monitored_years <- list(
+  "LAW090" = c(2022, 2024, 2025),
+  "LAW094" = c(2022, 2024, 2025), 
+  "LAW095" = c(2022, 2024, 2025),
+  "LAW118/129" = c(2022, 2023, 2025)
+)
+
+species_3plus_summary <- all_species_3plus_results %>%
+  # Filter to only show parcel-years that were actually monitored
+  filter(
+    (parcel == "LAW090" & year %in% monitored_years[["LAW090"]]) |
+    (parcel == "LAW094" & year %in% monitored_years[["LAW094"]]) |
+    (parcel == "LAW095" & year %in% monitored_years[["LAW095"]]) |
+    (parcel == "LAW118/129" & year %in% monitored_years[["LAW118/129"]])
+  ) %>%
+  select(parcel, year, species_3plus_count, meets_6_species, species_3plus_list) %>%
+  mutate(
+    status = ifelse(meets_6_species, "✅", "❌")
+  ) %>%
+  # Rename columns for readability
+  rename(
+    "Count" = species_3plus_count,
+    "Target" = meets_6_species,
+    "Species" = species_3plus_list,
+    "Status" = status
+  )
+
+# Display species with 3+ hits summary table
+DT::datatable(
+  species_3plus_summary,
+  caption = 'Species with 3+ Hits Analysis Summary - 6 Species Requirement',
+  options = list(
+    pageLength = -1,  # Show all rows
+    scrollX = TRUE,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print'),
+    columnDefs = list(
+      list(className = 'dt-center', targets = c(1, 2, 3, 4, 5)),
+      list(width = '80px', targets = 0),  # Parcel column
+      list(width = '50px', targets = 1),  # Year column
+      list(width = '60px', targets = 2), # Count
+      list(width = '60px', targets = 3), # Target
+      list(width = '150px', targets = 4), # Species list
+      list(width = '60px', targets = 5)   # Status
+    ),
+  extensions = 'Buttons',
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  width = '100%'
+) %>%
+  DT::formatStyle(
+    'Status',
+    backgroundColor = DT::styleEqual(
+      c("✅", "❌"),
+      c("#d4edda", "#f8d7da")
+    )
+  ) %>%
+  DT::formatStyle(
+    'Target',
+    backgroundColor = DT::styleEqual(
+      c(TRUE, FALSE),
+      c("#d4edda", "#f8d7da")
+    )
+  )
+
+# Note: Detailed table removed - all information now in summary table above
+```
+
+## Comprehensive Target Status Summary
+
+**Step 8: Comprehensive Target Assessment** - Combine all revegetation target statuses into a single summary table - Show overall target achievement across all metrics for each parcel-year - Provide complete compliance overview for monitoring and reporting
+
+### Column Descriptions
+
+This table provides a comprehensive overview of revegetation target achievement across all Laws parcels and monitoring years. Each column represents a specific target metric:
+
+-   **Cover**: Overall allowable species cover target (≥10% required)
+-   **Grass**: Presence of at least one grass species (required for all parcels)
+-   **Transect**: Every transect \>2% cover
+-   **Species 3+**: ≥6 species with 3+ hits
+-   **Overall**: Combined status across all target metrics
+
+**Status Indicators:** - ✅ **Green**: Target met/compliant - ❌ **Red**: Target not met/non-compliant
+
+```{r debug-dashboard-data}
+#| echo: true
+
+# Debug: Check what columns exist in dashboard_data
+cat("Columns in dashboard_data:\n")
+print(names(dashboard_data))
+cat("Sample of dashboard_data:\n")
+print(head(dashboard_data, 2))
+```
+
+```{r comprehensive-target-summary}
+#| echo: true
+
+# Check if dashboard_data exists and has the right structure
+if (!exists("dashboard_data")) {
+  cat("ERROR: dashboard_data does not exist!\n")
+} else {
+  cat("dashboard_data exists with", nrow(dashboard_data), "rows and", ncol(dashboard_data), "columns\n")
+  cat("Column names:", paste(names(dashboard_data), collapse = ", "), "\n")
+}
+
+# Get the analytical results (cover targets)
+if (exists("dashboard_data") && ncol(dashboard_data) >= 7) {
+  cover_results <- dashboard_data %>%
+    select(1, 2, 7) %>%  # Parcel, Year, Cover Status (7th column)
+    rename(parcel = 1, year = 2, cover_status = 3)
+  
+  # Debug: Check cover_results
+  cat("Cover results dimensions:", dim(cover_results), "\n")
+  print(head(cover_results, 2))
+} else {
+  cat("ERROR: dashboard_data doesn't have enough columns or doesn't exist\n")
+  cover_results <- data.frame()
+}
+
+# Get grass species results
+if (exists("grass_analysis") && "Target" %in% names(grass_analysis)) {
+  grass_results <- grass_analysis %>%
+    select(parcel, year, Target) %>%
+    mutate(grass_status = ifelse(Target, "✅", "❌")) %>%
+    select(parcel, year, grass_status)  # Remove Target column
+  
+  # Debug: Check grass_results
+  cat("Grass results dimensions:", dim(grass_results), "\n")
+  print(head(grass_results, 2))
+} else {
+  cat("ERROR: grass_analysis doesn't exist or doesn't have Target column\n")
+  grass_results <- data.frame()
+}
+
+# Get transect cover results (2% allowable cover)
+if (exists("transect_summary") && "Compliance Rate (%)" %in% names(transect_summary)) {
+  transect_results <- transect_summary %>%
+    select(parcel, year, `Compliance Rate (%)`) %>%
+    mutate(
+      transect_status = case_when(
+        `Compliance Rate (%)` == 100 ~ "✅",
+        TRUE ~ "❌"
+      )
+    ) %>%
+    select(parcel, year, transect_status)
+} else {
+  cat("ERROR: transect_summary doesn't exist or doesn't have Compliance Rate (%) column\n")
+  transect_results <- data.frame()
+}
+
+# Get species with 3+ hits results
+if (exists("all_species_3plus_results") && "meets_6_species" %in% names(all_species_3plus_results)) {
+  species_3plus_results_summary <- all_species_3plus_results %>%
+    select(parcel, year, meets_6_species) %>%
+    mutate(species_3plus_status = ifelse(meets_6_species, "✅", "❌"))
+} else {
+  cat("ERROR: all_species_3plus_results doesn't exist or doesn't have meets_6_species column\n")
+  species_3plus_results_summary <- data.frame()
+}
+
+# Combine all results
+if (nrow(cover_results) > 0) {
+  comprehensive_summary <- cover_results %>%
+    left_join(grass_results, by = c("parcel", "year")) %>%
+    left_join(transect_results, by = c("parcel", "year")) %>%
+    left_join(species_3plus_results_summary, by = c("parcel", "year")) %>%
+    # Create overall status (two-tiered: All Targets Met or Targets Not Met)
+    mutate(
+      overall_status = case_when(
+        cover_status == "✅ Compliant" & 
+        grass_status == "✅" & 
+        transect_status == "✅" & 
+        species_3plus_status == "✅" ~ "✅ All Targets Met",
+        TRUE ~ "❌ Targets Not Met"
+      )
+    ) %>%
+  # Simplify cover status to emoji only
+  mutate(
+    cover_status = case_when(
+      cover_status == "✅ Compliant" ~ "✅",
+      cover_status == "❌ Non-compliant" ~ "❌",
+      TRUE ~ cover_status
+    )
+  ) %>%
+  # Remove redundant boolean columns and rename for display
+  select(-meets_6_species) %>%
+  rename(
+    "Cover" = cover_status,
+    "Grass" = grass_status,
+    "Transect" = transect_status,
+    "Species 3+" = species_3plus_status,
+    "Overall" = overall_status
+  )
+  
+  # Debug: Check the comprehensive_summary data
+  cat("Comprehensive summary dimensions:", dim(comprehensive_summary), "\n")
+  cat("Comprehensive summary columns:", names(comprehensive_summary), "\n")
+  print(head(comprehensive_summary, 3))
+  
+  # Display comprehensive target summary - try different approaches
+  cat("Creating interactive table...\n")
+  
+  # Check if DT is available
+  if (requireNamespace("DT", quietly = TRUE)) {
+    cat("DT library is available\n")
+    
+    # Try DT table with proper column widths
+    tryCatch({
+      simple_table <- DT::datatable(
+        comprehensive_summary,
+        caption = 'Comprehensive Revegetation Target Status Summary - All Parcels and Years (Cover: ≥10% allowable species, Grass: presence required, Every Transect: >2% cover, ≥6 species with 3+ hits, Overall: combined status)',
+        options = list(
+          pageLength = -1,
+          autoWidth = TRUE,
+          columnDefs = list(
+            list(className = 'dt-center', targets = c(1, 2, 3, 4, 5, 6))  # Center align status columns
+          )
+        ),
+        rownames = FALSE
+      ) %>%
+      DT::formatStyle(
+        'Cover',
+        backgroundColor = DT::styleEqual(
+          c("✅", "❌"),
+          c("#d4edda", "#f8d7da")
+        )
+      ) %>%
+      DT::formatStyle(
+        'Grass',
+        backgroundColor = DT::styleEqual(
+          c("✅", "❌"),
+          c("#d4edda", "#f8d7da")
+        )
+      ) %>%
+      DT::formatStyle(
+        'Transect',
+        backgroundColor = DT::styleEqual(
+          c("✅", "⚠️", "❌"),
+          c("#d4edda", "#fff3cd", "#f8d7da")
+        )
+      ) %>%
+      DT::formatStyle(
+        'Species 3+',
+        backgroundColor = DT::styleEqual(
+          c("✅", "❌"),
+          c("#d4edda", "#f8d7da")
+        )
+      ) %>%
+      DT::formatStyle(
+        'Overall',
+        backgroundColor = DT::styleEqual(
+          c("✅ All Targets Met", "❌ Targets Not Met"),
+          c("#d4edda", "#f8d7da")
+        )
+      )
+      cat("DT table created successfully\n")
+      simple_table
+    }, error = function(e) {
+      cat("DT table creation failed:", e$message, "\n")
+      cat("Falling back to basic table display\n")
+      knitr::kable(comprehensive_summary, caption = "Comprehensive Revegetation Target Status Summary")
+    })
+  } else {
+    cat("DT library not available, using basic table\n")
+    knitr::kable(comprehensive_summary, caption = "Comprehensive Revegetation Target Status Summary")
+  }
+} else {
+  cat("ERROR: Cannot create comprehensive summary - no data available\n")
+  cat("Cover results rows:", nrow(cover_results), "\n")
+  cat("Grass results rows:", nrow(grass_results), "\n")
+  cat("Transect results rows:", nrow(transect_results), "\n")
+  cat("Species 3+ results rows:", nrow(species_3plus_results_summary), "\n")
+}
+```
+
+## Data Sources
+
+### Overview
+
+This analysis integrates multiple data sources to provide comprehensive revegetation target assessment across all Laws parcels. The following datasets are available for download:
+
+### Data Processing Summary
+
+**Raw Data Sources** - **LAW090/094/095**: LADWP Excel files (2022-2025) - **LAW118/129**: ICWD CSV files (2022-2025) - **Species Lists**: Allowable species by parcel group - **Reference Data**: Policy thresholds and capping rules
+
+**Processing Steps** 1. **Data Loading**: Import and clean raw survey data 2. **Species Filtering**: Apply allowable species lists 3. **Cover Calculation**: Convert hits to percentage cover 4. **Capping Rules**: Apply species-specific limits 5. **Compliance Assessment**: Evaluate against 5 target criteria 6. **Export Results**: Generate summary tables and spatial data
+
+### Available Datasets
+
+### 📥 Input Data
+
+#### Primary Monitoring Data
+
+**LAW090/094/095 Parcels (2022-2025)** - **Source**: Los Angeles Department of Water and Power (LADWP) - **Files**: - [2022 Data](data/raw/reveg/laws_reveg_data_2022.csv) - LAW090/094/095 monitoring data - [2024 Data](data/raw/reveg/laws_reveg_data_2024.csv) - LAW090/094/095 monitoring data\
+- [2025 Data](data/raw/reveg/LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx) - LAW090/094/095 Excel data - **Content**: Point-intercept survey data with species hits per transect - **Cover Conversion**: Raw hits converted to percentage cover (hits/200 × 100) - **Years**: 2022, 2024, 2025 (no monitoring in 2023)
+
+**LAW118/129 Parcels (2022-2025)** - **Source**: Inyo County Water Department (ICWD) - **Files**: - [2022 Data](data/raw/reveg/laws_reveg_data_2022.csv) - LAW118/129 monitoring data - [2023 Data](data/raw/reveg/laws118_reveg_data_2023.csv) - LAW118/129 monitoring data - [2025 Data](data/raw/reveg/LAW118_129_reveg2025_e.csv) - LAW118/129 monitoring data - **Content**: Point-intercept survey data for combined LAW118/129 parcel - **Cover Conversion**: Raw hits converted to percentage cover (hits/200 × 100) - **Years**: 2022, 2023, 2025 (no monitoring in 2024)
+
+### 🔧 Auxiliary Data
+
+#### Species Reference Data
+
+-   **File**: [TypeE_Transfer_SppList.xlsx](data/TypeE_Transfer_SppList.xlsx)
+-   **Content**: Species lists defining allowable species for revegetation targets
+-   **Groups**:
+    -   **LAW90_94_95**: Allowable species for LAW090, LAW094, LAW095
+    -   **LAW118_129**: Allowable species for LAW118/129 combined parcel
+-   **Core Species**: ERNA10, ATTO, ATPO automatically included in all lists
+
+#### Species Attributes
+
+-   **File**: [species.csv](data/species.csv) - Species codes, names, and classifications
+-   **Content**: Complete species database with lifeform, lifecycle, and common names
+-   **Usage**: Species identification and classification for analysis
+
+### 📊 Processed Data
+
+The analysis generates several key datasets that are available for download:
+
+#### Merged Revegetation Data
+
+-   [**Analytical Results Table**](analytical_results_table.csv) - Complete merged dataset with cover conversion and species attributes
+-   **Content**: Raw survey data with hits converted to cover percentages, species attributes joined, and capping rules applied
+-   **Usage**: Primary dataset for all downstream analysis and compliance calculations
+
+#### Spatial Data
+
+-   [**Parcel Boundaries**](laws_parcels.geojson) - GeoJSON boundaries for all Laws parcels
+-   [**Transect Locations**](laws_transects.geojson) - GeoJSON point locations of all monitoring transects
+-   [**Transect Data (CSV)**](laws_transects.csv) - Transect coordinates and metadata in CSV format
+
+### 📋 Summary Tables
+
+#### Parcel-Level Summaries
+
+-   [**Parcel Summary**](parcel_summary.csv) - Parcel-level compliance statistics by year
+-   [**Species Summary**](species_summary_all_years.csv) - Species diversity and compliance across all years
+-   [**Transect Summary**](transect_summary.csv) - Transect-level cover analysis and compliance
+-   **Content**: Aggregated statistics by parcel and year
+-   **Usage**: Parcel-level performance assessment
+
+#### Compliance Assessment
+
+-   [**Comprehensive Compliance Summary**](comprehensive_compliance_summary.csv) - Main compliance results with all target metrics
+-   **Content**: Parcel-year combinations with compliance status for all 5 targets
+-   **Usage**: Primary compliance assessment results
+
+#### Reference Parcel Analysis
+
+-   [**Reference Parcel Summary**](reference_parcel_summary.csv) - Reference parcel statistics and ATTO/ERNA thresholds
+-   [**ATTO/ERNA Analysis**](reference_atto_erna_analysis.csv) - Detailed analysis of policy-capped species
+-   [**Policy Thresholds**](reference_based_atto_erna_thresholds.csv) - Calculated thresholds for species capping
+-   **Content**: Reference parcel data and policy threshold calculations
+-   **Usage**: Policy development and threshold setting
+
+### 📦 Data Download
+
+-   [**Download Essential Data**](clean_revegetation_data.zip) - Complete package with all essential datasets (12 files)
+
+## Export Results
+
+```{r export-results}
+#| echo: false
+
+# Export dashboard data to CSV
+write_csv(dashboard_data, "output/analytical_results_table.csv")
+write_csv(dashboard_data, "docs/analytical_results_table.csv")
+
+# Export comprehensive compliance summary using the same data as displayed in the document
+# This ensures the CSV matches what's shown in the document
+if (exists("comprehensive_summary")) {
+  write_csv(comprehensive_summary, "output/comprehensive_compliance_summary.csv")
+  write_csv(comprehensive_summary, "docs/comprehensive_compliance_summary.csv")
+  cat("Comprehensive compliance summary exported to CSV\n")
+} else {
+  cat("Warning: comprehensive_summary not found - CSV may not match document display\n")
+}
+
+
+# Export transect summary
+if (exists("transect_summary")) {
+  write_csv(transect_summary, "output/transect_summary.csv")
+  write_csv(transect_summary, "docs/transect_summary.csv")
+  cat("Transect summary exported to CSV\n")
+} else {
+  cat("Warning: transect_summary not found - CSV may not match document display\n")
+}
+
+# Create species summary for all years
+if (exists("all_species_all_years")) {
+  species_summary_all_years <- all_species_all_years %>%
+    group_by(parcel, year) %>%
+    summarise(
+      total_species = n_distinct(species),
+      perennial_species = n_distinct(species[Lifeform == "Perennial"]),
+      grass_species = n_distinct(species[str_detect(Lifeform, regex("grass", ignore_case = TRUE))]),
+      .groups = 'drop'
+    ) %>%
+    arrange(parcel, year)
+  
+  # Export species summary
+  write_csv(species_summary_all_years, "output/species_summary_all_years.csv")
+  write_csv(species_summary_all_years, "docs/species_summary_all_years.csv")
+  cat("Species summary for all years exported to CSV\n")
+} else {
+  cat("Warning: all_species_all_years not found - species summary may not match document display\n")
+}
+
+# Create parcel summary from comprehensive summary
+if (exists("comprehensive_summary") && nrow(comprehensive_summary) > 0) {
+  parcel_summary <- comprehensive_summary %>%
+    group_by(parcel) %>%
+    summarise(
+      years_monitored = n(),
+      years_compliant = sum(`Overall` == "✅ All Targets Met"),
+      compliance_rate = round((years_compliant / years_monitored) * 100, 1),
+      .groups = 'drop'
+    ) %>%
+    arrange(parcel)
+  
+  # Export parcel summary
+  write_csv(parcel_summary, "output/parcel_summary.csv")
+  write_csv(parcel_summary, "docs/parcel_summary.csv")
+  cat("Parcel summary exported to CSV\n")
+} else {
+  cat("Warning: comprehensive_summary not found or empty - parcel summary may not match document display\n")
+  # Create empty parcel summary
+  parcel_summary <- data.frame(
+    parcel = character(0),
+    years_monitored = integer(0),
+    years_compliant = integer(0),
+    compliance_rate = numeric(0)
+  )
+  write_csv(parcel_summary, "output/parcel_summary.csv")
+  write_csv(parcel_summary, "docs/parcel_summary.csv")
+}
+
+# Create clean downloads package with only essential files
+essential_files <- c(
+  "analytical_results_table.csv",
+  "parcel_summary.csv", 
+  "species_summary_all_years.csv",
+  "transect_summary.csv",
+  "comprehensive_compliance_summary.csv",
+  "reference_parcel_summary.csv",
+  "reference_atto_erna_analysis.csv",
+  "reference_based_atto_erna_thresholds.csv",
+  "laws_parcels.geojson",
+  "laws_transects.geojson", 
+  "laws_transects.csv"
+)
+
+# Create clean downloads directory
+clean_dir <- "output/clean_downloads"
+if (!dir.exists(clean_dir)) {
+  dir.create(clean_dir, recursive = TRUE)
+}
+
+# Copy essential files to clean directory
+for (file in essential_files) {
+  if (file.exists(file.path("output", file))) {
+    file.copy(file.path("output", file), file.path(clean_dir, file), overwrite = TRUE)
+  }
+}
+
+# Create README for clean downloads
+readme_content <- "# Laws Revegetation Data - Essential Files
+
+## Overview
+This package contains the essential processed datasets from the Laws revegetation analysis. All intermediate processing files and redundant data have been removed.
+
+## Files Included
+
+### Main Analysis Results
+- **analytical_results_table.csv** - Complete merged dataset with cover conversion and species attributes
+- **parcel_summary.csv** - Parcel-level compliance statistics by year
+- **species_summary_all_years.csv** - Species diversity and compliance across all years  
+- **transect_summary.csv** - Transect-level cover analysis and compliance
+- **comprehensive_compliance_summary.csv** - Complete compliance assessment for all parcels and years
+
+### Reference Parcel Analysis
+- **reference_parcel_summary.csv** - Reference parcel statistics and ATTO/ERNA thresholds
+- **reference_atto_erna_analysis.csv** - Detailed analysis of policy-capped species
+- **reference_based_atto_erna_thresholds.csv** - Calculated thresholds for species capping
+
+### Spatial Data
+- **laws_parcels.geojson** - GeoJSON boundaries for all Laws parcels
+- **laws_transects.geojson** - GeoJSON point locations of all monitoring transects
+- **laws_transects.csv** - Transect coordinates and metadata in CSV format
+
+## Data Processing
+All data has been processed through the following steps:
+1. Raw data loading and cleaning
+2. Species filtering using allowable species lists
+3. Cover calculation: (hits / 200) × 100
+4. Species-specific capping rules applied
+5. Compliance assessment against 5 target criteria
+
+## Contact
+For questions about this data, contact the Inyo County Water Department.
+"
+
+writeLines(readme_content, file.path(clean_dir, "README.md"))
+
+# Create ZIP of clean downloads
+zip_file <- "output/clean_revegetation_data.zip"
+if (file.exists(zip_file)) {
+  file.remove(zip_file)
+}
+
+# Create ZIP
+zip(zip_file, list.files(clean_dir, full.names = TRUE), 
+    flags = "-r", 
+    zip = "zip")
+
+# Copy to docs directory
+file.copy(zip_file, "docs/clean_revegetation_data.zip", overwrite = TRUE)
+
+cat("✅ Clean downloads package created\n")
+cat("📁 Clean directory:", clean_dir, "\n")
+cat("📊 Files included:", length(essential_files), "\n")
+cat("📦 ZIP file:", zip_file, "\n")
+
+cat("Results exported to output/ directory\n")
+```
