@@ -10,8 +10,6 @@ website:
     left:
       - href: index.qmd
         text: Laws 90/94/95/118/129
-      - href: data_process.qmd
-        text: Data Processing
       - href: reference.qmd
         text: Reference Parcels
       - icon: github

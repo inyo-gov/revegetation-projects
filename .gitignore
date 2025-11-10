@@ -26,10 +26,50 @@ _targets/
 # Ignore archive directory
 /archive/
 
-# Ignore temporary files
+# Development artifacts
+*.knit.md
+*_cache/
+*_files/
+index_cache/
+index_files/
+
+# Backup files
+*_backup.*
+*_test.*
+test_*
+simple_*
+
+# Temporary files
+*.tmp
+*.temp
+*_corrected.*
+*_with_zeroes.*
 packages-from-*.txt
 targets_network.html
+
+# Large data packages
+data/revegetation_data_package.zip
+data/reveg_other/
+
+# Duplicate data
+docs/data/
 
 # Ignore MotherDuck files
 mduck
 data/reveg_other/OneDrive_2025-08-08.zip
+
+# Ignore output directory (intermediate build files)
+# Keep docs/ directory (needed for GitHub Pages)
+output/
+
+# Ignore mitigation_points files (moved to mitigation-spatial repository)
+mitigation_points.qmd
+data/gis/mit_points/
+data/gis/Mitigation_PointsAGOL.csv
+docs/mitigation_points.*
+docs/mitigation_points_shp/
+docs/mitigation_sites_shp/
+output/mitigation_points.*
+output/mitigation_points_shp/
+output/mitigation_sites.*
+output/mitigation_sites_shp/
