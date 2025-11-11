@@ -647,7 +647,11 @@ reference_atto_erna_analysis <- ref_data_combined %>%
 
 # Save datasets for download
 write_csv(reference_parcel_summary, "data/processed/reference_parcel_summary.csv")
+write_csv(reference_parcel_summary, "output/reference_parcel_summary.csv")
+write_csv(reference_parcel_summary, "docs/reference_parcel_summary.csv")
 write_csv(reference_atto_erna_analysis, "data/processed/reference_atto_erna_analysis.csv")
+write_csv(reference_atto_erna_analysis, "output/reference_atto_erna_analysis.csv")
+write_csv(reference_atto_erna_analysis, "docs/reference_atto_erna_analysis.csv")
 write_csv(ref_data_combined, "data/processed/ref_data_combined.csv")
 
 # Function to get file modification date

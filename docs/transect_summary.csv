@@ -1,0 +1,13 @@
+parcel,year,Total Transects,Meeting 2%,Below 2%,Compliance Rate (%),Avg Cover (%),Min Cover (%),Max Cover (%),Status
+LAW090,2022,20,20,0,100,15.2,7,24.5,✅ All transects ≥2% allowable
+LAW090,2024,20,20,0,100,13.07,4.5,24,✅ All transects ≥2% allowable
+LAW090,2025,30,30,0,100,12.48,2,29,✅ All transects ≥2% allowable
+LAW094,2022,20,20,0,100,10.03,5.5,14.5,✅ All transects ≥2% allowable
+LAW094,2024,20,20,0,100,9.65,3.5,20.5,✅ All transects ≥2% allowable
+LAW094,2025,20,20,0,100,8.47,2.5,18,✅ All transects ≥2% allowable
+LAW095,2022,20,20,0,100,11,3,23.5,✅ All transects ≥2% allowable
+LAW095,2024,20,19,1,95,11.15,1,29,⚠️ Most transects ≥2% allowable
+LAW095,2025,20,20,0,100,7.42,2,17.5,✅ All transects ≥2% allowable
+LAW118/129,2022,20,20,0,100,16.2,4,34.5,✅ All transects ≥2% allowable
+LAW118/129,2023,15,15,0,100,22.7,5.5,43.5,✅ All transects ≥2% allowable
+LAW118/129,2025,19,19,0,100,22.5,3,47.5,✅ All transects ≥2% allowable

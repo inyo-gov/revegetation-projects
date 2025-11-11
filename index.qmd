@@ -92,8 +92,11 @@ all_transects_combined <- st_as_sf(transects_csv, coords = c("x", "y"), crs = 26
 
 # Create downloadable map data files
 write_sf(parcels_sf, "output/laws_parcels.geojson")
+write_sf(parcels_sf, "docs/laws_parcels.geojson")
 write_sf(all_transects_combined, "output/laws_transects.geojson")
+write_sf(all_transects_combined, "docs/laws_transects.geojson")
 write.csv(st_drop_geometry(all_transects_combined), "output/laws_transects.csv", row.names = FALSE)
+write.csv(st_drop_geometry(all_transects_combined), "docs/laws_transects.csv", row.names = FALSE)
 
 # Create color palette for parcels
 parcel_colors <- colorFactor(
@@ -1809,11 +1812,10 @@ The analysis generates several key datasets that are available for download:
 
 #### Reference Parcel Analysis
 
--   [**Reference Parcel Summary**](reference_parcel_summary.csv) - Reference parcel statistics and ATTO/ERNA thresholds
+-   [**Reference Parcel Summary**](reference_parcel_summary.csv) - Reference parcel statistics and ATTO/ERNA analysis
 -   [**ATTO/ERNA Analysis**](reference_atto_erna_analysis.csv) - Detailed analysis of policy-capped species
--   [**Policy Thresholds**](reference_based_atto_erna_thresholds.csv) - Calculated thresholds for species capping
--   **Content**: Reference parcel data and policy threshold calculations
--   **Usage**: Policy development and threshold setting
+-   **Content**: Reference parcel data and species analysis
+-   **Usage**: Reference data for comparison with revegetation parcels
 
 ### 📦 Data Download
 
@@ -1906,7 +1908,6 @@ essential_files <- c(
   "comprehensive_compliance_summary.csv",
   "reference_parcel_summary.csv",
   "reference_atto_erna_analysis.csv",
-  "reference_based_atto_erna_thresholds.csv",
   "laws_parcels.geojson",
   "laws_transects.geojson", 
   "laws_transects.csv"
@@ -1983,5 +1984,24 @@ cat("📁 Clean directory:", clean_dir, "\n")
 cat("📊 Files included:", length(essential_files), "\n")
 cat("📦 ZIP file:", zip_file, "\n")
 
-cat("Results exported to output/ directory\n")
+# Copy spatial files to docs/ if they exist in output/
+if (file.exists("output/laws_parcels.geojson")) {
+  file.copy("output/laws_parcels.geojson", "docs/laws_parcels.geojson", overwrite = TRUE)
+}
+if (file.exists("output/laws_transects.geojson")) {
+  file.copy("output/laws_transects.geojson", "docs/laws_transects.geojson", overwrite = TRUE)
+}
+if (file.exists("output/laws_transects.csv")) {
+  file.copy("output/laws_transects.csv", "docs/laws_transects.csv", overwrite = TRUE)
+}
+
+# Copy reference parcel files to docs/ if they exist in output/
+if (file.exists("output/reference_parcel_summary.csv")) {
+  file.copy("output/reference_parcel_summary.csv", "docs/reference_parcel_summary.csv", overwrite = TRUE)
+}
+if (file.exists("output/reference_atto_erna_analysis.csv")) {
+  file.copy("output/reference_atto_erna_analysis.csv", "docs/reference_atto_erna_analysis.csv", overwrite = TRUE)
+}
+
+cat("Results exported to output/ and docs/ directories\n")
 ```
