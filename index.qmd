@@ -1756,16 +1756,15 @@ This analysis integrates multiple data sources to provide comprehensive revegeta
 
 #### Primary Monitoring Data
 
-**LAW090/094/095 Parcels (2022-2025)** - **Source**: Los Angeles Department of Water and Power (LADWP) - **Files**: - [2022 Data](data/raw/reveg/laws_reveg_data_2022.csv) - LAW090/094/095 monitoring data - [2024 Data](data/raw/reveg/laws_reveg_data_2024.csv) - LAW090/094/095 monitoring data\
-- [2025 Data](data/raw/reveg/LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx) - LAW090/094/095 Excel data - **Content**: Point-intercept survey data with species hits per transect - **Cover Conversion**: Raw hits converted to percentage cover (hits/200 × 100) - **Years**: 2022, 2024, 2025 (no monitoring in 2023)
+**LAW090/094/095 Parcels (2022-2025)** - **Source**: Los Angeles Department of Water and Power (LADWP) - **Files**: - [2022 Data](laws_reveg_data_2022.csv) - LAW090/094/095 monitoring data - [2024 Data](laws_reveg_data_2024.csv) - LAW090/094/095 monitoring data - [2025 Data](LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx) - LAW090/094/095 Excel data - **Content**: Point-intercept survey data with species hits per transect - **Cover Conversion**: Raw hits converted to percentage cover (hits/200 × 100) - **Years**: 2022, 2024, 2025 (no monitoring in 2023)
 
-**LAW118/129 Parcels (2022-2025)** - **Source**: Inyo County Water Department (ICWD) - **Files**: - [2022 Data](data/raw/reveg/laws_reveg_data_2022.csv) - LAW118/129 monitoring data - [2023 Data](data/raw/reveg/laws118_reveg_data_2023.csv) - LAW118/129 monitoring data - [2025 Data](data/raw/reveg/LAW118_129_reveg2025_e.csv) - LAW118/129 monitoring data - **Content**: Point-intercept survey data for combined LAW118/129 parcel - **Cover Conversion**: Raw hits converted to percentage cover (hits/200 × 100) - **Years**: 2022, 2023, 2025 (no monitoring in 2024)
+**LAW118/129 Parcels (2022-2025)** - **Source**: Inyo County Water Department (ICWD) - **Files**: - [2022 Data](laws_reveg_data_2022.csv) - LAW118/129 monitoring data - [2023 Data](laws118_reveg_data_2023.csv) - LAW118/129 monitoring data - [2025 Data](LAW118_129_reveg2025_e.csv) - LAW118/129 monitoring data - **Content**: Point-intercept survey data for combined LAW118/129 parcel - **Cover Conversion**: Raw hits converted to percentage cover (hits/200 × 100) - **Years**: 2022, 2023, 2025 (no monitoring in 2024)
 
 ### 🔧 Auxiliary Data
 
 #### Species Reference Data
 
--   **File**: [TypeE_Transfer_SppList.xlsx](data/TypeE_Transfer_SppList.xlsx)
+-   **File**: [TypeE_Transfer_SppList.xlsx](TypeE_Transfer_SppList.xlsx)
 -   **Content**: Species lists defining allowable species for revegetation targets
 -   **Groups**:
     -   **LAW90_94_95**: Allowable species for LAW090, LAW094, LAW095
@@ -1774,7 +1773,7 @@ This analysis integrates multiple data sources to provide comprehensive revegeta
 
 #### Species Attributes
 
--   **File**: [species.csv](data/species.csv) - Species codes, names, and classifications
+-   **File**: [species.csv](species.csv) - Species codes, names, and classifications
 -   **Content**: Complete species database with lifeform, lifecycle, and common names
 -   **Usage**: Species identification and classification for analysis
 
@@ -2003,5 +2002,32 @@ if (file.exists("output/reference_atto_erna_analysis.csv")) {
   file.copy("output/reference_atto_erna_analysis.csv", "docs/reference_atto_erna_analysis.csv", overwrite = TRUE)
 }
 
+# Copy primary monitoring data files to docs/
+if (file.exists("data/raw/reveg/laws_reveg_data_2022.csv")) {
+  file.copy("data/raw/reveg/laws_reveg_data_2022.csv", "docs/laws_reveg_data_2022.csv", overwrite = TRUE)
+}
+if (file.exists("data/raw/reveg/laws_reveg_data_2024.csv")) {
+  file.copy("data/raw/reveg/laws_reveg_data_2024.csv", "docs/laws_reveg_data_2024.csv", overwrite = TRUE)
+}
+if (file.exists("data/raw/reveg/LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx")) {
+  file.copy("data/raw/reveg/LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx", 
+            "docs/LADWP_ReferenceParcel_LAW090_094_095_2025_Data_2025.xlsx", overwrite = TRUE)
+}
+if (file.exists("data/raw/reveg/laws118_reveg_data_2023.csv")) {
+  file.copy("data/raw/reveg/laws118_reveg_data_2023.csv", "docs/laws118_reveg_data_2023.csv", overwrite = TRUE)
+}
+if (file.exists("data/raw/reveg/LAW118_129_reveg2025_e.csv")) {
+  file.copy("data/raw/reveg/LAW118_129_reveg2025_e.csv", "docs/LAW118_129_reveg2025_e.csv", overwrite = TRUE)
+}
+
+# Copy auxiliary data files to docs/
+if (file.exists("data/TypeE_Transfer_SppList.xlsx")) {
+  file.copy("data/TypeE_Transfer_SppList.xlsx", "docs/TypeE_Transfer_SppList.xlsx", overwrite = TRUE)
+}
+if (file.exists("data/species.csv")) {
+  file.copy("data/species.csv", "docs/species.csv", overwrite = TRUE)
+}
+
 cat("Results exported to output/ and docs/ directories\n")
+cat("Primary and auxiliary data files copied to docs/ directory\n")
 ```
