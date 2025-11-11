@@ -1,5 +1,16 @@
 ---
 title: "Laws Revegetation Data Analysis"
+tbl-cap-location: top
+affiliation: "Inyo County Water Department"
+date: "2025-09-03"
+date-modified: "2025-09-03"
+citation:
+  type: report
+  container-title: "Data Report"
+  publisher: "Inyo County Water Department"
+  issued: "2025-09-03"
+  url: https://github.com/inyo-gov/revegetation-projects
+google-scholar: true
 format:
   html:
     theme: cosmo
@@ -296,31 +307,42 @@ cat("\nNote: LAW118/129 transects use unique identifiers (e.g., LAW118_6, LAW129
 # Visual audit: Show hit-to-cover conversion
 cat("\n=== Hit-to-Cover Conversion Example ===\n")
 # Show sample data with hit-to-cover conversion
+# cover_percent is the species cover at the transect level (hits/200*100)
 sample_data <- data_combined %>%
   filter(parcel == "LAW090", year == 2025) %>%
   head(10) %>%
   mutate(
-    cover_percent = hits / 200 * 100,  # Convert hits to cover percentage
-    cover_per_transect = cover_percent / n_distinct(data_combined$transect[data_combined$parcel == "LAW090" & data_combined$year == 2025])
+    cover_percent = hits / 200 * 100  # Convert hits to cover percentage at transect level
   )
-print(sample_data)
+print(sample_data, width = Inf)
 
 # Visual audit: Show transect-to-parcel averaging
 cat("\n=== Transect-to-Parcel Averaging Example ===\n")
 # Show how transect-level cover is averaged to parcel-level cover
-parcel_averaging_example <- data_combined %>%
+# First, calculate transect-level total cover
+transect_totals <- data_combined %>%
   filter(parcel == "LAW090", year == 2025) %>%
   group_by(transect) %>%
   summarise(
     transect_total_hits = sum(hits),
     transect_cover_percent = sum(hits) / 200 * 100,
     .groups = 'drop'
-  ) %>%
-  mutate(
-    n_transects = n(),
-    parcel_average_cover = mean(transect_cover_percent)
   )
-print(parcel_averaging_example)
+
+# Calculate parcel-level average (mean of all transect cover percentages)
+parcel_avg <- mean(transect_totals$transect_cover_percent)
+n_transects <- nrow(transect_totals)
+
+# Add parcel-level statistics to each transect row for display
+parcel_averaging_example <- transect_totals %>%
+  mutate(
+    n_transects = n_transects,
+    parcel_average_cover = parcel_avg
+  ) %>%
+  select(transect, transect_total_hits, transect_cover_percent, n_transects, parcel_average_cover)
+
+# Print with all columns visible (width = Inf ensures all columns are shown)
+print(parcel_averaging_example, width = Inf, n = Inf)
 ```
 
 ### Step 2: Create Parcel Groups for Analysis
