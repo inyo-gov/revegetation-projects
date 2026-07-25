@@ -123,6 +123,9 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -344,13 +347,24 @@ Companion pages
 </section>
 <section id="draft-stm-gravelly-loam-5-8-abag" class="level2">
 <h2 class="anchored" data-anchor-id="draft-stm-gravelly-loam-5-8-abag">Draft STM (Gravelly Loam 5-8” + ABAG)</h2>
-<pre class="mermaid"><code>flowchart LR
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
   E["Type E&lt;br/&gt;Irrigated agriculture"] --&gt;|stop irrigation&lt;br/&gt;topsoil loss / wind| ABAG["ABAG state&lt;br/&gt;Abandoned ag · bare / eroded"]
   ABAG --&gt;|planting, drip, nurse shrubs&lt;br/&gt;ATTO / ERNA / natives| EARLY["Early seral / planted&lt;br/&gt;low cover · high bare"]
   EARLY --&gt;|recruitment + time&lt;br/&gt;no irrigation| REF["Reference-like Type A scrub&lt;br/&gt;ESD potential phases"]
   EARLY --&gt;|fail / chronic drought&lt;br/&gt;or weed lock| ABAG
   REF --&gt;|severe disturbance| ABAG
-  E -.-&gt;|Plan failure path| E</code></pre>
+  E -.-&gt;|Plan failure path| E
+</pre>
+</div>
+<p></p><figcaption> Draft STM: irrigated Type E → ABAG → early seral → reference-like Type A (and failure loops).</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 43%">
@@ -864,82 +878,84 @@ Snow, Tasha, Christopher Holdgraf, Wilson Sauthoff, Jessica Scheick, Ellianna Ab
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "State-and-transition model (STM) — draft"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Gravelly loam ESD concept + abandoned-agriculture state for Laws Type E"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">affiliation:</span><span class="co"> "Inyo County Water Department"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>{{&lt; include _includes/sandbox_disclaimer.qmd &gt;}}</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Companion pages</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">NMDS (draft)</span><span class="co">](nmds.html)</span> — composition space for reference vs reveg  </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Goals &amp; caps summary</span><span class="co">](amendment_summary.html)</span> — compliance milestones vs open caps  </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Methods paper: <span class="co">[</span><span class="ot">STM / NMDS for Type E (draft)</span><span class="co">](paper_stm_nmds.html)</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Purpose</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>**What:** A draft **state-and-transition model (STM)** for Laws Type E parcels: plant communities an ecological site can support, the transitions among them, and which changes are hard to reverse <span class="co">[</span><span class="ot">@Bestelmeyer2017</span><span class="co">]</span>.</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>**Why:** Cover and composition goals answer *compliance*; they do not name the **starting state** after irrigated agriculture ends. Stock desert STMs usually begin from native or lightly disturbed phases. Type E transfer parcels start as **abandoned irrigated agriculture**—often bare, with topsoil lost to wind after irrigation stops (Green Book **Type A · Barren Lands – Abag**). Without an explicit **ABAG** box, the model pretends recovery begins from intact scrub.</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>ICWD’s broader Owens STM work lives in <span class="co">[</span><span class="ot">`stm`</span><span class="co">](https://github.com/inyo-gov/stm)</span> (Green Book types as states within NRCS ecological sites; NMDS to test type separation).</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ecological site (confirmed)</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>**What:** Majority-component SSURGO (`Ecologic_3`) places all five Type E parcels on **Gravelly Loam 5-8" P.Z.**—matching Plan “gravely loam” language used for LAW118/129 planting caps.</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>**Why name the ESD:** Caps and planting tables are ecological-site concepts; joining SSURGO makes that claim testable and mapable.</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Layer <span class="pp">|</span> Assignment <span class="pp">|</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|------------|</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SSURGO / inventory name <span class="pp">|</span> **Gravelly Loam 5-8" P.Z.** <span class="pp">|</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CA802 (Draft / empty EDIT) <span class="pp">|</span> **R029XG009CA** <span class="pp">|</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> NV Provisional twin (dynamics) <span class="pp">|</span> **R029XY087NV** <span class="pp">|</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MLRA <span class="pp">|</span> 029 — Southern Nevada Basin and Range <span class="pp">|</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`stm`</span> catalog status <span class="pp">|</span> **Tier 3** — no draft site STM page yet <span class="pp">|</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Plan language (LAW118/129) <span class="pp">|</span> **“gravely loam”** ≤3% / species, ≤15% aggregate — ATPO basis <span class="pp">|</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Green Book on reveg <span class="pp">|</span> Type **A**, **Barren Lands – Abag** (LAW118 also ~41 ac Type **E** on same ESD) <span class="pp">|</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reference parcels <span class="pp">|</span> Mostly Type **A** scrub for ATTO/ERNA caps — <span class="co">[</span><span class="ot">reference</span><span class="co">](reference.html)</span> <span class="pp">|</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>Rows: <span class="co">[</span><span class="ot">`data/processed/laws_type_e_esd.csv`</span><span class="co">](data/processed/laws_type_e_esd.csv)</span>. Closest published narrative twin: <span class="co">[</span><span class="ot">`Loamy 5-8`</span><span class="co">](https://github.com/inyo-gov/stm/blob/main/sites/loamy-5-8/STM.md)</span>.^<span class="co">[</span><span class="ot">Next GIS step: show ESD in reference-map popups for reference parcels as well as reveg.</span><span class="co">]</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Draft STM (Gravelly Loam 5-8" + ABAG)</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="in">```mermaid</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  E[<span class="ot">"</span><span class="st">Type E&lt;br/&gt;Irrigated agriculture</span><span class="ot">"</span>] --&gt;|stop irrigation&lt;br/&gt;topsoil loss / wind| ABAG[<span class="ot">"</span><span class="st">ABAG state&lt;br/&gt;Abandoned ag · bare / eroded</span><span class="ot">"</span>]</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  ABAG --&gt;|planting, drip, nurse shrubs&lt;br/&gt;ATTO / ERNA / natives| EARLY[<span class="ot">"</span><span class="st">Early seral / planted&lt;br/&gt;low cover · high bare</span><span class="ot">"</span>]</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  EARLY --&gt;|recruitment + <span class="fu">time</span>&lt;br/&gt;<span class="fu">no</span> irrigation| REF[<span class="ot">"</span><span class="st">Reference-like Type A scrub&lt;br/&gt;ESD potential phases</span><span class="ot">"</span>]</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  EARLY --&gt;|fail / chronic drought&lt;br/&gt;<span class="ot">or</span> weed <span class="fu">lock</span>| ABAG</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  REF --&gt;|severe disturbance| ABAG</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  E -.-&gt;|Plan failure path| E</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> State <span class="pp">|</span> Meaning <span class="pp">|</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|---------|</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **E – Irrigated ag** <span class="pp">|</span> Pre-transfer / failure-path revert <span class="pp">|</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **ABAG** <span class="pp">|</span> Precip-only barren after irrigation ceases; topsoil depleted; high wind erosion <span class="pp">|</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Early seral / assisted** <span class="pp">|</span> Active revegetation; cover rising but not self-sustaining <span class="pp">|</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Reference-like A** <span class="pp">|</span> Composition approaching Gravelly Loam arid reference mixes <span class="pp">|</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>Stock Gravelly/Loamy STMs still govern **within-scrub** phases (grazing, annuals, shrub dominance). **ABAG** is the Type E add-on.</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Link to monitoring</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cover / composition / caps** are milestones on Early → Reference — <span class="co">[</span><span class="ot">revegetation</span><span class="co">](index.html)</span>, <span class="co">[</span><span class="ot">cap scenarios</span><span class="co">](index.html#cap-scenarios)</span>.  </span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Rest periods** after goals are a completion rule, not yet an STM box — <span class="co">[</span><span class="ot">goals &amp; caps</span><span class="co">](amendment_summary.html)</span>.  </span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**NMDS** asks whether reveg composition sits apart from the reference cloud and whether years move toward it.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "State-and-transition model (STM) — draft"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Gravelly loam ESD concept + abandoned-agriculture state for Laws Type E"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">affiliation:</span><span class="co"> "Inyo County Water Department"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> today</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: false</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>{{&lt; include _includes/sandbox_disclaimer.qmd &gt;}}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Companion pages</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">NMDS (draft)</span><span class="co">](nmds.html)</span> — composition space for reference vs reveg  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Goals &amp; caps summary</span><span class="co">](amendment_summary.html)</span> — compliance milestones vs open caps  </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Methods paper: <span class="co">[</span><span class="ot">STM / NMDS for Type E (draft)</span><span class="co">](paper_stm_nmds.html)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Purpose</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>**What:** A draft **state-and-transition model (STM)** for Laws Type E parcels: plant communities an ecological site can support, the transitions among them, and which changes are hard to reverse <span class="co">[</span><span class="ot">@Bestelmeyer2017</span><span class="co">]</span>.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>**Why:** Cover and composition goals answer *compliance*; they do not name the **starting state** after irrigated agriculture ends. Stock desert STMs usually begin from native or lightly disturbed phases. Type E transfer parcels start as **abandoned irrigated agriculture**—often bare, with topsoil lost to wind after irrigation stops (Green Book **Type A · Barren Lands – Abag**). Without an explicit **ABAG** box, the model pretends recovery begins from intact scrub.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>ICWD’s broader Owens STM work lives in <span class="co">[</span><span class="ot">`stm`</span><span class="co">](https://github.com/inyo-gov/stm)</span> (Green Book types as states within NRCS ecological sites; NMDS to test type separation).</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ecological site (confirmed)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**What:** Majority-component SSURGO (`Ecologic_3`) places all five Type E parcels on **Gravelly Loam 5-8" P.Z.**—matching Plan “gravely loam” language used for LAW118/129 planting caps.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**Why name the ESD:** Caps and planting tables are ecological-site concepts; joining SSURGO makes that claim testable and mapable.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Layer <span class="pp">|</span> Assignment <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|------------|</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SSURGO / inventory name <span class="pp">|</span> **Gravelly Loam 5-8" P.Z.** <span class="pp">|</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> CA802 (Draft / empty EDIT) <span class="pp">|</span> **R029XG009CA** <span class="pp">|</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> NV Provisional twin (dynamics) <span class="pp">|</span> **R029XY087NV** <span class="pp">|</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> MLRA <span class="pp">|</span> 029 — Southern Nevada Basin and Range <span class="pp">|</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`stm`</span> catalog status <span class="pp">|</span> **Tier 3** — no draft site STM page yet <span class="pp">|</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Plan language (LAW118/129) <span class="pp">|</span> **“gravely loam”** ≤3% / species, ≤15% aggregate — ATPO basis <span class="pp">|</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Green Book on reveg <span class="pp">|</span> Type **A**, **Barren Lands – Abag** (LAW118 also ~41 ac Type **E** on same ESD) <span class="pp">|</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Reference parcels <span class="pp">|</span> Mostly Type **A** scrub for ATTO/ERNA caps — <span class="co">[</span><span class="ot">reference</span><span class="co">](reference.html)</span> <span class="pp">|</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Rows: <span class="co">[</span><span class="ot">`data/processed/laws_type_e_esd.csv`</span><span class="co">](data/processed/laws_type_e_esd.csv)</span>. Closest published narrative twin: <span class="co">[</span><span class="ot">`Loamy 5-8`</span><span class="co">](https://github.com/inyo-gov/stm/blob/main/sites/loamy-5-8/STM.md)</span>.^<span class="co">[</span><span class="ot">Next GIS step: show ESD in reference-map popups for reference parcels as well as reveg.</span><span class="co">]</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Draft STM (Gravelly Loam 5-8" + ABAG)</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>%%| fig-cap: <span class="ot">"</span><span class="st">Draft STM: irrigated Type E → ABAG → early seral → reference-like Type A (and failure loops).</span><span class="ot">"</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  E[<span class="ot">"</span><span class="st">Type E&lt;br/&gt;Irrigated agriculture</span><span class="ot">"</span>] --&gt;|stop irrigation&lt;br/&gt;topsoil loss / wind| ABAG[<span class="ot">"</span><span class="st">ABAG state&lt;br/&gt;Abandoned ag · bare / eroded</span><span class="ot">"</span>]</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  ABAG --&gt;|planting, drip, nurse shrubs&lt;br/&gt;ATTO / ERNA / natives| EARLY[<span class="ot">"</span><span class="st">Early seral / planted&lt;br/&gt;low cover · high bare</span><span class="ot">"</span>]</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  EARLY --&gt;|recruitment + <span class="fu">time</span>&lt;br/&gt;<span class="fu">no</span> irrigation| REF[<span class="ot">"</span><span class="st">Reference-like Type A scrub&lt;br/&gt;ESD potential phases</span><span class="ot">"</span>]</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  EARLY --&gt;|fail / chronic drought&lt;br/&gt;<span class="ot">or</span> weed <span class="fu">lock</span>| ABAG</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  REF --&gt;|severe disturbance| ABAG</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  E -.-&gt;|Plan failure path| E</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> State <span class="pp">|</span> Meaning <span class="pp">|</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|-------|---------|</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **E – Irrigated ag** <span class="pp">|</span> Pre-transfer / failure-path revert <span class="pp">|</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **ABAG** <span class="pp">|</span> Precip-only barren after irrigation ceases; topsoil depleted; high wind erosion <span class="pp">|</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Early seral / assisted** <span class="pp">|</span> Active revegetation; cover rising but not self-sustaining <span class="pp">|</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Reference-like A** <span class="pp">|</span> Composition approaching Gravelly Loam arid reference mixes <span class="pp">|</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>Stock Gravelly/Loamy STMs still govern **within-scrub** phases (grazing, annuals, shrub dominance). **ABAG** is the Type E add-on.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Link to monitoring</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cover / composition / caps** are milestones on Early → Reference — <span class="co">[</span><span class="ot">revegetation</span><span class="co">](index.html)</span>, <span class="co">[</span><span class="ot">cap scenarios</span><span class="co">](index.html#cap-scenarios)</span>.  </span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Rest periods** after goals are a completion rule, not yet an STM box — <span class="co">[</span><span class="ot">goals &amp; caps</span><span class="co">](amendment_summary.html)</span>.  </span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**NMDS** asks whether reveg composition sits apart from the reference cloud and whether years move toward it.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

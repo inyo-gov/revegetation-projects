@@ -50,7 +50,8 @@ Rows: [`data/processed/laws_type_e_esd.csv`](data/processed/laws_type_e_esd.csv)
 
 ## Draft STM (Gravelly Loam 5-8" + ABAG)
 
-```mermaid
+```{mermaid}
+%%| fig-cap: "Draft STM: irrigated Type E → ABAG → early seral → reference-like Type A (and failure loops)."
 flowchart LR
   E["Type E<br/>Irrigated agriculture"] -->|stop irrigation<br/>topsoil loss / wind| ABAG["ABAG state<br/>Abandoned ag · bare / eroded"]
   ABAG -->|planting, drip, nurse shrubs<br/>ATTO / ERNA / natives| EARLY["Early seral / planted<br/>low cover · high bare"]
