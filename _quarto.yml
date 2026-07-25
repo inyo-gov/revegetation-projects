@@ -1,33 +1,81 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - reference.qmd
+    - amendment_summary.qmd
+    - stm.qmd
+    - nmds.qmd
+    - reveg1999plan.qmd
+    - about.qmd
+    - "!archive/**"
+    - "!amendment/**"
 
 website:
   title: "Revegetation Projects"
   navbar:
     title: "Revegetation Projects"
     logo: inyo_logo.png
+    background: light
+    search: true
     left:
-      - href: index.qmd
-        text: Laws 90/94/95/118/129
-      - href: reference.qmd
-        text: Reference Parcels
+      - text: "Type E transfer (2003)"
+        menu:
+          - href: index.qmd
+            text: "Revegetation sites"
+          - href: reference.qmd
+            text: "Reference sites"
+          - href: amendment_summary.qmd
+            text: "Goals & caps (summary)"
+          - href: stm.qmd
+            text: "STM (draft)"
+          - href: nmds.qmd
+            text: "NMDS (draft)"
+      - href: reveg1999plan.qmd
+        text: "1999 Plan monitoring (2025)"
+      - href: about.qmd
+        text: "About"
+      - text: "Papers"
+        menu:
+          - href: paper.html
+            text: "Living repository (draft)"
+          - href: paper_stm_nmds.html
+            text: "STM / NMDS for Type E (draft)"
       - icon: github
         href: https://github.com/inyo-gov/revegetation-projects
-    background: dark
-    search: true
+  page-footer:
+    left: "Inyo County Water Department"
+    right: "© 2026 Inyo County, California"
+
 format:
   html:
-    theme: bootstrap
-    linkcolor: "#2E86AB"
+    theme: litera
     css: styles.css
-    toc: false
+    toc: true
+    toc-depth: 3
+    toc-location: right
     code-fold: true
     code-tools: true
+    linkcolor: "#333333"
+    fig-cap-location: bottom
+    tbl-cap-location: top
     fig-responsive: true
-    table-responsive: false
-    fig-dir: figure-html
-    subtitle: "Inyo County, California"
-    footer: "© 2025 Inyo County, California. All rights reserved."
+    smooth-scroll: true
+    citations: true
+
+bibliography: paper/references.bib
+
+crossref:
+  fig-title: "Figure"
+  tbl-title: "Table"
+  title-delim: "."
+  fig-prefix: "Fig."
+  tbl-prefix: "Table"
+
+execute:
+  echo: false
+  warning: false
+  message: false
 
 editor: visual

@@ -1,75 +1,137 @@
-# Ignore R history and session data
+# ============================================================
+# Whitelist mindset: track the public site + what Quarto needs
+# to re-render it. Everything else stays local.
+# Manifest: data/SITE_INPUTS.md
+# ============================================================
+
+# --- Secrets / IDE / R ---
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-
-# Ignore system files
-.DS_Store
 .Renviron
+.env
+.env.*
+*.pem
+*credentials*
+*secret*
+*_token*
 .config/
+.cursor/
+*.code-workspace
+.DS_Store
+Thumbs.db
+__pycache__/
+.venv/
+venv/
+*.pyc
 
-# Ignore Quarto configuration and build artifacts
+# --- Quarto / knit scratch (root only; keep docs/*_files for Pages figures) ---
 /.quarto/
-
-# Ignore cache directories
+**/.quarto/
 *_cache/
-*_files/
+/*_files/
+index_cache/
+*.knit.md
 
-# Ignore targets build directory
+# --- Local / negotiation / alternate sites ---
+WORKLOG.md
+amendment/
+docs-amendment/
+notes/
+notes-*
+correspondence/
+reveg1999plan-docs/
+docs/reveg1999plan-docs/
+images/ladwp-sustainability-2026/
+docs/assets/ladwp-sustainability-2026/
+docs/images/ladwp-sustainability-2026/
+
+# --- Build / archive / intermediate ---
+output/
+/archive/
 _targets/
-
-# Ignore DuckDB files
 *.duckdb
 *.duckdb.files/
-
-# Ignore archive directory
-/archive/
-
-# Development artifacts
-*.knit.md
-*_cache/
-*_files/
-index_cache/
-index_files/
-
-# Backup files
+mduck
+targets_network.html
+packages-from-*.txt
 *_backup.*
 *_test.*
 test_*
 simple_*
-
-# Temporary files
 *.tmp
 *.temp
-*_corrected.*
+*_corrected*
 *_with_zeroes.*
-packages-from-*.txt
-targets_network.html
 
-# Large data packages
-data/revegetation_data_package.zip
-data/reveg_other/
-
-# Duplicate data
+# --- Docs: Pages HTML yes; heavy exports no ---
+docs/*.docx
+docs/*.pdf
+docs/*.pptx
+docs/*.zip
+docs/archive/
 docs/data/
+docs/www/
 
-# Ignore MotherDuck files
-mduck
-data/reveg_other/OneDrive_2025-08-08.zip
-
-# Ignore output directory (intermediate build files)
-# Keep docs/ directory (needed for GitHub Pages)
-output/
-
-# Ignore mitigation_points files (moved to mitigation-spatial repository)
-mitigation_points.qmd
-data/gis/mit_points/
+# --- Data: keep SITE_INPUTS; ignore bulk drops ---
+data/reveg_other/
+data/revegetation_data_package.zip
+data/raw/laws2026/
+data/raw/laws2026.zip
+data/raw/processed_revegetation_data.zip
+data/raw/revegtransects1999.zip
+data/raw/RE__*/
+data/raw/RE__*.zip
+data/raw/comprehensive_transect_list.csv
+data/raw/reference_parcels_detailed_breakdown.csv
+data/raw/reference_parcels_summary_for_processing.csv
+data/raw/reference_transects_from_data.csv
+data/raw/transect_summary_by_parcel_year.csv
+data/gis/drive-download-*.zip
+data/gis/all_tran*
+data/gis/IND105.zip
 data/gis/Mitigation_PointsAGOL.csv
+data/gis/mit_points/*.xlsx
+data/gis/mit_points/mitigation_points_shp/
+data/gis/LAW118_129_startpoints_2025.geojson
+data/gis/LAW118_129_startpoints_2025.gpkg
+data/gis/LAW118_129_transect_start_2025.geojson
+data/gis/Revegetation_Transects91_view.geojson
+data/gis/TIN054_tpost_transects.json
+data/gis/all_transects_points.gpkg
+
+# Duplicate / misplaced workbooks (canonical: data/raw/reveg/)
+/Re_Veg Parcels*.xlsx
+/data/Re_Veg Parcels*.xlsx
+/data/LAW118_129_reveg.xlsx
+
+# Optional reference workbook (long CSVs are enough for site)
+data/raw/reference/Reference Parcels_LAW_PLC_2025.xlsx
+data/raw/reference/law118_129_reference_parcel_atto_erna_summary.csv
+data/raw/reference/law118_129_reference_parcel_perennial_spp_mat.csv
+data/raw/reference/law118_129_reference_parcel_summary.csv
+
+# Optional historical reveg CSVs (not required to render; docs copies are opportunistic)
+data/raw/reveg/laws_reveg_data_2022.csv
+data/raw/reveg/laws_reveg_data_2024.csv
+data/raw/reveg/laws118_reveg_data_2023.csv
+data/raw/reveg/reveg_metadata.csv
+
+# --- Code: keep parsers/maps/nmds; ignore one-off utilities ---
+code/peek_laws2026.R
+code/qa_laws2026_structure.R
+code/clean_vestigial_files.R
+code/export_BIS097_transects_subset.R
+code/export_greenbook_parcels_for_public_records.R
+code/export_greenbook_vegetation_types_shapefile.R
+code/build_reveg1999plan_presentation.R
+code/build_law118_129_reference_startpoints_2025.py
+code/transect_loader.R
+clean_vestigial_files.R
+
+# Mitigation_points Quarto (moved to mitigation-spatial)
+mitigation_points.qmd
 docs/mitigation_points.*
 docs/mitigation_points_shp/
 docs/mitigation_sites_shp/
-output/mitigation_points.*
-output/mitigation_points_shp/
-output/mitigation_sites.*
-output/mitigation_sites_shp/

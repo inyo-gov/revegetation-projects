@@ -1,0 +1,58 @@
+{
+  "title": "Revegetation Monitoring in Owens Valley, California: Type E Transfer and 1999 Plan Sites",
+  "upload_type": "dataset",
+  "description": "Living open repository for Inyo County Water Department revegetation monitoring under the Inyo–Los Angeles Long Term Water Agreement. Includes Quarto dashboards and pipelines for (1) Laws Type E transfer sites (2003 plan: abandoned irrigated agriculture managed toward precipitation-dependent native communities) and (2) 1991 EIR / 1999 Revegetation Plan mitigation sites (2025 resurvey and historical summaries). Cover and composition goals are assessed with plan-specific rules; sustainability (recruitment) methods are documented as they evolve. Code, processed tables, and rendered reports are version-controlled; the GitHub Pages site is the working analytics surface. This Zenodo deposit is a citable snapshot of a tagged release.",
+  "creators": [
+    {
+      "name": "Inyo County Water Department",
+      "affiliation": "Inyo County Water Department, Bishop, California, USA"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Los Angeles Department of Water and Power",
+      "affiliation": "Los Angeles Department of Water and Power",
+      "type": "DataCollector"
+    }
+  ],
+  "access_right": "open",
+  "license": {
+    "id": "mit"
+  },
+  "keywords": [
+    "revegetation",
+    "Owens Valley",
+    "line-point intercept",
+    "Type E transfer",
+    "1999 Revegetation Plan",
+    "open science",
+    "reproducible workflows",
+    "LADWP",
+    "Inyo County",
+    "Quarto",
+    "R"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isDocumentedBy",
+      "identifier": "https://inyo-gov.github.io/revegetation-projects/",
+      "resource_type": "publication-other",
+      "scheme": "url"
+    },
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/inyo-gov/revegetation-projects",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "relation": "isDocumentedBy",
+      "identifier": "https://inyo-gov.github.io/revegetation-projects/paper.html",
+      "resource_type": "publication-article",
+      "scheme": "url"
+    }
+  ],
+  "version": "2025.1.0",
+  "language": "eng",
+  "notes": "Prefer citing the concept DOI (all versions) for the living project, or a version DOI for a specific annual snapshot. Update .zenodo.json version before each GitHub Release. Large or sensitive raw workbooks may be excluded from git; the release ZIP mirrors the public repository contents."
+}

@@ -1,0 +1,21 @@
+scenario,label,parcel_group,species,cap_pct,notes
+working,Working (site default),LAW90_94_95,ATTO,0.3,Current index.qmd rule
+working,Working (site default),LAW90_94_95,ERNA10,0.3,Current index.qmd rule
+working,Working (site default),LAW118_129,ATTO,2.0,Current index.qmd rule
+working,Working (site default),LAW118_129,ERNA10,2.0,Current index.qmd rule
+working,Working (site default),LAW118_129,ATPO,3.0,Current index.qmd rule
+ladwp_draft,LADWP draft stack (Jul 2026),LAW90_94_95,ATTO,0.1,Alternate assumption stack — ATTO tighter than working
+ladwp_draft,LADWP draft stack (Jul 2026),LAW90_94_95,ERNA10,0.3,Matches working ERNA
+ladwp_draft,LADWP draft stack (Jul 2026),LAW118_129,ATTO,2.8,≈2025 zero-filled reference mean
+ladwp_draft,LADWP draft stack (Jul 2026),LAW118_129,ERNA10,4.3,≈2025 zero-filled reference mean
+ladwp_draft,LADWP draft stack (Jul 2026),LAW118_129,ATPO,3.0,Same as Plan / working
+lower,Lower caps (stricter sensitivity),LAW90_94_95,ATTO,0.1,Same ATTO as draft; tighter ERNA
+lower,Lower caps (stricter sensitivity),LAW90_94_95,ERNA10,0.1,Stricter than working/draft
+lower,Lower caps (stricter sensitivity),LAW118_129,ATTO,1.5,Below working
+lower,Lower caps (stricter sensitivity),LAW118_129,ERNA10,1.5,Below working
+lower,Lower caps (stricter sensitivity),LAW118_129,ATPO,3.0,Hold ATPO at Plan 3%
+higher,Higher caps (looser sensitivity),LAW90_94_95,ATTO,0.5,Above working
+higher,Higher caps (looser sensitivity),LAW90_94_95,ERNA10,0.5,Above working
+higher,Higher caps (looser sensitivity),LAW118_129,ATTO,4.0,Above draft ATTO
+higher,Higher caps (looser sensitivity),LAW118_129,ERNA10,5.0,Above draft ERNA
+higher,Higher caps (looser sensitivity),LAW118_129,ATPO,3.0,Hold ATPO at Plan 3%

@@ -1,9 +1,11 @@
 ---
-title: "Laws Revegetation Data Analysis"
-tbl-cap-location: top
+title: "Laws Type E Transfer Revegetation"
+subtitle: "LAW090, LAW094, LAW095, LAW118/129 — abandoned Type E agriculture to precip-dependent native community (2003 plan)"
 affiliation: "Inyo County Water Department"
 date: "2025-09-03"
-date-modified: "2025-09-03"
+date-modified: today
+author:
+  - name: Inyo County Water Department
 citation:
   type: report
   container-title: "Data Report"
@@ -13,58 +15,61 @@ citation:
 google-scholar: true
 format:
   html:
-    theme: cosmo
-    toc: true
-    toc-depth: 3
-    code-fold: true
-    code-tools: true
     embed-resources: true
-    css: styles.css
+  docx:
+    toc: true
+    number-sections: true
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    number-sections: true
+    colorlinks: true
 execute:
-  echo: true
+  echo: false
   warning: false
   message: false
 ---
 
-## Background
+::: {.callout-note}
+## Scope of this page
 
-The Laws Revegetation Project is based on the [Laws Negative Declaration](https://www.inyowater.org/wp-content/uploads/2021/06/Laws_Neg_Dec_3-17-03.pdf) and the [Laws Revegetation Plan](https://www.inyowater.org/wp-content/uploads/2021/10/Laws-Neg-Dec-Reveg-plan-FINAL-3-17-03-copy.pdf) describing 193 acres that would be reclassified from Type E to Type A. The reclassified land was to be revegetated and not irrigated in the future. This data report focuses on the revegetation targets for the Laws vegetation parcels: LAW090, LAW094, LAW095, LAW118/LAW129 that were part of this reclassification effort. data originate from 2022-2025.
+**What:** Working compliance report for Laws **Type E transfer** parcels under the 2003 revegetation plan [@LADWP2003; @LADWP2003MND].
 
-A forthcoming amendment is being developed by the Inyo/LA Technical Group detailing any changes to the 2003 plan needed going forward. This analysis applies species-specific filtering according to the 2003 plan and policy-based capping rules recommended by the working group to assess revegetation targets.
+**Why:** Annual cover and composition scores are the decision artifacts partners need; publishing them with methods makes the path from hits → goals auditable. Pages marked *(draft)* elsewhere are prototypes—see [goals & caps summary](amendment_summary.html) for shared direction vs the open ATTO/ERNA cap question.
+:::
 
+## Purpose
 
-**Revegetation Targets:**
+**What is Type E transfer?** Land retired from irrigated agriculture (Green Book Type E) and managed toward a **precipitation-dependent** native community—not kept in farming [@InLA1991; @LADWP2003MND]. This report tracks **LAW090, LAW094, LAW095**, and **LAW118/129**.
 
-1.  **Perennial Cover ≥ 10%**: Parcel-average native perennial cover from list of allowed species, with specific capping implemented for ATTO, ERNA10 and ATPO.
-2.  **Species with ≥3 Hits ≥ 6**: At least six perennial species with 3+ hits - from list of allowed species plus ATTO, ERNA10 and ATPO.
-3.  **Species Richness ≥ 10**: At least 10 distinct perennial species from list of allowed species plus ATTO, ERNA10 and ATPO
-4.  **Transect Cover ≥ 2%**: Each transect must have ≥2% perennial cover from list of allowed species plus ATTO, ERNA10 and ATPO
-5.  **Grass Species Present**: At least one grass species per parcel from list of allowed species
+**Why these metrics?** Dryland succession can take decades; plan goals are milestones along that path, not proofs of climax. Absolute cover and richness answer *compliance*; [STM](stm.html) and [NMDS](nmds.html) address *ecological state and composition*. Companion [reference parcels](reference.html) supply empirical bases for ATTO/ERNA caps.^[Caps limit how much of each nurse/shrub species may count toward the 10% cover goal so one species cannot dominate the score.] Other 1991 EIR / 1999 Plan sites are reported separately ([1999 Plan monitoring](reveg1999plan.html)).
 
-**Capping Rules:** - **LAW090/094/095**: ATTO and ERNA10 capped at 0.3% maximum contribution per parcel **LAW090 Exception**: No limit on ATPO species for LAW090 parcel **LAW118/129**: ATPO capped at 3%, ATTO and ERNA10 capped at 2% each
+**Default vs scenarios.** Tables below use the **working** cap stack. [Cap scenarios](#cap-scenarios) re-score the same hits under alternate cut points without replacing the primary analysis.
 
-**Overall Target Achievement**: Requires ALL targets to be met (cover AND richness AND transect coverage AND grass presence)
+### Revegetation targets (working rules)
 
-**Legend:** ✓ = Target attained \| ✗ = Target not attained
+All five must pass for overall attainment (**✓** attained / **✗** not):
 
-### Detailed Methodology
+1. **Perennial cover ≥ 10%** — parcel mean of transect cover from allowable species (after caps).^[Cover = (hits / 200) × 100 per transect (fixed 200 intercepts), then mean across transects.]
+2. **≥6 species with ≥3 hits** — from allowable list plus ATTO, ERNA10, ATPO.
+3. **Species richness ≥ 10** — distinct perennial species from that same list.
+4. **Every transect ≥ 2%** cover (same species filter).
+5. **≥1 grass** species from the allowable list.
 
-**Target 1: Perennial Cover ≥ 10%** - **Calculation**: Sum hits for all allowable species per transect, convert to percentage cover - **Formula**: `(hits / 200) × 100` per transect, then average across parcel - **Capping**: Apply species-specific limits before final calculation - **Threshold**: Final cover must be ≥ 10%
-
-**Target 2: Species with ≥3 Hits ≥ 6** - **Method**: Count species with 3+ hits from allowed species list - **Process**: Identify species meeting threshold, count total - **Threshold**: Must have at least 6 species with 3+ hits
-
-**Target 3: Species Richness ≥ 10** - **Method**: Count distinct perennial species from allowed species list - **Process**: Count unique species present in parcel - **Threshold**: Must have at least 10 distinct species
-
-**Target 4: Transect Cover ≥ 2%** - **Method**: Calculate cover for each individual transect - **Process**: Ensure each transect meets 2% threshold - **Assessment**: Calculate compliance rate as percentage of transects meeting threshold
-
-**Target 5: Grass Species Present** - **Method**: Verify at least one grass species per parcel - **Process**: Check for grass species from allowed species list - **Assessment**: Mark as compliant if any grass species found
+**Working caps:** LAW090/094/095 — ATTO and ERNA10 at **0.3%** each (ATPO uncapped on LAW090). LAW118/129 — ATTO/ERNA10 **2%** each, ATPO **3%**. Alternate stacks live in `data/cap_scenarios.csv`.
 
 ## Location
 
-Parcels and transect locations are shown in the map below. Click on transects for details and use the layer control to toggle different features.
+Parcel boundaries and monitoring transect locations are shown in @fig-laws-map. Click transects for details; use the layer control to toggle features.
 
-```{r project-map, echo=FALSE, warning=FALSE, message=FALSE}
-#| fig-cap: "Interactive map showing Laws revegetation parcels and transect locations. Click on transects for details and use the layer control to toggle different features."
+```{r}
+#| label: fig-laws-map
+#| fig-cap: "Laws Type E revegetation parcels and monitoring transect start locations."
+#| echo: false
+#| warning: false
+#| message: false
 
 # add parcel labels
 
@@ -357,7 +362,7 @@ print(parcel_averaging_example, width = Inf, n = Inf)
 
 **Species Filtering Process** 1. **Load Allowable Species Lists**: Import species lists for each parcel group 2. **Filter Data**: Keep only species that are on the allowable lists 3. **Apply Capping Rules**: Limit contribution of specific species (ERNA10, ATTO, ATPO) 4. **Calculate Final Cover**: Sum capped species contributions for compliance assessment
 
-**Capping Rules by Parcel Group** - **LAW90/94/95**: ERNA10 and ATTO capped at 0.3% each, ATPO unlimited for LAW090 - **LAW118/129**: ERNA10/ATTO capped at 2% each, ATPO capped at 3%
+**Capping Rules by Parcel Group (working default)** - **LAW90/94/95**: ERNA10 and ATTO capped at 0.3% each, ATPO unlimited for LAW090 - **LAW118/129**: ERNA10/ATTO capped at 2% each, ATPO capped at 3%. Scenario variants: `data/cap_scenarios.csv`.
 
 ```{r}
 # Use all data without species filtering for now
@@ -481,8 +486,36 @@ if(exists("compliance_metrics")) {
 #| warning: false
 #| message: false
 
+# Cap scenarios (working default + LADWP draft + lower/higher sensitivity)
+cap_scenarios <- read_csv("data/cap_scenarios.csv", show_col_types = FALSE)
+DEFAULT_CAP_SCENARIO <- "working"
+
+parcel_group_for <- function(parcel) {
+  if (parcel %in% c("LAW090", "LAW094", "LAW095")) {
+    "LAW90_94_95"
+  } else if (parcel %in% c("LAW118/129", "LAW118", "LAW129")) {
+    "LAW118_129"
+  } else {
+    NA_character_
+  }
+}
+
+lookup_cap <- function(scenario, parcel, species) {
+  grp <- parcel_group_for(parcel)
+  hit <- cap_scenarios %>%
+    filter(
+      .data$scenario == !!scenario,
+      .data$parcel_group == !!grp,
+      .data$species == !!species
+    )
+  if (nrow(hit) == 0) {
+    return(NA_real_) # no row → uncapped
+  }
+  as.numeric(hit$cap_pct[[1]])
+}
+
 # Function to calculate cover and capping for a parcel/year
-calculate_parcel_cover <- function(parcel, year) {
+calculate_parcel_cover <- function(parcel, year, scenario = DEFAULT_CAP_SCENARIO) {
   # Handle LAW118/129 as combined parcel
   if (parcel == "LAW118/129") {
     # Get data for LAW118/129 (already combined in data processing)
@@ -522,7 +555,7 @@ calculate_parcel_cover <- function(parcel, year) {
     filter(species %in% allowable_species_codes)
   
   # Debug: Show species filtering for LAW118/129 2025
-  if (parcel == "LAW118/129" && year == 2025) {
+  if (parcel == "LAW118/129" && year == 2025 && scenario == DEFAULT_CAP_SCENARIO) {
     cat("\n=== Species Filtering for", parcel, year, "===\n")
     cat("Allowable species codes:", paste(allowable_species_codes, collapse = ", "), "\n")
     cat("Species in data before filtering:", paste(unique(parcel_data$species), collapse = ", "), "\n")
@@ -541,7 +574,7 @@ calculate_parcel_cover <- function(parcel, year) {
     parcel_average_cover <- total_cover_percent / n_transects
     
     # Debug: Show calculation for LAW118/129 2025
-    if (parcel == "LAW118/129" && year == 2025) {
+    if (parcel == "LAW118/129" && year == 2025 && scenario == DEFAULT_CAP_SCENARIO) {
       cat("\n=== Cover Calculation Debug for", parcel, year, "===\n")
       cat("Number of transects:", n_transects, "\n")
       cat("Parcel average cover:", round(parcel_average_cover, 2), "%\n")
@@ -562,7 +595,7 @@ calculate_parcel_cover <- function(parcel, year) {
     0
   }
   
-  # Apply capping rules (from backup file)
+  # Apply capping rules from cap_scenarios for this scenario
   if(nrow(parcel_allowable) > 0) {
     parcel_species_cover <- parcel_allowable %>%
       group_by(species) %>%
@@ -572,18 +605,8 @@ calculate_parcel_cover <- function(parcel, year) {
       ) %>%
       mutate(
         species_cover = (total_hits / 200 * 100) / n_transects,
-        # Apply species-specific capping rules
-        capped_cover = case_when(
-          # LAW90/94/95: Strict capping (0.3% max for ERNA10 and ATTO)
-          parcel %in% c("LAW090", "LAW094", "LAW095") & species == "ERNA10" ~ pmin(species_cover, 0.3),
-          parcel %in% c("LAW090", "LAW094", "LAW095") & species == "ATTO" ~ pmin(species_cover, 0.3),
-          # LAW118/129: More generous capping (2% for ERNA10/ATTO, 3% for ATPO)
-          parcel == "LAW118/129" & species == "ERNA10" ~ pmin(species_cover, 2.0),
-          parcel == "LAW118/129" & species == "ATTO" ~ pmin(species_cover, 2.0),
-          parcel == "LAW118/129" & species == "ATPO" ~ pmin(species_cover, 3.0),
-          # All other species: No capping (full contribution)
-          TRUE ~ species_cover
-        )
+        cap_pct = vapply(species, function(sp) lookup_cap(scenario, parcel, sp), numeric(1)),
+        capped_cover = ifelse(is.na(cap_pct), species_cover, pmin(species_cover, cap_pct))
       )
     
     
@@ -591,7 +614,7 @@ calculate_parcel_cover <- function(parcel, year) {
     final_cover <- sum(parcel_species_cover$capped_cover)
     
     # Debug: Show capping results for LAW118/129 2025
-    if (parcel == "LAW118/129" && year == 2025) {
+    if (parcel == "LAW118/129" && year == 2025 && scenario == DEFAULT_CAP_SCENARIO) {
       cat("\n=== Species Capping Results for", parcel, year, "===\n")
       capping_results <- parcel_species_cover %>%
         mutate(
@@ -609,11 +632,13 @@ calculate_parcel_cover <- function(parcel, year) {
   result <- data.frame(
     Parcel = parcel,
     Year = year,
+    Scenario = scenario,
     `Cover %` = round(original_cover, 2),
     `Transects` = n_transects,
     `Cover After Species Caps` = round(final_cover, 2),
     `Allowed Sp Count` = n_distinct(parcel_allowable$species),
-    `Cover Status` = ifelse(final_cover >= 10, "✅ Compliant", "❌ Non-compliant")
+    `Cover Status` = ifelse(final_cover >= 10, "✅ Compliant", "❌ Non-compliant"),
+    check.names = FALSE
   )
   
   return(result)
@@ -650,16 +675,19 @@ if (!is.null(law118_129_2025)) {
 dashboard_data <- dashboard_data %>%
   distinct(Parcel, Year, .keep_all = TRUE)
 
-# Visual audit: Show analytical results data
-cat("\n=== Analytical Results Data ===\n")
+# Visual audit: Show analytical results data (working caps)
+cat("\n=== Analytical Results Data (scenario =", DEFAULT_CAP_SCENARIO, ") ===\n")
 cat("Total rows:", nrow(dashboard_data), "\n")
 cat("Unique parcel-year combinations:", nrow(unique(dashboard_data[, c("Parcel", "Year")])), "\n")
 
+dashboard_display <- dashboard_data %>%
+  select(-Scenario)
+
 # Display wider table
-if(nrow(dashboard_data) > 0) {
+if(nrow(dashboard_display) > 0) {
 DT::datatable(
-  dashboard_data,
-    caption = 'Analytical Results Table',
+  dashboard_display,
+    caption = 'Analytical Results Table (working caps)',
     options = list(
       pageLength = -1,  # Show all rows by default
       scrollX = FALSE,  # Disable horizontal scrolling to make table wider
@@ -684,6 +712,85 @@ DT::datatable(
 } else {
   cat("No data available for display")
 }
+```
+
+## Cap scenarios
+
+**What:** Recompute the cover ≥10% test under alternate ATTO / ERNA10 / ATPO cut points (`working`, `ladwp_draft`, `lower`, `higher`).
+
+**Why:** Cap choice changes how much of the hit data can count toward the goal. Parameterizing stacks in [`data/cap_scenarios.csv`](data/cap_scenarios.csv) lets us simulate perturbations without rewriting narrative each time—see [goals & caps summary](amendment_summary.html). Primary tables above stay on **`working`**.
+
+| Scenario | LAW090/094/095 ATTO / ERNA | LAW118/129 ATTO / ERNA / ATPO |
+|----------|----------------------------|--------------------------------|
+| **working** | 0.3 / 0.3 | 2.0 / 2.0 / 3.0 |
+| **ladwp_draft** | 0.1 / 0.3 | 2.8 / 4.3 / 3.0 |
+| **lower** | 0.1 / 0.1 | 1.5 / 1.5 / 3.0 |
+| **higher** | 0.5 / 0.5 | 4.0 / 5.0 / 3.0 |
+
+```{r cap-scenario-comparison}
+#| echo: false
+#| warning: false
+#| message: false
+
+scenario_ids <- unique(cap_scenarios$scenario)
+scenario_labels <- cap_scenarios %>%
+  distinct(scenario, label)
+scenario_label_map <- setNames(scenario_labels$label, scenario_labels$scenario)
+
+# Latest year per parcel from working dashboard
+parcel_years <- dashboard_data %>%
+  group_by(Parcel) %>%
+  summarise(Year = max(Year), .groups = "drop")
+
+cap_compare <- purrr::map_dfr(scenario_ids, function(sc) {
+  purrr::pmap_dfr(parcel_years, function(Parcel, Year) {
+    calculate_parcel_cover(Parcel, Year, scenario = sc)
+  })
+}) %>%
+  mutate(
+    label = unname(scenario_label_map[Scenario]),
+    cover_capped = `Cover After Species Caps`,
+    cover_ok = cover_capped >= 10
+  )
+
+cap_wide <- cap_compare %>%
+  select(Parcel, Year, Scenario, cover_capped, cover_ok) %>%
+  tidyr::pivot_wider(
+    names_from = Scenario,
+    values_from = c(cover_capped, cover_ok),
+    names_glue = "{Scenario}_{.value}"
+  )
+
+# Readable long table for DT
+cap_compare_dt <- cap_compare %>%
+  transmute(
+    Parcel,
+    Year,
+    Scenario = label,
+    `Uncapped cover %` = `Cover %`,
+    `Capped cover %` = cover_capped,
+    `≥10%?` = ifelse(cover_ok, "✓", "✗")
+  ) %>%
+  arrange(Parcel, Year, Scenario)
+
+DT::datatable(
+  cap_compare_dt,
+  caption = "Cover after ATTO/ERNA/ATPO caps by scenario (latest year per parcel)",
+  options = list(pageLength = 25, scrollX = TRUE, dom = "Bfrtip", buttons = c("copy", "csv")),
+  rownames = FALSE,
+  width = "100%"
+)
+
+# Compact pass/fail matrix
+pass_matrix <- cap_compare %>%
+  mutate(cell = paste0(round(cover_capped, 1), ifelse(cover_ok, " ✓", " ✗"))) %>%
+  select(Parcel, Year, Scenario, cell) %>%
+  tidyr::pivot_wider(names_from = Scenario, values_from = cell)
+
+knitr::kable(
+  pass_matrix,
+  caption = "Capped cover % and ≥10% pass (✓/✗) by scenario"
+)
 ```
 
 ## Species Richness Analysis
@@ -1590,17 +1697,17 @@ if (!exists("dashboard_data")) {
   cat("Column names:", paste(names(dashboard_data), collapse = ", "), "\n")
 }
 
-# Get the analytical results (cover targets)
-if (exists("dashboard_data") && ncol(dashboard_data) >= 7) {
+# Get the analytical results (cover targets) — prefer names over positions (Scenario column added)
+if (exists("dashboard_data") && "Cover Status" %in% names(dashboard_data)) {
   cover_results <- dashboard_data %>%
-    select(1, 2, 7) %>%  # Parcel, Year, Cover Status (7th column)
-    rename(parcel = 1, year = 2, cover_status = 3)
+    select(Parcel, Year, `Cover Status`) %>%
+    rename(parcel = Parcel, year = Year, cover_status = `Cover Status`)
   
   # Debug: Check cover_results
   cat("Cover results dimensions:", dim(cover_results), "\n")
   print(head(cover_results, 2))
 } else {
-  cat("ERROR: dashboard_data doesn't have enough columns or doesn't exist\n")
+  cat("ERROR: dashboard_data doesn't have Cover Status or doesn't exist\n")
   cover_results <- data.frame()
 }
 

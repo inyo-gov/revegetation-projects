@@ -1,0 +1,7 @@
+::: {.callout-important}
+## Draft / sandbox — what this means
+
+**What:** This page is an open, versioned analysis artifact—methods and numbers stay visible while tools mature [@Snow2026].
+
+**Why:** Closed file-share workflows hide how compliance figures were produced. Publishing drafts lets partners and the public inspect assumptions early, without treating prototypes as adopted policy or Technical Group findings.^[*Sandbox* means placeholders and sparse labels are allowed during prototyping; challenge numbers in the code and sources, not from a screenshot alone.]
+:::

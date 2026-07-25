@@ -1,454 +1,368 @@
-/* Custom styles for Revegetation Projects website */
+/* PeerJ-inspired academic site: charcoal, compact nav, tight tables */
 
-/* Global font consistency */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+
+:root {
+  --ink: #1c1c1c;
+  --muted: #5c5c5c;
+  --rule: #d9d5ce;
+  --paper: #fbfaf8;
+  --surface: #ffffff;
+  --accent: #3d3a36;
+  --link: #2c2c2c;
+  --link-hover: #000000;
+}
+
+html {
+  font-size: 15px;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 600;
-}
-
-/* Ensure consistent font rendering across all pages */
-.quarto-title-block,
+h1, h2, h3, h4, h5, h6,
+.navbar,
 .quarto-title-meta,
-.page-layout-article {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+#TOC,
+.btn,
+code, pre, kbd, samp {
+  font-family: "Source Sans 3", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-/* Table responsiveness improvements */
-.table-responsive {
-  overflow-x: visible !important;
-  -webkit-overflow-scrolling: touch;
-  margin-bottom: 1rem;
-  width: 100% !important;
-  max-width: none !important;
-  min-width: 100% !important;
+h1, h2, h3, h4 {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
-/* Full width table containers */
-.container-fluid,
-.container,
-.quarto-container {
-  max-width: none !important;
-  width: 100% !important;
-  padding-left: 15px;
-  padding-right: 15px;
+h1.title {
+  font-size: 1.75rem;
+  margin-bottom: 0.35rem;
 }
 
-/* Ensure main content area uses full width */
-main {
-  max-width: none !important;
-  width: 100% !important;
+.subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 400;
 }
 
-/* Full width page layout */
-.page-layout-article,
-.quarto-title-block,
-.quarto-title-meta {
-  max-width: none !important;
-  width: 100% !important;
+/* ---- Compact navbar (standard height) ---- */
+.navbar {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--rule);
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  min-height: 2.75rem;
 }
 
-/* Remove any Bootstrap container constraints */
-.row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink) !important;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
-.col-12, .col-md-12, .col-lg-12 {
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+.navbar-brand img,
+.navbar-logo {
+  height: 26px !important;
+  max-height: 26px !important;
+  width: auto;
+  margin-right: 0.35rem;
+  object-fit: contain;
 }
 
-/* Full width for DT tables */
-.dataTables_wrapper {
-  width: 100% !important;
-  max-width: none !important;
+.navbar .navbar-nav .nav-link {
+  color: var(--ink) !important;
+  font-size: 0.82rem !important;
+  font-weight: 500;
+  padding: 0.35rem 0.55rem !important;
+  white-space: nowrap;
 }
 
-/* Force full width on all table containers */
-.table-responsive,
-.dataTables_wrapper,
-.dataTables_scroll,
-.dataTables_scrollBody,
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link.active {
+  color: var(--link-hover) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.navbar .dropdown-menu {
+  font-size: 0.82rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.2rem;
+  box-shadow: none;
+  padding: 0.25rem 0;
+}
+
+.navbar .dropdown-item {
+  padding: 0.3rem 0.85rem;
+  color: var(--ink);
+}
+
+.navbar .dropdown-item:hover {
+  background: var(--paper);
+}
+
+.navbar .navbar-toggler {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.85rem;
+  border-color: var(--rule);
+}
+
+/* ---- Article column (academic, not full-bleed) ---- */
+#quarto-content.page-columns.page-layout-article,
+.page-layout-article main,
+main.content {
+  max-width: 52rem;
+}
+
+.quarto-title-block {
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+.quarto-title-meta-heading {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.quarto-title-meta-contents {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---- Links ---- */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* ---- Tables (tight, PeerJ-like) ---- */
 table,
-.dataTables_wrapper .dataTables_scrollBody table,
-.dataTables_wrapper table {
-  width: 100% !important;
-  max-width: none !important;
-  min-width: 100% !important;
-}
-
-/* Override any Bootstrap or Quarto width constraints */
-.quarto-container-fluid,
-.quarto-container,
-.container-fluid,
-.container,
-.quarto-container-fluid .container,
-.quarto-container .container {
-  max-width: none !important;
-  width: 100% !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-}
-
-/* Force full width on all possible container classes */
-[class*="container"],
-[class*="quarto-container"],
-[class*="page-layout"] {
-  max-width: none !important;
-  width: 100% !important;
-}
-
-/* DT table improvements */
-.dataTables_wrapper {
-  overflow-x: auto;
-}
-
-.dataTables_wrapper .dataTables_scroll {
-  overflow-x: auto;
-}
-
-/* Ensure tables fit comfortably on page */
-table {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 100% !important;
-  table-layout: auto !important;
-}
-
-/* Override Bootstrap table defaults */
 .table {
-  width: 100% !important;
-  max-width: none !important;
-  min-width: 100% !important;
-  margin-bottom: 0 !important;
-}
-
-/* Improve table cell padding for better readability */
-.table td, .table th {
-  padding: 0.5rem 0.75rem;
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-/* Allow some table cells to wrap when needed */
-.table td.wrap-text {
-  white-space: normal;
-  word-wrap: break-word;
-}
-
-/* DT table specific improvements */
-.DTFC_LeftWrapper table,
-.DTFC_RightWrapper table {
+  width: 100%;
+  font-size: 0.8rem;
+  line-height: 1.3;
   border-collapse: collapse;
+  margin: 0.5rem 0 1rem;
 }
 
-/* Force DT tables to use full width with compact styling */
+.table > :not(caption) > * > * {
+  padding: 0.28rem 0.45rem;
+  border-bottom-color: var(--rule);
+}
+
+.table thead th {
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--ink);
+  vertical-align: bottom;
+  background: transparent;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+caption,
+.quarto-float-caption-top,
+.quarto-float-caption-bottom,
+.figure-caption,
+figcaption,
+.table-caption {
+  font-family: "Source Sans 3", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: left;
+  caption-side: top;
+  margin: 0.35rem 0 0.5rem;
+  line-height: 1.35;
+}
+
+.quarto-float-caption-bottom,
+.figure-caption,
+figcaption {
+  caption-side: bottom;
+  margin-top: 0.4rem;
+}
+
+.quarto-float .quarto-float-caption-top .quarto-caption-label,
+.quarto-float .quarto-float-caption-bottom .quarto-caption-label {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* DT tables */
 .dataTables_wrapper {
+  font-size: 0.78rem !important;
   width: 100% !important;
-  max-width: none !important;
-  overflow: visible !important;
-  min-width: 1000px !important;
-  font-size: 0.85rem !important;
+  overflow-x: auto !important;
+  margin-bottom: 1rem;
 }
 
 .dataTables_wrapper table {
-  font-size: 0.85rem !important;
-  line-height: 1.2 !important;
+  font-size: 0.78rem !important;
+  line-height: 1.25 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  table-layout: auto !important;
 }
 
 .dataTables_wrapper th,
 .dataTables_wrapper td {
-  padding: 4px 6px !important;
-  font-size: 0.85rem !important;
-  white-space: nowrap !important;
+  padding: 3px 5px !important;
+  font-size: 0.78rem !important;
 }
 
-/* Quarto column-screen layout with margin */
-.column-screen {
-  width: 95% !important;
+.dataTables_wrapper .dt-buttons .btn,
+.dataTables_wrapper .btn {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.15rem;
+  margin: 0 0.25rem 0.35rem 0;
+}
+
+.dataTables_length,
+.dataTables_filter,
+.dataTables_info,
+.dataTables_paginate {
+  font-size: 0.75rem;
+}
+
+#goal-summary-table_wrapper,
+#species-hits-table_wrapper {
+  min-width: 0 !important;
+  overflow-x: auto !important;
+}
+
+#goal-summary-table_wrapper table,
+#species-hits-table_wrapper table {
+  min-width: 0 !important;
+  width: max-content !important;
   max-width: none !important;
-  margin: 0 auto !important;
-  padding: 0 20px !important;
 }
 
-.dataTables_wrapper .dataTables_scroll {
-  width: 100% !important;
-  max-width: none !important;
-  overflow: visible !important;
-  min-width: 1000px !important;
+/* ---- Figures ---- */
+.figure,
+.quarto-figure {
+  margin: 1.25rem 0;
 }
 
-.dataTables_wrapper .dataTables_scrollBody {
-  width: 100% !important;
-  max-width: none !important;
-  overflow: visible !important;
-  min-width: 1000px !important;
+.figure img,
+.quarto-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
 }
 
-.dataTables_wrapper table {
-  width: 100% !important;
-  max-width: none !important;
-  table-layout: fixed !important;
-  min-width: 1000px !important;
+/* ---- Code ---- */
+pre, code {
+  font-size: 0.78rem;
 }
 
-/* Improve button spacing in DT tables */
-.dataTables_wrapper .dt-buttons {
-  margin-bottom: 1rem;
+pre {
+  background: #f3f1ec;
+  border: 1px solid var(--rule);
+  border-radius: 0.15rem;
+  padding: 0.65rem 0.8rem;
 }
 
-.dataTables_wrapper .dt-buttons .btn {
-  margin-right: 0.5rem;
+/* ---- TOC ---- */
+#TOC {
+  position: sticky;
+  top: 3.25rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  border-left: 1px solid var(--rule);
+  padding-left: 0.75rem;
+}
+
+#TOC > ul.collapse,
+#TOC ul.collapse {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+}
+
+#TOC #toc-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-/* Better mobile responsiveness */
-@media (max-width: 768px) {
-  .table-responsive {
-    font-size: 0.8rem;
-  }
-  
-  .dataTables_wrapper {
-    font-size: 0.8rem;
-  }
-  
-  .dataTables_wrapper .dataTables_length,
-  .dataTables_wrapper .dataTables_filter {
-    margin-bottom: 0.5rem;
-  }
-}
-
-/* Print/PDF specific styles */
-@media print {
-  .table-responsive {
-    overflow: visible !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  .dataTables_wrapper {
-    overflow: visible !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  table {
-    width: 100% !important;
-    max-width: 100% !important;
-    table-layout: fixed !important;
-    font-size: 0.8rem !important;
-  }
-  
-  .table td, .table th {
-    padding: 0.25rem 0.5rem !important;
-    white-space: normal !important;
-    word-wrap: break-word !important;
-    overflow-wrap: break-word !important;
-    font-size: 0.8rem !important;
-  }
-  
-  /* Hide DT controls for print */
-  .dataTables_length,
-  .dataTables_filter,
-  .dataTables_info,
-  .dataTables_paginate,
-  .dt-buttons {
-    display: none !important;
-  }
-  
-  /* Ensure full width containers for print */
-  .container,
-  .container-fluid,
-  .quarto-container,
-  .quarto-container-fluid {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-}
-
-/* Improve histogram container */
-.histogram-container {
-  margin: 2rem 0;
-  padding: 1rem;
-  background-color: #f8f9fa;
-  border-radius: 0.5rem;
-  border: 1px solid #e9ecef;
-}
-
-/* Better figure styling */
-.figure {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.figure img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.375rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
-/* Improve code block styling */
-pre {
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 0.375rem;
-  padding: 1rem;
-  overflow-x: auto;
-}
-
-/* Better alert styling */
-.alert {
-  border-radius: 0.5rem;
-  border: none;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
-/* Custom navbar styling for blue theme */
-.navbar {
-  background-color: #2E86AB !important;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  color: white !important;
-}
-
-.navbar-nav .nav-link {
-  color: white !important;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #e9ecef !important;
-}
-
-.navbar-text {
-  color: white !important;
-}
-
-.navbar-brand img {
-  height: 40px;
-  max-height: 40px;
-  width: auto;
-  margin-right: 10px;
-  object-fit: contain;
-  background-color: white;
-  border-radius: 4px;
-  padding: 2px;
-  /* Add white background to make logo visible on dark navbar */
-}
-
-/* Better card styling */
-.card {
-  border-radius: 0.5rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  margin-bottom: 1.5rem;
-}
-
-/* Improve sidebar styling */
-.sidebar {
-  background-color: #f8f9fa;
-  border-right: 1px solid #e9ecef;
-}
-
-/* Better link styling */
-a {
-  color: #2E86AB;
+#TOC .nav-link {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 0.15rem 0;
   text-decoration: none;
 }
 
-a:hover {
-  color: #1e5a73;
-  text-decoration: underline;
+#TOC .nav-link.active,
+#TOC .nav-link:hover {
+  color: var(--ink);
 }
 
-/* Improve button styling */
-.btn {
-  border-radius: 0.375rem;
-  font-weight: 500;
+/* ---- Footer ---- */
+.nav-footer,
+footer.footer,
+.page-footer {
+  border-top: 1px solid var(--rule);
+  background: var(--surface) !important;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
 }
 
-/* Better form styling */
-.form-control {
-  border-radius: 0.375rem;
-  border: 1px solid #ced4da;
+/* ---- Utilities / cleanup ---- */
+.column-screen {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.form-control:focus {
-  border-color: #2E86AB;
-  box-shadow: 0 0 0 0.2rem rgba(46, 134, 171, 0.25);
-}
-
-/* Footer styling */
-footer {
-  margin-top: 3rem;
-  padding: 2rem 0;
-  border-top: 1px solid #e9ecef;
-  background-color: #f8f9fa;
-  text-align: center;
-  color: #6c757d;
-  font-size: 0.9rem;
-}
-
-/* Data disclaimer styling */
-.alert-disclaimer {
-  background-color: #fff3cd;
-  border: 1px solid #ffeaa7;
-  color: #856404;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 2rem 0;
-}
-
-/* Hide Quarto navigation envelope artifacts */
-#quarto-navigation-envelope {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-
-.quarto-markdown-envelope-contents {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Hide any elements with quarto-markdown-envelope in their class */
+#quarto-navigation-envelope,
+.quarto-markdown-envelope-contents,
 [class*="quarto-markdown-envelope"] {
   display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
 }
 
-/* Force tables to break out of containers and use full viewport width */
-.full-width-table {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin-left: calc(-50vw + 50%) !important;
-  margin-right: calc(-50vw + 50%) !important;
-  position: relative !important;
-  left: 50% !important;
-  right: 50% !important;
-  transform: translateX(-50%) !important;
-}
+@media print {
+  .navbar, #TOC, .dt-buttons, .dataTables_filter,
+  .dataTables_length, .dataTables_paginate, .dataTables_info,
+  .code-tools, .quarto-code-tools {
+    display: none !important;
+  }
 
-.full-width-table .dataTables_wrapper {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  margin-left: calc(-50vw + 50%) !important;
-  margin-right: calc(-50vw + 50%) !important;
-}
+  body {
+    background: white;
+    font-size: 10.5pt;
+  }
 
+  table, .dataTables_wrapper table {
+    font-size: 8.5pt !important;
+  }
+}

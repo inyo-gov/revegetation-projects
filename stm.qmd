@@ -1,0 +1,76 @@
+---
+title: "State-and-transition model (STM) — draft"
+subtitle: "Gravelly loam ESD concept + abandoned-agriculture state for Laws Type E"
+affiliation: "Inyo County Water Department"
+date-modified: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+execute:
+  echo: false
+---
+
+{{< include _includes/sandbox_disclaimer.qmd >}}
+
+::: {.callout-note}
+## Companion pages
+
+- [NMDS (draft)](nmds.html) — composition space for reference vs reveg  
+- [Goals & caps summary](amendment_summary.html) — compliance milestones vs open caps  
+- Methods paper: [STM / NMDS for Type E (draft)](paper_stm_nmds.html)
+:::
+
+## Purpose
+
+**What:** A draft **state-and-transition model (STM)** for Laws Type E parcels: plant communities an ecological site can support, the transitions among them, and which changes are hard to reverse [@Bestelmeyer2017].
+
+**Why:** Cover and composition goals answer *compliance*; they do not name the **starting state** after irrigated agriculture ends. Stock desert STMs usually begin from native or lightly disturbed phases. Type E transfer parcels start as **abandoned irrigated agriculture**—often bare, with topsoil lost to wind after irrigation stops (Green Book **Type A · Barren Lands – Abag**). Without an explicit **ABAG** box, the model pretends recovery begins from intact scrub.
+
+ICWD’s broader Owens STM work lives in [`stm`](https://github.com/inyo-gov/stm) (Green Book types as states within NRCS ecological sites; NMDS to test type separation).
+
+## Ecological site (confirmed)
+
+**What:** Majority-component SSURGO (`Ecologic_3`) places all five Type E parcels on **Gravelly Loam 5-8" P.Z.**—matching Plan “gravely loam” language used for LAW118/129 planting caps.
+
+**Why name the ESD:** Caps and planting tables are ecological-site concepts; joining SSURGO makes that claim testable and mapable.
+
+| Layer | Assignment |
+|-------|------------|
+| SSURGO / inventory name | **Gravelly Loam 5-8" P.Z.** |
+| CA802 (Draft / empty EDIT) | **R029XG009CA** |
+| NV Provisional twin (dynamics) | **R029XY087NV** |
+| MLRA | 029 — Southern Nevada Basin and Range |
+| `stm` catalog status | **Tier 3** — no draft site STM page yet |
+| Plan language (LAW118/129) | **“gravely loam”** ≤3% / species, ≤15% aggregate — ATPO basis |
+| Green Book on reveg | Type **A**, **Barren Lands – Abag** (LAW118 also ~41 ac Type **E** on same ESD) |
+| Reference parcels | Mostly Type **A** scrub for ATTO/ERNA caps — [reference](reference.html) |
+
+Rows: [`data/processed/laws_type_e_esd.csv`](data/processed/laws_type_e_esd.csv). Closest published narrative twin: [`Loamy 5-8`](https://github.com/inyo-gov/stm/blob/main/sites/loamy-5-8/STM.md).^[Next GIS step: show ESD in reference-map popups for reference parcels as well as reveg.]
+
+## Draft STM (Gravelly Loam 5-8" + ABAG)
+
+```mermaid
+flowchart LR
+  E["Type E<br/>Irrigated agriculture"] -->|stop irrigation<br/>topsoil loss / wind| ABAG["ABAG state<br/>Abandoned ag · bare / eroded"]
+  ABAG -->|planting, drip, nurse shrubs<br/>ATTO / ERNA / natives| EARLY["Early seral / planted<br/>low cover · high bare"]
+  EARLY -->|recruitment + time<br/>no irrigation| REF["Reference-like Type A scrub<br/>ESD potential phases"]
+  EARLY -->|fail / chronic drought<br/>or weed lock| ABAG
+  REF -->|severe disturbance| ABAG
+  E -.->|Plan failure path| E
+```
+
+| State | Meaning |
+|-------|---------|
+| **E – Irrigated ag** | Pre-transfer / failure-path revert |
+| **ABAG** | Precip-only barren after irrigation ceases; topsoil depleted; high wind erosion |
+| **Early seral / assisted** | Active revegetation; cover rising but not self-sustaining |
+| **Reference-like A** | Composition approaching Gravelly Loam arid reference mixes |
+
+Stock Gravelly/Loamy STMs still govern **within-scrub** phases (grazing, annuals, shrub dominance). **ABAG** is the Type E add-on.
+
+## Link to monitoring
+
+- **Cover / composition / caps** are milestones on Early → Reference — [revegetation](index.html), [cap scenarios](index.html#cap-scenarios).  
+- **Rest periods** after goals are a completion rule, not yet an STM box — [goals & caps](amendment_summary.html).  
+- **NMDS** asks whether reveg composition sits apart from the reference cloud and whether years move toward it.

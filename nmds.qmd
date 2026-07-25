@@ -1,0 +1,129 @@
+---
+title: "NMDS — reference vs revegetation (draft)"
+subtitle: "Bray–Curtis ordination of Laws Type E and reference parcel composition"
+affiliation: "Inyo County Water Department"
+date-modified: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+{{< include _includes/sandbox_disclaimer.qmd >}}
+
+::: {.callout-note}
+## Companion pages
+
+- [STM (draft)](stm.html) — ABAG → early seral → reference-like scrub  
+- [Reference](reference.html) · [Revegetation](index.html)  
+- Methods paper: [STM / NMDS for Type E (draft)](paper_stm_nmds.html)
+:::
+
+## Purpose
+
+**What:** **Non-metric multidimensional scaling (NMDS)** maps parcel–year samples so distances reflect community **dissimilarity** [@McCuneGrace2002]. Species values are **relative cover** (row sums = 1); distance is Bray–Curtis; fitting uses `vegan::metaMDS` [@Oksanen2024]—the same core pipeline as ICWD’s [`stm`](https://github.com/inyo-gov/stm) helpers.
+
+**Why:** Compliance uses **absolute** (capped) cover. Relative composition asks a different question: do **revegetation** parcels (ABAG / early seral starts) sit apart from **reference** scrub in species space, and do later years move toward the reference cloud?^[Row-normalization removes magnitude so sparse vs dense stands can still be compared by *who* is present; bare ground is not a species here, so ABAG barrenness is only partly visible.]
+
+## Methods (Laws adaptation)
+
+1. **Reveg:** LAW090/094/095 (2022–2025 workbook); LAW118/129 combined for 2025.  
+2. **Reference:** long-format reference CSVs (transect hits as cover).  
+3. Aggregate within parcel–year; row-normalize; drop species in &lt;2 samples.  
+4. Bray–Curtis → `metaMDS` (*k* = 2); stress on the figure.  
+5. Color by **role** (reference vs reveg); shape by parcel family.
+
+```{r}
+#| label: fig-nmds-laws
+#| fig-cap: "NMDS of parcel–year relative composition: reference vs Laws Type E revegetation samples."
+#| fig-height: 6
+#| fig-width: 8
+
+source("code/nmds_laws.R")
+
+long <- load_laws_composition_long(".")
+built <- build_relative_community_laws(long)
+comm <- filter_rare_species(built$comm, min_occ = 2)
+comm <- comm[, colSums(comm) > 0, drop = FALSE]
+meta <- built$meta %>%
+  dplyr::filter(sample %in% rownames(comm)) %>%
+  dplyr::arrange(match(sample, rownames(comm)))
+comm <- comm[meta$sample, , drop = FALSE]
+meta <- meta %>%
+  dplyr::mutate(
+    role = dplyr::coalesce(as.character(role), "reference"),
+    family = dplyr::case_when(
+      parcel %in% c("LAW090", "LAW094", "LAW095") ~ "reveg 090/094/095",
+      parcel == "LAW118/129" ~ "reveg 118/129",
+      TRUE ~ "reference"
+    ),
+    group_label = dplyr::coalesce(as.character(reference_group), family)
+  )
+
+nmds <- run_nmds(comm, trymax = 40)
+sc <- scores_with_meta(nmds, meta)
+
+readr::write_csv(sc, "data/processed/laws_nmds_scores.csv")
+file.copy("data/processed/laws_nmds_scores.csv", "docs/laws_nmds_scores.csv", overwrite = TRUE)
+
+stress <- round(nmds$stress, 3)
+
+ggplot(sc, aes(x = NMDS1, y = NMDS2, color = role, shape = family)) +
+  geom_point(size = 3, alpha = 0.85) +
+  ggrepel::geom_text_repel(
+    aes(label = paste0(parcel, "\n", year)),
+    size = 2.4,
+    max.overlaps = 40,
+    show.legend = FALSE
+  ) +
+  scale_color_manual(values = c(reference = "#1b9e77", reveg = "#d95f02")) +
+  labs(
+    title = "Laws Type E — NMDS (relative composition)",
+    subtitle = paste0("Bray–Curtis · stress = ", stress, " · rare spp dropped (min 2 samples)"),
+    color = "Role",
+    shape = "Family"
+  ) +
+  theme_minimal(base_size = 12) +
+  coord_equal()
+```
+
+```{r}
+#| label: tbl-nmds-samples
+#| tbl-cap: "Parcel–year samples in the NMDS (download: docs/laws_nmds_scores.csv)."
+
+sc_tbl <- sc %>%
+  dplyr::transmute(
+    Parcel = parcel,
+    Year = year,
+    Role = role,
+    Family = family,
+    `Ref group` = dplyr::coalesce(as.character(reference_group), "—"),
+    NMDS1 = round(NMDS1, 3),
+    NMDS2 = round(NMDS2, 3)
+  ) %>%
+  dplyr::arrange(Role, Parcel, Year)
+
+DT::datatable(sc_tbl, rownames = FALSE, options = list(pageLength = 20, scrollX = TRUE))
+```
+
+## Reading the plot for the STM
+
+| Pattern | Interpretation |
+|---------|----------------|
+| Reference cloud | Composition near ESD potential (Type A scrub phases) |
+| Reveg apart / on the edge | Still in **ABAG / early seral** space ([STM](stm.html)) |
+| Same parcel moves toward the cloud across years | Trajectory hypothesis for assisted recovery^[LAW118/129 are mostly 2025-only so far; 090-group has 2022–2025.] |
+
+## Limitations
+
+- Relative cover omits bare as a taxon; ABAG barrenness is understated.  
+- Reference parcels are not filtered to Gravelly Loam alone; reveg targets are (`laws_type_e_esd.csv`).  
+- PERMANOVA / envfit live in `stm`; this page is the Laws-facing first cut.
+
+## Code
+
+`code/nmds_laws.R` · upstream `stm/code/nmds_functions.R`

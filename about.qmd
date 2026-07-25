@@ -1,0 +1,42 @@
+---
+title: "About"
+subtitle: "Inyo County Water Department — revegetation monitoring"
+format:
+  html: default
+execute:
+  echo: false
+---
+
+{{< include _includes/sandbox_disclaimer.qmd >}}
+
+## Purpose
+
+**What:** Reproducible Quarto reports for ICWD revegetation monitoring under (1) the **2003 Laws Type E transfer** plan and (2) the **1991 EIR / 1999 Revegetation Plan** [@LADWP2003; @LADWP1999].
+
+**Why:** Compliance numbers only persuade if the path from field hits to goals is inspectable. Methods, figures, tables, and downloads live together so Technical Group partners, students, and the public can challenge assumptions—not only read percentages [@Baker2025; @Snow2026].
+
+| Need | Page |
+|------|------|
+| Type E compliance | [Revegetation sites](index.html) |
+| ATTO/ERNA reference means | [Reference sites](reference.html) |
+| Shared goals / open caps | [Goals & caps summary](amendment_summary.html) |
+| Ecological framing | [STM](stm.html) · [NMDS](nmds.html) |
+| 1999 Plan 2025 resurvey | [1999 Plan monitoring](reveg1999plan.html) |
+| Citable narratives | [Living repository paper](paper.html) · [STM/NMDS paper](paper_stm_nmds.html) |
+
+Source: [GitHub](https://github.com/inyo-gov/revegetation-projects). Full 2003-plan amendment draft language is **local-only** (gitignored).
+
+## Open science at ICWD
+
+**What problem:** Monitoring often lives as spreadsheets and GIS folders findable mainly by people who already know the path—**closed by default**, even when publicly funded [@Nandi2025].
+
+**What we do instead:** Liberate analyses into durable, citable, machine-readable forms. Not every notebook must be public on day one; analyses that support decisions should be **documented, versioned, and re-runnable**.
+
+| Closed pattern | Open pattern (this site) |
+|----------------|--------------------------|
+| Static emailed tables | Live HTML with methods beside numbers |
+| “Trust the sheet” | Code + data in a public repo |
+| Metadata in email | Documented rules, denominators, goal tests |
+| Hard to find | Indexed pages, downloads, git history |
+
+Open here is a **commitment to transparency**, not a claim that every sensitivity is finished. Incomplete denominators and unscored sustainability criteria are stated as such.

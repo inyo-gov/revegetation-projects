@@ -1,0 +1,25 @@
+# Catalog overlay for project-index (sync_project_catalog.py)
+
+id: revegetation-projects
+title: Revegetation Projects
+description: >-
+  Type E transfer (2003) and 1999-plan monitoring — Quarto dashboards, living
+  data paper, LADWP July 2026 plan-amendment draft (git-versioned), and dual-track
+  sustainability methods (RS + field audit; parcel recruit-cover ratio R).
+visibility: public
+tags:
+  - revegetation
+  - laws
+  - type-e-transfer
+  - 1999-plan
+  - sustainability
+  - field-monitoring
+  - open-science
+mandates:
+  - Mit Neg Dec — Laws Type E transfer
+  - 2003 Laws revegetation plan
+  - 1999 Revegetation Plan
+status: site-ready
+site_type: quarto
+site_url: https://inyo-gov.github.io/revegetation-projects/
+github_url: https://github.com/inyo-gov/revegetation-projects

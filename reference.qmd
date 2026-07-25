@@ -1,9 +1,11 @@
 ---
-title: "Reference Parcels"
-tbl-cap-location: top
+title: "Type E Transfer — Reference Sites"
+subtitle: "ATTO and ERNA thresholds for 2003-plan revegetation parcels"
 affiliation: "Inyo County Water Department"
 date: "2025-09-03"
-date-modified: "2025-09-03"
+date-modified: today
+author:
+  - name: Inyo County Water Department
 citation:
   type: report
   container-title: "Data Report"
@@ -11,44 +13,164 @@ citation:
   issued: "2025-09-03"
   url: https://github.com/inyo-gov/revegetation-projects
 google-scholar: true
+format:
+  html: default
+  docx:
+    toc: true
+    number-sections: true
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    number-sections: true
+    colorlinks: true
 execute:
   echo: false
   warning: false
   message: false
 ---
 
-Reference parcel data and analysis for comparison with revegetation project areas.
+::: {.callout-note}
+## Scope of this page
 
-## Data Processing Methodology
+**What:** Reference-parcel analysis that supports **ATTO / ERNA** capping on Type E revegetation sites (LAW90/94/95 and LAW118/129 groups).
 
-The reference parcel analysis follows a systematic approach to ensure accurate and consistent data processing:
+**Why:** Caps should be traceable to measured cover on comparable scrub—not invented cut points. This page documents *which* parcels, *how* means are built, and how they relate to ecological site / Green Book context. Working compliance lives on [revegetation sites](index.html); shared direction vs open caps on [goals & caps summary](amendment_summary.html). Draft STM/NMDS pages remain prototypes.
+:::
 
-### 1. **Data Ingestion**
+## Purpose
 
--   **LAW90/94/95 parcels**: Processed from individual CSV files
--   **LAW118/129 parcels**: Processed from Excel files
--   **Transect normalization**: All transect labels converted to lowercase (e.g., "3A" → "3a")
+Reference surveys answer: *what ATTO and ERNA cover is typical on nearby Type A (and related) scrub?* Those means—and policy choices about how tightly to bind them—feed the capping rules used when scoring the 10% cover goal [@LADWP2003]. Sample sizes by group and year are in @tbl-ref-transect-counts.
 
-### 2. **Cover Calculation**
+## Reference parcel map and ecological attributes
 
--   **Per-transect basis**: Cover calculated for each transect individually
--   **Species aggregation**: Multiple hits per species per transect are summed
--   **Percent cover**: Reference parcel hits directly represent percent cover
+**What:** @fig-ref-parcels-map maps **reference** parcels (filled) against Type E **revegetation** outlines; @tbl-ref-ecol lists Green Book type and community.
 
-### 3. **Complete Data Accounting**
+**Why:** Spatial context shows that reveg parcels are **ABAG barren** starts, while reference parcels are mostly intact scrub used for thresholds.^[LAW090/094/095/118/129 are majority **Gravelly Loam 5-8" P.Z.** (R029XG009CA / R029XY087NV); Plan “gravely loam” language underpins the ATPO **3%** cap—see [STM](stm.html) and [goals & caps](amendment_summary.html). **LAW069** is Type **B** rabbitbrush scrub. Composition space: [NMDS](nmds.html).]
 
--   **Complete dataset**: All parcel-year-transect-species combinations included
--   **Zero-filling**: Missing species receive 0% cover (not excluded from averages)
--   **Group averages**: Averages calculated from ALL parcels in reference groups, including those with zero ATTO/ERNA cover
+```{r}
+#| label: fig-ref-parcels-map
+#| fig-cap: "Reference parcels for Type E capping (filled) and Laws revegetation parcels (outline)."
+#| echo: false
+#| warning: false
+#| message: false
 
-This methodology ensures comprehensive analysis of reference parcel conditions.
+library(leaflet)
+library(sf)
+library(dplyr)
+library(readr)
 
-## Reference Parcels Summary
+ref_attr <- read_csv("data/processed/reference_parcel_ecological_attributes.csv", show_col_types = FALSE)
 
-The following table shows the transect counts for reference parcels by reference group and year. This provides an overview of the monitoring effort across different reference parcel groups.
+ref_sf <- st_read("docs/reference_parcels.geojson", quiet = TRUE) %>%
+  st_make_valid() %>%
+  mutate(
+    popup_text = paste0(
+      "<b>", parcel, "</b><br>",
+      "Reference group: ", reference_group, "<br>",
+      "GB type: ", GB_TYPE, "<br>",
+      "Community: ", COMM_NAME, " (", COMM_ACRON, ")<br>",
+      "Acres: ", round(Acreage, 1)
+    )
+  )
 
-```{r reference-parcels-summary, echo=FALSE, warning=FALSE}
-#| tbl-cap: "Reference parcels transect counts by group and year."
+reveg_sf <- st_read("data/gis/LA_parcels_rasterizedd.shp", quiet = TRUE) %>%
+  filter(PCL %in% c("LAW090", "LAW094", "LAW095", "LAW118", "LAW129")) %>%
+  st_transform(4326) %>%
+  st_make_valid() %>%
+  mutate(
+    popup_text = paste0(
+      "<b>Revegetation ", PCL, "</b><br>",
+      "GB type: ", GB_TYPE, "<br>",
+      "Community: ", COMM_NAME, "<br>",
+      "Acres: ", round(Acreage, 1)
+    )
+  )
+
+group_pal <- colorFactor(
+  palette = c("LAW118/129" = "#1b9e77", "LAW90/94/95" = "#d95f02"),
+  domain = ref_sf$reference_group
+)
+
+leaflet() %>%
+  addProviderTiles(providers$Esri.WorldImagery, group = "Imagery") %>%
+  addProviderTiles(providers$CartoDB.Positron, group = "Streets") %>%
+  addPolygons(
+    data = reveg_sf,
+    fill = FALSE,
+    color = "#ffff33",
+    weight = 3,
+    popup = ~popup_text,
+    group = "Revegetation parcels"
+  ) %>%
+  addPolygons(
+    data = ref_sf,
+    fillColor = ~group_pal(reference_group),
+    fillOpacity = 0.45,
+    color = "#222222",
+    weight = 1.5,
+    popup = ~popup_text,
+    group = "Reference parcels"
+  ) %>%
+  addLegend(
+    "bottomright",
+    pal = group_pal,
+    values = ref_sf$reference_group,
+    title = "Reference group"
+  ) %>%
+  addLayersControl(
+    baseGroups = c("Imagery", "Streets"),
+    overlayGroups = c("Reference parcels", "Revegetation parcels"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
+
+```{r}
+#| label: tbl-ref-ecol
+#| tbl-cap: "Reference parcels — Green Book type, community, and reference group (for LAW118/129 Plan ESD note see text above)."
+#| echo: false
+
+library(DT)
+
+ref_table <- ref_attr %>%
+  transmute(
+    Parcel = parcel,
+    `Reference group` = reference_group,
+    `GB type` = GB_TYPE,
+    Community = COMM_NAME,
+    Code = COMM_ACRON,
+    Acres = round(Acreage, 1),
+    `Years sampled` = years_sampled
+  ) %>%
+  arrange(`Reference group`, Parcel)
+
+DT::datatable(
+  ref_table,
+  rownames = FALSE,
+  options = list(pageLength = 25, scrollX = TRUE, dom = "Bfrtip", buttons = c("copy", "csv")),
+  caption = htmltools::tags$caption(
+    style = "caption-side: top; text-align: left;",
+    "Downloadable: data/processed/reference_parcel_ecological_attributes.csv"
+  )
+)
+```
+
+## Data processing methodology
+
+1. **Ingest.** LAW90/94/95 reference rows from long-format CSVs; LAW118/129-group rows from Excel workbooks (transect labels normalized to lowercase, e.g. `3A` → `3a`).
+2. **Cover.** Reference values are treated as percent cover at the transect (hits already expressed as cover in source files).
+3. **Summaries.** Species contributions, ATTO/ERNA statistics, and cover histograms (@fig-ref-cover-hist) support policy thresholds used in the Laws compliance report. Zero-fill missing species before group averages so parcels with no ATTO/ERNA still enter the denominator.
+
+## Reference parcels summary
+
+@tbl-ref-transect-counts summarizes transect counts by reference group and year.
+
+```{r}
+#| label: tbl-ref-transect-counts
+#| tbl-cap: "Reference parcel transect counts by group and year."
+#| echo: false
+#| warning: false
 
 library(dplyr)
 library(DT)
@@ -179,9 +301,11 @@ library(ggplot2)
 
 **Methodology**: Cover is calculated per transect first, then averaged across transects for each parcel-year-species combination.
 
-```{r species-analysis, warning=FALSE}
-#| tbl-cap: "Species contribution to perennial cover in reference parcels by year. Shows average cover per transect, average perennial cover per transect, relative contribution percentage, and total transects per parcel-year. Default view filtered to show ATTO and ERNA10 species."
+```{r}
+#| label: tbl-ref-species-cover
+#| tbl-cap: "Species contribution to perennial cover in reference parcels by year (mean cover per transect, relative contribution, and transect counts). Default filter: ATTO and ERNA10."
 #| column: screen
+#| warning: false
 
 # Reference data already loaded in previous chunk
 
@@ -315,9 +439,11 @@ species_analysis %>%
 
 ### ATTO/ERNA10 Summary Statistics
 
-```{r atto-erna-summary, warning=FALSE}
-#| tbl-cap: "Summary statistics for ATTO and ERNA contribution to reference parcel perennial cover, grouped by species, reference parcel group, and year. Shows mean average cover, standard deviation of average cover, mean relative contribution, and number of parcels per group-year combination."
+```{r}
+#| label: tbl-ref-atto-erna
+#| tbl-cap: "ATTO and ERNA contribution to reference parcel perennial cover by species, group, and year."
 #| column: screen
+#| warning: false
 
 # Create reference parcel group identifier for ATTO/ERNA species only
 # But include ALL parcels for each reference group-year combination
@@ -415,9 +541,13 @@ atto_erna_summary %>%
 
 The histograms below show cover distributions for parcels split by reference group. Each plot shows all years with 2025 shown in red.
 
-```{r reference-parcels-histogram, warning=FALSE}
-#| fig-cap: "Distribution of total transect cover by reference parcel and year. Two separate plots: one for LAW90/94/95 group and one for LAW118/129 group. Each panel shows one parcel with all years overlaid. 2025 data highlighted in red with red mean line; other years in grey with grey mean lines; blue and green thick lines show ATTO and ERNA10 average cover."
+Cover distributions by parcel are shown in @fig-ref-cover-hist.
+
+```{r}
+#| label: fig-ref-cover-hist
+#| fig-cap: "Distribution of total transect cover by reference parcel and year. Panels are split by LAW90/94/95 and LAW118/129 groups; 2025 is highlighted."
 #| fig-width: 20
+#| warning: false
 #| fig-height: 32
 
 # Reference data already loaded in previous chunk

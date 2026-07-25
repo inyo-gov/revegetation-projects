@@ -1,0 +1,31 @@
+project:
+  type: default
+  output-dir: ../docs
+  render:
+    - paper.md
+    - stm_nmds_type_e.md
+
+format:
+  html:
+    theme: litera
+    css: ../styles.css
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    linkcolor: "#333333"
+    citations: true
+    bibliography: references.bib
+  docx:
+    toc: true
+    number-sections: true
+    citations: true
+    bibliography: references.bib
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    number-sections: true
+    colorlinks: true
+    citations: true
+    bibliography: references.bib

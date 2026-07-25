@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it as below."
+type: dataset
+title: "Revegetation Monitoring in Owens Valley, California: Type E Transfer and 1999 Plan Sites"
+authors:
+  - name: "Inyo County Water Department"
+    affiliation: "Inyo County Water Department, Bishop, California, USA"
+abstract: >-
+  Living open repository for ICWD revegetation monitoring (Laws Type E transfer
+  sites under the 2003 plan and 1991 EIR / 1999 Plan mitigation sites), with
+  Quarto dashboards, processing code, and analysis-ready tables.
+keywords:
+  - revegetation
+  - Owens Valley
+  - Type E transfer
+  - 1999 Revegetation Plan
+  - open science
+  - Quarto
+license: MIT
+repository-code: "https://github.com/inyo-gov/revegetation-projects"
+url: "https://inyo-gov.github.io/revegetation-projects/"
+version: "2025.1.0"
+date-released: "2025-08-01"
+preferred-citation:
+  type: dataset
+  title: "Revegetation Monitoring in Owens Valley, California: Type E Transfer and 1999 Plan Sites"
+  authors:
+    - name: "Inyo County Water Department"
+  year: 2025
+  url: "https://github.com/inyo-gov/revegetation-projects"

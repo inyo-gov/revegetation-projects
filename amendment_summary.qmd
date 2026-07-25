@@ -1,0 +1,58 @@
+---
+title: "Laws Type E — goals & caps summary"
+subtitle: "Points of alignment on the 2003 plan update; open question is allowable ATTO/ERNA caps"
+affiliation: "Inyo County Water Department"
+date-modified: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
+execute:
+  echo: false
+---
+
+{{< include _includes/sandbox_disclaimer.qmd >}}
+
+## Purpose
+
+**What:** A short public digest of Type E transfer goals for LAW090, 094, 095, and 118/129—what is shared across working analysis and recent draft update language, and what remains quantitatively open [@LADWP2003MND].
+
+**Why:** Full draft text is kept local so the public site stays focused on *decision-relevant* differences. Live scoring still uses **working** rules on [revegetation sites](index.html); [reference sites](reference.html) document the empirical basis for caps; [Cap scenarios](index.html#cap-scenarios) show how ≥10% outcomes move when cut points change.^[Full amendment language can be rendered on a local alternate Quarto site (`amendment/`); it is gitignored from the public Pages tree.]
+
+## Shared direction (aligned)
+
+Most of the update package clarifies **monitoring geometry, list logic, and completion pathways**—infrastructure rather than a fight over a single percentage. On those topics, working practice and draft language point the same way:
+
+| Topic | Shared direction |
+|-------|------------------|
+| Cover goal | Keep **≥10%** native perennial cover toward the Type E end state |
+| LAW118/129 ATPO | Cap cattle saltbush at **3%** (Plan / ESD “gravely loam” planting-table language) |
+| ATTO / ERNA10 | Allow Torrey’s saltbush and rubber rabbitbrush to **count toward goals within caps**, then persist onto the allowable list |
+| LAW118/129 geometry | One management unit; **20** selected monitoring transects |
+| LAW090 group ERNA10 | Cap at **0.3%** (matches working) |
+| Composition | Modest bump when two shrubs are added (toward **11** / **9**) |
+| Rest / self-sustaining | Multi-year rest with ≥1 dry year (&lt;80% normal precip) before “complete” |
+| Process | Joint spring check-ins; cleanup after complete; clear failure pathways |
+
+## Open sticking point — allowable caps
+
+**What differs:** how much ATTO / ERNA10 cover may **count** toward the 10% goal.
+
+**Why it matters:** Cap height changes whether a parcel clears the cover bar under the same hits. Recognition of the two species is largely shared; the freeze on **numbers** is the remaining quantitative decision.
+
+| Parcel group | Working (site default) | Alternate draft stack | Notes |
+|--------------|------------------------|------------------------|-------|
+| LAW090/094/095 — ATTO | **0.3%** | **0.1%** | Draft tighter; 2025 zero-filled reference mean ≈ **0.25%** |
+| LAW090/094/095 — ERNA10 | **0.3%** | **0.3%** | Aligned |
+| LAW118/129 — ATTO | **2.0%** | **2.8%** | Draft ≈ 2025 reference mean (**2.79%**) |
+| LAW118/129 — ERNA10 | **2.0%** | **4.3%** | Draft ≈ 2025 reference mean (**4.27%**); largest gap vs working |
+
+Simulate with `working` / `ladwp_draft` / `lower` / `higher` on [Cap scenarios](index.html#cap-scenarios)—same data, different assumption stack.
+
+## Related pages
+
+| Need | Page |
+|------|------|
+| Compliance under working rules | [Revegetation sites](index.html) |
+| Reference means that inform caps | [Reference sites](reference.html) |
+| Ecological framing (ABAG → scrub) | [STM (draft)](stm.html) · [NMDS (draft)](nmds.html) |

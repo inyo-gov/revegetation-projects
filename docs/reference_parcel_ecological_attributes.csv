@@ -1,0 +1,20 @@
+parcel,reference_group,years_sampled,n_years,GB_TYPE,COMM_NAME,COMM_CODE,COMM_ACRON,Acreage,nrcs_esd_plan_note
+LAW029,LAW118/129,"2022,2023,2025",3,A,Nevada Saltbush Scrub,36150.0,ATTO,165.239222508,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+LAW039,LAW118/129,"2023,2025",2,A,Shadscale Scrub,36140.0,ATCO,30.6904612465,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+LAW069,LAW118/129,"2023,2025",2,B,Rabbitbrush Scrub,35400.0,CHNAS,33.5815916538,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+LAW104,LAW118/129,"2023,2025",2,A,Desert Greasewood Scrub,36130.0,SAVES,27.1321468991,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+LAW119,LAW118/129,"2023,2025",2,A,Rabbitbrush Scrub,35400.0,CHNAS,145.890888244,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+PLC202,LAW118/129,"2023,2025",2,A,Great Basin Mixed Scrub,35100.0,GBMS,29.5784880129,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+PLC219,LAW118/129,"2022,2023,2025",3,A,Desert Greasewood Scrub,36130.0,SAVES,126.987343274,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+PLC227,LAW118/129,"2023,2025",2,A,Desert Saltbush Scrub,36110.0,ATPOS,98.5208284942,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+PLC230,LAW118/129,"2023,2025",2,A,Nevada Saltbush Scrub,36150.0,ATTO,157.900199167,Plan planting table cites NRCS ecological site “gravely loam” (≤3% per species / ≤15% aggregate) for LAW118/129 goals
+LAW012,LAW90/94/95,"2024,2025",2,A,Shadscale Scrub,36140.0,ATCO,1068.60627746,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW024,LAW90/94/95,"2024,2025",2,A,Great Basin Mixed Scrub,35100.0,GBMS,86.9563068651,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW028,LAW90/94/95,"2022,2024,2025",3,A,Shadscale Scrub,36140.0,ATCO,289.335435375,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW048,LAW90/94/95,"2022,2025",2,A,Desert Greasewood Scrub,36130.0,SAVES,42.4773775223,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW049,LAW90/94/95,"2022,2025",2,A,Shadscale Scrub,36140.0,ATCO,97.4088552606,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW091,LAW90/94/95,"2022,2025",2,A,Shadscale Scrub,36140.0,ATCO,34.9159595341,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW093,LAW90/94/95,"2022,2025",2,A,Great Basin Mixed Scrub,35100.0,GBMS,19.3483342641,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW117,LAW90/94/95,"2022,2025",2,A,Great Basin Mixed Scrub,35100.0,GBMS,602.467097948,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW130,LAW90/94/95,"2024,2025",2,A,Desert Saltbush Scrub,36110.0,ATPOS,88.2906747454,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
+LAW134,LAW90/94/95,"2024,2025",2,A,Shadscale Scrub,36140.0,ATCO,211.052519731,Plan goals derived from NRCS ESDs + 1984–87 inventory (species Table 1); specific ESD name not in Green Book layer
